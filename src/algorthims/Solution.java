@@ -1,3 +1,4 @@
+package algorthims;
 
 /**
  Complete the method/function so that it 
@@ -72,3 +73,4 @@ public class Solution {
 	}
 
 }
+

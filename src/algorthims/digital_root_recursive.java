@@ -1,3 +1,4 @@
+package algorthims;
 /**
  * Description:
  In this kata, you must create a digital root function.
