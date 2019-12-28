@@ -1,13 +1,18 @@
 package algorthims;
 
+import java.util.Scanner;
+
 /*Given a base-10 integer, n, convert it to binary (base-2). Then find and print the base- 10 integer
 denoting the maximum number of consecutive 1's in n's binary representation.*/
 public class BinaryNumbers {
 
     public static void main(String[] args) {
 
-        System.out.println(getBinary(13));
-        System.out.println(getConsicutiveOne(getBinary(13)));
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number: ");
+        int num = sc.nextInt();
+
+        System.out.println(getConsicutiveOne(getBinary(num)));
 
 
     }
