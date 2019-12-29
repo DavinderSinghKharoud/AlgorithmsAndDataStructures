@@ -14,9 +14,13 @@ public class Solution {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the numbers length: ");
         int n = sc.nextInt();
         int[] a = new int[n];
+
         for (int i = 0; i < n; i++) {
+            System.out.print("Enter the number: ");
             a[i] = sc.nextInt();
         }
         sc.close();
@@ -25,6 +29,6 @@ public class Solution {
 
         difference.computeDifference();
 
-        System.out.print(difference.maximumDifference);
+        System.out.print("Absolute Difference maximum: "+difference.maximumDifference);
     }
 }
