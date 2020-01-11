@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 
 /**
- * This problem is all about unit testing.
+ * This problem is all about unit Java.testing.
  *
  * Your company needs a function that meets the following requirements:
  *
