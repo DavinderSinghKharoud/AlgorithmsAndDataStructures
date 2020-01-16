@@ -5,7 +5,7 @@ public class BubbleSort {
 
     private static void sort(int[] arr) {
 
-        for( int first = 0; first<arr.length; first++){
+        for( int roll = 0; roll<arr.length; roll++){
 
             for( int index = 0; index<arr.length - 1; index++){
 
@@ -19,6 +19,7 @@ public class BubbleSort {
     }
 
     private static void swap(int[] arr, int first, int second) {
+
 
         int temp = arr[first];
         arr[first] = arr[second];
