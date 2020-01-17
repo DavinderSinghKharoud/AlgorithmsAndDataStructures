@@ -29,9 +29,13 @@ public class TraversingGraph {
 //        System.out.print("Breadth First Search: ");
 //        graph.breadthFirstSearchModified( a );
 
+        /**
+         * Don't run both on same after each one, because after traversing graph once it will
+         * mark the nodes visited, so the other traversing method will not give the correct result.
+         */
         //DepthFirstSearch
         System.out.print("Depth First Search: ");
-        graph.DepthFirstSearch( a );
+        graph.depthFirstSearchModified( a );
     }
 
 

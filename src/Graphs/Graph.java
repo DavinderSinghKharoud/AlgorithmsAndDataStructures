@@ -125,7 +125,7 @@ public class Graph {
 
 
     //Depth First Traversal
-    void DepthFirstSearch( Node node ){
+    private void DepthFirstSearch( Node node ){
 
         node.visited();
         System.out.print( node.name +" " );
@@ -143,5 +143,16 @@ public class Graph {
             }
         }
 
+    }
+
+    //If graph is disconnected
+    public void depthFirstSearchModified(Node node) {
+        DepthFirstSearch(node);
+
+        for (Node n : adjacencyMap.keySet()) {
+            if (!n.isVisited()) {
+                DepthFirstSearch(n);
+            }
+        }
     }
 }
