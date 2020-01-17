@@ -26,7 +26,8 @@ public class TraversingGraph {
         graph.printEdges();
 
         //BreadthFirstSearch
-        graph.breadthFirstSearch( a );
+        System.out.print("Breadth First Search: ");
+        graph.breadthFirstSearchModified( a );
     }
 
 

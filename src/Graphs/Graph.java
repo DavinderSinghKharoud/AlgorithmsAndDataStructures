@@ -8,23 +8,23 @@ import java.util.Queue;
 public class Graph {
 
     //Each node has list of neighbours
-    private HashMap< Node, LinkedList<Node> > adjacencyMap;
+    private HashMap<Node, LinkedList<Node>> adjacencyMap;
     private boolean directed;
 
-    public Graph (boolean directed){
+    public Graph(boolean directed) {
 
         this.directed = directed;
         adjacencyMap = new HashMap<>();
     }
 
     //We also need to check for possible duplicate edges
-    public void addEdgeHelper(Node a, Node b){
+    public void addEdgeHelper(Node a, Node b) {
 
         LinkedList<Node> tmp = adjacencyMap.get(a);
 
-        if( tmp != null ){
+        if (tmp != null) {
             tmp.remove(b);
-        }else{
+        } else {
             tmp = new LinkedList<>();
         }
 
@@ -33,75 +33,93 @@ public class Graph {
     }
 
     //Add edge
-    public void addEdge(Node source, Node destination){
+    public void addEdge(Node source, Node destination) {
 
         //Check if nodes exist or not, if not then add
-        if( !adjacencyMap.keySet().contains(source)){
-            adjacencyMap.put( source,null);
+        if (!adjacencyMap.keySet().contains(source)) {
+            adjacencyMap.put(source, null);
         }
-        if( !adjacencyMap.keySet().contains(destination)){
-            adjacencyMap.put( destination,null);
+        if (!adjacencyMap.keySet().contains(destination)) {
+            adjacencyMap.put(destination, null);
         }
 
-        addEdgeHelper( source, destination);
+        addEdgeHelper(source, destination);
 
         //If the graph is undirected, we need to add an edge from destination to source
-        if( !directed ){
-            addEdgeHelper( destination, source);
+        if (!directed) {
+            addEdgeHelper(destination, source);
         }
     }
 
-    public void printEdges(){
+    public void printEdges() {
 
-        for( Node node: adjacencyMap.keySet()){
-            System.out.println("Node: "+node.name);
-            for(Node neighbour: adjacencyMap.get(node)){
-                System.out.println(neighbour.name+" ");
+        for (Node node : adjacencyMap.keySet()) {
+            System.out.println("Node: " + node.name);
+            for (Node neighbour : adjacencyMap.get(node)) {
+                System.out.println(neighbour.name + " ");
             }
             System.out.println(" ");
         }
 
     }
 
-    public boolean hasEdge( Node source, Node destination ){
+    public boolean hasEdge(Node source, Node destination) {
         return adjacencyMap.containsKey(source) && adjacencyMap.get(source).contains(destination);
     }
 
     //Breadth first Search
-     void breadthFirstSearch(Node node){
+    private void breadthFirstSearch(Node node) {
 
         //If node is null
-        if( node == null){
+        if (node == null) {
             return;
         }
 
         //Add the node to the queue
         Queue queue = new ArrayDeque();
-        queue.add( node );
+        queue.add(node);
 
-        while( !queue.isEmpty() ){
+        while (!queue.isEmpty()) {
 
             Node currentNode = (Node) queue.remove();
 
-            if( currentNode.isVisited() ){
+            if (currentNode.isVisited()) {
                 continue;
-            }else{
+            } else {
                 currentNode.visited();
             }
 
-            System.out.print( currentNode.name + " " );
+            System.out.print(currentNode.name + " ");
 
-            LinkedList<Node> allNeighbours = adjacencyMap.get( currentNode );
+            LinkedList<Node> allNeighbours = adjacencyMap.get(currentNode);
 
-            for( Node neighbours: allNeighbours){
+            for (Node neighbours : allNeighbours) {
 
-                if( !neighbours.isVisited()){
-                    queue.add( neighbours );
+                if (!neighbours.isVisited()) {
+                    queue.add(neighbours);
                 }
 
             }
 
 
         }
+
+
+    }
+
+    //For the unconnected graph
+    void breadthFirstSearchModified(Node node) {
+
+        breadthFirstSearch( node );
+
+        for( Node n : adjacencyMap.keySet() ){
+
+            if(!n.isVisited()){
+
+                breadthFirstSearch( node );
+            }
+        }
+
+
     }
 }
