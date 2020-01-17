@@ -10,6 +10,7 @@ public class Traversal {
         tree.root.left.left = new Node(4);
         tree.root.left.right = new Node(5);
 
+
         System.out.println("Preorder traversal: ");
         tree.preOrder( tree.root );
 
@@ -18,5 +19,12 @@ public class Traversal {
 
         System.out.println("\nPostorder traversal:");
         tree.postOrder( tree.root );
+
+        System.out.println("\nSearching Node: ");
+        System.out.println( tree.searchNode( tree.root, 7) );
+
     }
+
+
 }
+

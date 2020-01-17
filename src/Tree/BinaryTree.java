@@ -1,5 +1,7 @@
 package Tree;
 
+import java.io.Serializable;
+
 public class BinaryTree {
     Node root;
 
@@ -37,5 +39,24 @@ public class BinaryTree {
         postOrder( node.left );
         postOrder( node.right );
         System.out.print( node.key + " ");
+    }
+
+    //Search node
+    String searchNode(Node root, int key){
+
+        if( root == null){
+            return "not found";
+        }
+
+        if( root.key == key ){
+            return "found";
+        }
+
+        if( root.key > key ){
+            return searchNode( root.left, key);
+        }
+
+        return searchNode( root.right, key);
+
     }
 }
