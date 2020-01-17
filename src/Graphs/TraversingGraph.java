@@ -24,10 +24,14 @@ public class TraversingGraph {
 
         //Printing Edges
         graph.printEdges();
+//
+//        BreadthFirstSearch
+//        System.out.print("Breadth First Search: ");
+//        graph.breadthFirstSearchModified( a );
 
-        //BreadthFirstSearch
-        System.out.print("Breadth First Search: ");
-        graph.breadthFirstSearchModified( a );
+        //DepthFirstSearch
+        System.out.print("Depth First Search: ");
+        graph.DepthFirstSearch( a );
     }
 
 

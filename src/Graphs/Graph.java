@@ -122,4 +122,26 @@ public class Graph {
 
 
     }
+
+
+    //Depth First Traversal
+    void DepthFirstSearch( Node node ){
+
+        node.visited();
+        System.out.print( node.name +" " );
+
+        LinkedList<Node> allNeighbors = adjacencyMap.get(node);
+
+        if( allNeighbors == null){
+            return;
+        }
+
+        for( Node neighbour: allNeighbors ){
+
+            if( !neighbour.isVisited() ){
+                DepthFirstSearch( neighbour );
+            }
+        }
+
+    }
 }

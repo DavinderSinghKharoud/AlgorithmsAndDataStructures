@@ -1,6 +1,7 @@
 package Graphs;
 
 class Node {
+
     int num;
     String name;
     boolean visited;
