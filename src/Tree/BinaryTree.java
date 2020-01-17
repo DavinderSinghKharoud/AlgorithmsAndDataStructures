@@ -59,4 +59,20 @@ public class BinaryTree {
         return searchNode( root.right, key);
 
     }
+
+    Node insertNode( Node root, int key){
+
+        if( root == null){
+            root = new Node( key );
+            return root;
+        }
+
+        if( key < root.key ){
+            root.left = insertNode( root.left , key);
+        }else if( key > root.key){
+            root.right = insertNode( root.right, key);
+        }
+
+        return root;
+    }
 }
