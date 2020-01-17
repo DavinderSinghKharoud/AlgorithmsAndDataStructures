@@ -1,7 +1,9 @@
 package Graphs;
 
+import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
 
@@ -65,4 +67,41 @@ public class Graph {
         return adjacencyMap.containsKey(source) && adjacencyMap.get(source).contains(destination);
     }
 
+    //Breadth first Search
+     void breadthFirstSearch(Node node){
+
+        //If node is null
+        if( node == null){
+            return;
+        }
+
+        //Add the node to the queue
+        Queue queue = new ArrayDeque();
+        queue.add( node );
+
+        while( !queue.isEmpty() ){
+
+            Node currentNode = (Node) queue.remove();
+
+            if( currentNode.isVisited() ){
+                continue;
+            }else{
+                currentNode.visited();
+            }
+
+            System.out.print( currentNode.name + " " );
+
+            LinkedList<Node> allNeighbours = adjacencyMap.get( currentNode );
+
+            for( Node neighbours: allNeighbours){
+
+                if( !neighbours.isVisited()){
+                    queue.add( neighbours );
+                }
+
+            }
+
+
+        }
+    }
 }

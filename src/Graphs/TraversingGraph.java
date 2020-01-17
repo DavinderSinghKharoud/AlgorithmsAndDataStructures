@@ -1,7 +1,11 @@
 package Graphs;
 
 
-public class BFS {
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class TraversingGraph {
 
     public static void main(String[] args) {
 
@@ -16,8 +20,14 @@ public class BFS {
         graph.addEdge(a,b);
         graph.addEdge(a,c);
         graph.addEdge(c,d);
+        graph.addEdge(d,e);
 
         //Printing Edges
         graph.printEdges();
+
+        //BreadthFirstSearch
+        graph.breadthFirstSearch( a );
     }
+
+
 }

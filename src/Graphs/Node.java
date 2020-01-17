@@ -18,4 +18,8 @@ class Node {
     void unvisit(){
         visited = false;
     }
+
+    boolean isVisited(){
+        return visited;
+    }
 }
