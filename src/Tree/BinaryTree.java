@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class BinaryTree {
     Node root;
+    int height;
 
     BinaryTree(){
         root = null;
@@ -80,7 +81,7 @@ public class BinaryTree {
         return root;
     }
 
-    int height = 0;
+
     //Get height of the tree
     int getHeight( Node root){
 
@@ -88,13 +89,25 @@ public class BinaryTree {
             return 0;
         }
 
-//        if( root.left != null){
-//            getHeight(root.left);
-//        }
-//        if( root.right != null){
-//            getHeight( root.right );
-//        }
 
         return 1 + Math.max( getHeight( root.left ), getHeight( root.right ));
     }
+
+    //Print leaf nodes
+    void getLeafs( Node node){
+
+        if( node == null ){
+            return;
+        }
+
+        if( node.left == null && node.right == null){
+            System.out.print( node.key +" " );
+        }
+
+
+        getLeafs( node.left );
+        getLeafs( node.right );
+
+    }
+
 }

@@ -30,6 +30,9 @@ public class Traversal {
 
         System.out.print("\nHeight of the tree: ");
         System.out.println( tree.getHeight( tree.root ));
+
+        System.out.println("\nLeaf nodes: ");
+         tree.getLeafs( tree.root );
     }
 
 
