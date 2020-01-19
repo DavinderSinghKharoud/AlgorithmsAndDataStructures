@@ -12,6 +12,8 @@ public class Traversal {
 
         tree.insertNode(tree.root, 1);
         tree.insertNode(tree.root, 3 );
+        tree.insertNode( tree.root, 4);
+        tree.insertNode( tree.root, 2);
 
 
         System.out.println("Preorder traversal: ");
@@ -24,8 +26,10 @@ public class Traversal {
         tree.postOrder( tree.root );
 
         System.out.println("\nSearching Node: ");
-        System.out.println( tree.searchNode( tree.root, 7) );
+        System.out.print( tree.searchNode( tree.root, 7) );
 
+        System.out.print("\nHeight of the tree: ");
+        System.out.println( tree.getHeight( tree.root ));
     }
 
 

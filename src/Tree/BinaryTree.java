@@ -9,6 +9,10 @@ public class BinaryTree {
         root = null;
     }
 
+    /**
+     * Traversing methods (inOrder, preOrder, and postOrder)
+     * @param node
+     */
     void inOrder ( Node node){
 
         if( node == null ){
@@ -59,7 +63,7 @@ public class BinaryTree {
         return searchNode( root.right, key);
 
     }
-
+    //Insert the node
     Node insertNode( Node root, int key){
 
         if( root == null){
@@ -74,5 +78,23 @@ public class BinaryTree {
         }
 
         return root;
+    }
+
+    int height = 0;
+    //Get height of the tree
+    int getHeight( Node root){
+
+        if( root == null){
+            return 0;
+        }
+
+//        if( root.left != null){
+//            getHeight(root.left);
+//        }
+//        if( root.right != null){
+//            getHeight( root.right );
+//        }
+
+        return 1 + Math.max( getHeight( root.left ), getHeight( root.right ));
     }
 }
