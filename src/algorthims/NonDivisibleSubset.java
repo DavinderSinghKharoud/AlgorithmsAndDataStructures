@@ -1,12 +1,12 @@
 package algorthims;
 
-import com.sun.source.tree.BinaryTree;
-import com.sun.source.tree.Tree;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Given a set of distinct integers,
+ * print the size of a maximal subset of  where the sum of any  numbers in  is not evenly divisible by .
+ */
 public class NonDivisibleSubset {
 
 
