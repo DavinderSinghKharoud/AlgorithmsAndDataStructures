@@ -24,7 +24,7 @@ public class LargestPrimaryNumber {
     }
     public static void main(String[] args) {
 
-        String num = "600851475143";
+        String num = "15";
         System.out.println(getLargestPrime( Long.parseLong( num ) ));
     }
 }
