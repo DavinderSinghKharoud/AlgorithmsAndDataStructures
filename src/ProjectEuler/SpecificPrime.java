@@ -23,6 +23,7 @@ public class SpecificPrime {
                 }
             }
 
+
             if( count == currentNumber){
                 primeCount++;
             }
