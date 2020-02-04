@@ -1,10 +1,12 @@
 package algorthims.LeetCode;
 
+
+//Not Done yet
 public class JumpGame {
 
     public static void main(String[] args) {
         System.out.println( checkReach( new int[]{
-                3,2,1,0,4
+                2,2,5,6
         }) );
     }
 
