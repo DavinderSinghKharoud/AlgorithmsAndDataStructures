@@ -12,24 +12,24 @@ public class BinaryTree {
 
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter the number of nodes: ");
-        int T=sc.nextInt();
-        Node root=null;
-        while(T-->0){
+        int T = sc.nextInt();
+        Node root = null;
+        while (T-- > 0) {
             System.out.print("Enter the data: ");
-            int data=sc.nextInt();
-            root=insert(root,data);
+            int data = sc.nextInt();
+            root = insert(root, data);
         }
-        int height=getHeight(root);
-        System.out.println("Height of the tree: "+height);
+        int height = getHeight(root);
+        System.out.println("Height of the tree: " + height);
         inOrderTraversal(root);
     }
 
     //InOrder Traversal
-    private static void inOrderTraversal(Node root){
-        if(root == null){
+    private static void inOrderTraversal(Node root) {
+        if (root == null) {
             return;
         }
         inOrderTraversal(root.left);
@@ -38,29 +38,29 @@ public class BinaryTree {
 
     }
 
-    private static Node insert(Node root,int data){
-        if(root==null){
+    private static Node insert(Node root, int data) {
+        if (root == null) {
             return new Node(data);
-        }
-        else{
+        } else {
             Node cur;
-            if(data<=root.data){
-                cur=insert(root.left,data);
-                root.left=cur;
-            }
-            else{
-                cur=insert(root.right,data);
-                root.right=cur;
+            if (data <= root.data) {
+                cur = insert(root.left, data);
+                root.left = cur;
+            } else {
+                cur = insert(root.right, data);
+                root.right = cur;
             }
             return root;
         }
     }
 
-    public static int getHeight(Node root){
-        if(root == null){
+    public static int getHeight(Node root) {
+        if (root == null) {
             return 0;
         }
-        return Math.max( getHeight(root.left), getHeight(root.right))+1;
+        return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
 
     }
+
+
 }
