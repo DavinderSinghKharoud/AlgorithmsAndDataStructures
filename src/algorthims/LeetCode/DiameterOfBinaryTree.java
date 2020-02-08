@@ -26,6 +26,7 @@ public class DiameterOfBinaryTree {
     }
 
 
+    //Diameter of the Binary Tree
     public static int diameterOfBinaryTree(TreeNode root) {
         ans = 1;
         depth(root);
