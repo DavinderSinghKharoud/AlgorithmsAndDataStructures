@@ -1,5 +1,6 @@
 package algorthims.LeetCode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -47,4 +48,10 @@ public class MajorityElement {
         return nums[0];
 
     }
+
+//    Sorting
+//    public static int majoElem(int[] nums){
+//        Arrays.sort(nums);
+//        return nums[nums.length/2];
+//    }
 }
