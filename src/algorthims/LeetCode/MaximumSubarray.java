@@ -34,4 +34,18 @@ public class MaximumSubarray {
                 1,2
         }));
     }
+
+    public static int maxArr( int[] nums){
+        int dp[] = new int[ nums.length];
+        int max = nums[0];
+        dp[0] = nums[0];
+
+        for( int i = 1; i<dp.length; i++){
+
+            dp[i] = Math.max( nums[i], nums[i] + dp[i-1]);
+            max = Math.max( dp[i], max);
+        }
+
+        return max;
+    }
 }
