@@ -39,6 +39,7 @@ public class ReverseLinkedList {
         }
     }
 
+    // Watch this to understand https://www.youtube.com/watch?v=MRe3UsRadKw
     //Recursive Solution
     public ListNode reverseList2(ListNode head) {
         if (head == null || head.next == null) return head;
@@ -47,4 +48,6 @@ public class ReverseLinkedList {
         head.next = null;
         return p;
     }
+
+
 }
