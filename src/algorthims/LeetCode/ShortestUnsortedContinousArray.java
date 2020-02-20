@@ -1,5 +1,6 @@
 package algorthims.LeetCode;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -49,10 +50,44 @@ public class ShortestUnsortedContinousArray {
         return end-start > 0? end-start+1:0;
     }
 
+
+    //Most Efficient
+    public static int findUnsortedSubarrayMostEfficient(int[] nums) {
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        boolean flag = false;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] < nums[i - 1])
+                flag = true;
+            if (flag)
+                min = Math.min(min, nums[i]);
+        }
+        flag = false;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            if (nums[i] > nums[i + 1])
+                flag = true;
+            if (flag)
+                max = Math.max(max, nums[i]);
+        }
+        int start, end;
+
+        for( start = 0; start<nums.length; start++){
+            if( min < nums[start]){
+                break;
+            }
+        }
+
+        for( end = nums.length - 1; end>=0 ; end--){
+            if( max > nums[end]){
+                break;
+            }
+        }
+
+        return end - start < 0 ? 0:end-start+1;
+    }
     public static void main(String[] args) {
 
-        System.out.println(findUnsortedSubarray(new int[]{
-                4,3,2,1
+        System.out.println(findUnsortedSubarrayMostEfficient(new int[]{
+                1,2,3,4
         }));
     }
 }
