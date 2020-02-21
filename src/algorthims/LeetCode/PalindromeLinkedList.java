@@ -2,6 +2,14 @@ package algorthims.LeetCode;
 
 import java.util.Stack;
 
+/**
+ * Given a singly linked list, determine if it is a palindrome.
+ *
+ * Example 1:
+ *
+ * Input: 1->2
+ * Output: false
+ */
 public class PalindromeLinkedList {
     //Brute Force
     private static boolean isPalindrome(ListNode head) {
