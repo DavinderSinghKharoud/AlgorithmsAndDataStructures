@@ -38,7 +38,7 @@ public class SingleNumber {
     }
 
     //O(n)
-    public int singleNumber1(int[] nums) {
+    public static int singleNumber1(int[] nums) {
 
         int res = 0;
         for (int num : nums) {
@@ -51,8 +51,8 @@ public class SingleNumber {
     }
     public static void main(String[] args) {
 
-        System.out.println( singleNumber(new int[]{
-                4,1,2,1,2
+        System.out.println( singleNumber1(new int[]{
+                4,-1,2,-1,2
         }));
     }
 }
