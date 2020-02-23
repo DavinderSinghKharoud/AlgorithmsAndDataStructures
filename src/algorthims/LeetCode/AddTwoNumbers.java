@@ -33,28 +33,28 @@ public class AddTwoNumbers {
         return dummyHead.next;
     }
 
-//    //Recursive Solution
-//    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
-//        return addList(l1, l2);
-//    }
-//
-//    public static ListNode addList(ListNode l1, ListNode l2){
-//        return _addList(l1, l2, new ListNode(0));
-//    }
-//
-//    public static ListNode _addList(ListNode l1, ListNode l2, ListNode output){
-//        if(l1 != null || l2 != null || output.val != 0){
-//            int l1Val = l1 != null ? l1.val : 0;
-//            int l2Val = l2 != null ? l2.val : 0;
-//            ListNode l1NNode = l1 != null ? l1.next : null;
-//            ListNode l2NNode = l2 != null ? l2.next : null;
-//            int sum = l1Val + l2Val + output.val;
-//            output.val = sum%10;
-//            output.next = _addList(l1NNode, l2NNode, new ListNode(sum/10));
-//            return output;
-//        }
-//        return output.val != 0 ? output : null;
-//    }
+    //Recursive Solution
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        return addList(l1, l2);
+    }
+
+    public static ListNode addList(ListNode l1, ListNode l2){
+        return _addList(l1, l2, new ListNode(0));
+    }
+
+    public static ListNode _addList(ListNode l1, ListNode l2, ListNode output){
+        if(l1 != null || l2 != null || output.val != 0){
+            int l1Val = l1 != null ? l1.val : 0;
+            int l2Val = l2 != null ? l2.val : 0;
+            ListNode l1NNode = l1 != null ? l1.next : null;
+            ListNode l2NNode = l2 != null ? l2.next : null;
+            int sum = l1Val + l2Val + output.val;
+            output.val = sum%10;
+            output.next = _addList(l1NNode, l2NNode, new ListNode(sum/10));
+            return output;
+        }
+        return output.val != 0 ? output : null;
+    }
 
     public static void main(String[] args) {
 
