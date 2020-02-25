@@ -1,5 +1,6 @@
 package algorthims.LeetCode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -46,6 +47,39 @@ public class PartitionEqualSubsetSum {
 
         state.put(current, foundPartition );
         return foundPartition;
+    }
+
+    //More Efficient
+    public boolean helper(int nums[],int row,int []check,int target){
+        if(row<0)return true;
+        int curr=nums[row--];
+
+        for(int i=0;i<check.length;i++){
+            if(check[i]+curr<=target){
+                check[i]+=curr;
+                if(helper(nums,row,check,target))return true;
+                check[i]-=curr;
+            }
+            if(check[i]==0)break;
+        }
+        return false;
+    }
+
+    public boolean canPartition2(int[] nums) {
+        int sum=0;
+        for(int i:nums)sum+=i;
+        if(sum%2!=0)return false;
+        Arrays.sort(nums);
+        int target=sum/2;
+        int rows=nums.length-1;
+        int k=2;
+        if(nums[rows]>target)return false;
+        while(rows>0 && nums[rows]==target){
+            rows--;
+            k--;
+        }
+        return helper(nums,rows,new int[k],target);
+
     }
 
     public static void main(String[] args) {
