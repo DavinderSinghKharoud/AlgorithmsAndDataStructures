@@ -1,6 +1,11 @@
 package Tree;
 
-import java.io.Serializable;
+import algorthims.LeetCode.DiameterOfBinaryTree;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 public class BinaryTree {
     Node root;
@@ -44,6 +49,53 @@ public class BinaryTree {
         postOrder( node.left );
         postOrder( node.right );
         System.out.print( node.key + " ");
+    }
+
+    public static class TreeNodeBinary {
+        int val;
+
+        TreeNodeBinary left;
+        TreeNodeBinary right;
+
+        TreeNodeBinary(int x) {
+            val = x;
+        }
+    }
+
+    //BFS Binary Tree
+    public List<List<Integer>> levelOrder(TreeNodeBinary root) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        if( root == null ){
+            return result;
+        }
+        Queue<TreeNodeBinary> queue = new ArrayDeque<>();
+        queue.add( root );
+
+        while ( !queue.isEmpty() ){
+            int size = queue.size();
+            List<Integer> currentLevel = new ArrayList<>();
+
+            for( int i = 0; i < size; i++ ){
+                TreeNodeBinary node = queue.remove();
+                currentLevel.add( node.val );
+
+                if( node.left != null ){
+                    queue.add( node.left );
+                }
+                if( node.right != null ){
+                    queue.add( node.right );
+                }
+
+            }
+
+            result.add( currentLevel );
+        }
+
+        return result;
+
+
+
     }
 
     //Search node

@@ -71,7 +71,8 @@ public class MergeTwoBinaryTrees {
 //                if (t[0].right == null) {
 //                    t[0].right = t[1].right;
 //                } else {
-//                    stack.push(new TreeNode[] {t[0].right, t[1].right});
+//
+
 //                }
 //            }
 //            return t1;
