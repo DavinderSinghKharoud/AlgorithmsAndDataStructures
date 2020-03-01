@@ -36,17 +36,8 @@ public class EasyTemperature {
 
         for (int i = T.length - 1; i >= 0; i--) {
 
-            if (stack.isEmpty()) {
-                result[i] = 0;
-                //Adding index and value
-                stack.add(new int[]{
-                        i, T[i]
-                });
 
-                continue;
-            }
-
-            while ( stack.peek()[1] <= T[i] && !stack.isEmpty() ){
+            while (  !stack.isEmpty() && stack.peek()[1] <= T[i] ){
                 stack.pop();
                 if( stack.isEmpty() ){
                     break;
@@ -82,7 +73,7 @@ public class EasyTemperature {
     }
     public static void main(String[] args) {
 
-        int[] result = dailyTemperatures2(new int[]{
+        int[] result = dailyTemperatures1(new int[]{
                 73, 74, 75, 71, 69, 72, 76, 73
         });
 
