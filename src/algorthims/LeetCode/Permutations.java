@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Permutations {
+    //Simple One
     public static List<List<Integer>> permute(int[] nums) {
 
         List<List<Integer>> res = new ArrayList<>();
@@ -39,9 +40,39 @@ public class Permutations {
         }
     }
 
+
+    static List<List<Integer>> res;
+    //More Efficient
+    public static List<List<Integer>> permute2(int[] nums) {
+        res = new ArrayList<>();
+        get(nums, 0);
+        return res;
+    }
+
+    private static void get(int[] nums, int start) {
+        if (start == nums.length - 1) {
+            res.add(toList(nums));
+            return;
+        }
+        for (int i = start; i < nums.length; i++) {
+            int tmp = nums[start];
+            nums[start] = nums[i];
+            nums[i] = tmp;
+            get(nums, start + 1);
+            nums[i] = nums[start];
+            nums[start] = tmp;
+        }
+    }
+
+    private static List<Integer> toList(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int i : nums) list.add(i);
+        return list;
+    }
+
     public static void main(String[] args) {
 
-        List<List<Integer>> result = permute(new int[]{
+        List<List<Integer>> result = permute2(new int[]{
                 1, 2, 3
         });
 
