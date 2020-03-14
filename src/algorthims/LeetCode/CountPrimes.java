@@ -3,16 +3,22 @@ package algorthims.LeetCode;
 public class CountPrimes {
 
     public static int countPrimes(int n) {
-        if( n == 1){
+        if (n == 1) {
             return 0;
         }
         boolean[] arr = new boolean[n];
 
         int count = 0;
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i * i < n; i++) {
 
             if (arr[i] != true) {
                 checkPrime(arr, i);
+            }
+        }
+
+        for( int i = 2; i<arr.length; i++){
+
+            if( !arr[i]){
                 count++;
             }
         }
@@ -21,10 +27,9 @@ public class CountPrimes {
 
     private static void checkPrime(boolean[] arr, int index) {
 
-        for (int i = index; i < arr.length; i++) {
-            if( i % index == 0){
-                arr[i] = true;
-            }
+        for (int i = index; i * index< arr.length; i++) {
+
+            arr[i * index] = true;
         }
 
     }
