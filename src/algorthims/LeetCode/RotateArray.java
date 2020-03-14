@@ -17,14 +17,35 @@ public class RotateArray {
         }
     }
 
+    //Reversing
+    public static void rotate1(int[] nums, int k) {
+
+        k %= nums.length;
+
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
+    }
+
+    private static void reverse(int[] nums, int start, int end) {
+
+        while (start < end){
+            int temp = nums[end];
+            nums[end] = nums[start];
+            nums[start] = temp;
+            start++;
+            end--;
+        }
+    }
+
     public static void main(String[] args) {
 
         int[] arr = new int[]{
                 1, 2, 3, 4, 5, 6, 7
         };
-        rotate( arr, 3);
+        rotate1(arr, 3);
 
-        for( int num: arr){
+        for (int num : arr) {
             System.out.println(num);
         }
     }
