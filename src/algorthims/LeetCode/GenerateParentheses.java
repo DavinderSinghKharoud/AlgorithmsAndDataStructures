@@ -27,8 +27,20 @@ public class GenerateParentheses {
         }
     }
 
+    public static List<String> generateParenthesis1(int n) {
+        List<String> ans = new ArrayList();
+        if (n == 0) {
+            ans.add("");
+        } else {
+            for (int c = 0; c < n; ++c)
+                for (String left: generateParenthesis1(c))
+                    for (String right: generateParenthesis1(n-1-c))
+                        ans.add("(" + left + ")" + right);
+        }
+        return ans;
+    }
     public static void main(String[] args) {
 
-        System.out.println(generateParenthesis(3));
+        System.out.println(generateParenthesis1(1));
     }
 }
