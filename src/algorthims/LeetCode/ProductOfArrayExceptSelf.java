@@ -38,7 +38,7 @@ public class ProductOfArrayExceptSelf {
 
     }
 
-        public int[] productExceptSelf2(int[] nums) {
+        public static int[] productExceptSelf2(int[] nums) {
 
             // The length of the input array
             int length = nums.length;
@@ -75,7 +75,7 @@ public class ProductOfArrayExceptSelf {
 
     public static void main(String[] args) {
 
-        int[] res = productExceptSelf(new int[]{
+        int[] res = productExceptSelf2(new int[]{
 
                 1, 2, 3, 4
         });
