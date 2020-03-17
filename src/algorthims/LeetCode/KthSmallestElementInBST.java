@@ -1,6 +1,7 @@
 package algorthims.LeetCode;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class KthSmallestElementInBST {
 
@@ -22,6 +23,23 @@ public class KthSmallestElementInBST {
         return lst;
     }
 
+    private static int kthSmallest2(TreeNode root, int k) {
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (true){
+
+            while ( root!= null){
+                stack.add(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            if( --k == 0){
+                return root.val;
+            }
+            root = root.right;
+        }
+
+    }
     public static void main(String[] args) {
 
         TreeNode root = new TreeNode(3);
@@ -29,6 +47,6 @@ public class KthSmallestElementInBST {
         root.right = new TreeNode(4);
         root.left.right = new TreeNode(2);
 
-        System.out.println(kthSmallest(root, 1));
+        System.out.println(kthSmallest2(root, 1));
     }
 }
