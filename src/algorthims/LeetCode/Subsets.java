@@ -50,8 +50,28 @@ public class Subsets {
     }
 
 
+    static int[] nums;
+    static List<List<Integer>> result = new ArrayList<>();
+    public static List<List<Integer>> subsets3(int[] numsLst) {
+        nums = numsLst;
+        backtrace3(new ArrayList<Integer>(), 0);
+        return result;
+    }
+
+    private static void backtrace3(List<Integer> subset, int count) {
+        if (count == nums.length) {
+            result.add(subset);
+            return;
+        }
+        List<Integer> nextSubset = new ArrayList<>(subset);
+        nextSubset.add(nums[count]);
+        count++;
+        backtrace3(nextSubset, count);
+        backtrace3(subset, count);
+    }
+
     public static void main(String[] args) {
-        List<List<Integer>> lst = subsets(new int[]{
+        List<List<Integer>> lst = subsets3(new int[]{
                 1, 2, 3
         });
 
