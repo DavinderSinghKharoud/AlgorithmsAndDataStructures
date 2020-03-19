@@ -41,8 +41,8 @@ public class KthSmallestElementSortedMatrix {
         while (low < high) {
             int mid = low + (high - low) / 2;
             int count = 0, j = N - 1;
-            for (int i = 0; i < N; ++i) {
-                while (j >= 0 && nums[i][j] > mid) {
+            for (int[] num : nums) {
+                while (j >= 0 && num[j] > mid) {
                     j--;
                 }
                 count += (j + 1);
