@@ -1,10 +1,11 @@
 package algorthims.LeetCode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class FourSumIII {
-    public static int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
+    public static int fourSumCount1(int[] A, int[] B, int[] C, int[] D) {
 
         int count = 0;
         List<Integer> lst1 = new ArrayList<>();
@@ -34,6 +35,27 @@ public class FourSumIII {
         return count;
     }
 
+    public static int fourSumCount2(int[] A, int[] B, int[] C, int[] D) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int count = 0;
+
+        for (int i : A) {
+
+            for (int j : B) {
+                map.put(j + i, map.getOrDefault(j + i, 0) + 1);
+            }
+        }
+
+        for (int i : C) {
+            for (int j : D) {
+
+                count += map.getOrDefault(-1 * (i + j), 0);
+            }
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
 
         int[] A = new int[]{
@@ -48,6 +70,6 @@ public class FourSumIII {
         int[] D = new int[]{
                 0, 2
         };
-        System.out.println(fourSumCount(A, B, C, D));
+        System.out.println(fourSumCount2(A, B, C, D));
     }
 }
