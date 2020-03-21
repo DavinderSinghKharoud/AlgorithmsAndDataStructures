@@ -1,6 +1,5 @@
 package Tree;
 
-import algorthims.LeetCode.DiameterOfBinaryTree;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
