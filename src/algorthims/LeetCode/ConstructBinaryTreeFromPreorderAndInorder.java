@@ -36,6 +36,7 @@ public class ConstructBinaryTreeFromPreorderAndInorder {
         inOrder(node.right);
     }
 
+
     public static void main(String[] args) {
         TreeNode node = buildTree(new int[]{
                 3, 9, 20, 15, 7
