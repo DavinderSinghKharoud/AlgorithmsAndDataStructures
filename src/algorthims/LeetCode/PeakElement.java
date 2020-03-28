@@ -1,4 +1,4 @@
-
+package algorthims.LeetCode;
 /*
  * A peak element is an element that is greater than its neighbors.
 
