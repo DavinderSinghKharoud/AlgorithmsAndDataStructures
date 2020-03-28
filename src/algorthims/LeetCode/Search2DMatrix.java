@@ -1,5 +1,8 @@
 //package algorthims.LeetCode;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
 
@@ -59,6 +62,9 @@ class Search2DMatrix {
 	}
 	
     public static void main(String[] args) {
+
+
+		Queue<Integer> que = new ArrayDeque<>();
 
 
         System.out.println( searchMatrix2( new int[][]{
