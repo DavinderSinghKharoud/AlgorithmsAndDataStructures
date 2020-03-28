@@ -60,7 +60,7 @@ public class SetMatrixZeroes{
 				{1,1,1}
 			};
 			
-			setZeroes( matrix );
+			setZeroes2( matrix );
 			
 			for( int i = 0; i<matrix.length; i++ ){
 				for( int j = 0; j<matrix[0].length; j++ ){
@@ -69,6 +69,43 @@ public class SetMatrixZeroes{
 				
 				System.out.println();
 			}
+	}
+	
+	//O((M×N)×(M+N)) 
+	public static void setZeroes2(int[][] matrix) {
+		
+		for( int i = 0; i<matrix.length; i++){
+			for( int j = 0; j<matrix[0].length; j++ ){
+				if( matrix[i][j] == 0 ){
+					 change( matrix, i, j);
+				}
 			}
+		}
+		
+		for( int i = 0; i<matrix.length; i++){
+			for( int j = 0; j<matrix[0].length; j++ ){
+				if( matrix[i][j] ==   -1000000 ){
+					matrix[i][j] = 0;
+				}
+			}
+		}
+		
+	}
+	
+	public static void change( int[][] matrix, int row, int col ){
+		
+		for(int i = 0; i<matrix[0].length; i++ ){
+			if( matrix[row][i] != 0 ){
+					matrix[row][i] =  -1000000;
+			}
+		}
+		
+		for( int j = 0; j<matrix.length; j++ ){
+			if( matrix[j][col] != 0 ){
+				matrix[j][col] =   -1000000;
+			}
+		}
+		
+	}
 
 }
