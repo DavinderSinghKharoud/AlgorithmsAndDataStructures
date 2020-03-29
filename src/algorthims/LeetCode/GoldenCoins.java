@@ -2,6 +2,36 @@
 
 import java.util.*;
 
+/**
+ * Problem Statement
+Takahashi loves gold coins. He gains 
+1000
+ happiness points for each 
+500
+-yen coin he has and gains 
+5
+ happiness points for each 
+5
+-yen coin he has. (Yen is the currency of Japan.)
+
+Takahashi has 
+X
+ yen. If he exchanges his money so that he will gain the most happiness points, how many happiness points will he earn?
+
+(We assume that there are six kinds of coins available: 
+500
+-yen, 
+100
+-yen, 
+50
+-yen, 
+10
+-yen, 
+5
+-yen, and 
+1
+-yen coins.)**/
+
 
 public class GoldenCoins{
     
