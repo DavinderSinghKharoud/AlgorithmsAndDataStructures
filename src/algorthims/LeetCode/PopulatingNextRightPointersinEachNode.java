@@ -35,6 +35,7 @@ class Node {
     }
 };
 
+//Recursive approach
 public class PopulatingNextRightPointersinEachNode{
      
     public static Node connect(Node root) {
@@ -73,6 +74,35 @@ public class PopulatingNextRightPointersinEachNode{
 	 
 	 connect( root );
 	 
+     }
+     
+     //Using Queue
+     public static Node connect2(Node root) {
+	 if( root == null) return root;
+	Queue<Node> que = new LinkedList<>();
+	que.offer( root );
+	
+	while( !que.isEmpty() ){
+	    Node curr = que.poll();
+	    int size = que.size();
+	    
+	    if( curr.left != null ) que.offer( curr.left );
+	    if( curr.right != null ) que.offer( curr.right );
+	    
+	    for( int i = 0; i<size; i++ ){
+		Node chil = que.poll();
+		curr.next = chil;
+		curr = curr.next;
+		
+	      if( chil.left != null ) que.offer( chil.left );
+	      if( chil.right != null ) que.offer( chil.right );
+	      
+		
+	    }
+	    
+	    curr.next = null;
+	}
+	return root;
      }
 			
 }
