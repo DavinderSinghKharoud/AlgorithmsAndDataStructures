@@ -1,5 +1,7 @@
 //package algorthims.LeetCode;
 
+import java.util.Arrays;
+
 /**
  * Given an unsorted array of integers, find the length of longest increasing subsequence.
 
@@ -12,9 +14,6 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 public class LongestIncreasingSubsequence{
 
     public static int lengthOfLIS(int[] nums) {
-		if( nums.length == 1){
-			return 1;
-		}
 
 		if( nums.length == 0 ){
 			return 0;
@@ -38,9 +37,26 @@ public class LongestIncreasingSubsequence{
 	return len + 1;
         
     }
+    
+     public static int lengthOfLIS2(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+    
     public static void main(String[] args) {
 	    
-	    System.out.println( lengthOfLIS( new int[] {
+	    System.out.println( lengthOfLIS2( new int[] {
 		10,22,9,33,21,50,41,60,80
 	    }) );
     }
