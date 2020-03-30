@@ -1,10 +1,15 @@
 package algorthims.LeetCode;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+
+//Question: if adjacent cells are both 1 and 1 or 0 and 0, change the cell to 
+//inactive which is 0 else if adjacent cells are like 0 and 1 or 1 and 0
+//then change it to active, which is 1
 
 public class HousesCells {
     // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    //O( m*n ) SpaceComplexity O(m)
     public static List<Integer> cellCompete(int[] states, int days)
     {
        List<Integer> res = new ArrayList<>();
@@ -58,10 +63,61 @@ public class HousesCells {
 
     public static void main(String[] args) {
         List<Integer> lst = cellCompete(new int[]{
-                1
-        },1);
+                1,0,0,1,0
+        },3);
         for( int num: lst){
             System.out.println(num);
         }
+    }
+    
+    //O( m*n )
+    public static List<Integer> cellCompete2( int[] states, int days){
+	//if active, change it to 2
+	//if inactive, change it to -1
+	boolean check = true;
+	List<Integer> res = new ArrayList<>();
+	
+	for( int i = 0; i< days; i++ ){
+	    
+	    for( int j = 0; j<states.length; j++ ){
+		//Checking first num
+		if( j == 0 ){
+		    if( states[j + 1] == 0 || states[j + 1 ] == -1 ){
+			if( check ) states[j] = -1;
+			else{ states[j] = 0; }
+		    }else{ 
+			    if(check) states[j] = 2; else{ states[j] = 1;}
+			 }
+		}
+		
+		if( j == states.length - 1 ){
+		    if( states[j - 1] == 0 || states[j - 1 ] == -1 ){
+			if( check ) states[j] = -1;
+			else{ states[j] = 0; }
+		    }else{ 
+			    if(check) states[j] = 2; else{ states[j] = 1;}
+			 }
+		}
+		
+		 if( states[j - 1] == 0 && states[j + 1] == 0 || (states[j - 1] == 1 && states[j + 1] == 1)
+		          && states[j - 1] == -1 && states[j + 1] == -1 || (states[j - 1] == 2 && states[j + 1] == 2)){
+                   if( check ) states[j] = -1; else{ states[j] = 0; }
+		   
+               }else{
+		   if( check ) states[j] = 2; else{ states[j] = 1;}
+               }
+	       
+	    }
+	    
+	    
+	}
+	 for( int num: states){
+	     if( num == 0 || num == -1 ){
+		res.add(0); 
+	     }else{
+		 res.add(1);
+	     }
+	 }
+       return res;
     }
 }
