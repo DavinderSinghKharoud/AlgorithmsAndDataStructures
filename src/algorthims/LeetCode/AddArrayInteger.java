@@ -19,6 +19,7 @@ public class AddArrayInteger {
         },23) );
     }
 
+
     public static List<Integer> addToArrayForm(int[] A, int K) {
 
         StringBuilder result = new StringBuilder();
@@ -44,7 +45,7 @@ public class AddArrayInteger {
         }
 
         if( remainder > 0 ){
-            result.append(Integer.toString( remainder ));
+            result.append( remainder );
         }
 
         String finalNum = result.reverse().toString();
