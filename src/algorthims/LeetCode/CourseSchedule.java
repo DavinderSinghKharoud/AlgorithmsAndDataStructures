@@ -17,6 +17,7 @@ Explanation: There are a total of 2 courses to take.
              To take course 1 you should have finished course 0. So it is possible.**/
 public class CourseSchedule{
     
+    //Using DFS and checking degree like, how many nodes are required
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
 	Map<Integer,List<Integer>> map = new HashMap<>();
 	int[] degree = new int[numCourses];
