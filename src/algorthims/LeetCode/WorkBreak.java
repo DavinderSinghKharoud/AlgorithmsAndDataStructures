@@ -1,4 +1,4 @@
-package algorthims.LeetCode;
+//package algorthims.LeetCode;
 
 /**
  * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
@@ -49,15 +49,15 @@ public class WorkBreak {
 		return false;
 	}
 
-		public static void main(String[] args ) {
-			List<String> lst = new ArrayList<>();
-			lst.add("leet");
-			lst.add("code");
+	public static void main(String[] args ) {
+		List<String> lst = new ArrayList<>();
+		lst.add("leet");
+		lst.add("code");	
+		System.out.println(wordBreak3("leetcode", lst));
 
-			System.out.println(wordBreak2("leetcode", lst));
-
-		}
-		
+	}
+	
+	// O( n square )	
     public static boolean wordBreak2(String s, List<String> wordDict) {
 	int len = s.length();
 	boolean dp[] = new boolean[ len + 1];
@@ -79,21 +79,26 @@ public class WorkBreak {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public static boolean wordBreak3(String s, List<String> wordDict) {
+	int len = s.length();
+	boolean dp[] = new boolean[ len + 1];
+	dp[0] = true;
+	
+	for( int low = 0; low<len; low++ ){
+	    if( !dp[low] ) continue;
+	    for( String word: wordDict ){
+		int high = low + word.length();
+		if( high > len ){ continue; }
+		String str = s.substring( low, high );
+		if( str.equals(word )){ dp[high] = true; }
+	    }
+	    
+	}
+	
+	return dp[ len ];
+	
+    }
     
     
     
