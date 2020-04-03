@@ -1,4 +1,4 @@
-package algorthims.LeetCode;
+//package algorthims.LeetCode;
 
 /**
  * Given a collection of intervals, merge all overlapping intervals.
@@ -13,12 +13,14 @@ package algorthims.LeetCode;
 import java.util.*;
 
 public class MergeIntervals {
-    
+
+	// O(n log(n) )
      public static int[][] merge(int[][] intervals) {
 		 List<int[]> lst = new ArrayList<>();
 		 int len = intervals.length;
 		 if( len <= 1) return intervals;
 
+		 //O (n log(n) )
 		 Arrays.sort(intervals, new Comparator<int[]>() {
 			 @Override
 			 public int compare(int[] o1, int[] o2) {
@@ -33,6 +35,7 @@ public class MergeIntervals {
 		 tem[0] = intervals[0][0];
 		 tem[1] = intervals[0][1];
 
+		 // O( n )
 		 while( index < len ){
 
 			 if( tem[1] >= intervals[index][0]){
@@ -53,6 +56,7 @@ public class MergeIntervals {
 			 index++;
 		 }
 
+		 //O( n )
 		 int[][] result = new int[lst.size()][2];
 		 for( int i = 0; i<lst.size(); i++ ){
 			 result[i][0] = lst.get(i)[0];
@@ -65,7 +69,7 @@ public class MergeIntervals {
     }
     
     public static void main(String[] args ) {
-	int[][] result = merge( new int[][]{
+	int[][] result = merge2( new int[][]{
 	    {1,4},{0,4}
 	});
 	
@@ -76,4 +80,34 @@ public class MergeIntervals {
 	    System.out.println();
 	}
     }
+    
+    //O ( nLog(n) )
+      public static int[][] merge2(int[][] intervals) {
+	  
+	  
+	Arrays.sort( intervals, new Comparator<int[]>(){
+	    
+	    public int compare( int[] o1, int[] o2  ){
+		return o1[0] - o2[0];
+	    }
+	});
+	
+	LinkedList<int[]> merged = new LinkedList<>();
+	
+	for( int[] interval: intervals ){
+	    if( merged.isEmpty() || merged.getLast()[1] < interval[0] ){
+		merged.add( interval );
+	    }else{
+		
+		merged.getLast()[1] = Math.max(merged.getLast()[1], interval[1]);
+	    }
+	}
+	
+	
+         return merged.toArray(new int[merged.size()][]);
+	 
+      }
+      
+       
+      
 }
