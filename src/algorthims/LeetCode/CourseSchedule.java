@@ -1,3 +1,5 @@
+package algorthims.LeetCode;
+
 import java.util.*;
 
 /**
@@ -28,13 +30,14 @@ public class CourseSchedule{
 	    degree[ pr[0] ]++;
 	    map.put( pr[1], lst );
 	}
-	
+
 	Queue<Integer> queue = new LinkedList<>();
 	for( int i = 0; i<degree.length; i++ ){
 	    if( degree[i] == 0) queue.add(i);
 	}
 	
 	int count = 0;
+
 	while( !queue.isEmpty() ){
 	    int cur = queue.poll();
 	    if( degree[cur] == 0 ) count++;
