@@ -25,7 +25,7 @@ public class CourseSchedule{
 	for( int[] pr: prerequisites){
 	    List<Integer> lst = map.getOrDefault( pr[1], new ArrayList<>());
 	    lst.add( pr[0] );
-	    degree[pr[0]]++;
+	    degree[ pr[0] ]++;
 	    map.put( pr[1], lst );
 	}
 	
