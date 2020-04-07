@@ -31,7 +31,7 @@ public class Subsets {
      * @param nums
      * @return
      */
-    public List<List<Integer>> subsets2(int[] nums) {
+    public static List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> output = new ArrayList();
         output.add(new ArrayList<Integer>());
 
@@ -52,6 +52,7 @@ public class Subsets {
 
     static int[] nums;
     static List<List<Integer>> result = new ArrayList<>();
+
     public static List<List<Integer>> subsets3(int[] numsLst) {
         nums = numsLst;
         backtrace3(new ArrayList<Integer>(), 0);
@@ -71,7 +72,7 @@ public class Subsets {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> lst = subsets3(new int[]{
+        List<List<Integer>> lst = subsets(new int[]{
                 1, 2, 3
         });
 
