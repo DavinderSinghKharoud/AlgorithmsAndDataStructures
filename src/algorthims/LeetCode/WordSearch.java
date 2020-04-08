@@ -1,4 +1,3 @@
-package algorthims.LeetCode;
 
 import java.util.*;
 
@@ -22,43 +21,6 @@ Given word = "ABCB", return false.
  */
 public class WordSearch {
     
-	public static boolean exist(char[][] board, String word) {
-        
-		boolean[][] visited = new boolean[board.length][board[0].length];
-		int[][] dir = new int[][]{
-		    {1, 0}, {0, 1}, {-1, 0},{0, -1}
-		};
-		
-		Map<Character,List<int[]>> map = new HashMap<>();
-		
-		for( int i = 0; i<board.length; ++i ){
-		    for( int j = 0; j<board[0].length; ++j ){
-			List<int[]> lst = map.getOrDefault( board[i][j], new ArrayList<>() ); 
-			int[] index = new int[]{
-			    i, j
-			};
-			
-			lst.add( index );
-			map.put( board[i][j], lst );
-			
-		    }
-		}
-		
-		
-		    if( map.get(word.charAt(0)) != null ){
-				List<int[]> lst = map.get( word.charAt(0) );
-
-				for( int[] arr: lst ){
-					boolean found = helper( board, visited, arr[0], arr[1], word, 0, dir );
-
-					if( found ) return true;
-				}
-		}
-
-		    
-		    
-		return false;
-	}
 	
 	public static boolean helper( char[][] board, boolean[][] visited, int row, int col, String word, int index, int[][] dir ){
 		    
@@ -103,5 +65,29 @@ public class WordSearch {
 		
 		System.out.println( exist( board, word ));
 	}
+	
+	public static boolean exist(char[][] board, String word) {
+        
+		boolean[][] visited = new boolean[board.length][board[0].length];
+		int[][] dir = new int[][]{
+		    {1, 0}, {0, 1}, {-1, 0},{0, -1}
+		};
+		
+		
+		for( int i = 0; i<board.length; ++i ){
+		    for( int j = 0; j<board[0].length; ++j ){
+			
+			if( board[i][j] == word.charAt(0) );
+			boolean found = helper( board, visited, i, j, word, 0, dir );
+
+			if( found ) return true;
+			
+		    }
+		}
+		
+		
+		return false;
+	}
+	
 }
 
