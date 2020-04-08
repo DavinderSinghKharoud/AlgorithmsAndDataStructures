@@ -14,7 +14,7 @@ random_index: the index of the node (range from 0 to n-1) where random pointer p
 * */
 public class CopyListwithRandomPointer {
 	
-	
+	//O(n) time and space complexity
 	public static Node copyRandomList(Node head) {
 	    
 	    Node root = head;
@@ -56,7 +56,7 @@ public class CopyListwithRandomPointer {
 	    root.next.random = root;
 	    
 	    
-	    Node res = copyRandomList( root );
+	    Node res = copyRandomList2( root );
 	    
 	    while( res != null ){
 		System.out.println( res.val );
@@ -65,8 +65,43 @@ public class CopyListwithRandomPointer {
 		}
 		
 	}
-	
-	    
+
+
+	//O(n) time complexity and O(1) constant space time complexity
+	public static Node copyRandomList2(Node head) {
+
+		//setting up duplicate nodes in between
+		if (head == null) return head;
+		Node curr = head;
+		while (curr != null) {
+			Node node = new Node(curr.val);
+			Node next = curr.next;
+			curr.next = node;
+			node.next = next;
+			curr = next;
+		}
+
+		//setting up random for duplicates
+		Node p = head;
+		while (p != null) {
+			curr = p.next;
+			curr.random = p.random == null ? null : p.random.next;
+			p = curr.next;
+		}
+
+		//removing the duplicate list of nodes from the modified
+		Node res = new Node(-1), prev = res;
+		p = head;
+		while (p != null) {
+			curr = p.next;
+			prev.next = curr;
+			prev = curr;
+			p.next = p.next.next;
+			p = p.next;
+		}
+		return res.next;
+	}
+
 	static class Node {
 	int val;
 	Node next;
