@@ -47,7 +47,29 @@ public class WordSearch {
 		    
 		    return false;
 	}
-	
+	public static boolean exist(char[][] board, String word) {
+
+		boolean[][] visited = new boolean[board.length][board[0].length];
+		int[][] dir = new int[][]{
+				{1, 0}, {0, 1}, {-1, 0},{0, -1}
+		};
+
+
+		for( int i = 0; i<board.length; ++i ){
+			for( int j = 0; j<board[0].length; ++j ){
+
+				if( board[i][j] == word.charAt(0) );
+				boolean found = helper( board, visited, i, j, word, 0, dir );
+
+				if( found ) return true;
+
+			}
+		}
+
+
+		return false;
+	}
+
 	public static void main (String[] args) {
 		
 		char[][] board = new char[][]{
@@ -66,28 +88,54 @@ public class WordSearch {
 		System.out.println( exist( board, word ));
 	}
 	
-	public static boolean exist(char[][] board, String word) {
-        
-		boolean[][] visited = new boolean[board.length][board[0].length];
-		int[][] dir = new int[][]{
-		    {1, 0}, {0, 1}, {-1, 0},{0, -1}
-		};
-		
-		
-		for( int i = 0; i<board.length; ++i ){
-		    for( int j = 0; j<board[0].length; ++j ){
-			
-			if( board[i][j] == word.charAt(0) );
-			boolean found = helper( board, visited, i, j, word, 0, dir );
 
-			if( found ) return true;
-			
-		    }
+	private boolean dfs(int row, int col, char [][] board, String word, int index){
+		/* when we are going out of the matrix then return false */
+		if(row<0 || row>=board.length || col<0 || col>=board[0].length || word.charAt(index)!=board[row][col])
+			return false;
+
+		/* since we found the word so return true*/
+		if(word.length()-1==index){
+			return true;
 		}
-		
-		
+		char temp = board[row][col];
+		board[row][col] = '*';
+
+		boolean found =
+				dfs(row-1,col,board,word,index+1)|| /*top*/
+						dfs(row,col+1,board,word,index+1) || /*right*/
+						dfs(row+1,col,board,word,index+1) || /*bottom*/
+						dfs(row,col-1,board,word,index+1); /* left */
+
+    /* will cause TLE as every condition will be checked here
+
+       boolean top = dfs(row-1,col,board,word,index+1);
+       boolean right = dfs(row,col+1,board,word,index+1);
+       boolean bottom = dfs(row+1,col,board,word,index+1);
+       boolean left = dfs(row,col-1,board,word,index+1);
+       if(top|| right || bottom || left)
+           return true;
+     */
+
+		board[row][col] = temp;
+		if(found){
+			return true;
+		}
+
 		return false;
 	}
-	
+
+	public boolean exist2(char[][] board, String word) {
+		for(int row=0;row<board.length;row++){
+			for(int col=0; col<board[0].length;col++){
+				if(word.charAt(0) == board[row][col]){
+					if(dfs(row,col,board,word,0)){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 }
 
