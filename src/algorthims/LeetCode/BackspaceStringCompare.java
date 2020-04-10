@@ -54,7 +54,45 @@ public class BackspaceStringCompare {
 	    
 	public static void main (String[] args) {
 		
-		System.out.println( backspaceCompare("a#c", "b"));
+		System.out.println( backspaceCompare2("bbbextm",
+				"bbb#extm"));
 	}
+	
+	
+	  public static boolean backspaceCompare2(String S, String T) {
+			int endS = S.length() - 1;
+			int endT = T.length() - 1;
+			int skipS = 0;
+			int skipT = 0;
+			
+		while( endS >= 0 || endT >= 0 ){
+
+			while ( endS >= 0 ){
+				if( S.charAt(endS) == '#') { skipS++; endS--; }
+				else if( skipS >0 ){ skipS--; endS--;}
+				else break;
+			}
+
+			while ( endT >= 0 ){
+				if( T.charAt(endT) == '#') { skipT++; endT--; }
+				else if( skipT >0 ){ skipT--; endT--;}
+				else break;
+			}
+
+			if(endS >= 0 && endT >= 0 && S.charAt(endS) != T.charAt(endT) ){
+				return false;
+			}
+
+			if( (endS >= 0) != (endT >= 0)) return false;
+			endS--;
+			endT--;
+		}
+
+
+		return true;
+	  }
+
+
 }
+
 
