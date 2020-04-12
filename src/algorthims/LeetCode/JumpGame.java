@@ -35,7 +35,7 @@ public class JumpGame {
 
       //Dynamic Programming
       public static boolean canJump(int[] nums) {
-		     int dp[] = new int[nums.length];
+		     int[] dp = new int[nums.length];
 
 		     dp[nums.length - 1] = 1;
 

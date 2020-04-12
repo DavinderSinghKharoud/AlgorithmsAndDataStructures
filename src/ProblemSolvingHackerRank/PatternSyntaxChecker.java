@@ -1,4 +1,4 @@
-package Java;
+package ProblemSolvingHackerRank;
 
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;

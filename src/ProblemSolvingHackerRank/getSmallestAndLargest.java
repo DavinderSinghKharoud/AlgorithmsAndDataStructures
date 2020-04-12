@@ -1,4 +1,4 @@
-package Java;
+package ProblemSolvingHackerRank;
 
 import java.lang.reflect.Array;
 

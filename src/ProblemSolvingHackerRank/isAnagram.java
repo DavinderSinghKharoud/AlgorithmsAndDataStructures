@@ -1,4 +1,4 @@
-package Java;
+package ProblemSolvingHackerRank;
 
 public class isAnagram {
 
