@@ -3,6 +3,7 @@ package Java.Lambda;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Java8PersonSolution {
@@ -35,6 +36,9 @@ public class Java8PersonSolution {
         System.out.println("Print all persons");
         printConditionally( people, p -> true);
 
+        System.out.println("Perform conditionally");
+        performConditionally( people, p -> p.getLastName().startsWith("C"), p -> System.out.println(p));
+
     }
 
 
@@ -43,6 +47,16 @@ public class Java8PersonSolution {
         for( Person p: people ){
             if( predicate.test(p)){
                 System.out.println(p);
+            }
+        }
+    }
+
+
+
+    private static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer ) {
+        for( Person p: people ){
+            if( predicate.test(p)){
+                consumer.accept(p);
             }
         }
     }
