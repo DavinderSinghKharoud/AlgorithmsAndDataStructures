@@ -53,6 +53,7 @@ public class Java8PersonSolution {
 
 
 
+    //you can check other functional interfaces from java website
     private static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer ) {
         for( Person p: people ){
             if( predicate.test(p)){
