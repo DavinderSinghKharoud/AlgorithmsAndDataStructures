@@ -43,6 +43,8 @@ public class LastStoneWeight {
 		    System.out.println( lastStoneWeight(new int[]{
 			1,3
 		    }));
+
+
 	}
 }
 
