@@ -53,7 +53,7 @@ public class WorkBreak {
 		List<String> lst = new ArrayList<>();
 		lst.add("leet");
 		lst.add("code");	
-		System.out.println(wordBreak3("leetcode", lst));
+		System.out.println(wordBreak2("leetcode", lst));
 
 	}
 	
@@ -81,18 +81,18 @@ public class WorkBreak {
     
 
     public static boolean wordBreak3(String s, List<String> wordDict) {
-	int len = s.length();
-	boolean dp[] = new boolean[ len + 1];
-	dp[0] = true;
+		int len = s.length();
+		boolean dp[] = new boolean[ len + 1];
+		dp[0] = true;
 	
-	for( int low = 0; low<len; low++ ){
-	    if( !dp[low] ) continue;
-	    for( String word: wordDict ){
-		int high = low + word.length();
-		if( high > len ){ continue; }
-		String str = s.substring( low, high );
-		if( str.equals(word )){ dp[high] = true; }
-	    }
+		for( int low = 0; low<len; low++ ){
+			if( !dp[low] ) continue;
+			for( String word: wordDict ){
+				int high = low + word.length();
+				if( high > len ){ continue; }
+				String str = s.substring( low, high );
+				if( str.equals(word )){ dp[high] = true; }
+			}
 	    
 	}
 	
