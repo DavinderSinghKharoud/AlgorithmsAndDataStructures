@@ -1,4 +1,6 @@
-package Java.Lambda;
+package Java.Lambda.Streams;
+
+import Java.Lambda.Person;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,5 +20,11 @@ public class Streams {
         people.stream()
                 .filter( person -> person.getLastName().startsWith("C"))
                 .forEach(System.out::println);
+
+        long count = people.parallelStream()
+                .filter( person -> person.getLastName().startsWith("C"))
+                .count();
+
+        System.out.println(count);
     }
 }
