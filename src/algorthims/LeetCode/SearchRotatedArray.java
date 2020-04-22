@@ -26,7 +26,7 @@ public class SearchRotatedArray {
         int end = arry.length-1;
 
         while ( start<=end){
-            int mid = start + (end-start)/2;
+            int mid = (end + start)/2;
 
             if( arry[mid] == value){
                 return mid;
