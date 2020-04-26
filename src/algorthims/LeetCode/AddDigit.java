@@ -5,7 +5,6 @@ public class AddDigit {
     public static void main(String[] args) {
         System.out.println( addDigits(234));
 
-
     }
     public static int addDigits(int num) {
 

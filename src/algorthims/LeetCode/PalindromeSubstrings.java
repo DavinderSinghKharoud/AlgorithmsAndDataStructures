@@ -1,4 +1,4 @@
-package algorthims.LeetCode;
+//package algorthims.LeetCode;
 
 
 public class PalindromeSubstrings {

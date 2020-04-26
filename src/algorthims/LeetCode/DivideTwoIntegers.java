@@ -1,4 +1,4 @@
-import algorthims.LeetCode.MathPow;
+
 
 public class DivideTwoIntegers {
 	

@@ -1,4 +1,5 @@
 
+package algorthims.LeetCode;
 import java.util.*;
 public class CountingElements {
 	
