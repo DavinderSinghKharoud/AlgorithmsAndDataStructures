@@ -1,4 +1,4 @@
-//package algorthims.LeetCode;
+package algorthims.LeetCode;//package algorthims.LeetCode;
 
 import java.util.HashMap;
 import java.util.Map;
