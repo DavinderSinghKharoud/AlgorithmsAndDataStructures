@@ -20,6 +20,7 @@ package algorthims.LeetCode;
 public class LongestCommonSubsequence {
 
     //Time limit exceeded
+    //Time Complexity : Exponential i.e. O(2 ^ n)
     public static int longestCommonSubsequence(String text1, String text2) {
 
         return helper(text1, text2, 0, 0);
@@ -44,6 +45,11 @@ public class LongestCommonSubsequence {
     }
 
     //Dynamic programming approach
+    /**
+     * Result : Accepted
+	Time Complexity : O(m * n)
+	Space Complexity : O(m * n)
+	where m is the length of string1 and n is the length of string2.*/
     public static int longestCommonSubsequence2(String text1, String text2) {
         int len1 = text1.length();
         int len2 = text2.length();
