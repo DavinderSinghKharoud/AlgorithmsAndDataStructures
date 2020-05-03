@@ -29,7 +29,7 @@ public class StreamsOperations {
         Stream.of("Ava", "Aneri", "Alberto")
                 .sorted()
                 .findFirst()
-                .ifPresent(System.out::print);
+                .ifPresent(System.out::println);
 
 
         System.out.println("###################");
