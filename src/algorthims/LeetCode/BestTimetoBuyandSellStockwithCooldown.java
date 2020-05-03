@@ -55,6 +55,10 @@ public class BestTimetoBuyandSellStockwithCooldown {
 		} ) ) ;
 	}
 
+	/*
+dp[i] refers to the max profit at prices[i]
+temp refers to the min buy price before the point of i (I mean we can see all the transactions before this point as one transaction)
+Due to cooldown, temp = Math.min(temp, prices[j] - dp[j-2]), however, the second day shouldn't consider cooldown*/
 	//O(n) time complexity and space complexity
 	public static int maxProfit2(int[] prices) {
 		if( prices.length <= 1 ) return 0;
@@ -63,8 +67,10 @@ public class BestTimetoBuyandSellStockwithCooldown {
 		int temp = prices[0];
 
 		for( int index = 1; index<prices.length; index++ ){
+			//get the max of one index less and of current price minus minimum up to now
 			dp[ index ] = Math.max( dp[ index - 1 ], prices[ index ] - temp );
 
+			//if index is greater than 2, then we need to check the cool down period
 			if( index >= 2 ){
 				temp = Math.min( temp, prices[index] - dp[ index - 2 ] );
 			}else{
