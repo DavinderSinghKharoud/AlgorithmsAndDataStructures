@@ -32,14 +32,14 @@ public class AllAnagramsinaString {
 		
 		for( int i = 0; i<s.length(); i++ ){
 		
-			if( i + len - 1 < s.length() && check( s, p, i, i + len - 1 ) ){
+			if( i + len - 1 < s.length() && check3( s, p, i, i + len - 1 ) ){
 				res.add( i );
 			}
 		}
 
 		return res;
     }
-    
+    //Time Limit Exceeded
     public static boolean check( String s, String p, int start, int end ){
 		char []temp_s = s.substring( start, end + 1).toCharArray();
 		char []temp_p = p.toCharArray();
@@ -51,11 +51,97 @@ public class AllAnagramsinaString {
 		
 		
 	}
-    
-	public static void main (String[] args) {
+    //Time Limit Exceeded
+	public static boolean check2( String s, String p, int start, int end ){
+		char []temp_s = s.substring( start, end + 1).toCharArray();
+		char []temp_p = p.toCharArray();
 
-		System.out.print( findAnagrams(  "cbaebabacd" , "abc"));
+		int[] count = new int[26];
+
+		for( char c: temp_s ){
+			count[ c - 'a' ]++;
+		}
+
+		StringBuilder sbr_s = new StringBuilder();
+
+		for( int value: count ){
+			sbr_s.append("#").append(value);
+		}
+
+		Arrays.fill( count, 0 );
+		StringBuilder sbr_p = new StringBuilder();
+
+		for (char c : temp_p) {
+			count[ c - 'a' ]++;
+		}
+
+		for (int value : count) {
+			sbr_p.append("#").append( value );
+		}
+
+		return sbr_s.toString().equals( sbr_p.toString() );
 
 	}
-}
+
+	//accepted
+	public static boolean check3( String s, String p, int start, int end ){
+
+		int[] count = new int[26];
+
+		for( int i = start; i<= end; i++ ){
+			count[ s.charAt(i) - 'a' ]++;
+		}
+
+		for (int i = 0; i < p.length(); i++) {
+			if( count[ p.charAt(i) - 'a' ] >= 1 ){
+				count[ p.charAt(i) - 'a']--;
+			}
+		}
+
+		for (int num: count ) {
+			if( num != 0 ){
+				return false;
+			}
+		}
+
+		return true;
+
+	}
+	public static void main (String[] args) {
+
+		System.out.print( findAnagrams2(  "cbaebabacd" , "abc"));
+
+	}
+
+	public static List<Integer> findAnagrams2(String s, String p) {
+
+		List<Integer> res = new ArrayList<>();
+
+		int[] char_count = new int[26];
+
+		for( char c: p.toCharArray() ){
+			char_count[ c - 'a' ] ++;
+		}
+
+		int left = 0;
+		int right = 0;
+		int count = p.length();
+
+		while ( right < s.length() ){
+
+			if( char_count[ s.charAt( right++)  - 'a']-- >= 1 ){
+				count--;
+			}
+
+			if( count == 0 ) res.add( left );
+
+			if( right - left == p.length() && char_count[ s.charAt(left ++ ) - 'a' ]++ >= 0 ){
+				count++;
+			}
+		}
+
+		return res;
+	}
+
+	}
 
