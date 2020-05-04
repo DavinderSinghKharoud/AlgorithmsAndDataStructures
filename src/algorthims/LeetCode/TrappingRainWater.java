@@ -1,3 +1,4 @@
+package algorthims.LeetCode;
 
 /**
  * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
@@ -13,6 +14,7 @@ Output: 6
 
 public class TrappingRainWater {
 	
+	//O(n) time and space complexity
 	public static int trap(int[] height) {
         
         int ans = 0;
@@ -44,9 +46,23 @@ public class TrappingRainWater {
         
     }
 	public static void main (String[] args) {
-		System.out.println( trap( new int[]{
+		System.out.println( trap2( new int[]{
 			0,1,0,2,1,0,1,3,2,1,2,1
 		}) );
+	}
+	
+	public static int trap2(int[] height) {
+		int len = height.length;
+		int res = 0, left = 0, right = len - 1, level = 0;
+		
+		while( left < right ){
+			//lower wall
+			int lower = ( height[left] < height[right] ) ? height[left++] : height[right--];
+			level = Math.max( level, lower );
+			res += level - lower;
+		}
+		
+		return res;
 	}
 }
 
