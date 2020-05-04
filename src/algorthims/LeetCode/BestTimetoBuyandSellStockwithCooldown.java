@@ -80,5 +80,6 @@ Due to cooldown, temp = Math.min(temp, prices[j] - dp[j-2]), however, the second
 
 		return dp[ prices.length - 1];
 	}
+
 }
 
