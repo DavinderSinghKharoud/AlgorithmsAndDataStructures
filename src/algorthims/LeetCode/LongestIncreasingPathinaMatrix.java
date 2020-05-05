@@ -29,7 +29,10 @@ package algorthims.LeetCode;
 public class LongestIncreasingPathinaMatrix {
 	
 	static int[][] directions = { {0, 1}, {1, 0}, {-1, 0}, {0, -1} };
-	
+
+	//we do need a boolean array ( like to skip the cycle ) because if we are moving forward it means previous value
+	//is less and if we try again to check the previous value the if condition ( checking the number is greater than current ) will fail.
+	//O(n cube not sure) time complexity and O(n) space complexity
 	public static int longestIncreasingPath(int[][] matrix) {
 		if( matrix.length == 0 || matrix[0].length == 0 ){
 			return 0;
@@ -38,27 +41,26 @@ public class LongestIncreasingPathinaMatrix {
         int cols = matrix[0].length;
         int res = 0;
         int[][] dp = new int[ rows ][ cols ];
-        boolean[][] check = new boolean[ rows ][ cols ];
         
         for( int row = 0; row < rows; row ++ ){
 			for( int col = 0; col < cols; col++ ){
 				
-				res = Math.max( res, helper( matrix, row, col, dp, check ) );
+				res = Math.max( res, helper( matrix, row, col, dp ) );
 			}
 		}
 		
 		return res;
     }
     
-    public static int helper( int[][] matrix, int row, int col, int[][] dp, boolean[][] check ){
+    public static int helper( int[][] matrix, int row, int col, int[][] dp ){
 	
 		if( dp[row][col] != 0 ){
 			return dp[row][col];
 		}
-		
-		check[ row ][ col ] = true;
+
 		int max = 1;
-		
+
+		//let's move in four directions
 		for( int[] dir: directions ){
 			
 			int r = dir[0] + row;
@@ -68,16 +70,13 @@ public class LongestIncreasingPathinaMatrix {
 			if( r < 0 || r >= matrix.length || c < 0 || c >= matrix[0].length ){
 				continue;
 			}
-		
-			if( !check[r][c] && matrix[r][c] > matrix[row][col]){
-				check[r][c] = true;
-				temp_max += helper( matrix, r, c, dp, check );
-				check[r][c] = false;
+
+			if( matrix[r][c] > matrix[row][col]){
+				temp_max += helper( matrix, r, c, dp );
 			}
 
 			max = Math.max( max, temp_max );
 		}
-		check[row][col] = false;
 		dp[row][col] = max;
 		
 		return max;
