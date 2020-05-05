@@ -1,4 +1,4 @@
-
+package algorthims.LeetCode;
 /**
  * Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
@@ -13,7 +13,8 @@ Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefor
 import java.util.*;
 
 public class LongestConsecutiveSequence {
-	
+
+	//time complexity O(n) and O( n square ) space complexity
 	public static int longestConsecutive(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         int res = 0;
@@ -48,9 +49,38 @@ public class LongestConsecutiveSequence {
     
 	public static void main (String[] args) {
 		
-		System.out.println( longestConsecutive( new int[]{
+		System.out.println( longestConsecutive2( new int[]{
 			100, 4, 200, 1, 3, 2
 		}));
+
+		//we can also use the sorting to solve the problem in O( n log(n) ) time
 	}
+
+	//O(n) time and space complexity
+	public static int longestConsecutive2(int[] nums) {
+		Set<Integer> set = new HashSet<>();
+
+		int res = 0;
+		for( int num: nums ){
+			set.add( num );
+		}
+
+		for(int num: nums ){
+			if( !set.contains( num - 1 ) ){
+				int temp_len = 1;
+				int right = num + 1;
+
+				while( set.contains(right) ){
+					temp_len++;
+					right++;
+				}
+
+				res = Math.max( res, temp_len );
+			}
+		}
+
+		return res;
+	}
+
 }
 
