@@ -26,40 +26,85 @@ import java.util.*;
  */
 public class FindMedianfromDataStream {
 	
-	 List<Integer> lst;
-	
-    public FindMedianfromDataStream() {
-        lst = new ArrayList<>();
-
-    }
-    
-    public void addNum(int num) {
-        lst.add( num );
-    }
-    
-    public double findMedian() {
-        Collections.sort( lst );
-		int len = lst.size();
-		//if it is even
-        if( (lst.size() & 1) == 0 ){
-			return (double) ( lst.get( len/2 ) + lst.get( len/2 - 1 ) ) / 2;
-		}
-
-		//if it is odd
-		return (double) lst.get( len/2 );
-    }
+	 //List<Integer> lst;
+	//Sorting O(nlogn) time complexity and O(n) space complexity
+//    public FindMedianfromDataStream() {
+//        lst = new ArrayList<>();
+//
+//    }
+//
+//    public void addNum(int num) {
+//        lst.add( num );
+//    }
+//
+//    public double findMedian() {
+//        Collections.sort( lst );
+//		int len = lst.size();
+//		//if it is even
+//        if( (lst.size() & 1) == 0 ){
+//			return (double) ( lst.get( len/2 ) + lst.get( len/2 - 1 ) ) / 2;
+//		}
+//
+//		//if it is odd
+//		return (double) lst.get( len/2 );
+//    }
     
 	public static void main (String[] args) {
 
         FindMedianfromDataStream findMedianfromDataStream = new FindMedianfromDataStream();
-        findMedianfromDataStream.addNum(2);
-        System.out.println( findMedianfromDataStream.findMedian() );
+        findMedianfromDataStream.addNum(-1);
+        //System.out.println( findMedianfromDataStream.findMedian() );
 
-        findMedianfromDataStream.addNum(3);
-        System.out.println( findMedianfromDataStream.findMedian() );
+        findMedianfromDataStream.addNum(-2);
+        //System.out.println( findMedianfromDataStream.findMedian() );
 
-        findMedianfromDataStream.addNum(4);
+        findMedianfromDataStream.addNum(-3);
         System.out.println( findMedianfromDataStream.findMedian() );
 	}
+
+	//O(log(n) ) time complexity and O(n) space complexity
+
+	
+	//max_heap
+	PriorityQueue<Integer> lowers;
+	//min_heap
+	PriorityQueue<Integer> highers;
+	
+    public FindMedianfromDataStream() {
+		lowers = new PriorityQueue<>( (o1, o2) -> o2 - o1 );
+		highers = new PriorityQueue<>();
+    }
+
+    public void addNum(int num) {
+
+		
+		if( lowers.size() == 0 || num < lowers.peek() ){
+			lowers.add( num );
+		}else{
+			highers.add( num );
+		}
+		
+		rebalance( );
+    }
+	
+	public void rebalance ( ){
+		PriorityQueue<Integer> bigger = ( lowers.size() > highers.size() ) ? lowers : highers;
+		PriorityQueue<Integer> smaller = ( lowers.size() > highers.size() ) ? highers : lowers;
+		
+		if( bigger.size() - smaller.size() >= 2 ){
+			smaller.add( bigger.poll() );
+		}
+	}
+	
+    public double findMedian() {
+		PriorityQueue<Integer> bigger = ( lowers.size() > highers.size() ) ? lowers : highers;
+		PriorityQueue<Integer> smaller = ( lowers.size() > highers.size() ) ? highers : lowers;
+		
+		if( bigger.size() == smaller.size() ){
+			return (double) ( bigger.peek() + smaller.peek() )/2;
+		}else{
+			return bigger.peek();
+		}
+    }
 }
 
