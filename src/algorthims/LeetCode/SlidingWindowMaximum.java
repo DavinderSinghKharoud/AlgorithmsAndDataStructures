@@ -60,8 +60,8 @@ public class SlidingWindowMaximum {
 
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(maxSlidingWindow1(new int[]{
-                1,3,1,2,0,5
+        System.out.println(Arrays.toString(maxSlidingWindow3(new int[]{
+                1,3,-1,-3,5,3,6,7
         }, 3)));
 
     }
@@ -113,6 +113,46 @@ public class SlidingWindowMaximum {
         while ( !deque.isEmpty() && start > deque.peekFirst() ) {
             deque.removeFirst();
         }
+
+    }
+
+    //Most efficient
+    public static int[] maxSlidingWindow3(int[] nums, int k) {
+
+        int left = 0, right = 0, max = Integer.MIN_VALUE, mi = 0, len = nums.length;
+
+        for(int i = 0; i < k;i++){
+            if(nums[i] > max){
+                max = nums[i];
+                mi = i;
+            }
+            right = i;
+        }
+
+        int[] result = new int[len - k + 1];
+        result[0] = max;
+        for(int i = right ; i < len; i++){
+            if(mi == left - 1){
+                //findNextMax
+                int t = left;
+                max = Integer.MIN_VALUE;
+                while(t <= i){
+                    if(nums[t] > max){
+                        max = nums[t];
+                        mi = t;
+                    }
+                    t++;
+                }
+
+            } else if(nums[i] > max){
+                max = nums[i];
+                mi = i;
+            }
+
+            left++;
+            result[i-k+1] = max;
+        }
+        return result;
 
     }
 }
