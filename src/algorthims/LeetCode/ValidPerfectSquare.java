@@ -34,7 +34,7 @@ public class  ValidPerfectSquare {
     }
 	public static void main (String[] args) {
 
-		System.out.println( isPerfectSquare2( 808201 ));
+		System.out.println( isPerfectSquare3( 808201 ));
 	}
 
 	//O(log(n) ) time complexity
@@ -56,6 +56,32 @@ public class  ValidPerfectSquare {
 	 			low = mid + 1;
 			}else{
 	 			high = mid - 1;
+			}
+		}
+		return false;
+	}
+
+	//int type version
+	public static boolean isPerfectSquare3(int num) {
+
+		if( num == 1 ){
+			return true;
+		}
+		int low = 1;
+		int high = num/2;
+
+		while( low <= high ){
+			int mid = low + ( high - low )/2;
+
+			int res = num/mid;
+			int remain = num % mid;
+
+			if( res == mid && remain == 0){
+				return true;
+			}else if( res > mid ){//mid is small -> go to the right to increase mid
+				low = mid + 1;
+			}else{
+				high = mid - 1;
 			}
 		}
 		return false;
