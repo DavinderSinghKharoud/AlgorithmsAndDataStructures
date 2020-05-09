@@ -16,9 +16,9 @@ Output: false**/
 
 
 public class  ValidPerfectSquare {
-	
-	 public boolean isPerfectSquare(int num) {
-        int len = num/4;
+
+	//O(n) time complexity
+	 public static boolean isPerfectSquare1(int num) {
         if( num == 1 ){
            return true;
        }
@@ -33,7 +33,32 @@ public class  ValidPerfectSquare {
 		return false;
     }
 	public static void main (String[] args) {
-		
+
+		System.out.println( isPerfectSquare2( 808201 ));
+	}
+
+	//O(log(n) ) time complexity
+	public static boolean isPerfectSquare2(int num) {
+
+	 	if( num == 1 ){
+	 		return true;
+		}
+	 	long low = 1;
+	 	long high = num/2;
+
+	 	while( low <= high ){
+	 		long mid = low + ( high - low )/2;
+	 		long cur = mid * mid;
+
+	 		if( cur == num ){
+	 			return true;
+			}else if( cur < num ){
+	 			low = mid + 1;
+			}else{
+	 			high = mid - 1;
+			}
+		}
+		return false;
 	}
 }
 
