@@ -112,7 +112,7 @@ public class MergekSortedLists {
 
 
 
-		ListNode res = mergeKLists3( lst );
+		ListNode res = mergeKLists4( lst );
 
 		while ( res != null ){
 			System.out.println(res.val);
@@ -184,12 +184,60 @@ public class MergekSortedLists {
 
 	}
 
-	  public static class ListNode {
+	//Merge with divide and conquer
+	//O(n logk ) time complexity and O(1) space complexity
+	public static ListNode mergeKLists4(ListNode[] lists) {
+
+		int len = lists.length;
+		if (len == 0) {
+			return null;
+		}
+		
+		return mergeSort( lists, 0, len - 1 );
+		
+	}
+
+	private static ListNode mergeSort(ListNode[] lists, int low, int high) {
+		if( low == high ){
+			return lists[low];
+		}
+		if ( low > high ){
+			return null;
+		}
+		int mid = low + ( high - low )/2;
+		
+		ListNode lst1 = mergeSort( lists, low, mid );
+		ListNode lst2 = mergeSort( lists, mid + 1, high );
+		
+		return merge( lst1, lst2 );
+	}
+
+	//efficient merging
+	private static ListNode merge( ListNode lst1, ListNode lst2) {
+		if( lst1 == null ) return lst2;
+		if( lst2 == null ) return lst1;
+
+		ListNode curr;
+
+		if( lst1.val < lst2.val ){
+			curr = lst1;
+			curr.next = merge( lst1.next, lst2);
+		}else{
+			curr = lst2;
+			curr.next = merge( lst1, lst2.next );
+		}
+
+		return curr;
+	}
+
+	public static class ListNode {
 	      int val;
 	      ListNode next;
 	      ListNode() {}
 	      ListNode(int val) { this.val = val; }
 	      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 	  }
+
+
 }
 
