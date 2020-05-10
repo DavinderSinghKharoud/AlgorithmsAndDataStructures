@@ -55,9 +55,29 @@ public class FindtheTownJudge {
 //		System.out.println( findJudge( 4, new int[][]{
 //			{1, 3}, {1, 4}, {2, 3},{2, 4}, {4, 3}
 //		}));
-		System.out.println( findJudge( 3, new int[][]{
+		System.out.println( findJudge2( 3, new int[][]{
 				{1, 3}, {2, 3},{3, 1}
 		}));
+	}
+
+	//O( n + len of trust ) time complexity and O(1) space complexity
+	public static int findJudge2(int N, int[][] trust) {
+
+		int[] indegre = new int[ N + 1 ];
+		int[] outdegre = new int[ N + 1 ];
+		
+		for(int[] pair: trust ){
+			outdegre [ pair[0] ] ++;
+			indegre[ pair[1] ] ++;
+		}
+		
+		for( int i = 1; i<= N ; i++ ){
+			if( indegre[i] == N - 1 && outdegre[i] == 0 ){
+				return i;
+			}
+		}
+		
+		return -1;
 	}
 }
 
