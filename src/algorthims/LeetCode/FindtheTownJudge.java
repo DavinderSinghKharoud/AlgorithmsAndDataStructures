@@ -60,7 +60,7 @@ public class FindtheTownJudge {
 		}));
 	}
 
-	//O( n + len of trust ) time complexity and O(1) space complexity
+	//O( n + len of trust ) time complexity and O(n) space complexity
 	public static int findJudge2(int N, int[][] trust) {
 
 		int[] indegre = new int[ N + 1 ];
