@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
@@ -15,12 +17,12 @@ Input:
 Output: 1->1->2->3->4->4->5->6
 * **/
 
-
+//(n1, n2) -> n1.val - n2.val this version is much more efficient than comparator.comparingInt
 public class MergekSortedLists {
 
 	//time complexity O( nk ), where k is the number of linked lists as we can merge the two sorted linked list in O(n) time
 	//space complexity O(1)
-	public static ListNode mergeKLists(ListNode[] lists) {
+	public static ListNode mergeKLists1(ListNode[] lists) {
         
         int len = lists.length;
         if( len == 0 ){
@@ -110,7 +112,7 @@ public class MergekSortedLists {
 
 
 
-		ListNode res = mergeKLists( lst );
+		ListNode res = mergeKLists3( lst );
 
 		while ( res != null ){
 			System.out.println(res.val);
@@ -119,7 +121,68 @@ public class MergekSortedLists {
 
 	}
 
+	///using priorityQueue
+	//Time complexity O(N logK ) where k is the number of linked lists
+	public static ListNode mergeKLists2(ListNode[] lists) {
 
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+		
+		ListNode res = new ListNode(0);
+		ListNode pointer = res;
+
+		//adding all the values
+		for( ListNode lst: lists ){
+			
+			while( lst != null ){
+				minHeap.add( lst.val );
+				lst = lst.next;
+			}
+		}
+		
+		while( !minHeap.isEmpty() ){
+			res.next = new ListNode( minHeap.remove() );
+			res = res.next;
+
+		}
+		
+		return pointer.next;
+
+	}
+
+	///using priorityQueue
+	//Time complexity O(N logK ) where k is the number of linked lists
+	//more faster than upper algorithm
+	public static ListNode mergeKLists3(ListNode[] lists) {
+
+		PriorityQueue<ListNode> minHeap = new PriorityQueue<>((n1, n2) -> n1.val - n2.val);
+
+
+
+		//adding all the values
+		for( ListNode lst: lists ){
+			if( lst != null ){
+				minHeap.add( lst );
+			}
+
+		}
+
+		ListNode res = new ListNode(0);
+		ListNode pointer = res;
+
+		while( !minHeap.isEmpty() ){
+			ListNode curr = minHeap.poll();
+			res.next = curr ;
+			res = res.next;
+
+			//we need to check if next exist
+			if( res.next != null ){
+				minHeap.add( res.next );
+			}
+		}
+
+		return pointer.next;
+
+	}
 
 	  public static class ListNode {
 	      int val;
