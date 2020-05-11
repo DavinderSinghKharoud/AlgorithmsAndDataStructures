@@ -45,7 +45,7 @@ public class LargestRectangleinHistogram {
     
 	public static void main (String[] args) {
 		
-		System.out.println( largestRectangleArea2( new int[]{
+		System.out.println( largestRectangleArea3( new int[]{
 			2,1,5,6,2,3
 		}));
 	}
@@ -72,5 +72,47 @@ public class LargestRectangleinHistogram {
 			return max;
 		
 	}
+
+	public static int largestRectangleArea3(int[] a) {
+		if(a==null || a.length==0)
+			return 0;
+		int n = a.length;
+		int[] left = new int[n];
+		left[0]= -1;
+		int[] right = new int[n];
+		right[n-1]= n;
+		// calculate the next smallest from left
+		for(int i =1;i<n;i++)
+		{
+			int p=i-1;
+			while(p>=0 && a[p]>=a[i])
+			{
+				p = left[p];
+			}
+			left[i] = p;
+
+		}
+		//calculate the next smallest from right.
+		for(int i =n-2;i>=0;i--)
+		{
+			int p=i+1;
+
+			while(p<n && a[p]>=a[i])
+			{
+				p = right[p];
+			}
+			right[i] = p;
+
+		}
+
+		int maxArea= 0;
+		for(int i =0; i<n;i++)
+		{
+			maxArea= Math.max(maxArea, a[i] *(right[i]-left[i]-1));
+			//      System.out.println(maxArea +" "+ a[i] *(right[i]-left[i]-1));
+		}
+		return (maxArea);
+	}
+
 }
 
