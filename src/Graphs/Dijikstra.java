@@ -31,7 +31,13 @@ public class Dijikstra {
 
     public static int networkDelayTime(int[][] times, int N, int K) {
 
+    	//to check if node is processed or not
         boolean[] check = new boolean[N];
+        //to get the minimum distance
+        int[] distance = new int[N];
+        Arrays.fill( distance, Integer.MAX_VALUE );
+        //setting the distance of starting node
+        distance[K-1] = 0;
 		int ans = 0;
 
         ArrayList[] adj = new ArrayList[N];
@@ -39,14 +45,14 @@ public class Dijikstra {
 		for(int i = 0; i < N; i++){
 			adj[i] = new ArrayList<>();
 		}
-        //adding nodes as in adjency list
+        //adding nodes as in adjacency list
         for (int t[] : times) {
             adj[t[0] - 1].add(new int[]{
                     t[1] - 1, t[2]
             });
         }
 
-		ans = helper( K - 1, check, adj );
+		ans = helper( K - 1, check, adj, distance );
 		
 		for( boolean visited: check ){
 			if( !visited ){
@@ -57,7 +63,7 @@ public class Dijikstra {
 		return ans;
     }
     
-    private static int helper( int source, boolean []check,  ArrayList<int []>[] adj ){
+    private static int helper(int source, boolean[] check, ArrayList<int[]>[] adj, int[] distance){
 		
 		int max = 0;
         PriorityQueue<int[]> min_heap = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
@@ -79,9 +85,14 @@ public class Dijikstra {
 			max = node[1];
 			
 			for( int []neighbor: adj[ node[0] ]){
-				min_heap.add(  new int[]{
-					neighbor[0], neighbor[1] + node[1]
-				});
+
+				if( neighbor[1] + node[1] < distance[ neighbor[0] ] ){
+					distance[ neighbor[0] ] = neighbor[1] + node[1];
+					min_heap.add(  new int[]{
+							neighbor[0], neighbor[1] + node[1]
+					});
+				}
+
 			}
 			
 		}
