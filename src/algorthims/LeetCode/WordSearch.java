@@ -85,11 +85,11 @@ public class WordSearch {
 		String word = "ABCCED";
 		String word1 = "a";
 		
-		System.out.println( exist( board, word ));
+		System.out.println( exist2( board, word ));
 	}
 	
 
-	private boolean dfs(int row, int col, char [][] board, String word, int index){
+	private static boolean dfs(int row, int col, char[][] board, String word, int index){
 		/* when we are going out of the matrix then return false */
 		if(row<0 || row>=board.length || col<0 || col>=board[0].length || word.charAt(index)!=board[row][col])
 			return false;
@@ -125,7 +125,7 @@ public class WordSearch {
 		return false;
 	}
 
-	public boolean exist2(char[][] board, String word) {
+	public static boolean exist2(char[][] board, String word) {
 		for(int row=0;row<board.length;row++){
 			for(int col=0; col<board[0].length;col++){
 				if(word.charAt(0) == board[row][col]){
