@@ -47,9 +47,36 @@ public class FirstMissingPositive {
     }
 	public static void main (String[] args) {
 		
-		System.out.println( firstMissingPositive( new int[]{
-			7,8,9,11,12
+		System.out.println( firstMissingPositive1( new int[]{
+				3,4,-1,1
 		}));
+	}
+	
+	public static int firstMissingPositive1(int[] nums) {
+		int len = nums.length;
+		
+		for( int i = 0; i< len; i++ ){
+			int num = nums[i];
+
+			if( num > 0 && nums[num - 1] != num && num < len ){
+				swap( i , num - 1, nums );
+				i--;
+			}
+		}
+		
+		for( int i = 0; i< len; i++ ){
+			if( nums[i] != i + 1 ){
+				return i + 1;
+			}
+		}
+		
+		return nums.length + 1;
+	}
+	
+	private static void swap( int index1, int index2, int[] nums ){
+		int temp = nums[index1];
+		nums[index1] = nums[index2];
+		nums[index2] = temp;
 	}
 }
 
