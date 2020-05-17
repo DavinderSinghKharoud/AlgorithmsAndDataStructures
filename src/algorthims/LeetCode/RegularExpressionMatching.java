@@ -64,8 +64,53 @@ public class RegularExpressionMatching {
     
 	public static void main (String[] args) {
 		
-		System.out.println( isMatch( "ab", ".*"));
+		System.out.println( isMatch2( "ab", ".*"));
 		
 	}
+
+	//O( sp ) time complexity and space complexity
+	public static boolean isMatch2(String s, String p) {
+		
+		int len1 = s.length();
+		int len2 = p.length();
+		
+		boolean[][] check = new boolean[ len1 + 1 ][ len2 + 1 ];
+		
+		check[0][0] = true;
+		
+		for( int i = 1; i< check[0].length; i++ ){
+			if( p.charAt( i - 1) == '*' ){
+				check[0][i] = check[0][i - 2];
+			}
+		}
+		
+		for( int i = 1; i<check.length; i++ ){
+			for( int j  = 1; j<check[0].length; j++ ){
+
+				if( p.charAt( j - 1 ) == '.' || p.charAt( j - 1 ) == s.charAt( i - 1 ) ){
+					check[i][j] = check[i - 1][j - 1];
+				}
+				else if( p.charAt(j - 1) == '*' ){
+
+					check[i][j] = check[i][ j - 2 ];
+
+					if( p.charAt( j - 2 ) == '.' || p.charAt( j - 2 ) == s.charAt( i - 1 ) ){
+						check[i][j] = check[i][j] || check[i - 1][j];
+					}
+				}
+				else {
+					check[i][j] = false;
+				}
+			}
+		}
+		
+		return check[ len1 ][ len2 ];	
+	}
 }
+
+
+
+
+
+
 
