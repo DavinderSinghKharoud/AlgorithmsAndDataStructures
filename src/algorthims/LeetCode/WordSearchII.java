@@ -163,6 +163,8 @@ public class WordSearchII {
 			node.children.put(end, null);
 			//so that we do not need to add the characters to get the final string
 			node.word = word;
+
+
         }
     }
 }
