@@ -54,7 +54,60 @@ public class ExclusiveTimeofFunctions {
     }
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(exclusiveTime1(2,
+        System.out.println(Arrays.toString(exclusiveTime2(2,
                 Arrays.asList("0:start:0", "1:start:2", "1:end:5", "0:end:6"))));
     }
+
+    //O(n) time complexity and the stack can go up to the dpeth of atmost n/2, where n refers to the number of elements in the given logs list
+    public static int[] exclusiveTime2(int n, List<String> logs) {
+		
+		int[] res = new int[n];
+		Stack<Integer> stack = new Stack<>();
+		int prev;
+		
+		String[] first = logs.get(0).split(":");
+		stack.push( Integer.parseInt( first[0] ));
+		prev = Integer.parseInt(first[2]);
+		
+		
+		for( int count = 1; count<logs.size(); count++ ){
+			String[] curr = logs.get(count).split(":");
+			
+			if( curr[1].equals( "start" ) ){
+				int temp = Integer.parseInt(curr[2]) - prev;
+				
+				if( !stack.isEmpty() ){
+					res[stack.peek()] += temp;
+				}
+				
+				stack.push( Integer.parseInt(curr[0]) );
+				prev = Integer.parseInt(curr[2]);
+				
+			}else{ // we need to remove
+				int len = Integer.parseInt(curr[2]) - prev + 1;
+				res[Integer.parseInt(curr[0]) ] += len;
+				prev = Integer.parseInt(curr[2]) + 1;
+				stack.pop();
+			}
+		}
+		
+		return res;
+			
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
