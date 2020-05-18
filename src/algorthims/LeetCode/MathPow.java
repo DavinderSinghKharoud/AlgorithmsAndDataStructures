@@ -13,7 +13,7 @@ public class MathPow {
 	
 	public static void main (String[] args) {
 		
-		System.out.println( myPow3(2,10
+		System.out.println( myPow4(2,-2147483648
 		));
 	}
 	
@@ -26,6 +26,19 @@ public class MathPow {
 	    
 	    
 	    return ( n > 0 )? res: 1/res;
+	}
+
+	public static double myPow4(double x, int n) {
+		boolean negative = false;
+		long num = n;
+		if( n < 0 ){
+			 num = -1 * num;
+			negative = true;
+		}
+
+		double temp = Math.pow(x, num);
+
+		return (negative) ? 1/temp : temp;
 	}
 	
 	public static double myPow3(double x, int n) {

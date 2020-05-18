@@ -9,44 +9,35 @@ public class LargestRectangleinHistogram {
 
 	//O(n square) time complexity
 	public static int largestRectangleArea1(int[] heights) {
-		
 		int max = 0;
-		int len = heights.length;
-		
-		for( int i = 0; i < len; i++ ){
-			int reach = i-1;
-			int count = 1;
-			int curr_height = heights[i];
-			
-			//see the left side
-			while( reach >= 0 ){
-				if( heights[ reach-- ] < curr_height ){
-					break;
-				}
-				
-				count ++;
+
+		for( int i = 0; i<heights.length; i++ ){
+
+			int len = 1;
+			int left = i - 1;
+			int right = i + 1;
+
+
+			while( left >= 0 && heights[left] >= heights[i] ){
+				len++;
+				left--;
 			}
-			
-			reach = i+1;
-			//see the right side
-			while( reach <= len - 1 ){
-				if( heights[ reach++ ] < curr_height ){
-					break;
-				}
-				count++;
+
+			while( right < heights.length && heights[right] >= heights[i] ){
+				len++;
+				right++;
 			}
-			
-			int area = count * curr_height;
-			max = Math.max( area, max );
+
+			int area = heights[i] * len;
+			max = Math.max( max, area );
 		}
-        
-        return max;
-    }
-    
+
+		return max;
+	}
 	public static void main (String[] args) {
 		
-		System.out.println( largestRectangleArea3( new int[]{
-			2,1,5,6,2,3
+		System.out.println( largestRectangleArea1( new int[]{
+			2,1,2
 		}));
 	}
 
