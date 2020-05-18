@@ -25,7 +25,7 @@ public class ValidateIPaddressEasy {
     }
 
     public static void main(String[] args) {
-        System.out.println( validateIP("123.24.59.99"));
+        System.out.println( validateIP("008.123.34.56"));
 
     }
 }
