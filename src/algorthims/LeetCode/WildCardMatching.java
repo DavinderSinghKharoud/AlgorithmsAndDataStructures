@@ -69,6 +69,20 @@ package algorthims.LeetCode;/*
  */
 public class WildCardMatching {
 
+	/**
+	 * /*
+	 * 1, If p.charAt(j) == s.charAt(i) :  dp[i][j] = dp[i-1][j-1];
+	 * 2, If p.charAt(j) == '?' : dp[i][j] = dp[i-1][j-1];
+	 * 3, If p.charAt(j) == '*':
+	 *    here are two sub conditions:
+	 *                1   if p.charAt(j-1) != s.charAt(i) or p.charAt(j - 1) != '?' :
+	 *                            dp[i][j] = dp[i][j-1]  //in this case, * only counts as empty
+	 *                2   if p.charAt(j-1) == s.charAt(i) or p.charAt(j-1) == '?':
+	 *                               dp[i][j] = dp[i-1][j]    //in this case, * counts as multiple
+	 *                            or dp[i][j] = dp[i-1][j-1]   // in this case, * counts as single
+	 *                            or dp[i][j] = dp[i][j-1]   // in this case, * counts as empty
+	 *
+	 */
 	//O(sp) time complexity and space complexity
 	public static boolean isMatch(String s, String p) {
 		if( p.length() == 0 && s.length() == 0) return true;
@@ -77,10 +91,6 @@ public class WildCardMatching {
 		boolean[][] dp = new boolean[len1 + 1][len2 + 1];
 		dp[0][0] = true;
 		for(int i = 1; i<=len2; i++ ){
-			if(i == 1 && p.charAt(i-1) == '*' ){
-				dp[0][i] = true;
-				continue;
-			}
 			if( p.charAt(i-1) == '*' ){
 				dp[0][i] = dp[0][i-1];
 			}
