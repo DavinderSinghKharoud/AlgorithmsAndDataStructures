@@ -17,7 +17,8 @@ Explanation: The minimum number of jumps to reach the last index is 2.
 public class  JumpGameII {
 
 	//It is working but, time limit exceeded
-	public static int jump(int[] nums) {
+	//O(n) space complexity and approximately O(n square) time complexity
+	public static int jump1(int[] nums) {
 
 		if( nums.length == 0 ) return 0;
         int[] dp = new int[nums.length];
@@ -44,9 +45,31 @@ public class  JumpGameII {
     }
     
 	public static void main (String[] args) {
-		System.out.println( jump( new int[]{
+		System.out.println( jump2( new int[]{
 			2,1,1,2,3,5
 		}));
+	}
+	
+	
+	//O(n) time complexity 
+	public static int jump2(int[] nums) {
+		if( nums.length == 0 ) return 0;
+		int position = nums[0];
+		int reach = nums[0];
+		
+		int jumps = 1;
+		
+		for( int i = 1; i<nums.length; i++ ){
+			
+			if( position < i ){
+				jumps++;
+				position = reach;
+			}
+			
+			reach = Math.max( reach, nums[i]  + i );
+		}
+		
+		return jumps;
 	}
 }
 
