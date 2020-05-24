@@ -71,6 +71,6 @@ public class UniquePaths {
     public static void main(String[] args) {
 
 
-        System.out.println(uniquePaths2(3, 2));
+        System.out.println(uniquePaths2(2, 2));
     }
 }

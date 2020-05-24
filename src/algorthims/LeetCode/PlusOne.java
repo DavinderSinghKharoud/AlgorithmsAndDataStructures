@@ -1,6 +1,8 @@
 package algorthims.LeetCode;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
 Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
@@ -55,37 +57,33 @@ public class PlusOne {
             str.append(num);
         }
         BigInteger realNum = new BigInteger(str.toString());
-        realNum = realNum.add( new BigInteger("1"));
+        realNum = realNum.add(new BigInteger("1"));
         String string = String.valueOf(realNum);
 
         int result[] = new int[string.length()];
-        for( int i = 0; i<string.length(); i++ ){
+        for (int i = 0; i < string.length(); i++) {
 
-            result[i] = Character.getNumericValue( string.charAt(i) );
+            result[i] = Character.getNumericValue(string.charAt(i));
         }
         return result;
     }
 
-    public static int[] plusOne2( int[] digits){
+    public static int[] plusOne2(int[] digits) {
         int lastDigit = digits[digits.length - 1];
         boolean carry = false;
 
         if (lastDigit < 9) {
             digits[digits.length - 1] = digits[digits.length - 1] + 1;
-        }
-
-        else {
+        } else {
 
             for (int i = digits.length - 1; i >= 0; i--) {
 
                 if (digits[i] >= 9) {
 
                     if (i == 0) {
-
                         digits = new int[digits.length + 1];
                         digits[i] = 1;
                         return digits;
-
                     }
                     digits[i] = 0;
                     carry = true;
@@ -105,14 +103,74 @@ public class PlusOne {
 
 
     }
+
     public static void main(String[] args) {
 
-        int[] result = plusOne(new int[]{
-                1, 2, 3
+        int[] result = plusOne2(new int[]{
+                0, 3, 7, 6, 4, 0, 5, 5, 5
         });
 
         for (int num : result) {
             System.out.println(num);
+        }
+
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(0);
+        arr.add(3);
+        arr.add(7);
+        arr.add(6);
+        arr.add(4);
+        System.out.println( plusOne3(arr));
+    }
+
+    public static ArrayList<Integer> plusOne3(ArrayList<Integer> A) {
+
+        int len = A.size();
+        int lastDigit = A.get( len - 1 );
+        boolean carry = false;
+
+
+
+        if( lastDigit < 9 ){
+            A.set( len - 1, lastDigit + 1 );
+            removeZeroes(A);
+            return A;
+        }else{
+
+            for( int i = len - 1; i>= 0; i-- ){
+
+                if( A.get(i) >= 9 ){
+
+                    if( i == 0 ){
+                        A.set(0, 0);
+                        A.add(0, 1);
+                        removeZeroes(A);
+                        return A;
+                    }
+
+                    A.set(i, 0);
+                    carry = true;
+
+                }else{
+
+                    if( carry ){
+                        A.set( i, A.get(i) + 1 );
+                        removeZeroes(A);
+                        break;
+                    }
+                }
+
+
+            }
+        }
+
+        return A;
+    }
+
+    public static void removeZeroes( ArrayList<Integer> A ){
+
+        while (A.size() > 0 && A.get(0) == 0) {
+            A.remove(0);
         }
     }
 }
