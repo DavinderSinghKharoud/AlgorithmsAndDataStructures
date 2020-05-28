@@ -55,7 +55,7 @@ public class UniqueBinarySearchTrees {
 		System.out.println( numTrees(3) );
 	}
 
-	public int numTrees2(int n) {
+	public static int numTrees2(int n) {
 		long C = 1;
 
 		for (int i = 0; i < n; ++i) {

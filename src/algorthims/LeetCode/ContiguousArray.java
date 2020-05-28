@@ -25,6 +25,7 @@ public class  ContiguousArray {
 			}else{
 			    map.put( count, i);
 			}
+
 		    }
 		    
 		    return max;
