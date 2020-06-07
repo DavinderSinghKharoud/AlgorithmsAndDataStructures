@@ -25,52 +25,77 @@ Can you do it in O(n) time?
 
 
 public class WiggleSubsequence {
-	
-	//Greedy solution O(n) time complexity and O(1) time complexity
-	public static int wiggleMaxLength1(int[] nums) {
-        
+
+    //Greedy solution O(n) time complexity and O(1) time complexity
+    public static int wiggleMaxLength1(int[] nums) {
+
         int len = nums.length;
-        if( len  < 2 ) return len;
-        
+        if (len < 2) return len;
+
         int prevDiff = nums[1] - nums[0];
-        int count = ( prevDiff != 0 ) ? 2: 1;
-        
-        for( int index = 2; index < len; index++ ){
-			int diff = nums[index] - nums[index - 1];
-			if( (diff > 0 && prevDiff <= 0 ) || ( diff < 0 && prevDiff >= 0 ) ){
-				count++;
-				prevDiff = diff;
-			}
-		}
-		
-		return count;
+        int count = (prevDiff != 0) ? 2 : 1;
+
+        for (int index = 2; index < len; index++) {
+            int diff = nums[index] - nums[index - 1];
+            if ((diff > 0 && prevDiff <= 0) || (diff < 0 && prevDiff >= 0)) {
+                count++;
+                prevDiff = diff;
+            }
+        }
+
+        return count;
     }
-    
-	public static void main (String[] args) {
-		System.out.println( wiggleMaxLength2( new int[]{
-			1,17,5,10,13,15,10,5,16,8
-		}));
-	}
 
-	// O(n) time complexity and O(1) time complexity
-	public static int wiggleMaxLength2(int[] nums) {
+    public static void main(String[] args) {
+        System.out.println(wiggleMaxLength3(new int[]{
+                1, 17, 5, 10, 13, 15, 10, 5, 16, 8
+        }));
+    }
 
-		int len = nums.length;
-		if( len  < 2 ) return len;
+    // O(n) time complexity and O(1) time complexity
+    public static int wiggleMaxLength2(int[] nums) {
 
-		int up = 1;
-		int down = 1;
+        int len = nums.length;
+        if (len < 2) return len;
 
-		for (int index = 1; index < len; index++) {
-			int diff = nums[index] - nums[index - 1];
-			if( diff > 0 ){
-				up = down + 1;
-			}else if( diff < 0){
-				down = up + 1;
-			}
-		}
+        int up = 1;
+        int down = 1;
 
-		return Math.max(up, down);
-	}
+        for (int index = 1; index < len; index++) {
+            int diff = nums[index] - nums[index - 1];
+            if (diff > 0) {
+                up = down + 1;
+            } else if (diff < 0) {
+                down = up + 1;
+            }
+        }
+
+        return Math.max(up, down);
+    }
+
+    public static int wiggleMaxLength3(int[] nums) {
+        int len = nums.length;
+        if (len < 2) return len;
+
+        int[] up = new int[len];
+        int[] down = new int[len];
+        up[0] = 1;
+        down[0] = 1;
+        for (int index = 1; index < len; index++) {
+            if( nums[index] > nums[index - 1]  ){
+                up[index] = down[index - 1] + 1;
+                down[index] = down[index - 1];
+            }else if( nums[index] < nums[index - 1] ){
+                down[index] = up[index - 1] + 1;
+                up[index] = up[index - 1];
+            }else{
+                down[index] = down[index - 1];
+                up[index] = up[index - 1];
+            }
+        }
+
+        return Math.max( up[len - 1], down[len - 1] );
+    }
+
 }
 
