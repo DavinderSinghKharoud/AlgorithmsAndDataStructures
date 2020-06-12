@@ -1,4 +1,4 @@
-/*
+package algorthims.LeetCode;/*
 Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
 
 Example 1:
@@ -39,7 +39,7 @@ public class LongestValidParentheses {
 		return max_len;
     }
 	public static void main (String[] args) {
-		System.out.println( longestValidParentheses2("(())"));
+		System.out.println( longestValidParentheses1(")(())"));
 	}
 	
 	//O(n) time complexity and O(1) space complexity
