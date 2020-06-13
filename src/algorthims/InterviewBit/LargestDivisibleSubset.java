@@ -18,11 +18,12 @@ Output: [1,2,4,8]
 import javax.print.attribute.standard.PresentationDirection;
 import java.util.*;
 public class  LargestDivisibleSubset {
-	
+
+    //O(n square) time complexity and O(n) space complexity
 	public static List<Integer> largestDivisibleSubset(int[] nums) {
         int len = nums.length;
         List<Integer> res = new ArrayList<>();
-        if( nums == null || len == 0 ){
+        if(len == 0){
             return res;
         }
 
