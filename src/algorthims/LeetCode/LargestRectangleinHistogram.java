@@ -1,7 +1,8 @@
 package algorthims.LeetCode;
 
 /**
- * Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.**/
+ * Given n non-negative integers representing the histogram's bar height where the width of each bar is 1,
+ * find the area of largest rectangle in the histogram.**/
  
  import java.util.*;
 
@@ -36,7 +37,7 @@ public class LargestRectangleinHistogram {
 	}
 	public static void main (String[] args) {
 		
-		System.out.println( largestRectangleArea1( new int[]{
+		System.out.println( largestRectangleArea2( new int[]{
 			2,1,2
 		}));
 	}
