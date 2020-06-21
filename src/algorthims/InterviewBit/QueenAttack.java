@@ -48,7 +48,7 @@ public class QueenAttack {
 		for( int row = 0; row < n; row++ ){
 			for(int col = 0; col < m; col++ ){
 				if( arr.get(row).charAt(col) == '1' ){
-					traverse( n, m, dp, row, col, arr );
+					traverse2( n, m, dp, row, col, arr );
 				}
 			}
 		}
@@ -66,7 +66,24 @@ public class QueenAttack {
 		return result;
     }
 
-    public static void traverse(int n, int m, int[][] dp, int row, int col, ArrayList<String> arr){
+	public static void traverse2(int n, int m, int[][] dp, int row, int col, ArrayList<String> arr){
+		int[][] direc = { {1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1} };
+
+		for(int[] dir: direc ){
+			int tempRow = row + dir[0];
+			int tempCol = col + dir[1];
+			while ( tempRow >= 0 && tempCol >= 0 && tempRow < n && tempCol < m ){
+				dp[tempRow][tempCol] += 1;
+				if( arr.get(tempRow).charAt(tempCol) == '1' ){
+					break;
+				}
+				tempRow += dir[0];
+				tempCol += dir[1];
+			}
+		}
+
+	}
+		public static void traverse(int n, int m, int[][] dp, int row, int col, ArrayList<String> arr){
 		int tempRow = row;
 		int tempCol = col;
 		//left
