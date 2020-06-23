@@ -20,7 +20,10 @@ Explanation : The 4 possible ways are
 
 import java.util.*;
 public class CoinSumInfinite {
-	
+
+	//O(N) space complexity and O(NM) time complexity
+	//we cannot use coins after num approach as there will be a overlap [1,2,3] s = 4
+	//4 would be 1 + 1 + 2 would repeat twice
 	public static int coinchange2(ArrayList<Integer> coins, int n) {
 
 		int mod = 1000007;
