@@ -1,4 +1,4 @@
-/*
+package algorthims.InterviewBit;/*
  Find the contiguous subarray within an array (containing at least one number) which has the largest product.
 Return an integer corresponding to the maximum product possible.
 
@@ -35,7 +35,7 @@ public class MaxProductSubarray {
 		List<Integer> lst = new ArrayList<>();
 		lst.add(-10);lst.add(10);lst.add(-10);lst.add(10);
 		
-		System.out.println( maxProduct2(lst) );
+		System.out.println( maxProduct3(lst) );
 	}
 
 	// O(n) time and space complexity
@@ -56,6 +56,24 @@ public class MaxProductSubarray {
 		return max;	
 	}
 
+	// O(n) time space complexity
+	public static int maxProduct3(final List<Integer> lst) {
+		int len = lst.size();
+
+		int max = lst.get(0);
+		int min_product = lst.get(0);
+		int max_product = lst.get(0);
+
+		for(int index = 1; index < len; index++ ){
+			int temp_max = Math.max( lst.get(index), Math.max( lst.get(index) * min_product, lst.get(index) * max_product ) );
+			min_product = Math.min( lst.get(index), Math.min( lst.get(index) * min_product, lst.get(index) * max_product ) );
+			max_product = temp_max;
+			max = Math.max( min_product, Math.max(max, max_product ) );
+
+		}
+
+		return max;
+	}
 }
 
 
