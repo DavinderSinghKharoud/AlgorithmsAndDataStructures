@@ -17,24 +17,22 @@ package algorthims.LeetCode;
 public class BinaryTreeMaximumPathSum {
 
 	public static int maxPathSum(TreeNode root) {
-		if (root == null) return 0;
 		int[] max = {Integer.MIN_VALUE};
-		helper(root, max);
+		helper( root, max );
 		return max[0];
 	}
 
-	public static int helper(TreeNode root, int[] max) {
-
-		if (root == null) {
+	public static int helper( TreeNode root, int[] max ){
+		if( root == null ){
 			return 0;
 		}
 
-		int left = helper(root.left, max);
-		int right = helper(root.right, max);
-		int curr = Math.max( root.val, Math.max(root.val + left, root.val + right) );
+		int left = Math.max(0, helper( root.left, max ) );
+		int right = Math.max( 0, helper( root.right, max ) );
 
-		max[0] = Math.max( max[0], Math.max(curr, left + right + root.val ) );
-		return curr;
+		max[0] = Math.max( max[0], left + right + root.val );
+
+		return Math.max( left,right ) + root.val;
 
 	}
 	public static void main (String[] args) {
