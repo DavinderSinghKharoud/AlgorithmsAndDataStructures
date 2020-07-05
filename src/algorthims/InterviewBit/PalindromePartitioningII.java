@@ -84,7 +84,34 @@ public class PalindromePartitioningII {
 	
 	public static void main (String[] args) {
 
-		System.out.println( minCut( "aabcb" ));
+		System.out.println( minCut2( "aabcb" ));
+	}
+
+	public static int minCut2(String s) {
+		int len = s.length();
+
+		boolean[][] dp = new boolean[len][len];
+		int cut[] = new int[len];
+
+		for (int col = 0; col < len; col++) {
+			cut[col] = col; //set maximum # of cut
+			for (int row = 0; row <= len; row++) {
+
+				if( s.charAt(row) == s.charAt(col) && ( col - row <= 1 || dp[row + 1][col - 1] ) ){
+						dp[row][col] = true;
+
+					// if need to cut, add 1 to the previous cut[i-1]
+						if( row > 0 ){
+							cut[col] = Math.min( cut[col], cut[row - 1] + 1 );
+						}else{
+							// if [0...j] is palindrome, no need to cut  
+							cut[col] = 0;
+						}
+				}
+			}
+		}
+
+		return cut[len - 1];
 	}
 }
 

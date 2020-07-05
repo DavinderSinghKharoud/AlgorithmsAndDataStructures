@@ -1,4 +1,4 @@
-package algorthims.AtCoder;
+package algorthims.AtCoderAndGeeksForGeeks;
 
 import java.util.Arrays;
 import java.util.Scanner;
