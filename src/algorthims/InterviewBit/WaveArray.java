@@ -1,23 +1,14 @@
 /*
- * WaveArray.java
- * 
- * Copyright 2020 Davinder singh kharoud <davindersinghkharoud@Davinders-MacBook-Pro.local>
- * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * 
+Given an array of integers, sort the array into a wave like array and return it,
+In other words, arrange the elements into a sequence such that a1 >= a2 <= a3 >= a4 <= a5.....
+
+Example
+
+Given [1, 2, 3, 4]
+
+One possible answer : [2, 1, 4, 3]
+Another possible answer : [4, 1, 3, 2]
+ NOTE : If there are multiple answers possible, return t
  * 
  */
 
