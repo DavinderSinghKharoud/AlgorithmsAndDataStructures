@@ -1,7 +1,5 @@
 package algorthims.LeetCode.Mock;
 
-import Tree.Node;
-
 public class deleteNodeBST {
 
     //O( Log(n) ) time complexity and space complexity depend upon height of the binary tree
