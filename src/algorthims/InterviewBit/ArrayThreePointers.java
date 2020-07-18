@@ -1,23 +1,23 @@
 /*
- * ArrayThreePointers.java
- * 
- * Copyright 2020 Davinder singh kharoud <davindersinghkharoud@Davinders-MacBook-Pro.local>
- * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * 
+You are given 3 arrays A, B and C. All 3 of the arrays are sorted.
+
+Find i, j, k such that :
+max(abs(A[i] - B[j]), abs(B[j] - C[k]), abs(C[k] - A[i])) is minimized.
+Return the minimum max(abs(A[i] - B[j]), abs(B[j] - C[k]), abs(C[k] - A[i]))
+
+**abs(x) is absolute value of x and is implemented in the following manner : **
+
+      if (x < 0) return -x;
+      else return x;
+Example :
+
+Input : 
+        A : [1, 4, 10]
+        B : [2, 15, 20]
+        C : [10, 12]
+
+Output : 5 
+         With 10 from A, 15 from B and 10 from C. 
  * 
  */
 
