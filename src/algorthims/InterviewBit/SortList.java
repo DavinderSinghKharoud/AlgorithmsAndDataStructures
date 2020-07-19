@@ -10,6 +10,7 @@ package algorthims.InterviewBit;
  * Returned list : 1 -> 3 -> 4 -> 5
  */
 public class SortList {
+    //O(n Log(n) ) time complexity and In place sorting O(1) space complexity MergeSort
     public static ListNode sortList(ListNode lst) {
 
         if (lst == null || lst.next == null) { //if there is no element or only single element
@@ -47,7 +48,7 @@ public class SortList {
     }
 
     public static ListNode mergeUtil(ListNode left, ListNode right) {
-        //left node will always have smaller or equal value
+        //left ListNode will always have smaller or equal value
         if (left.next == null) {
             left.next = right;
             return left;
@@ -69,7 +70,7 @@ public class SortList {
                 curr2 = next2;
             } else {
 
-                if (next1.next != null) { //more nodes in the list
+                if (next1.next != null) { //more ListNodes in the list
                     next1 = next1.next;
                     curr1 = curr1.next;
                 } else {
@@ -97,12 +98,16 @@ public class SortList {
 
     public static void main(String[] args) {
 
-        ListNode lst = new ListNode(1);
-        lst.next = new ListNode(5);
-        lst.next.next = new ListNode(4);
-        lst.next.next.next = new ListNode(3);
-
-        ListNode res = sortList(lst);
+//        ListNode lst = new ListNode(6);
+//        lst.next = new ListNode(5);
+//        lst.next.next = new ListNode(4);
+//        lst.next.next.next = new ListNode(1);
+//        lst.next.next.next.next = new ListNode(7);
+        ListNode lst = new ListNode(0);
+        lst.next = new ListNode(1);
+        lst.next.next = new ListNode(7);
+        lst.next.next.next = new ListNode(14);
+        ListNode res = sortList2(lst);
 
         while ( res != null ){
             System.out.println(res.val);
@@ -119,4 +124,73 @@ public class SortList {
             next = null;
         }
     }
+
+
+	//Use a quickSort
+    public static ListNode sortList2(ListNode start) {
+        
+		ListNode end = start;
+		while( end.next != null ){
+			end = end.next;
+		}
+		
+		quickSort(  start, end );
+		return start;
+    }
+    
+    public static void quickSort( ListNode start, ListNode end ){
+		if( start == end ){
+			return;
+		}
+		
+		ListNode pivot_prev = partitionLast( start, end );
+		//perform quickSort for left side
+		quickSort( start, pivot_prev );
+		
+		//perform quickSort for right side
+
+        if( pivot_prev != null && pivot_prev.next != null && pivot_prev.next == end ){
+            return;
+        }
+		if( pivot_prev != null && pivot_prev == start ){ //if the pivot picked is moved to the starting position that means pivot and start is same.
+			quickSort( pivot_prev.next, end );
+			
+		}else if( pivot_prev != null && pivot_prev.next != null ){
+			//if pivot is in-between of the list
+			quickSort( pivot_prev.next.next, end);
+		}
+	}
+	
+	public static ListNode partitionLast( ListNode start, ListNode end ){
+		
+		if( start == end || start == null || end == null ){
+			return start;
+		}
+		
+		ListNode pivot_prev = start;
+		ListNode curr = start;
+		int pivot = end.val;
+		
+		while(  start != end ){
+			
+			if( start.val < pivot ){
+				
+				pivot_prev = curr;
+				int temp = curr.val;
+				curr.val = start.val;
+				start.val = temp;
+				
+				curr = curr.next;
+			}
+			start = start.next;
+		}
+		
+		//swap the position of the current
+		int temp = curr.val;
+		curr.val = pivot;
+		end.val  = temp;
+		
+		return pivot_prev;
+	}
+
 }
