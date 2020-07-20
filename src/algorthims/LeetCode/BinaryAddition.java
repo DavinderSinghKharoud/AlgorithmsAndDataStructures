@@ -95,8 +95,39 @@ public class BinaryAddition {
         return sbr.reverse().toString();
     }
 
+    public static String addBinary2(String a, String b) {
+        int index1 = a.length() - 1 ;
+        int index2 = b.length() - 1;
+
+        StringBuilder sbr = new StringBuilder();
+        int sum = 0;
+        int carry = 0;
+
+        while ( index1 >= 0 && index2 >= 0 ){
+            sum = a.charAt(index1--) - '0' + b.charAt(index2--) - '0' + carry;
+            sbr.append( sum % 2);
+            carry = sum/2;
+        }
+
+        while ( index1 >= 0 ){
+            sum = a.charAt(index1--) - '0' + carry;
+            sbr.append(sum%2);
+            carry = sum/2;
+        }
+
+        while ( index2 >= 0 ){
+            sum = b.charAt(index2--) - '0' + carry;
+            sbr.append(sum%2);
+            carry = sum/2;
+        }
+
+        if( carry != 0 ) sbr.append(carry);
+
+        return sbr.reverse().toString();
+    }
+
     public static void main(String[] args) {
 
-        System.out.println( addBinary("0010", "00011"));
+        System.out.println( addBinary2("11", "1"));
     }
 }
