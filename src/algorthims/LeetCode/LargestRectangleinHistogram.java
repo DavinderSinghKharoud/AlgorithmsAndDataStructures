@@ -38,7 +38,7 @@ public class LargestRectangleinHistogram {
 	public static void main (String[] args) {
 		
 		System.out.println( largestRectangleArea2( new int[]{
-			2,1,2
+				90, 58, 69, 70, 82, 100, 13, 57, 47, 18
 		}));
 	}
 

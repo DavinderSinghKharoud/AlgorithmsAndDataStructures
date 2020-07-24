@@ -60,9 +60,9 @@ public class SlidingWindowMaximum {
 
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(maxSlidingWindow3(new int[]{
-                1,3,-1,-3,5,3,6,7
-        }, 3)));
+        System.out.println(Arrays.toString(maxSlidingWindow1(new int[]{
+                648, 614, 490, 138, 657, 544, 745, 582, 738, 229, 775, 665, 876, 448, 4, 81, 807, 578, 712, 951, 867, 328, 308, 440, 542, 178, 637, 446, 882, 760, 354, 523, 935, 277, 158, 698, 536, 165, 892, 327, 574, 516, 36, 705, 900, 482, 558, 937, 207, 368
+        }, 9)));
 
     }
 

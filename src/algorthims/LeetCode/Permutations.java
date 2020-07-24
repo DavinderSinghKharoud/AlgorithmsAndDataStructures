@@ -72,8 +72,8 @@ public class Permutations {
 
     public static void main(String[] args) {
 
-        List<List<Integer>> result = permute2(new int[]{
-                1, 2, 3
+        List<List<Integer>> result = permute(new int[]{
+                3, 3, 0, 3
         });
 
         for (int i = 0; i < result.size(); i++) {
