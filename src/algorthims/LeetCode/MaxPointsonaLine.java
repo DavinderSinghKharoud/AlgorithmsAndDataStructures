@@ -29,6 +29,8 @@ Explanation:
 0  1  2  3  4  5  6
  */
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.*;
 
 public class MaxPointsonaLine {
@@ -40,7 +42,7 @@ public class MaxPointsonaLine {
 
         if( points.length == 0 ) return 0;
         for( int i = 0; i< points.length ; i++ ){
-			HashMap<Double, Integer> map = new HashMap<>();
+			HashMap<BigDecimal, Integer> map = new HashMap<>();
 			int duplicates = 0, temp_max = 1;
 
 			for( int j = 0; j< points.length; j++ ){
@@ -49,7 +51,7 @@ public class MaxPointsonaLine {
 					duplicates++;
 					continue;
 				}
-				double slope = findSlope( points[i], points[j] );
+				BigDecimal slope = findSlope( points[i], points[j] );
 
 				map.put( slope, map.getOrDefault( slope, 1) + 1);
 				temp_max = Math.max( map.get(slope), temp_max );
@@ -61,17 +63,17 @@ public class MaxPointsonaLine {
 		return max;
     }
 
-	private static double findSlope(int[] point1, int[] point2) {
+	private static BigDecimal findSlope(int[] point1, int[] point2) {
 
-		if( point1[0] == point2[0] ) return 0;
-		if( point1[1] == point2[1] ) return Double.MAX_VALUE;
+		if( point1[0] == point2[0] ) return BigDecimal.valueOf(Integer.MAX_VALUE);
+		if( point1[1] == point2[1] ) return BigDecimal.ZERO;
 		double num = point2[1] - point1[1];
 		double den = point2[0] - point1[0];
 
 		double gcd = generateGCD( den, num );
 		num /= gcd;
 		den /= gcd;
-		double slope = num / den;
+		BigDecimal slope = BigDecimal.valueOf(num).divide(BigDecimal.valueOf(den),new MathContext(20));
 		return slope;
 	}
 

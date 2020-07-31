@@ -84,7 +84,7 @@ public class PalindromePartitioningII {
 	
 	public static void main (String[] args) {
 
-		System.out.println( minCut2( "aabcb" ));
+		System.out.println( minCut2( "aab" ));
 	}
 
 	public static int minCut2(String s) {
@@ -95,7 +95,7 @@ public class PalindromePartitioningII {
 
 		for (int col = 0; col < len; col++) {
 			cut[col] = col; //set maximum # of cut
-			for (int row = 0; row <= len; row++) {
+			for (int row = 0; row <= col; row++) {
 
 				if( s.charAt(row) == s.charAt(col) && ( col - row <= 1 || dp[row + 1][col - 1] ) ){
 						dp[row][col] = true;
