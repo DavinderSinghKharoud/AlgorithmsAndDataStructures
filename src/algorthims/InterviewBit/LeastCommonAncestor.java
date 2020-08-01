@@ -25,7 +25,8 @@ public class LeastCommonAncestor {
     }
 
     //O(n) time and space complexity
-    public static int lca(TreeNode root, int n1, int n2) {
+    public static int lca(TreeNode root, int n1, int n2) { //Works even if the numbers do not exist inside the tree
+
         first = false;
         second = false;
         TreeNode res=traverse(root,n1,n2);
