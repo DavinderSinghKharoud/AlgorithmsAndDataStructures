@@ -4,6 +4,7 @@ import java.util.*;
 
 public class LeastCommonAncestor {
     static boolean first,second;
+
     static TreeNode traverse(TreeNode root,int n1,int n2){
         if(root==null)
             return null;
@@ -22,13 +23,8 @@ public class LeastCommonAncestor {
 
         return ( left != null ) ? left: right;
     }
-    /*	    if(root == null || root.val == n1 || root.val == n2)  return root;
-            TreeNode left = fun(root.left, n1, n2);
-            TreeNode right = fun(root.right, n1, n2);
-            if(left != null && right != null)   return root;
-            return left != null ? left : right;
-        }
-        */
+
+    //O(n) time and space complexity
     public static int lca(TreeNode root, int n1, int n2) {
         first = false;
         second = false;
