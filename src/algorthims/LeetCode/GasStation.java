@@ -30,7 +30,8 @@ Travel to station 3. The cost is 5. Your gas is just enough to travel back to st
 Therefore, return 3 as the starting index.**/
 
 public class GasStation{
-    
+
+	//O(N square) time complexity
     public static int canCompleteCircuit(int[] gas, int[] cost) {
 		
 	int result = -1;
