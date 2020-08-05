@@ -40,7 +40,7 @@ public class JumpGame {
 		     dp[nums.length - 1] = 1;
 
 		  for (int i = nums.length - 1; i >= 0; i--) {
-			      int reach = Math.min( i + nums[i], nums.length - 1);
+		  	int reach = Math.min( i + nums[i], nums.length - 1);
 
 			  for (int j = i + 1; j <= reach ; j++) {
 				   if( dp[j] == 1 ){

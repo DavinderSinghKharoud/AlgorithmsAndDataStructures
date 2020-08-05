@@ -46,12 +46,18 @@ public class  JumpGameII {
     
 	public static void main (String[] args) {
 		System.out.println( jump2( new int[]{
-			2,1,1,2,3,5
+				1,0,1
 		}));
 	}
 	
 	
-	//O(n) time complexity 
+	//O(n) time complexity
+
+	/**
+	 * With the current number of steps, try to maintain the maximum index which is reachable. When you exceed the index, you have to increase the number of steps, and at that instance you can increase the maximum index reachable accordingly.
+	 * @param nums
+	 * @return
+	 */
 	public static int jump2(int[] nums) {
 		if( nums.length == 0 ) return 0;
 		int position = nums[0];
@@ -60,7 +66,7 @@ public class  JumpGameII {
 		int jumps = 1;
 		
 		for( int i = 1; i<nums.length; i++ ){
-			
+			if( reach < i ) return -1;
 			if( position < i ){
 				jumps++;
 				position = reach;
