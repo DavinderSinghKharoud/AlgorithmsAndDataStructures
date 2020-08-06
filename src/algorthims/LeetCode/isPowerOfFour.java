@@ -11,7 +11,14 @@ public class isPowerOfFour {
 
         return false;
     }
+
+
     public static void main(String[] args) {
-        System.out.println( isPowerOfFour(16));
+        System.out.println( isPowerOfFour2(8));
+    }
+
+    public static boolean isPowerOfFour2(int num) {
+        System.out.println((num -1 ) % 3 );
+        return num > 0 && (num & (num - 1)) == 0 && (num - 1) % 3 == 0;
     }
 }
