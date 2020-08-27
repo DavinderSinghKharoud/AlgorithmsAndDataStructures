@@ -68,10 +68,10 @@ public class MedianofTwoSortedArrays {
 
     public static void main(String[] args) {
 
-        System.out.println(findMedianSortedArrays2(new int[]{
-                1, 3
+        System.out.println(findMedianSortedArraysPractice(new int[]{
+1,3
         }, new int[]{
-                2
+2
         }));
     }
 
@@ -111,6 +111,46 @@ public class MedianofTwoSortedArrays {
                 right = partitionX - 1;
             } else {
                 left = partitionX + 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public static double findMedianSortedArraysPractice(int[] nums1, int[] nums2) {
+
+
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+
+        if( len1 > len2 ){
+            return findMedianSortedArraysPractice(nums2, nums1);
+        }
+        boolean isOdd = ( (len1 + len2) % 2 != 0 );
+        int start = 0;
+        int end = nums1.length;
+
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            int partition = ( len1 + len2 + 1)/2 - mid;
+
+            int before1 = (mid > 0) ? nums1[mid - 1] : Integer.MIN_VALUE;
+            int after1 = (mid < len1) ? nums1[mid] : Integer.MAX_VALUE;
+
+            int before2 = (partition > 0) ? nums2[partition - 1] : Integer.MIN_VALUE;
+            int after2 = (partition < len2) ? nums2[partition] : Integer.MAX_VALUE;
+
+            if (before1 > after2) {
+                end = mid - 1;
+            } else if ( before2 > after1 ) {
+                start = mid + 1;
+            } else {
+                if( isOdd ){
+                    return Math.max( before1, before2);
+                }else{
+                    return (double)(Math.max( before1, before2) + Math.min(after1, after2) )/2;
+                }
             }
         }
 
