@@ -27,7 +27,7 @@ public class ImplementStrStr {
     public static void main(String[] args) {
 
 		//System.out.println(strStr("hello", "afsdfhello"));
-		System.out.println(strStr2("abcaby","abxabcabcaby"));
+		System.out.println(strStr2("abcabyab","abxabcabcaby"));
     }
 
 
