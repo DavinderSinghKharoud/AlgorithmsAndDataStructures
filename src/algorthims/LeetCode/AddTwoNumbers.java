@@ -1,6 +1,5 @@
 package algorthims.LeetCode;
 
-import java.util.List;
 
 public class AddTwoNumbers {
 
