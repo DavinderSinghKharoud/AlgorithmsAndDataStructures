@@ -18,7 +18,6 @@ package algorthims.LeetCode;
 public class LinkedListCycleII {
 	
 	public static ListNode detectCycle(ListNode head) {
-	        
 	     ListNode slow = head;
 	     ListNode fast = head;
 
@@ -42,15 +41,15 @@ public class LinkedListCycleII {
     }
     
 	public static void main (String[] args) {
-		ListNode lst = new ListNode(3);
+		ListNode lst = new ListNode(1);
         lst.next = new ListNode(2);
-        lst.next.next = new ListNode(0);
-        lst.next.next.next = new ListNode(-4);
-        lst.next.next.next.next = lst.next;
+        lst.next.next = new ListNode(3);
+        lst.next.next.next = new ListNode(4);
+        lst.next.next.next.next = lst.next.next;
 
         ListNode zero = new ListNode(1);
         zero.next = new ListNode(2);
-        System.out.println( detectCycle( zero ).val);
+        System.out.println( detectCycle( lst ).val);
 	}
 	
 	static class ListNode {
