@@ -4,9 +4,7 @@ import java.util.Stack;
 
 public class MinStack {
 
-    Stack<int[]> stack = new Stack<int[]>();
-
-
+    Stack<int[]> stack = new Stack<>();
 
     public void push(int x) {
         int min = Math.min(x, getMin());
@@ -36,9 +34,9 @@ public class MinStack {
         minStack.push(-2);
         minStack.push(0);
         minStack.push(-3);
-        System.out.println( minStack.getMin() );
+        System.out.println(minStack.getMin());
         minStack.pop();
-        System.out.println( minStack.top() );
-        System.out.println( minStack.getMin() );
+        System.out.println(minStack.top());
+        System.out.println(minStack.getMin());
     }
 }
