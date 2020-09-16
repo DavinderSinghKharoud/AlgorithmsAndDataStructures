@@ -52,6 +52,7 @@ public class Permutations {
 		lst.set(first, lst.get(second) );
 		lst.set(second, temp);
 	}
+
 	public static void main (String[] args) {
 		ArrayList<Integer> lst = new ArrayList<>();
 		lst.add(1);lst.add(2);lst.add(3);
