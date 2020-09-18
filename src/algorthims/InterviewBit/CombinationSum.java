@@ -40,7 +40,7 @@ public class CombinationSum {
 		
 		for( int index = start; index < lst.size(); index++ ){
 			int num = lst.get(index);
-			if( index == start || lst.get(index) != lst.get(index - 1) ){
+			if( index == start || !lst.get(index).equals(lst.get(index - 1))){
 				curr.add(num);
 				traverse( lst, target - num, res, curr, index );
 				curr.remove(curr.size() - 1);
