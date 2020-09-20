@@ -101,6 +101,7 @@ public class NQueens {
 		
 		return true;
 	}
+
 	public static void addArray( char[][] dp, ArrayList<ArrayList<String>> res	){
 		
 		ArrayList<String> lst = new ArrayList<>();
