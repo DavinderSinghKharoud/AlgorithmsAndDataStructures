@@ -54,7 +54,7 @@ import java.util.*;
 		 if (prev == null) {
 			 next.prev = null;
 			 head = next;
-		 } else if (next == null) {
+		 } else {
 			 prev.next = null;
 			 tail = prev;
 		 }
@@ -78,17 +78,17 @@ import java.util.*;
 
 
 	public static void main (String[] args) {
-		    LRUCache cache = new LRUCache( 2 /* capacity */ );
+		    LRUCache lRUCache = new LRUCache( 2 /* capacity */ );
 
-		    cache.put(1, 1);
-		    cache.put(2, 2);
-		System.out.println( cache.get(1) );       // returns 1
-		    cache.put(3, 3);    // evicts key 2
-		System.out.println(cache.get(2));      // returns -1 (not found)
-		    cache.put(4, 4);    // evicts key 1
-		System.out.println(cache.get(1));      // returns -1 (not found)
-		System.out.println(cache.get(3));     // returns 3
-		System.out.println(cache.get(4));      // returns 4
+		lRUCache.put(1, 1); // cache is {1=1}
+		lRUCache.put(2, 2); // cache is {1=1, 2=2}
+		System.out.println(lRUCache.get(1));    // return 1
+		lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+		System.out.println(lRUCache.get(2));    // returns -1 (not found)
+		lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+		System.out.println(lRUCache.get(1));    // return -1 (not found)
+		System.out.println(lRUCache.get(3));    // return 3
+		System.out.println(lRUCache.get(4));    // returns 4
 	}
 
 
