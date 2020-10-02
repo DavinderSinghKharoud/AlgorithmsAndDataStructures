@@ -40,6 +40,10 @@ public class BinaryTree {
         preOrder( node.right );
     }
 
+    void preOrderUsingStack( Node node){
+
+    }
+
     void postOrder( Node node ){
         if( node == null ){
             return;
