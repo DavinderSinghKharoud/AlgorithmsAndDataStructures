@@ -11,7 +11,7 @@ public class WordSearchII {
     //O(board.length) space complexity and time complexity O(not sure 4 is to power m), as we need to traverse the whole 2d array for each word
     public static List<String> findWords(char[][] board, String[] words) {
 
-        HashMap<Character, List<int[]>> map = new HashMap<>();
+            HashMap<Character, List<int[]>> map = new HashMap<>();
         List<String> res = new ArrayList<>();
 
         for (int row = 0; row < board.length; row++) {
