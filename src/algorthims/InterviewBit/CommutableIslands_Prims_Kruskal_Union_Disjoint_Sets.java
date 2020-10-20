@@ -1,4 +1,4 @@
-//package algorthims.InterviewBit;
+package algorthims.InterviewBit;
 
 /**
  * There are A islands and there are M bridges connecting them. Each bridge has some cost attached to it.
@@ -52,7 +52,7 @@
 
 import java.util.*;
 
-public class CommutableIslands {
+public class CommutableIslands_Prims_Kruskal_Union_Disjoint_Sets {
 
     //O(V square) time complexity and O( E * V ) space complexity ( Prims )
     public static int solve(int numOfNodes, ArrayList<ArrayList<Integer>> lst) {
@@ -175,6 +175,74 @@ public class CommutableIslands {
         }
 
         return cost;
+    }
+    
+    //Krushkal ( O( E * log_V ) time complexity and O(E) space complexity )
+    //O(log V) time complexity and O( V ) space complexity for Union Disjoint sets
+    public static int solve3(int numOfNodes, ArrayList<ArrayList<Integer>> lst) {
+
+        PriorityQueue<ArrayList<Integer>> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o.get(2)));
+        pq.addAll(lst);
+
+
+        Map<Integer, Node> map = new HashMap<>(); // to store the nodes for union - set
+        makeSet(map, numOfNodes);
+
+        int res = 0;
+        int countOfEdges = 0;
+        while (countOfEdges != numOfNodes - 1) {
+
+            ArrayList<Integer> curr = pq.poll();
+
+            Node parent1 = getParent(map.get(curr.get(0)));
+            Node parent2 = getParent(map.get(curr.get(1)));
+
+            if (parent1 == parent2) { //We should not include as it will create a cycle
+                continue;
+            }
+
+            if (parent1.rank >= parent2.rank) {
+                parent1.rank = (parent1.rank == parent2.rank) ? parent1.rank + 1 : parent1.rank;
+                parent2.parent = parent1;
+            } else {
+                parent1.parent = parent2;
+            }
+
+            res += curr.get(2);
+            countOfEdges++;
+        }
+
+        return res;
+
+    }
+
+    public static Node getParent(Node node) {
+        Node parent = node.parent;
+        if (parent == node) return parent; // As it is a absolute parent
+
+        node.parent = getParent(parent); //Comressing the path while finding the parent node
+        return node.parent;
+    }
+
+    public static void makeSet(Map<Integer, Node> map, int numOfNodes) {
+
+        for (int count = 1; count <= numOfNodes; count++) {
+            Node curr = new Node();
+            curr.data = count;
+            curr.rank = 0;
+            curr.parent = curr;
+
+            map.put(count, curr); //Add the node in to Map
+        }
+    }
+
+    static class Node {
+        int data;
+        int rank;
+        Node parent;
+
+        public Node() {
+        }
     }
 
     static class Pair {
