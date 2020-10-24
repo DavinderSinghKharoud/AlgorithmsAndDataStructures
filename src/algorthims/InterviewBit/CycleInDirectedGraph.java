@@ -149,6 +149,7 @@ public class CycleInDirectedGraph {
         System.out.println(solve2(5, lst));
     }
 
+    //O(n square ) time complexity and O(n) space complexity
     static int visited[];
     public static int solve2(int A, ArrayList<ArrayList<Integer>> B) {
 
