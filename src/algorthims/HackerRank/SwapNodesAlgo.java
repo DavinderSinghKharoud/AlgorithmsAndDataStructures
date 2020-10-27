@@ -123,6 +123,7 @@ import java.util.*;
  */
 public class SwapNodesAlgo {
 
+    //O(Vertices + Edges) time and space complexity
     static int[][] swapNodes(int[][] indexes, int[] queries) {
 
         Node root = new Node(1);

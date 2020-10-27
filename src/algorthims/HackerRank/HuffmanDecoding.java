@@ -46,7 +46,7 @@ import java.util.*;
  We move back to the root.
 
  Decoded String = "ABACA"*/
-public class HuffmannDecoding {
+public class HuffmanDecoding {
 
     static void decode(String s, Node root) {
 
