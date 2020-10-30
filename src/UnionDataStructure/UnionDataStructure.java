@@ -32,7 +32,7 @@ public class UnionDataStructure {
 		}
 		
 		//else whoever rank is higher becomes a parent 
-		if( parent1.rank >= parent2.rank ){
+			if( parent1.rank >= parent2.rank ){
 			//increment only when both sets have same rank
 			parent1.rank = ( parent1.rank == parent2.rank ) ? parent1.rank + 1: parent1.rank;
 			parent2.parent = parent1;
