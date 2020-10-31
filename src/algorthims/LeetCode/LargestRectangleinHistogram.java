@@ -6,7 +6,9 @@ package algorthims.LeetCode;
  
  import java.util.*;
 
-public class LargestRectangleinHistogram {
+public class
+
+LargestRectangleinHistogram {
 
 	//O(n square) time complexity
 	public static int largestRectangleArea1(int[] heights) {
