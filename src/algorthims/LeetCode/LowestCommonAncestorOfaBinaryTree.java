@@ -33,7 +33,7 @@ public class LowestCommonAncestorOfaBinaryTree {
 
         if (mid + left + right >= 2) ans = current;
 
-        return (mid + left + right > 0) ? true : false;
+        return mid + left + right > 0;
 
     }
 
