@@ -52,28 +52,37 @@ public class FindMedianfromDataStream {
 	public static void main (String[] args) {
 
         FindMedianfromDataStream findMedianfromDataStream = new FindMedianfromDataStream();
-        findMedianfromDataStream.addNum(-1);
+        findMedianfromDataStream.addNum2(1);
         //System.out.println( findMedianfromDataStream.findMedian() );
 
-        findMedianfromDataStream.addNum(-2);
+        findMedianfromDataStream.addNum2(2);
         //System.out.println( findMedianfromDataStream.findMedian() );
 
-        findMedianfromDataStream.addNum(-3);
+        findMedianfromDataStream.addNum2(3);
         System.out.println( findMedianfromDataStream.findMedian() );
 	}
 
 	//O(log(n) ) time complexity and O(n) space complexity
 
 	
-	//max_heap
-	PriorityQueue<Integer> lowers;
-	//min_heap
-	PriorityQueue<Integer> highers;
+		//max_heap
+		PriorityQueue<Integer> lowers;
+		//min_heap
+		PriorityQueue<Integer> highers;
 	
     public FindMedianfromDataStream() {
 		lowers = new PriorityQueue<>( (o1, o2) -> o2 - o1 );
 		highers = new PriorityQueue<>();
     }
+	public void addNum2(int num) {
+    	lowers.add(num);
+
+    	highers.add(lowers.poll());
+
+    	if( highers.size() > lowers.size() ){
+    		lowers.add(highers.poll());
+		}
+	}
 
     public void addNum(int num) {
 

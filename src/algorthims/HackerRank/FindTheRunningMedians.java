@@ -75,4 +75,6 @@ public class FindTheRunningMedians {
 
         System.out.println(Arrays.toString(runningMedian(new int[]{0, 0})));
     }
+
+
 }
