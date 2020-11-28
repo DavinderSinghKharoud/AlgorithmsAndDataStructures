@@ -56,7 +56,7 @@ public class FenwickTree {
 
     /**
      * To get parent
-     * 1) 2's complement to get minus of index
+     * 1) 2's complement to get minus of index  ( We can find the 2's complement by reversing all the bits and add 1 )
      * 2) AND this with index
      * 3) Subtract that from index
      */
@@ -64,13 +64,17 @@ public class FenwickTree {
         return index - (index & -index);
     }
 
+    public int sumRange(int[] arr, int index1, int index2 ){
+        return getSum(arr, index2) - getSum(arr, index1 - 1); //Inclusive
+    }
     public static void main(String[] args) {
 
         FenwickTree fenwickTree = new FenwickTree();
         int[] input = new int[]{1, 2, 3, 4, 5, 6, 7};
         int[] arr = fenwickTree.createTree(input);
         System.out.println(fenwickTree.getSum(arr, 3));
-        fenwickTree.updateAndAddValue(arr, 3, 1);
+        //fenwickTree.updateAndAddValue(arr, 3, 1);
         System.out.println(fenwickTree.getSum(arr, 3));
+        System.out.println(fenwickTree.sumRange(arr, 1, 3));
     }
 }
