@@ -58,7 +58,7 @@ import java.util.*;
 public class CubeSummation {
 
     //Time complexity O( n^3 ) and Space complexity O(n*n*n)
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         int test = sc.nextInt();
@@ -85,7 +85,7 @@ public class CubeSummation {
         arr[x][y][z] = val;
     }
 
-    static long getSum(int[][][] arr, int x1, int y1, int z1, int x2, int y2, int z2) {
+    private static long getSum(int[][][] arr, int x1, int y1, int z1, int x2, int y2, int z2) {
 
         long sum = 0;
         for (int x = x1; x <= x2; x++) {
@@ -99,5 +99,47 @@ public class CubeSummation {
         return sum;
     }
 
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+
+        while (test-- > 0) {
+            int len = sc.nextInt(); //We do not really need this as we are using MAP
+            Map<String, Integer> map = new HashMap<>();
+
+            int queries = sc.nextInt();
+
+            while (queries-- > 0) {
+                String type = sc.next();
+                StringBuilder sbr;
+                if (type.equals("UPDATE")) {
+                    sbr = new StringBuilder();
+                    sbr.append(sc.nextInt() + " ").append(sc.nextInt() + " ").append(sc.nextInt());
+                    map.put(sbr.toString(), sc.nextInt());
+                } else {
+                    long res = 0;
+                    int x1 = sc.nextInt();
+                    int y1 = sc.nextInt();
+                    int z1 = sc.nextInt();
+                    int x2 = sc.nextInt();
+                    int y2 = sc.nextInt();
+                    int z2 = sc.nextInt();
+                    for (String key : map.keySet()) {
+                        String[] arr = key.split(" ");
+                        int x = Integer.parseInt(arr[0]);
+                        int y = Integer.parseInt(arr[1]);
+                        int z = Integer.parseInt(arr[2]);
+
+                        if (x >= x1 && x <= x2 && y >= y1 && y <= y2 && z >= z1 && z <= z2) {
+                            res += map.get(key);
+                        }
+                    }
+
+                    System.out.println(res);
+                }
+            }
+        }
+    }
 
 }

@@ -1,4 +1,4 @@
-package Tree;
+package Trees;
 
 
 import java.util.ArrayDeque;

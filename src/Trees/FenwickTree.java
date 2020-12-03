@@ -1,4 +1,4 @@
-package algorithms.HackerRank;
+package Trees;
 
 /**
  * * Write a program to implement fenwick or binary indexed tree
