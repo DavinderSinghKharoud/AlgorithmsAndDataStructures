@@ -53,7 +53,7 @@ import java.util.*;
  * image
  * Greg can add a new node  with  and create a new edge connecting nodes  and . Then he cuts the edge connecting nodes  and  and the edge connecting nodes  and . We now have a three-tree balanced forest where each tree has a sum of .
  * image
- * In the second query, it's impossible to add a node in such a way that we can split the tree into a three-tree balanced forest so we return .
+ * In the second query, it's impossible to add a node in such a way that we can split the tree into a three-tree balanced forest so we return .Super Maximum Cost Queries
  */
 public class BalancedForests {
     public static void main(String[] args) {
