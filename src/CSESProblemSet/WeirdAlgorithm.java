@@ -4,8 +4,8 @@ import java.util.StringTokenizer;
 import java.util.*;
 
 /**
- * Consider an algorithm that takes as input a positive integer n
- * n
+ * Consider an algorithm that takes as input a positive integcr n
+ * n	
  * . If n
  * n
  *  is even, the algorithm divides it by two, and if n
@@ -13,7 +13,7 @@ import java.util.*;
  *  is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until n
  * n
  *  is one. For example, the sequence for n=3
- * n
+ * n	
  * =
  * 3
  *  is as follows:
