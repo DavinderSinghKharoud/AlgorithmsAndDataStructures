@@ -4,63 +4,93 @@ import java.util.StringTokenizer;
 import java.util.*;
 
 /**
- * The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+ * Consider an algorithm that takes as input a positive integer n
+ * n
+ * . If n
+ * n
+ *  is even, the algorithm divides it by two, and if n
+ * n
+ *  is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until n
+ * n
+ *  is one. For example, the sequence for n=3
+ * n
+ * =
+ * 3
+ *  is as follows:
+ * 3→10→5→16→8→4→2→1
+ * 3
+ * →
+ * 10
+ * →
+ * 5
+ * →
+ * 16
+ * →
+ * 8
+ * →
+ * 4
+ * →
+ * 2
+ * →
+ * 1
  *
- * Given an integer n, return the number of distinct solutions to the n-queens puzzle.
+ * Your task is to simulate the execution of the algorithm for a given value of n
+ * n
+ * .
  *
+ * Input
  *
+ * The only input line contains an integer n
+ * n
+ * .
  *
- * Example 1:
+ * Output
  *
+ * Print a line that contains all values of n
+ * n
+ *  during the algorithm.
  *
- * Input: n = 4
- * Output: 2
- * Explanation: There are two distinct solutions to the 4-queens puzzle as shown.
- * Example 2:
+ * Constraints
+ * 1≤n≤106
+ * 1
+ * ≤
+ * n
+ * ≤
+ * 10
+ * 6
  *
- * Input: n = 1
- * Output: 1
+ * Example
  *
+ * Input:
+ * 3
  *
- * Constraints:
- *
- * 1 <= n <= 9
- *
- *
+ * Output:
+ * 3 10 5 16 8 4 2 1
  */
-public class QueenPlacement {
+public class WeirdAlgorithm {
 
     static PrintWriter out = new PrintWriter(System.out);
 
-	static int count = 0;
     public static void main(String[] args) {
 
         FastReader fastReader = new FastReader();
-
-		int len = fastReader.nextInt();
-		boolean[] col = new boolean[len];
-		boolean[] dia1 = new boolean[len * len], dia2 = new boolean[len * len];
 		
-		search( 0, col, dia1, dia2 );
-		out.println(count);
-		out.close();
-    }
-    
-    static void search( int row, boolean[] col, boolean[] dia1, boolean[] dia2 ){
-		if( row == col.length ){
-			count++;
-		}else{
-			
-			for(int currCol = 0; currCol < col.length; currCol++ ){
-				if( col[currCol] || dia1[row + currCol] || dia2[row - currCol + col.length - 1]) continue;
-				col[currCol] = dia1[row + currCol] = dia2[row - currCol + col.length - 1] = true;
-				search( row + 1, col, dia1, dia2 );
-				col[currCol] = dia1[row + currCol] = dia2[row - currCol + col.length - 1] = false;
+		long limit = fastReader.nextInt();
+		out.print( limit + " ");
+		
+		while( limit != 1 ){
+			if( (limit & 1) == 0){
+				limit /= 2;
+			}else{
+				limit *= 3;
+				limit++;
 			}
 			
-			
+			out.print(limit + " ");
 		}
-	}
+		
+        out.close();
+    }
 
 
     static class FastReader {
