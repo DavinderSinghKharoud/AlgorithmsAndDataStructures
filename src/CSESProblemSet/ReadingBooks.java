@@ -2,51 +2,28 @@
 import java.io.*;
 import java.util.*;
 
-public class FactoryMachines {
+public class ReadingBooks {
 
     static PrintWriter out = new PrintWriter(System.out);
     static FastReader fastReader = new FastReader();
 
     public static void main(String[] args) {
 
-		int count = fastReader.nextInt();
+		int tests = fastReader.nextInt();
+		int[] arr = new int[tests];
+		long sum = 0;
 		
-		int products = fastReader.nextInt();
-		
-		int[] arr = new int[count];
-		for(int index = 0; index < count; index++ ){
+		for( int index = 0; index < tests; index++ ){
 			arr[index] = fastReader.nextInt();
-		}
-
-
-		long low = 1;
-		long high = (long)1e18;
-		
-		while( low < high ){
-			long mid = ( high - low )/2 + low;
-			if( isValid(mid, arr, products)){
-				high = mid;
-			}else{
-				low = mid + 1;
-			}
-		
+			sum += arr[index];
 		}
 		
-		out.print(low);
+		Arrays.sort(arr);
+		
+		out.print( Math.max( sum, 2 * (arr[tests - 1]) ));
 
         out.close();
     }
-    
-    static boolean isValid(long time, int[] arr, int products){
-		long total = 0;
-		
-		for(int num: arr ){
-			total += (time/num);
-			if( total >= products ) return true;
-		}
-		
-		return total >= products;
-	}
 
 
     static class FastReader {
