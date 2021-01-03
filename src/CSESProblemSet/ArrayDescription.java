@@ -1,14 +1,171 @@
-
 import java.io.*;
 import java.util.*;
 
-public class IOFastest {
-
+/**
+ * You know that an array has n
+ * n
+ *  integers between 1
+ * 1
+ *  and m
+ * m
+ * , and the difference between two adjacent values is at most 1
+ * 1
+ * .
+ *
+ * Given a description of the array where some values may be unknown, your task is to count the number of arrays that match the description.
+ *
+ * Input
+ *
+ * The first input line has two integers n
+ * n
+ *  and m
+ * m
+ * : the array size and the upper bound for each value.
+ *
+ * The next line has n
+ * n
+ *  integers x1,x2,…,xn
+ * x
+ * 1
+ * ,
+ * x
+ * 2
+ * ,
+ * …
+ * ,
+ * x
+ * n
+ * : the contents of the array. Value 0
+ * 0
+ *  denotes an unknown value.
+ *
+ * Output
+ *
+ * Print one integer: the number of arrays modulo 109+7
+ * 10
+ * 9
+ * +
+ * 7
+ * .
+ *
+ * Constraints
+ * 1≤n≤105
+ * 1
+ * ≤
+ * n
+ * ≤
+ * 10
+ * 5
+ *
+ * 1≤m≤100
+ * 1
+ * ≤
+ * m
+ * ≤
+ * 100
+ *
+ * 0≤xi≤m
+ * 0
+ * ≤
+ * x
+ * i
+ * ≤
+ * m
+ *
+ * Example
+ *
+ * Input:
+ * 3 5
+ * 2 0 2
+ *
+ * Output:
+ * 3
+ *
+ * Explanation: The arrays [2,1,2]
+ * [
+ * 2
+ * ,
+ * 1
+ * ,
+ * 2
+ * ]
+ * , [2,2,2]
+ * [
+ * 2
+ * ,
+ * 2
+ * ,
+ * 2
+ * ]
+ *  and [2,3,2]
+ * [
+ * 2
+ * ,
+ * 3
+ * ,
+ * 2
+ * ]
+ *  match the description.
+ */
+public class ArrayDescription {
     static PrintWriter out = new PrintWriter(System.out);
     static Reader fastReader = new Reader();
+    static StringBuilder sbr = new StringBuilder();
+    static int mod = (int)1e9 + 7;
+    static int dmax = Integer.MAX_VALUE;
+    static int dmin = Integer.MIN_VALUE;
 
-    static void solve() {
-
+    static void solve() throws IOException {
+			
+		int len = fastReader.intNext();
+		int bound = fastReader.intNext();
+		
+		int[] arr = new int[len];
+		
+		for(int i =0; i < len; i++ ){
+			arr[i] = fastReader.intNext();
+		}
+		
+		int[][] dp = new int[len][bound + 1];
+		
+		if( arr[0] == 0 ){ //If starting is zero then try to place all the numbers
+			Arrays.fill(dp[0], 1);
+		}else{
+			dp[0][arr[0]] = 1;
+		}
+		
+		for(int i = 1; i < len; i++ ){
+			int curr = arr[i];
+			
+			if( curr == 0 ){
+				//Try to place all the numbers 
+				
+				for(int place = 1; place <= bound; place++ ){
+					for(int k: new int[]{place - 1, place, place + 1}){
+						if( k >= 1 && k <= bound ){ //If it is inside the boundaries
+							dp[i][place] = ( dp[i][place] + dp[i - 1][k]) % mod;
+						}
+					}
+				}
+			}else{
+				
+				for(int k: new int[]{curr - 1, curr, curr + 1}){
+					if( k >= 1 && k <= bound ){
+						dp[i][curr] = (dp[i][curr] + dp[i - 1][k]) % mod;
+					}
+				}
+			}
+		}
+		
+		
+		
+		int res = 0;
+		for(int i = 1; i <= bound; i++ ){
+			res = (res + dp[len - 1][i]) % mod;
+		}
+		
+		print( res );
+		
     }
 
 
@@ -135,48 +292,6 @@ public class IOFastest {
     }
 
     /**
-     * TreeMultiset utility class. It's just like MultiSet(sorted), but allows duplicate elements *
-     */
-    static private class TreeMultiSet<Type extends Comparable<Type>> extends TreeMap<Type, Integer> {
-        int totalCount = 0;
-
-        int getTotalCount() {
-            return totalCount;
-        }
-
-        // get count of item
-        int getCount(Type item) {
-            return getOrDefault(item, 0);
-        }
-
-        // add count items, returns new count of the item.
-        int addItems(Type item, int count) {
-            totalCount += count;
-            int newCount = getOrDefault(item, 0) + count;
-            put(item, newCount);
-            return newCount;
-        }
-
-        //remove count items, returns the count that was actually removed
-        int removeItems(Type item, int count) {
-            int oldCount = getOrDefault(item, count);
-            if (oldCount > count) {
-                put(item, oldCount - count);
-            } else {
-                remove(item);
-                count = oldCount;
-            }
-            totalCount -= count;
-            return count;
-        }
-
-        @Override
-        public String toString() {
-            return super.toString();
-        }
-    }
-
-    /**
      * Tree Multiset utility class *
      */
     static class TMultiset<T extends Number> extends TreeMap<T, Integer> {
@@ -216,9 +331,9 @@ public class IOFastest {
     }
 
     /**
-     * HMultiset utility class. It's just like Set, but allows duplicate elements *
+     * It is a HashMap
      */
-    static class HMultiset<T> extends HashMap<T, Integer> {
+    static class HMap<T> extends HashMap<T, Integer> {
         void add(T key) {
             Integer count = get(key);
             put(key, count == null ? 1 : count + 1);
@@ -245,46 +360,14 @@ public class IOFastest {
         }
     }
 
-    private void sort(int[][] a, int s, int e) {
-        if (e - s < 1) {
-            return;
-        }
-
-        int mid = (e + s) >> 1;
-        sort(a, s, mid);
-        sort(a, mid + 1, e);
-
-        int[][] temp = new int[e - s + 1][];
-        int idx = 0;
-        int i = s;
-        int j = mid + 1;
-        while (i <= mid && j <= e) {
-            if (a[i][1] <= a[j][1]) {
-                temp[idx++] = a[i++];
-            } else {
-                temp[idx++] = a[j++];
-            }
-        }
-        while (i <= mid) {
-            temp[idx++] = a[i++];
-        }
-        while (j <= e) {
-            temp[idx++] = a[j++];
-        }
-        for (i = s; i <= e; i++) {
-            a[i] = temp[i - s];
-        }
-    }
 
     static void print(Object object) {
         out.print(object);
     }
 
     static void println(Object object) {
-        out.print(object);
+        out.println(object);
     }
-
-
 }
 
 
