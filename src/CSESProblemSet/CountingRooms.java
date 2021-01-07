@@ -1,15 +1,53 @@
-
 import java.io.*;
 import java.util.*;
 
-public class IOFastest {
-
+public class CountingRooms{
     static PrintWriter out = new PrintWriter(System.out);
     static Reader fastReader = new Reader();
+    static StringBuilder sbr = new StringBuilder();
+    static int mod = (int)1e9 + 7;
+    static int dmax = Integer.MAX_VALUE;
+    static int dmin = Integer.MIN_VALUE;
 
-    static void solve() {
-
+    static void solve() throws IOException {
+			
+		int n = fastReader.intNext();
+		int m = fastReader.intNext();
+		
+		char[][] arr = new char[n][m];
+		
+		for(int i = 0 ; i < n; i++ ){
+			arr[i] = fastReader.read().toCharArray();
+		}
+		
+		int count = 0;
+		for(int row = 0; row < n; row++ ){
+			for(int col = 0; col < m; col++ ){
+				
+				if(arr[row][col] == '.'){
+					count++;
+					submerge(arr, row, col);
+				}
+			}
+		}
+		
+		print(count);
     }
+    
+ 
+    static int[][] direc = new int[][]{ {-1, 0}, {1, 0}, {0, 1}, {0,-1} };
+    static void submerge( char[][] arr, int row, int col ){
+		if( row < 0 || col < 0 || row >= arr.length || col >= arr[0].length || arr[row][col] == '#' ) return;
+		arr[row][col] = '#';
+		
+			
+			submerge(arr, row + 1, col);
+			submerge(arr, row - 1, col );
+			submerge(arr, row, col + 1);
+			submerge( arr, row, col - 1);
+		
+		
+	}
 
 
     /************************************************************************************************************************************************/
@@ -135,48 +173,6 @@ public class IOFastest {
     }
 
     /**
-     * TreeMultiset utility class. It's just like MultiSet(sorted), but allows duplicate elements *
-     */
-    static private class TreeMultiSet<Type extends Comparable<Type>> extends TreeMap<Type, Integer> {
-        int totalCount = 0;
-
-        int getTotalCount() {
-            return totalCount;
-        }
-
-        // get count of item
-        int getCount(Type item) {
-            return getOrDefault(item, 0);
-        }
-
-        // add count items, returns new count of the item.
-        int addItems(Type item, int count) {
-            totalCount += count;
-            int newCount = getOrDefault(item, 0) + count;
-            put(item, newCount);
-            return newCount;
-        }
-
-        //remove count items, returns the count that was actually removed
-        int removeItems(Type item, int count) {
-            int oldCount = getOrDefault(item, count);
-            if (oldCount > count) {
-                put(item, oldCount - count);
-            } else {
-                remove(item);
-                count = oldCount;
-            }
-            totalCount -= count;
-            return count;
-        }
-
-        @Override
-        public String toString() {
-            return super.toString();
-        }
-    }
-
-    /**
      * Tree Multiset utility class *
      */
     static class TMultiset<T extends Number> extends TreeMap<T, Integer> {
@@ -216,9 +212,9 @@ public class IOFastest {
     }
 
     /**
-     * HMultiset utility class. It's just like Set, but allows duplicate elements *
+     * It is a HashMap
      */
-    static class HMultiset<T> extends HashMap<T, Integer> {
+    static class HMap<T> extends HashMap<T, Integer> {
         void add(T key) {
             Integer count = get(key);
             put(key, count == null ? 1 : count + 1);
@@ -245,44 +241,15 @@ public class IOFastest {
         }
     }
 
-    private void sort(int[][] a, int s, int e) {
-        if (e - s < 1) {
-            return;
-        }
-
-        int mid = (e + s) >> 1;
-        sort(a, s, mid);
-        sort(a, mid + 1, e);
-
-        int[][] temp = new int[e - s + 1][];
-        int idx = 0;
-        int i = s;
-        int j = mid + 1;
-        while (i <= mid && j <= e) {
-            if (a[i][1] <= a[j][1]) {
-                temp[idx++] = a[i++];
-            } else {
-                temp[idx++] = a[j++];
-            }
-        }
-        while (i <= mid) {
-            temp[idx++] = a[i++];
-        }
-        while (j <= e) {
-            temp[idx++] = a[j++];
-        }
-        for (i = s; i <= e; i++) {
-            a[i] = temp[i - s];
-        }
-    }
 
     static void print(Object object) {
         out.print(object);
     }
 
     static void println(Object object) {
-        out.print(object);
+        out.println(object);
     }
+
 
     static int min(Object... objects) {
         int min = Integer.MAX_VALUE;
@@ -301,7 +268,6 @@ public class IOFastest {
         }
         return max;
     }
-
 }
 
 
