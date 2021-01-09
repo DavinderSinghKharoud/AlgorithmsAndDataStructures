@@ -1,151 +1,160 @@
 import java.io.*;
 import java.util.*;
 
-public class Test {
+/**
+ * There are n
+ * n
+ *  pupils in Uolevi's class, and m
+ * m
+ *  friendships between them. Your task is to divide the pupils into two teams in such a way that no two pupils in a team are friends. You can freely choose the sizes of the teams.
+ *
+ * Input
+ *
+ * The first input line has two integers n
+ * n
+ *  and m
+ * m
+ * : the number of pupils and friendships. The pupils are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * .
+ *
+ * Then, there are m
+ * m
+ *  lines describing the friendships. Each line has two integers a
+ * a
+ *  and b
+ * b
+ * : pupils a
+ * a
+ *  and b
+ * b
+ *  are friends.
+ *
+ * Every friendship is between two different pupils. You can assume that there is at most one friendship between any two pupils.
+ *
+ * Output
+ *
+ * Print an example of how to build the teams. For each pupil, print "1" or "2" depending on to which team the pupil will be assigned. You can print any valid team.
+ *
+ * If there are no solutions, print "IMPOSSIBLE".
+ *
+ * Constraints
+ * 1≤n≤105
+ * 1
+ * ≤
+ * n
+ * ≤
+ * 10
+ * 5
+ *
+ * 1≤m≤2⋅105
+ * 1
+ * ≤
+ * m
+ * ≤
+ * 2
+ * ⋅
+ * 10
+ * 5
+ *
+ * 1≤a,b≤n
+ * 1
+ * ≤
+ * a
+ * ,
+ * b
+ * ≤
+ * n
+ *
+ * Example
+ *
+ * Input:
+ * 5 3
+ * 1 2
+ * 1 3
+ * 4 5
+ *
+ * Output:
+ * 1 2 2 1 2
+ */
+public class BuildingTeams {
     static PrintWriter out = new PrintWriter(System.out);
     static Reader fastReader = new Reader();
     static StringBuilder sbr = new StringBuilder();
-    static int mod = (int) 1e9 + 7;
+    static int mod = (int)1e9 + 7;
     static int dmax = Integer.MAX_VALUE;
     static int dmin = Integer.MIN_VALUE;
-    static int[][] direc = new int[][]{{1, 0, 'D'}, {0, 1, 'R'}, {-1, 0, 'U'}, {0, -1, 'L'}};
 
     static void solve() throws IOException {
-
-        int n = fastReader.intNext();
-        int m = fastReader.intNext();
-
-        char[][] arr = new char[n][m];
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = fastReader.read().toCharArray();
-        }
-
-        int[][] dp = new int[n][m];
-
-        for (int i = 0; i < n; i++) {
-            Arrays.fill(dp[i], dmax);
-        }
-
-        List<int[]> monsters = new ArrayList<>();
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < m; col++) {
-                if (arr[row][col] == 'M') {
-                    monsters.add(new int[]{row, col});
-                }
-            }
-        }
-
-        bfs(arr, dp, monsters);
-
-        boolean isFound = false;
-        Pair des = null;
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < m; col++) {
-                if (arr[row][col] == 'A') {
-                    Queue<Pair> queue = new LinkedList<>();
-                    queue.add(new Pair(row, col, null, 0, ' '));
-
-                    while (!queue.isEmpty()) {
-                        int len = queue.size();
-                        while (len-- > 0) {
-                            Pair curr = queue.poll();
-
-                            for (int[] dir : direc) {
-                                int mRow = curr.row + dir[0];
-                                int mCol = curr.col + dir[1];
-
-                                if (mRow < 0 || mCol < 0 || mRow >= n || mCol >= m) {
-                                    isFound = true;
-                                    des = curr;
-                                    break;
-                                }
-
-                                if (arr[mRow][mCol] != '#' && dp[mRow][mCol] > curr.distance + 1) {
-                                    queue.add(new Pair(mRow, mCol, curr, curr.distance + 1, (char) dir[2]));
-                                }
-                            }
-                            if (isFound) break;
-                        }
-                        if (isFound) break;
-                    }
-                    break;
-                }
-
-            }
-        }
-
-        if (isFound) {
-            println("YES");
-            println(des.distance);
-
-            List<Character> res = new ArrayList<>();
-            while (des.parent != null) {
-                res.add(des.c);
-                des = des.parent;
-            }
-
-            for (int i = res.size() - 1; i >= 0; i--) {
-                print(res.get(i));
-            }
-
-        } else {
-            print("NO");
-        }
-
+		
+		int n = fastReader.intNext();
+		int count = fastReader.intNext();
+		
+		int[] res = new int[n];
+		
+		List<List<Integer>> lst = new ArrayList<>();
+		
+		for(int i = 0; i< n; i++ ){
+			lst.add(new ArrayList<>() );
+		}
+		while( count -- > 0 ){
+			int a = fastReader.intNext();
+			int b = fastReader.intNext();
+			--a;--b;
+			lst.get(a).add(b);
+			lst.get(b).add(a);
+		}
+		
+		boolean isFound = true;
+		for(int i = 0; i < n; i++ ){
+			
+			if( res[i] == 0 ){
+				if (!dfs( lst, i, 1, -1, res) ){
+					isFound = false; 
+					break;
+				}
+			}
+			
+		}
+		
+		if ( isFound ){
+			for(int num: res ){
+				print( num + " ");
+			}
+		}else{
+			print( "IMPOSSIBLE" );
+		}
+		
     }
 
-
-    static void bfs(char[][] arr, int[][] dp, List<int[]> lst) {
-
-        boolean[][] visited = new boolean[arr.length][arr[0].length];
-        Queue<int[]> queue = new LinkedList<>();
-        for (int[] c : lst) {
-            queue.add(new int[]{c[0], c[1]});
-            visited[c[0]][c[1]] = true;
-            dp[c[0]][c[1]] = 0;
-        }
-
-        int distance = 0;
-        while (!queue.isEmpty()) {
-            int len = queue.size();
-            while (len-- > 0) {
-                int[] curr = queue.poll();
-
-                for (int[] dir : direc) {
-                    int mRow = curr[0] + dir[0];
-                    int mCol = curr[1] + dir[1];
-                    if (isValid(arr, mRow, mCol, visited)) {
-                        dp[mRow][mCol] = 1 + distance;
-                        visited[mRow][mCol] = true;
-                        queue.add(new int[]{mRow, mCol});
-                    }
-                }
-
-            }
-            distance++;
-        }
-    }
-
-    static boolean isValid(char[][] arr, int row, int col, boolean[][] visited) {
-        return row >= 0 && col >= 0 && row < arr.length && col < arr[0].length && arr[row][col] != '#' && !visited[row][col];
-    }
-
-    static class Pair {
-        int row;
-        int col;
-        int distance;
-        Pair parent;
-        char c;
-
-        public Pair(int row, int col, Pair parent, int distance, char c) {
-            this.row = row;
-            this.col = col;
-            this.parent = parent;
-            this.distance = distance;
-            this.c = c;
-        }
-    }
+	static boolean dfs( List<List<Integer>> lst, int node, int color, int parent, int[] res ){
+		
+		res[node] = color;
+		color = color ^ 3;
+		for(int adj: lst.get(node) ){
+			if( parent != -1 && node == parent ) continue;
+			
+			if( res[adj] == 0 ){ //If it is not colored
+				if( !dfs( lst, adj, color, node, res) ){
+					return false;
+				}
+			}else{
+				if( res[adj] == res[node] ){
+					return false;
+				}
+				
+			}
+			
+		}
+		
+		return true;
+	}
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
@@ -366,3 +375,5 @@ public class Test {
         return max;
     }
 }
+
+
