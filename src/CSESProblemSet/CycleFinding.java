@@ -1,16 +1,166 @@
 import java.io.*;
 import java.util.*;
 
-public class IOFastest {
+/**
+ * You are given a directed graph, and your task is to find out if it contains a negative cycle, and also give an example of such a cycle.
+ *
+ * Input
+ *
+ * The first input line has two integers n
+ * n
+ *  and m
+ * m
+ * : the number of nodes and edges. The nodes are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * .
+ *
+ * After this, the input has m
+ * m
+ *  lines describing the edges. Each line has three integers a
+ * a
+ * , b
+ * b
+ * , and c
+ * c
+ * : there is an edge from node a
+ * a
+ *  to node b
+ * b
+ *  whose length is c
+ * c
+ * .
+ *
+ * Output
+ *
+ * If the graph contains a negative cycle, print first "YES", and then the nodes in the cycle in their correct order. If there are several negative cycles, you can print any of them. If there are no negative cycles, print "NO".
+ *
+ * Constraints
+ * 1≤n≤2500
+ * 1
+ * ≤
+ * n
+ * ≤
+ * 2500
+ *
+ * 1≤m≤5000
+ * 1
+ * ≤
+ * m
+ * ≤
+ * 5000
+ *
+ * 1≤a,b≤n
+ * 1
+ * ≤
+ * a
+ * ,
+ * b
+ * ≤
+ * n
+ *
+ * −109≤c≤109
+ * −
+ * 10
+ * 9
+ * ≤
+ * c
+ * ≤
+ * 10
+ * 9
+ *
+ * Example
+ *
+ * Input:
+ * 4 5
+ * 1 2 1
+ * 2 4 1
+ * 3 1 1
+ * 4 1 -3
+ * 4 3 -2
+ *
+ * Output:
+ * YES
+ * 1 2 4 1
+ */
+public class CycleFinding {
     static PrintWriter out = new PrintWriter(System.out);
     static Reader fastReader = new Reader();
     static StringBuilder sbr = new StringBuilder();
-    static int mod = (int)1e9 + 7;
-    static int dmax = Integer.MAX_VALUE; long lmax = Long.MAX_VALUE;
-    static int dmin = Integer.MIN_VALUE; long lmin = Long.MIN_VALUE;
+    static int mod = (int) 1e9 + 7;
+    static int dmax = Integer.MAX_VALUE;
+    static long lmax = Long.MAX_VALUE;
+    static int dmin = Integer.MIN_VALUE;
+    static long lmin = Long.MIN_VALUE;
 
     static void solve() throws IOException {
 
+        int n = fastReader.intNext();
+        int m = fastReader.intNext();
+
+        int[][] arr = new int[m][3];
+
+        for (int i = 0; i < m; i++) {
+            int a = fastReader.intNext();
+            int b = fastReader.intNext();
+            int w = fastReader.intNext();
+            --a;
+            --b;
+
+            arr[i] = new int[]{a, b, w};
+
+        }
+
+        long inf = (long) 1e9;
+        int[] parent = new int[n];
+        long[] dis = new long[n];
+        Arrays.fill(dis, inf);
+        dis[0] = 0;
+
+        int last = -1;
+        for (int count = 0; count < n; count++) {
+
+            last = -1;
+            for (int[] edge : arr) {
+
+                if (dis[edge[1]] > dis[edge[0]] + edge[2]) {
+                    dis[edge[1]] = Math.max(-1 * inf, dis[edge[0]] + edge[2]);
+                    last = edge[1];
+                    parent[edge[1]] = edge[0];
+                }
+            }
+        }
+
+        if (last == -1) {
+            print("NO");
+        } else {
+
+            println("YES");
+            List<Integer> lst = new ArrayList<>();
+            int start = last;
+
+            for (int i = 0; i < n; i++) {
+                start = parent[start];
+            }
+
+            for (int curr = start; ; curr = parent[curr]) {
+                lst.add(curr);
+                if (curr == start && lst.size() > 1) {
+                    break;
+                }
+            }
+
+            for (int index = lst.size() - 1; index >= 0; index--) {
+                print((lst.get(index) + 1) + " ");
+            }
+
+
+        }
     }
 
 
