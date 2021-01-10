@@ -2,82 +2,83 @@ import java.io.*;
 import java.util.*;
 
 /**
- * There are n
+ * You play a game consisting of n
  * n
- *  cities and m
+ *  rooms and m
  * m
- *  roads between them. Your task is to process q
- * q
- *  queries where you have to determine the length of the shortest route between two given cities.
+ *  tunnels. Your initial score is 0
+ * 0
+ * , and each tunnel increases your score by x
+ * x
+ *  where x
+ * x
+ *  may be both positive or negative. You may go through a tunnel several times.
+ *
+ * Your task is to walk from room 1
+ * 1
+ *  to room n
+ * n
+ * . What is the maximum score you can get?
  *
  * Input
  *
- * The first input line has three integers n
+ * The first input line has two integers n
  * n
- * , m
+ *  and m
  * m
- *  and q
- * q
- * : the number of cities, roads, and queries.
+ * : the number of rooms and tunnels. The rooms are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * .
  *
  * Then, there are m
  * m
- *  lines describing the roads. Each line has three integers a
+ *  lines describing the tunnels. Each line has three integers a
  * a
  * , b
  * b
- *  and c
- * c
- * : there is a road between cities a
+ *  and x
+ * x
+ * : the tunnel starts at room a
  * a
- *  and b
+ * , ends at room b
  * b
- *  whose length is c
- * c
- * . All roads are two-way roads.
+ * , and it increases your score by x
+ * x
+ * . All tunnels are one-way tunnels.
  *
- * Finally, there are q
- * q
- *  lines describing the queries. Each line has two integers a
- * a
- *  and b
- * b
- * : determine the length of the shortest route between cities a
- * a
- *  and b
- * b
+ * You can assume that it is possible to get from room 1
+ * 1
+ *  to room n
+ * n
  * .
  *
  * Output
  *
- * Print the length of the shortest route for each query. If there is no route, print −1
+ * Print one integer: the maximum score you can get. However, if you can get an arbitrarily large score, print −1
  * −
  * 1
- *  instead.
+ * .
  *
  * Constraints
- * 1≤n≤500
+ * 1≤2500≤n
  * 1
+ * ≤
+ * 2500
  * ≤
  * n
- * ≤
- * 500
  *
- * 1≤m≤n2
+ * 1≤5000≤m
  * 1
+ * ≤
+ * 5000
  * ≤
  * m
- * ≤
- * n
- * 2
- *
- * 1≤q≤105
- * 1
- * ≤
- * q
- * ≤
- * 10
- * 5
  *
  * 1≤a,b≤n
  * 1
@@ -88,10 +89,12 @@ import java.util.*;
  * ≤
  * n
  *
- * 1≤c≤109
- * 1
+ * −109≤x≤109
+ * −
+ * 10
+ * 9
  * ≤
- * c
+ * x
  * ≤
  * 10
  * 9
@@ -99,82 +102,103 @@ import java.util.*;
  * Example
  *
  * Input:
- * 4 3 5
- * 1 2 5
- * 1 3 9
- * 2 3 3
- * 1 2
- * 2 1
- * 1 3
- * 1 4
- * 3 2
+ * 4 5
+ * 1 2 3
+ * 2 4 -1
+ * 1 3 -2
+ * 3 4 7
+ * 1 4 4
  *
  * Output:
  * 5
- * 5
- * 8
- * -1
- * 3
- * Graph Algorithms
- *
- * ...
- * Round Trip
- * Monsters
- * Shortest Routes I
- * Shortest Routes II
- * High Score
- * Flight Discount
- * Cycle Finding
- * Flight Routes
-
  */
-public class ShortestRoutesII {
+public class HighScore {
     static PrintWriter out = new PrintWriter(System.out);
     static Reader fastReader = new Reader();
     static StringBuilder sbr = new StringBuilder();
-    static int mod = (int)1e9 + 7;
-    static long dmax = (long) 1e15 ;
-    static int dmin = Integer.MIN_VALUE;
+    static int mod = (int) 1e9 + 7;static int dmax = Integer.MAX_VALUE;static int dmin = Integer.MIN_VALUE;
 
     static void solve() throws IOException {
-		int n = fastReader.intNext();
-		int m = fastReader.intNext();
-		int q = fastReader.intNext();
-		
-		long[][] dis = new long[n][n];;
-		for(int i = 0; i < n; i++ ){
-			Arrays.fill( dis[i], dmax);
-		}
-		while( m --> 0 ){
-			int a = fastReader.intNext();
-			int b = fastReader.intNext();
-			int w = fastReader.intNext();
-			--a;--b;
-			dis[a][b] = Math.min(w, dis[a][b]);
-			dis[b][a] = Math.min(w, dis[b][a]);
-		}
-		
-		//Use Floyd Warshall to create dp of shortest path between each node
-		for(int a = 0; a < n; a++ ){
-			dis[a][a] = 0;
-		}
-		
-		for(int intermediate = 0; intermediate < n; intermediate++ ){
-			for(int b = 0; b < n; b++ ){
-				for(int a = 0; a < n; a++ ){
-						dis[a][b] = Math.min( dis[a][b], dis[a][intermediate] + dis[intermediate][b]);	
-				}
-			}
-		}
-		
-		while( q --> 0 ){
-			int a = fastReader.intNext();
-			int b = fastReader.intNext();
-			--a;--b;
-			println( (dis[a][b] == dmax)? -1: dis[a][b] );
-		}
+
+        int n = fastReader.intNext();
+        int m = fastReader.intNext();
+        List<List<int[]>> arr = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            arr.add(new ArrayList<>());
+        }
+
+        while (m-- > 0) {
+            int a = fastReader.intNext();
+            int b = fastReader.intNext();
+            int w = fastReader.intNext();
+            a--;
+            b--;
+            arr.get(a).add(new int[]{b, -1 * w});
+        }
+
+        Set<Integer> set = new HashSet<>(); //To get the nodes that are in negative cycle
+
+        long[] dis = new long[n];
+
+        if (bellmanFord(arr, set, dis)) {
+            print(dis[n - 1]* -1);
+        } else {
+            boolean[] visited = new boolean[n];
+
+            for (int node : set) {
+                if (!visited[node]) dfs(visited, arr, node);
+            }
+
+            if (visited[0] || visited[n - 1]) print(-1); //As there is a negative cycle
+            else print(dis[n - 1] * -1);
+        }
+
+
     }
 
+    static void dfs(boolean[] visited, List<List<int[]>> arr, int node) {
+        visited[node] = true;
+
+        for (int[] adj : arr.get(node)) {
+            if (!visited[adj[0]]) dfs(visited, arr, adj[0]);
+        }
+    }
+
+    static boolean bellmanFord(List<List<int[]>> arr, Set<Integer> set, long[] dis) {
+
+        Arrays.fill(dis, Long.MAX_VALUE);
+
+        int n = dis.length;
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
+        boolean[] inQueue = new boolean[dis.length];
+        int[] count = new int[n];
+        boolean isCycle = false;
+        dis[0] = 0;
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
+            inQueue[curr] = false;
+
+            for (int[] adj : arr.get(curr)) {
+                //Relax the vertex if possible
+                if (dis[adj[0]] > dis[curr] + adj[1]) {
+                    dis[adj[0]] = dis[curr] + adj[1];
+                    if (!inQueue[adj[0]]) {
+                        count[adj[0]]++;
+                        if (count[adj[0]] >= n) {//Only used to check if it has negative cycles
+                            set.add(adj[0]);
+                            isCycle = true;
+                        } else {
+                            queue.add(adj[0]);
+                            inQueue[adj[0]] = true;
+                        }
+                    }
+                }
+            }
+        }
+        return !isCycle;
+    }
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
