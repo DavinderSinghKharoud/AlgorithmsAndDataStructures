@@ -2,21 +2,19 @@ import java.io.*;
 import java.util.*;
 
 /**
- * You are playing a game consisting of n
- * n
- *  planets. Each planet has a teleporter to another planet (or the planet itself).
+ * You are playing a game consisting of n planets. Each planet has a teleporter to another planet (or the planet itself).
  *
- * Your task is to process q
+ * You have to process q
  * q
- *  queries of the form: when you begin on planet x
- * x
- *  and travel through k
- * k
- *  teleporters, which planet will you reach?
+ *  queries of the form: You are now on planet a
+ * a
+ *  and want to reach planet b
+ * b
+ * . What is the minimum number of teleportations?
  *
  * Input
  *
- * The first input line has two integers n
+ * The first input line contains two integers n
  * n
  *  and q
  * q
@@ -30,7 +28,7 @@ import java.util.*;
  * n
  * .
  *
- * The second line has n
+ * The second line contains n
  * n
  *  integers t1,t2,…,tn
  * t
@@ -43,28 +41,26 @@ import java.util.*;
  * ,
  * t
  * n
- * : for each planet, the destination of the teleporter. It is possible that ti=i
- * t
- * i
- * =
- * i
- * .
+ * : for each planet, the destination of the teleporter.
  *
  * Finally, there are q
  * q
- *  lines describing the queries. Each line has two integers x
- * x
- *  and k
- * k
- * : you start on planet x
- * x
- *  and travel through k
- * k
- *  teleporters.
+ *  lines describing the queries. Each line has two integers a
+ * a
+ *  and b
+ * b
+ * : you are now on planet a
+ * a
+ *  and want to reach planet b
+ * b
+ * .
  *
  * Output
  *
- * Print the answer to each query.
+ * For each query, print the minimum number of teleportations. If it is not possible to reach the destination, print −1
+ * −
+ * 1
+ * .
  *
  * Constraints
  * 1≤n,q≤2⋅105
@@ -79,80 +75,100 @@ import java.util.*;
  * 10
  * 5
  *
- * 1≤ti≤n
+ * 1≤a,b≤n
  * 1
  * ≤
- * t
- * i
+ * a
+ * ,
+ * b
  * ≤
  * n
- *
- * 1≤x≤n
- * 1
- * ≤
- * x
- * ≤
- * n
- *
- * 0≤k≤109
- * 0
- * ≤
- * k
- * ≤
- * 10
- * 9
  *
  * Example
  *
  * Input:
- * 4 3
- * 2 1 1 4
+ * 5 3
+ * 2 3 2 3 2
  * 1 2
- * 3 4
- * 4 1
+ * 1 3
+ * 1 4
  *
  * Output:
  * 1
  * 2
- * 4
+ * -1
  */
-public class PlanetsQueriesI {
+public class PlanetsQueriesII {
 
     static void solve() throws IOException {
-			
-			int n = fastReader.intNext();
-			int q = fastReader.intNext();
-			
-			int lg = 30;
-			int[][] dp = new int[n + 1][lg];
-			
-			for(int i = 1; i <= n; i++ ){
-				int k = fastReader.intNext();
-				
-				dp[i][0] = k;
-			}
 
-			//As 2 ^ k = 2 ^ k - 1 + 2 ^ k - 1;
-			for(int i = 1; i < lg; i++ ){
-				for(int j = 1; j<=n; j++ ){
-					dp[j][i] = dp[ dp[j][i - 1]][i - 1];
-				}
-			}
-			
-			while( q-- > 0 ){
-				int a = fastReader.intNext();
-				int b = fastReader.intNext();
-				
-				for(int i = 0; i < lg; i++ ){
-					if( ((1 << i) & b) != 0 ){
-						a = dp[a][i];
-					}
-				}
-				
-				println(a);
-			}
-			
-			
+
+        int n = fastReader.intNext();
+        int q = fastReader.intNext();
+
+        boolean[] visited = new boolean[n + 1];
+        int[] dis = new int[n + 1];
+        int[][] mem = new int[n + 1][31];
+
+        for (int i = 1; i <= n; i++) {
+            mem[i][0] = fastReader.intNext();
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (!visited[i]) {
+                dfs(visited, i, mem, dis);
+            }
+        }
+
+        for (int i = 1; i < 31; i++) {
+            for (int j = 1; j <= n; j++) {
+                mem[j][i] = mem[mem[j][i - 1]][i - 1];
+            }
+        }
+
+        while (q-- > 0) {
+            int a = fastReader.intNext();
+            int b = fastReader.intNext();
+
+            if (succ(a, dis[a] - dis[b], mem) == b) {
+                sbr.append(dis[a] - dis[b]).append("\n");
+                continue;
+            }
+
+            int cycleStartNode = succ(a, dis[a], mem);
+            if( succ( cycleStartNode, dis[cycleStartNode] - dis[b], mem) == b ){
+                sbr.append( dis[a] + dis[cycleStartNode] - dis[b]).append("\n");
+                continue;
+            }
+
+            sbr.append(-1).append("\n");
+        }
+
+        print(sbr.toString());
+
+    }
+
+    static int succ(int node, int k, int[][] mem) {
+        int index = 0;
+        while (k > 0) {
+            if ((k & 1) != 0) {
+                node = mem[node][index];
+            }
+            index++;
+            k >>= 1;
+        }
+
+        return node;
+    }
+
+    static void dfs(boolean[] visited, int node, int[][] mem, int[] dis) {
+        if (visited[node]) return;
+        visited[node] = true;
+
+        dfs(visited, mem[node][0], mem, dis);
+
+        dis[node] = dis[mem[node][0]] + 1;
+
     }
 
 
@@ -167,8 +183,10 @@ public class PlanetsQueriesI {
     static Reader fastReader = new Reader();
     static StringBuilder sbr = new StringBuilder();
     static int mod = (int) 1e9 + 7;
-    static int dmax = Integer.MAX_VALUE;static long lmax = Long.MAX_VALUE;
-    static int dmin = Integer.MIN_VALUE;static long lmin = Long.MIN_VALUE;
+    static int dmax = Integer.MAX_VALUE;
+    static long lmax = Long.MAX_VALUE;
+    static int dmin = Integer.MIN_VALUE;
+    static long lmin = Long.MIN_VALUE;
 
     static class Reader {
         private byte[] buf = new byte[1024];
