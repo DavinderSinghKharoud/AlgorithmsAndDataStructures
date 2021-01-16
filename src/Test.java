@@ -1,368 +1,193 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class Test {
-    static PrintWriter out = new PrintWriter(System.out);
-    static Reader fastReader = new Reader();
-    static StringBuilder sbr = new StringBuilder();
-    static int mod = (int) 1e9 + 7;
-    static int dmax = Integer.MAX_VALUE;
-    static int dmin = Integer.MIN_VALUE;
-    static int[][] direc = new int[][]{{1, 0, 'D'}, {0, 1, 'R'}, {-1, 0, 'U'}, {0, -1, 'L'}};
 
-    static void solve() throws IOException {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        int n = scn.nextInt();
+        int m = scn.nextInt();
 
-        int n = fastReader.intNext();
-        int m = fastReader.intNext();
+        List<Integer>[] graph = new ArrayList[2 * m + 2];
+        List<Integer>[] revGraph = new ArrayList[2 * m + 2];
 
-        char[][] arr = new char[n][m];
+        for (int i = 0; i < n; ++i) {
+            char c = scn.next().charAt(0);
+            int p = 2 * scn.nextInt(); // multiplying by 2 because topping x is denoted by 2x and -x is denoted by 2x+1
+            char d = scn.next().charAt(0);
+            int q = 2 * scn.nextInt();
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = fastReader.read().toCharArray();
+            // a V b === -a->b ^ -b->a
+
+            // add first edge
+            // -a -> b
+
+            int pt = p;
+            int qt = q;
+
+            if (c == '+') {
+                pt += 1;
+            }
+
+            if (d == '-') {
+                qt += 1;
+            }
+
+            if (graph[pt] == null) {
+                graph[pt] = new ArrayList<>();
+            }
+            if (revGraph[qt] == null) {
+                revGraph[qt] = new ArrayList<>();
+            }
+
+            graph[pt].add(qt);
+            revGraph[qt].add(pt);
+            // add second edge
+            // -b -> a
+
+            pt = p;
+            qt = q;
+
+            if (d == '+') {
+                qt += 1;
+            }
+
+            if (c == '-') {
+                pt += 1;
+            }
+
+            if (graph[qt] == null) {
+                graph[qt] = new ArrayList<>();
+            }
+            if (revGraph[pt] == null) {
+                revGraph[pt] = new ArrayList<>();
+            }
+            revGraph[pt].add(qt);
+            graph[qt].add(pt);
         }
 
-        int[][] dp = new int[n][m];
+        SCC(n, m, graph, revGraph);
 
-        for (int i = 0; i < n; i++) {
-            Arrays.fill(dp[i], dmax);
+    }
+
+    public static void SCC(int n, int m, List<Integer>[] graph, List<Integer>[] rGraph) {
+        boolean[] visited = new boolean[2 * m + 2];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 2; i <= 2 * m + 1; ++i) {
+            if (!visited[i]) {
+                dfs1(i, graph, visited, stack);
+            }
         }
 
-        List<int[]> monsters = new ArrayList<>();
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < m; col++) {
-                if (arr[row][col] == 'M') {
-                    monsters.add(new int[]{row, col});
+        int count = 0;
+        int[] scc = new int[2 * m + 2];
+        visited = new boolean[2 * m + 2];
+        while (stack.size() > 0) {
+            int v = stack.pop();
+            if (!visited[v]) {
+                count++;
+                dfs2(v, rGraph, visited, scc, count);
+            }
+        }
+
+        boolean noSol=false;
+        boolean[] ans = new boolean[m+1];
+        for(int i=2;i<=2*m+1;i+=2) {
+            if(scc[i]==scc[i+1]) {
+                noSol=true;
+                break;
+            }
+
+            if(scc[i]<scc[i+1]) {
+                ans[i/2]=false;
+            }
+            else {
+                ans[i/2]=true;
+            }
+
+        }
+
+        if(noSol) {
+            out.println("IMPOSSIBLE");
+        }
+        else {
+            for(int i=1;i<=m;++i) {
+                if(ans[i]) {
+                    out.println('+');
+                }
+                else {
+                    out.println('-');
                 }
             }
         }
-
-        bfs(arr, dp, monsters);
-
-        boolean isFound = false;
-        Pair des = null;
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < m; col++) {
-                if (arr[row][col] == 'A') {
-                    Queue<Pair> queue = new LinkedList<>();
-                    queue.add(new Pair(row, col, null, 0, ' '));
-
-                    while (!queue.isEmpty()) {
-                        int len = queue.size();
-                        while (len-- > 0) {
-                            Pair curr = queue.poll();
-
-                            for (int[] dir : direc) {
-                                int mRow = curr.row + dir[0];
-                                int mCol = curr.col + dir[1];
-
-                                if (mRow < 0 || mCol < 0 || mRow >= n || mCol >= m) {
-                                    isFound = true;
-                                    des = curr;
-                                    break;
-                                }
-
-                                if (arr[mRow][mCol] != '#' && dp[mRow][mCol] > curr.distance + 1) {
-                                    queue.add(new Pair(mRow, mCol, curr, curr.distance + 1, (char) dir[2]));
-                                }
-                            }
-                            if (isFound) break;
-                        }
-                        if (isFound) break;
-                    }
-                    break;
-                }
-
-            }
-        }
-
-        if (isFound) {
-            println("YES");
-            println(des.distance);
-
-            List<Character> res = new ArrayList<>();
-            while (des.parent != null) {
-                res.add(des.c);
-                des = des.parent;
-            }
-
-            for (int i = res.size() - 1; i >= 0; i--) {
-                print(res.get(i));
-            }
-
-        } else {
-            print("NO");
-        }
-
-    }
-
-
-    static void bfs(char[][] arr, int[][] dp, List<int[]> lst) {
-
-        boolean[][] visited = new boolean[arr.length][arr[0].length];
-        Queue<int[]> queue = new LinkedList<>();
-        for (int[] c : lst) {
-            queue.add(new int[]{c[0], c[1]});
-            visited[c[0]][c[1]] = true;
-            dp[c[0]][c[1]] = 0;
-        }
-
-        int distance = 0;
-        while (!queue.isEmpty()) {
-            int len = queue.size();
-            while (len-- > 0) {
-                int[] curr = queue.poll();
-
-                for (int[] dir : direc) {
-                    int mRow = curr[0] + dir[0];
-                    int mCol = curr[1] + dir[1];
-                    if (isValid(arr, mRow, mCol, visited)) {
-                        dp[mRow][mCol] = 1 + distance;
-                        visited[mRow][mCol] = true;
-                        queue.add(new int[]{mRow, mCol});
-                    }
-                }
-
-            }
-            distance++;
-        }
-    }
-
-    static boolean isValid(char[][] arr, int row, int col, boolean[][] visited) {
-        return row >= 0 && col >= 0 && row < arr.length && col < arr[0].length && arr[row][col] != '#' && !visited[row][col];
-    }
-
-    static class Pair {
-        int row;
-        int col;
-        int distance;
-        Pair parent;
-        char c;
-
-        public Pair(int row, int col, Pair parent, int distance, char c) {
-            this.row = row;
-            this.col = col;
-            this.parent = parent;
-            this.distance = distance;
-            this.c = c;
-        }
-    }
-
-    /************************************************************************************************************************************************/
-    public static void main(String[] args) throws IOException {
-
-        solve();
         out.close();
     }
 
-    static class Reader {
-        private byte[] buf = new byte[1024];
-        private int index;
-        private InputStream in;
-        private int total;
+    public static void dfs2(int root, List<Integer>[] graph, boolean[] visited, int[] scc, int sccVal) {
 
-        public Reader() {
-            in = System.in;
-        }
+        visited[root] = true;
+        scc[root] = sccVal;
 
-        public int scan() throws IOException {
-            if (total < 0)
-                throw new InputMismatchException();
-            if (index >= total) {
-                index = 0;
-                total = in.read(buf);
-                if (total <= 0)
-                    return -1;
-            }
-            return buf[index++];
-        }
-
-        public int intNext() throws IOException {
-            int integer = 0;
-            int n = scan();
-            while (isWhiteSpace(n))
-                n = scan();
-            int neg = 1;
-            if (n == '-') {
-                neg = -1;
-                n = scan();
-            }
-            while (!isWhiteSpace(n)) {
-                if (n >= '0' && n <= '9') {
-                    integer *= 10;
-                    integer += n - '0';
-                    n = scan();
-                } else throw new InputMismatchException();
-            }
-            return neg * integer;
-        }
-
-        public double doubleNext() throws IOException {
-            double doub = 0;
-            int n = scan();
-            while (isWhiteSpace(n))
-                n = scan();
-            int neg = 1;
-            if (n == '-') {
-                neg = -1;
-                n = scan();
-            }
-            while (!isWhiteSpace(n) && n != '.') {
-                if (n >= '0' && n <= '9') {
-                    doub *= 10;
-                    doub += n - '0';
-                    n = scan();
-                } else throw new InputMismatchException();
-            }
-            if (n == '.') {
-                n = scan();
-                double temp = 1;
-                while (!isWhiteSpace(n)) {
-                    if (n >= '0' && n <= '9') {
-                        temp /= 10;
-                        doub += (n - '0') * temp;
-                        n = scan();
-                    } else throw new InputMismatchException();
+        if (graph[root] != null) {
+            for (int nbr : graph[root]) {
+                if (!visited[nbr]) {
+                    dfs2(nbr, graph, visited, scc, sccVal);
                 }
             }
-            return doub * neg;
-        }
-
-        public String read() throws IOException {
-            StringBuilder sb = new StringBuilder();
-            int n = scan();
-            while (isWhiteSpace(n))
-                n = scan();
-            while (!isWhiteSpace(n)) {
-                sb.append((char) n);
-                n = scan();
-            }
-            return sb.toString();
-        }
-
-        private boolean isWhiteSpace(int n) {
-            if (n == ' ' || n == '\n' || n == '\r' || n == '\t' || n == -1)
-                return true;
-            return false;
         }
     }
 
-    static void shuffle(int[] aa, int n) {
-        Random rand = new Random();
-        for (int i = 1; i < n; i++) {
-            int j = rand.nextInt(i + 1);
-            int tmp = aa[i];
-            aa[i] = aa[j];
-            aa[j] = tmp;
-        }
-    }
-
-    static void shuffle(int[][] aa, int n) {
-        Random rand = new Random();
-        for (int i = 1; i < n; i++) {
-            int j = rand.nextInt(i + 1);
-            int first = aa[i][0];
-            int second = aa[i][1];
-            aa[i][0] = aa[j][0];
-            aa[i][1] = aa[j][1];
-            aa[j][0] = first;
-            aa[j][1] = second;
-        }
-    }
-
-    /**
-     * Tree Multiset utility class *
-     */
-    static class TMultiset<T extends Number> extends TreeMap<T, Integer> {
-        private int size = 0;
-
-        void add(T value) {
-            Integer count = get(value);
-            size++;
-            if (count == null) {
-                put(value, 1);
-            } else {
-                put(value, count + 1);
+    public static void dfs1(int root, List<Integer>[] graph, boolean[] visited, Stack<Integer> stack) {
+        visited[root] = true;
+        if (graph[root] != null) {
+            for (int nbr : graph[root]) {
+                if (!visited[nbr]) {
+                    dfs1(nbr, graph, visited, stack);
+                }
             }
         }
-
-        @SuppressWarnings(value = "unchecked")
-        @Override
-        public Integer remove(Object key) {
-            if (!containsKey(key)) {
-                return null;
-            }
-
-            size--;
-
-            Integer value = get(key);
-            if (value > 1) {
-                return put((T) key, value - 1);
-            }
-
-            return super.remove(key);
-        }
-
-        @java.lang.Override
-        public int size() {
-            return size;
-        }
+        stack.push(root);
     }
 
-    /**
-     * It is a HashMap
-     */
-    static class HMap<T> extends HashMap<T, Integer> {
-        void add(T key) {
-            Integer count = get(key);
-            put(key, count == null ? 1 : count + 1);
+    static FastScanner scn = new FastScanner();
+    static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
+
+    static class FastScanner {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer("");
+
+        String next() {
+            while (!st.hasMoreTokens())
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return st.nextToken();
         }
 
-        @SuppressWarnings(value = "unchecked")
-        @Override
-        public Integer remove(Object key) {
-            if (!containsKey(key)) return null;
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
 
-            int count = get(key);
-            if (count > 1) return put((T) key, count - 1);
+        int[] readArray(int n) {
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
+                a[i] = nextInt();
+            return a;
+        }
 
-            return super.remove(key);
+        long nextLong() {
+            return Long.parseLong(next());
         }
     }
 
-    static final class Comparators {
-        public static final Comparator<int[]> pairIntArr =
-                (x, y) -> x[0] == y[0] ? compare(x[1], y[1]) : compare(x[0], y[0]);
-
-        private static final int compare(final int x, final int y) {
-            return Integer.compare(x, y);
-        }
-    }
-
-
-    static void print(Object object) {
-        out.print(object);
-    }
-
-    static void println(Object object) {
-        out.println(object);
-    }
-
-
-    static int min(Object... objects) {
-        int min = Integer.MAX_VALUE;
-
-        for (Object num : objects) {
-            min = Math.min(min, (Integer) num);
-        }
-        return min;
-    }
-
-    static int max(Object... objects) {
-        int max = Integer.MIN_VALUE;
-
-        for (Object num : objects) {
-            max = Math.max(max, (Integer) num);
-        }
-        return max;
-    }
 }
