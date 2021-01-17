@@ -1,17 +1,85 @@
 import java.io.*;
 import java.util.*;
 
-public class IOFastest {
-    static PrintWriter out = new PrintWriter(System.out);
-    static Reader fastReader = new Reader();
-    static StringBuilder sbr = new StringBuilder();
-    static int mod = (int)1e9 + 7;
-    static int dmax = Integer.MAX_VALUE; long lmax = Long.MAX_VALUE;
-    static int dmin = Integer.MIN_VALUE; long lmin = Long.MIN_VALUE;
+/**
+ * Your task is to construct a minimum-length bit string that contains all possible substrings of length n
+ * n
+ * . For example, when n=2
+ * n
+ * =
+ * 2
+ * , the string 00110 is a valid solution, because its substrings of length 2
+ * 2
+ *  are 00, 01, 10 and 11.
+ *
+ * Input
+ *
+ * The only input line has an integer n
+ * n
+ * .
+ *
+ * Output
+ *
+ * Print a minimum-length bit string that contains all substrings of length n
+ * n
+ * . You can print any valid solution.
+ *
+ * Constraints
+ * 1≤n≤15
+ * 1
+ * ≤
+ * n
+ * ≤
+ * 15
+ *
+ * Example
+ *
+ * Input:
+ * 2
+ *
+ * Output:
+ * 00110
+ */
+public class DeBruijnSequence {
 
+	static List<Integer> edges = new ArrayList<>();
+	static Set<String> seen = new HashSet<>();
     static void solve() throws IOException {
+		
+		int n = fastReader.intNext();
+		
+		String s = "01";
+		int k = 2;
+		
+		StringBuilder start = new StringBuilder();
+		for(int i = 0; i < n - 1; i++ ){
+			start.append(s.charAt(0));
+		}
+		
+		dfs( start.toString(), k, s);
 
+		int limit = (int)Math.pow(k, n);
+
+		for(int i = 0; i< limit; i++ ){
+			sbr.append(s.charAt(edges.get(i)));
+		}
+
+		sbr.append(start);
+		print(sbr);
+		
     }
+    
+    static void dfs( String curr, int k, String arr){
+		for(int i = 0; i< k; i++ ){
+			String s = curr + arr.charAt(i);
+			
+			if( !seen.contains(s)){
+				seen.add(s);
+				dfs( s.substring(1), k, arr);
+				edges.add(i);
+			}
+		}
+	}
 
 
     /************************************************************************************************************************************************/
@@ -20,6 +88,13 @@ public class IOFastest {
         solve();
         out.close();
     }
+
+    static PrintWriter out = new PrintWriter(System.out);
+    static Reader fastReader = new Reader();
+    static StringBuilder sbr = new StringBuilder();
+    static int mod = (int) 1e9 + 7;
+    static int dmax = Integer.MAX_VALUE;static long lmax = Long.MAX_VALUE;
+    static int dmin = Integer.MIN_VALUE;static long lmin = Long.MIN_VALUE;
 
     static class Reader {
         private byte[] buf = new byte[1024];
@@ -45,26 +120,6 @@ public class IOFastest {
 
         public int intNext() throws IOException {
             int integer = 0;
-            int n = scan();
-            while (isWhiteSpace(n))
-                n = scan();
-            int neg = 1;
-            if (n == '-') {
-                neg = -1;
-                n = scan();
-            }
-            while (!isWhiteSpace(n)) {
-                if (n >= '0' && n <= '9') {
-                    integer *= 10;
-                    integer += n - '0';
-                    n = scan();
-                } else throw new InputMismatchException();
-            }
-            return neg * integer;
-        }
-
-        public long longNext() throws IOException {
-            long integer = 0;
             int n = scan();
             while (isWhiteSpace(n))
                 n = scan();
