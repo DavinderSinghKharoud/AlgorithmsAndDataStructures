@@ -1,64 +1,60 @@
-import java.util.*;
+class Test {
+    static final int N = 8;
 
-class Test
-{
+    public static boolean isValid(int i, int j, int sol[][]) {
+        if (i>=1 && i<=N && j>=1 && j<=N) {
+            if(sol[i][j]==-1)
+                return true;
+        }
+        return false;
+    }
 
-    static Set<String> seen = new HashSet<>();
-    static Vector<Integer> edges = new Vector<>();
+    public static boolean knightTour(int sol[][], int i, int j, int stepCount, int xMove[], int yMove[]) {
+        if (stepCount == N*N)
+            return true;
 
-    // Modified DFS in which no edge
-    // is traversed twice
-    static void dfs(String node, int k, String A)
-    {
-        for (int i = 0; i < k; ++i)
-        {
-            String str = node + A.charAt(i);
-            if (!seen.contains(str))
-            {
-                seen.add(str);
-                dfs(str.substring(1), k, A);
-                edges.add(i);
+        for(int k=0; k<8; k++) {
+            int nextI = i+xMove[k];
+            int nextJ = j+yMove[k];
+
+            if(isValid(nextI, nextJ, sol)) {
+                sol[nextI][nextJ] = stepCount;
+                if (knightTour(sol, nextI, nextJ, stepCount+1, xMove, yMove))
+                    return true;
+                sol[nextI][nextJ] = -1; // backtracking
             }
         }
+
+        return false;
     }
 
-    // Function to find a de Bruijn sequence
-    // of order n on k characters
-    static String deBruijn(int n, int k, String A)
-    {
+    public static boolean startKnightTour() {
+        int[][] sol = new int[N+1][N+1];
 
-        // Clearing global variables
-        seen.clear();
-        edges.clear();
+        for(int i=1; i<=N; i++) {
+            for(int j=1; j<=N; j++) {
+                sol[i][j] = -1;
+            }
+        }
 
-        String startingNode = string(n - 1, A.charAt(0));
-        dfs(startingNode, k, A);
+        int xMove[] = {2, 1, -1, -2, -2, -1, 1, 2};
+        int yMove[] = {1, 2, 2, 1, -1, -2, -2, -1};
 
-        String S = "";
+        sol[1][4] = 0; // placing knight at cell(1, 1)
 
-        // Number of edges
-        int l = (int) Math.pow(k, n);
-        for (int i = 0; i < l; ++i)
-            S += A.charAt(edges.get(i));
-        S += startingNode;
-
-        return S;
+        if (knightTour(sol, 1, 1, 1, xMove, yMove)) {
+            for(int i=1; i<=N; i++) {
+                for(int j=1; j<=N; j++) {
+                    System.out.print(sol[i][j]+"\t");
+                }
+                System.out.println("\n");
+            }
+            return true;
+        }
+        return false;
     }
 
-    private static String string(int n, char charAt)
-    {
-        String str = "";
-        for (int i = 0; i < n; i++)
-            str += charAt;
-        return str;
-    }
-
-    // Driver code
-    public static void main(String[] args)
-    {
-        int n = 3, k = 2;
-        String A = "01";
-
-        System.out.print(deBruijn(n, k, A));
+    public static void main(String[] args) {
+        startKnightTour();
     }
 }
