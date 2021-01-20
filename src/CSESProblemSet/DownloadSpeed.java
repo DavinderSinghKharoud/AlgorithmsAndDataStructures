@@ -2,135 +2,181 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Time limit: 1.00 s Memory limit: 512 MB
- * Given a starting position of a knight on an 8×8
- * 8
- * ×
- * 8
- *  chessboard, your task is to find a sequence of moves such that it visits every square exactly once.
+ * Consider a network consisting of n
+ * n
+ *  computers and m
+ * m
+ *  connections. Each connection specifies how fast a computer can send data to another computer.
  *
- * On each move, the knight may either move two steps horizontally and one step vertically, or one step horizontally and two steps vertically.
+ * Kotivalo wants to download some data from a server. What is the maximum speed he can do this, using the connections in the network?
  *
  * Input
  *
- * The only line has two integers x
- * x
- *  and y
- * y
- * : the knight's starting position.
+ * The first input line has two integers n
+ * n
+ *  and m
+ * m
+ * : the number of computers and connections. The computers are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * . Computer 1
+ * 1
+ *  is the server and computer n
+ * n
+ *  is Kotivalo's computer.
+ *
+ * After this, there are m
+ * m
+ *  lines describing the connections. Each line has three integers a
+ * a
+ * , b
+ * b
+ *  and c
+ * c
+ * : computer a
+ * a
+ *  can send data to computer b
+ * b
+ *  at speed c
+ * c
+ * .
  *
  * Output
  *
- * Print a grid that shows how the knight moves (according to the example). You can print any valid solution.
+ * Print one integer: the maximum speed Kotivalo can download data.
  *
  * Constraints
- * 1≤x,y≤8
+ * 1≤n≤500
  * 1
  * ≤
- * x
- * ,
- * y
+ * n
  * ≤
- * 8
+ * 500
+ *
+ * 1≤m≤1000
+ * 1
+ * ≤
+ * m
+ * ≤
+ * 1000
+ *
+ * 1≤a,b≤n
+ * 1
+ * ≤
+ * a
+ * ,
+ * b
+ * ≤
+ * n
+ *
+ * 1≤c≤109
+ * 1
+ * ≤
+ * c
+ * ≤
+ * 10
+ * 9
  *
  * Example
  *
  * Input:
- * 2 1
+ * 4 5
+ * 1 2 3
+ * 2 4 2
+ * 1 3 4
+ * 3 4 5
+ * 4 1 3
  *
  * Output:
- * 8 1 10 13 6 3 20 17
- * 11 14 7 2 19 16 23 4
- * 26 9 12 15 24 5 18 21
- * 49 58 25 28 51 22 33 30
- * 40 27 50 59 32 29 52 35
- * 57 48 41 44 37 34 31 62
- * 42 39 46 55 60 63 36 53
- * 47 56 43 38 45 54 61 64
+ * 6
  */
-public class KnightTour {
+public class DownloadSpeed {
 
-    static int[][] dp = new int[8][8];
-    static int n, m;
-    static int[] di = new int[]{-2, -2, -1, -1, 1, 1, 2, 2};
-    static int[] dj = new int[]{-1, 1, -2, 2, -2, 2, -1, 1};
 
     static void solve() throws IOException {
 
-        n = fastReader.intNext() - 1;
-        m = fastReader.intNext() - 1;
+        int n = fastReader.intNext(), m = fastReader.intNext();
 
-        //dfs( m , n , 1);
-        boolean state = dfs2(m, n, 1);
-        if(state){
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    print(dp[i][j] + " ");
+        Edge[] parent = new Edge[2 * n + 2];
+
+
+        List<List<Edge>> arr = new ArrayList<>(2 * n + 2);
+        for (int i = 0; i < 2 * n + 1; i++) {
+            arr.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < m; i++) {
+            int a = fastReader.intNext() - 1, b = fastReader.intNext() - 1, w = fastReader.intNext();
+
+            Edge a1 = new Edge(a, b, w, null);
+            Edge b1 = new Edge(b, a, 0, a1);
+            a1.rev = b1;
+            arr.get(a).add(a1);
+            arr.get(b).add(b1);
+        }
+
+        long res = 0;
+
+        while (true) {
+            //BFS
+            boolean[] vis = new boolean[n];
+            vis[0] = true;
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(0);
+
+            while (!queue.isEmpty()) {
+                int u = queue.poll();
+
+                for (Edge edge : arr.get(u)) {
+                    int v = edge.v;
+                    if (edge.cap > 0 && !vis[v]) {
+                        vis[v] = true;
+                        parent[v] = edge;
+                        queue.add(v);
+                    }
                 }
-                print("\n");
             }
-        }
-    }
 
-    private static boolean dfs2(int row, int col, int moves) {
-        dp[row][col] = moves;
-        if (moves == 64) return true;
-        List<int[]> pos = new ArrayList<>(8);
+            if (!vis[n - 1]) break;
 
-        for (int i = 0; i < 8; i++) {
-            int mRow = row + di[i];
-            int mCol = col + dj[i];
-            if (isValid(mRow, mCol)) {
-                pos.add(new int[]{getDegree(mRow, mCol), mRow, mCol});
+
+            int end = n - 1;
+            long min = parent[end].cap;
+            while (end > 0) {
+                min = Math.min(min, parent[end].cap);
+                end = parent[end].u;
             }
-        }
 
-        pos.sort(Comparator.comparingInt(o -> o[0]));
-        for (int[] edge : pos) {
-            if (dfs2(edge[1], edge[2], moves + 1)) return true;
-        }
-
-        dp[row][col] = 0;
-        return false;
-
-    }
-
-    private static int getDegree(int mRow, int mCol) {
-        int total = 0;
-
-        for (int i = 0; i < 8; i++) {
-            if (isValid(mRow + di[i], mCol + dj[i])) total++;
-        }
-        return total;
-    }
-
-    private static boolean isValid(int row, int col) {
-        return row >= 0 && col >= 0 && row < 8 && col < 8 && dp[row][col] == 0;
-    }
-
-    //Time Limit Exceeded
-    static void dfs(int row, int col, int move) {
-
-        dp[row][col] = move;
-        // System.out.println(move);
-        if (move >= 63) {
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    print(dp[i][j] + " ");
-                }
-                print('\n');
-            }
-            return;
-        }
-
-        for (int i = 0; i < 8; i++) {
-            int mRow = row + di[i], mCol = col + dj[i];
-            if (mRow >= 0 && mCol >= 0 && mRow < 8 && mCol < 8 && dp[mRow][mCol] == 0) {
-                dfs(mRow, mCol, move + 1);
+            res += min;
+            end = n - 1;
+            //Decrease the flow
+            while (end > 0) {
+                parent[end].cap -= min;
+                parent[end].rev.cap += min;
+                end = parent[end].u;
             }
         }
 
-        dp[row][col] = 0;
+        print(res);
+    }
+
+    static class Edge {
+        int u, v;
+        Edge rev;
+        long cap;
+
+        public Edge(int u, int v, long cap, Edge rev) {
+            this.u = u;
+            this.v = v;
+            this.cap = cap;
+            this.rev = rev;
+        }
+
     }
 
     /************************************************************************************************************************************************/
