@@ -2,17 +2,25 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Kaaleppi has just robbed a bank and is now heading to the harbor. However, the police wants to stop him by closing some streets of the city.
+ * There are n
+ * n
+ *  boys and m
+ * m
+ *  girls in a school. Next week a school dance will be organized. A dance pair consists of a boy and a girl, and there are k
+ * k
+ *  potential pairs.
  *
- * What is the minimum number of streets that should be closed so that there is no route between the bank and the harbor?
+ * Your task is to find out the maximum number of dance pairs and show how this number can be achieved.
  *
  * Input
  *
- * The first input line has two integers n
+ * The first input line has three integers n
  * n
- *  and m
+ * , m
  * m
- * : the number of crossings and streets. The crossings are numbered 1,2,…,n
+ *  and k
+ * k
+ * : the number of boys, girls, and potential pairs. The boys are numbered 1,2,…,n
  * 1
  * ,
  * 2
@@ -20,105 +28,137 @@ import java.util.*;
  * …
  * ,
  * n
- * . The bank is located at crossing 1
+ * , and the girls are numbered 1,2,…,m
  * 1
- * , and the harbor is located at crossing n
- * n
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * m
  * .
  *
- * After this, there are m
- * m
- *  lines that describing the streets. Each line has two integers a
+ * After this, there are k
+ * k
+ *  lines describing the potential pairs. Each line has two integers a
  * a
  *  and b
  * b
- * : there is a street between crossings a
+ * : boy a
  * a
- *  and b
+ *  and girl b
  * b
- * . All streets are two-way streets, and there is at most one street between two crossings.
+ *  are willing to dance together.
  *
  * Output
  *
- * First print an integer k
- * k
- * : the minimum number of streets that should be closed. After this, print k
- * k
- *  lines describing the streets. You can print any valid solution.
+ * First print one integer r
+ * r
+ * : the maximum number of dance pairs. After this, print r
+ * r
+ *  lines describing the pairs. You can print any valid solution.
  *
  * Constraints
- * 2≤n≤500
- * 2
+ * 1≤n,m≤500
+ * 1
  * ≤
  * n
+ * ,
+ * m
  * ≤
  * 500
  *
- * 1≤m≤1000
+ * 1≤k≤1000
  * 1
  * ≤
- * m
+ * k
  * ≤
  * 1000
  *
- * 1≤a,b≤n
+ * 1≤a≤n
  * 1
  * ≤
  * a
- * ,
- * b
  * ≤
  * n
+ *
+ * 1≤b≤m
+ * 1
+ * ≤
+ * b
+ * ≤
+ * m
  *
  * Example
  *
  * Input:
- * 4 5
+ * 3 2 4
+ * 1 1
  * 1 2
- * 1 3
- * 2 3
- * 3 4
- * 1 4
+ * 2 1
+ * 3 1
  *
  * Output:
  * 2
- * 3 4
+ * 1 2
+ * 3 1
  */
-public class PoliceChase {
+public class SchoolDance {
 
+    static int nxM = 2500;
 
     static void solve() throws IOException {
+        int n = fastReader.intNext(), m = fastReader.intNext(), q = fastReader.intNext();
 
-        int n = fastReader.intNext(), m = fastReader.intNext();
+        Edge[] parent = new Edge[nxM];
+        Edge[] resParent = new Edge[nxM];
 
-        Edge[] parent = new Edge[2 * n + 2];
-        List<Edge> edges = new ArrayList<>(m);
-
-        List<List<Edge>> arr = new ArrayList<>(2 * n + 2);
-        for (int i = 0; i < 2 * n + 1; i++) {
+        List<List<Edge>> arr = new ArrayList<>(nxM);
+        for (int i = 0; i < nxM; i++) {
             arr.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < m; i++) {
-            int a = fastReader.intNext() - 1, b = fastReader.intNext() - 1, w = 1;
+
+        for (int i = 0; i < q; i++) {
+            int a = fastReader.intNext() - 1, b = fastReader.intNext() - 1 + n, w = 1;
 
             Edge a1 = new Edge(a, b, w, null);
-            Edge b1 = new Edge(b, a, w, a1);
+            Edge b1 = new Edge(b, a, 0, a1);
             a1.rev = b1;
 
-            edges.add(a1);
-            edges.add(b1);
             arr.get(a).add(a1);
             arr.get(b).add(b1);
+        }
+
+
+        int source = nxM - 2;
+        int sink = nxM - 1;
+        //Add the source and sink to the graph
+
+        for (int boy = 0; boy < n; boy++) {
+            Edge a1 = new Edge(source, boy, 1, null);
+            Edge b1 = new Edge(boy, source, 0, a1);
+            a1.rev = b1;
+
+            arr.get(source).add(a1);
+            arr.get(boy).add(b1);
+        }
+
+        for (int girl = n; girl < n + m; girl++) {
+            Edge a1 = new Edge(girl, sink, 1, null);
+            Edge b1 = new Edge(sink, girl, 0, a1);
+            a1.rev = b1;
+            arr.get(girl).add(a1);
+            arr.get(sink).add(b1);
         }
 
         long res = 0;
         while (true) {
             //BFS
-            boolean[] vis = new boolean[n];
-            vis[0] = true;
+            boolean[] vis = new boolean[nxM];
+            vis[source] = true;
             Queue<Integer> queue = new LinkedList<>();
-            queue.add(0);
+            queue.add(source);
 
             while (!queue.isEmpty()) {
                 int u = queue.poll();
@@ -133,44 +173,34 @@ public class PoliceChase {
                 }
             }
 
-            if (!vis[n - 1]) break;
+            if (!vis[sink]) break;
 
-            int end = n - 1;
+            int end = sink;
             long min = parent[end].cap;
-            while (end > 0) {
+            while (end != source) {
                 min = Math.min(min, parent[end].cap);
                 end = parent[end].u;
             }
 
             res += min;
-            end = n - 1;
+            end = sink;
             //Decrease the flow
-            while (end > 0) {
+            while (end != source) {
                 parent[end].cap -= min;
                 parent[end].rev.cap += min;
+                resParent[end] = parent[end];
                 end = parent[end].u;
             }
         }
 
         println(res);
-        boolean[] vis = new boolean[n];
-        dfs(arr, vis, 0);
+        for (int girl = n; girl < n + m; girl++) {
+            if( resParent[girl] != null){
+                println( (resParent[girl].u + 1) + " " + (resParent[girl].v - n + 1));
 
-
-        for (Edge edge : edges) {
-            if( edge.cap > 0  && !vis[edge.u] && vis[edge.v]){
-                println( (edge.v + 1) + " " + (edge.u + 1));
             }
         }
-    }
 
-
-    private static void dfs(List<List<Edge>> arr, boolean[] vis, int node) {
-        vis[node] = true;
-
-        for (Edge adj : arr.get(node)) {
-           if( !vis[adj.v] && adj.cap > 0 ) dfs( arr, vis, adj.v);
-        }
     }
 
     static class Edge {
