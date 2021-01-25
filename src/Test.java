@@ -1,142 +1,70 @@
-import java.util.*;
-
 /**
- * Date 04/14/2014
+ * Date 04/28/2016
  * @author Tushar Roy
  *
- * Ford fulkerson method Edmonds Karp algorithm for finding max flow
+ * Find range minimum query using sparse table.
  *
- * Capacity - Capacity of an edge to carry units from source to destination vertex
- * Flow - Actual flow of units from source to destination vertex of an edge
- * Residual capacity - Remaining capacity on this edge i.e capacity - flow
- * AugmentedPath - Path from source to sink which has residual capacity greater than 0
+ * Preprocessing Time complexity O(nlogn)
+ * Query Time complexity O(1)
+ * Space complexity O(nlogn)
  *
- * Time complexity is O(VE^2)
- *
- * References:
- * http://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/
- * https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algorithm
+ * Reference -
+ * https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/
  */
 public class Test {
 
-    public static int maxFlow(int capacity[][], int source, int sink){
+    private final int[][] sparse;
+    private final int n;
+    private final int[] input;
 
-        //declare and initialize residual capacity as total avaiable capacity initially.
-        int residualCapacity[][] = new int[capacity.length][capacity[0].length];
-        for (int i = 0; i < capacity.length; i++) {
-            for (int j = 0; j < capacity[0].length; j++) {
-                residualCapacity[i][j] = capacity[i][j];
-            }
-        }
-
-        //this is parent map for storing BFS parent
-        Map<Integer,Integer> parent = new HashMap<>();
-
-        //stores all the augmented paths
-        List<List<Integer>> augmentedPaths = new ArrayList<>();
-
-        //max flow we can get in this network
-        int maxFlow = 0;
-
-        //see if augmented path can be found from source to sink.
-        while(BFS(residualCapacity, parent, source, sink)){
-            List<Integer> augmentedPath = new ArrayList<>();
-            int flow = Integer.MAX_VALUE;
-            //find minimum residual capacity in augmented path
-            //also add vertices to augmented path list
-            int v = sink;
-            while(v != source){
-                augmentedPath.add(v);
-                int u = parent.get(v);
-                if (flow > residualCapacity[u][v]) {
-                    flow = residualCapacity[u][v];
-                }
-                v = u;
-            }
-            augmentedPath.add(source);
-            Collections.reverse(augmentedPath);
-            augmentedPaths.add(augmentedPath);
-
-            //add min capacity to max flow
-            maxFlow += flow;
-
-            //decrease residual capacity by min capacity from u to v in augmented path
-            // and increase residual capacity by min capacity from v to u
-            v = sink;
-            while(v != source){
-                int u = parent.get(v);
-                residualCapacity[u][v] -= flow;
-                residualCapacity[v][u] += flow;
-                v = u;
-            }
-        }
-        printAugmentedPaths(augmentedPaths);
-        return maxFlow;
+    public Test(int[] input) {
+        this.input = input;
+        this.n = input.length;
+        this.sparse = preprocess(input, this.n);
     }
 
-    /**
-     * Prints all the augmented path which contribute to max flow
-     */
-    private static void printAugmentedPaths(List<List<Integer>> augmentedPaths) {
-        System.out.println("Augmented paths");
-        augmentedPaths.forEach(path -> {
-            path.forEach(i -> System.out.print(i + " "));
-            System.out.println();
-        });
-    }
+    private int[][] preprocess(int[] input, int n) {
+        int[][] sparse = new int[n][log2(n) + 1];
+        for (int i = 0; i < input.length; i++) {
+            sparse[i][0] = i;
+        }
 
-    /**
-     * Breadth first search to find augmented path
-     */
-    private static boolean BFS(int[][] residualCapacity, Map<Integer,Integer> parent,
-                        int source, int sink){
-        Set<Integer> visited = new HashSet<>();
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(source);
-        visited.add(source);
-        boolean foundAugmentedPath = false;
-        //see if we can find augmented path from source to sink
-        while(!queue.isEmpty()){
-            int u = queue.poll();
-            for(int v = 0; v < residualCapacity.length; v++){
-                //explore the vertex only if it is not visited and its residual capacity is
-                //greater than 0
-                if(!visited.contains(v) &&  residualCapacity[u][v] > 0){
-                    //add in parent map saying v got explored by u
-                    parent.put(v, u);
-                    //add v to visited
-                    visited.add(v);
-                    //add v to queue for BFS
-                    queue.add(v);
-                    //if sink is found then augmented path is found
-                    if ( v == sink) {
-                        foundAugmentedPath = true;
-                        break;
-                    }
+        for (int j = 1; 1 << j <= n; j++) {
+            for (int i = 0; i + (1 << j) - 1 < n; i++) {
+                if (input[sparse[i][j - 1]] < input[sparse[i + (1 << (j - 1))][j - 1]]) {
+                    sparse[i][j] = sparse[i][j - 1];
+                } else {
+                    sparse[i][j] = sparse[i + (1 << (j - 1))][j - 1];
                 }
             }
         }
-        //returns if augmented path is found from source to sink or not
-        return foundAugmentedPath;
+        return sparse;
     }
 
-    public static void main(String args[]){
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt(), m = scanner.nextInt();
-
-        int[][] capacity = new int[n][n];
-        for (int i = 0; i < m; i++) {
-            int a = scanner.nextInt() - 1, b =scanner.nextInt() - 1, w = scanner.nextInt();
-            capacity[a][b] = w;
+    public int rangeMinimumQuery(int low, int high) {
+        int l = high - low + 1;
+        int k = log2(l);
+        if (input[sparse[low][k]] <= input[sparse[low + l - (1<<k)][k]]) {
+            return input[sparse[low][k]];
+        } else {
+            return input[sparse[high - (1<<k) + 1][k]];
         }
-//        int[][] capacity = {{0, 3, 0, 3, 0, 0, 0},
-//                {0, 0, 4, 0, 0, 0, 0},
-//                {3, 0, 0, 1, 2, 0, 0},
-//                {0, 0, 0, 0, 2, 6, 0},
-//                {0, 1, 0, 0, 0, 0, 1},
-//                {0, 0, 0, 0, 0, 0, 9},
-//                {0, 0, 0, 0, 0, 0, 0}};
+    }
 
-        System.out.println("\nMaximum capacity " + maxFlow(capacity, 0, 6));
+    private static int log2(int n){
+        if(n <= 0) throw new IllegalArgumentException();
+        return 31 - Integer.numberOfLeadingZeros(n);
+    }
+
+    public static void main(String args[]) {
+        int[] input = {7, 6, 4, 6 ,2 ,9 ,4 ,8};
+        Test sparseTableRangeMinimumQuery = new Test(input);
+        System.out.print( sparseTableRangeMinimumQuery.rangeMinimumQuery(0, 7));
+//        for (int i = 0; i < input.length; i++) {
+//            for (int j = i; j < input.length; j++) {
+//                System.out.print(sparseTableRangeMinimumQuery.rangeMinimumQuery(i, j) + " ");
+//            }
+//            System.out.println();
+//        }
     }
 }
