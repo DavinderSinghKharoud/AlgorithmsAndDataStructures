@@ -2,116 +2,157 @@ import java.io.*;
 import java.util.*;
 
 /**
- * There are n
+ * You are given a list consisting of n
  * n
- * hotels on a street. For each hotel you know the number of free rooms. Your task is to assign hotel rooms for groups of tourists. All members of a group want to stay in the same hotel.
- * <p>
- * The groups will come to you one after another, and you know for each group the number of rooms it requires. You always assign a group to the first hotel having enough rooms. After this, the number of free rooms in the hotel decreases.
- * <p>
+ *  integers. Your task is to remove elements from the list at given positions, and report the removed elements.
+ *
  * Input
- * <p>
- * The first input line contains two integers n
+ *
+ * The first input line has an integer n
  * n
- * and m
- * m
- * : the number of hotels and the number of groups. The hotels are numbered 1,2,…,n
+ * : the initial size of the list. During the process, the elements are numbered 1,2,…,k
  * 1
  * ,
  * 2
  * ,
  * …
  * ,
+ * k
+ *  where k
+ * k
+ *  is the current size of the list.
+ *
+ * The second line has n
  * n
- * .
- * <p>
- * The next line contains n
- * n
- * integers h1,h2,…,hn
- * h
+ *  integers x1,x2,…,xn
+ * x
  * 1
  * ,
- * h
+ * x
  * 2
  * ,
  * …
  * ,
- * h
+ * x
  * n
- * : the number of free rooms in each hotel.
- * <p>
- * The last line contains m
- * m
- * integers r1,r2,…,rm
- * r
+ * : the contents of the list.
+ *
+ * The last line has n
+ * n
+ *  integers p1,p2,…,pn
+ * p
  * 1
  * ,
- * r
+ * p
  * 2
  * ,
  * …
  * ,
- * r
- * m
- * : the number of rooms each group requires.
- * <p>
+ * p
+ * n
+ * : the positions of the elements to be removed.
+ *
  * Output
- * <p>
- * Print the assigned hotel for each group. If a group cannot be assigned a hotel, print 0 instead.
- * <p>
+ *
+ * Print the elements in the order they are removed.
+ *
  * Constraints
- * 1≤n,m≤2⋅105
+ * 1≤n≤2⋅105
  * 1
  * ≤
  * n
- * ,
- * m
  * ≤
  * 2
  * ⋅
  * 10
  * 5
- * <p>
- * 1≤hi≤109
+ *
+ * 1≤xi≤109
  * 1
  * ≤
- * h
+ * x
  * i
  * ≤
  * 10
  * 9
- * <p>
- * 1≤ri≤109
+ *
+ * 1≤pi≤n−i+1
  * 1
  * ≤
- * r
+ * p
  * i
  * ≤
- * 10
- * 9
- * <p>
+ * n
+ * −
+ * i
+ * +
+ * 1
+ *
  * Example
- * <p>
+ *
  * Input:
- * 8 5
- * 3 2 4 1 5 5 2 6
- * 4 4 7 1 1
- * <p>
+ * 5
+ * 2 6 1 4 2
+ * 3 1 3 1 1
+ *
  * Output:
- * 3 5 0 1 1
+ * 1 2 2 6 4
+ *
+ * Explanation: The contents of the list are [2,6,1,4,2]
+ * [
+ * 2
+ * ,
+ * 6
+ * ,
+ * 1
+ * ,
+ * 4
+ * ,
+ * 2
+ * ]
+ * , [2,6,4,2]
+ * [
+ * 2
+ * ,
+ * 6
+ * ,
+ * 4
+ * ,
+ * 2
+ * ]
+ * , [6,4,2]
+ * [
+ * 6
+ * ,
+ * 4
+ * ,
+ * 2
+ * ]
+ * , [6,4]
+ * [
+ * 6
+ * ,
+ * 4
+ * ]
+ * , [4]
+ * [
+ * 4
+ * ]
+ *  and []
+ * [
+ * ]
+ * .
  */
-public class HotelQueries {
+public class ListRemovals {
 
-    static int[] dp;
-    static int[] arr;
-    static boolean isFound = false;
+    static int[] dp, arr;
 
     static void solve() throws IOException {
 
-        int n = read.intNext(), m = read.intNext();
-
-        arr = new int[n];
+        int n = read.intNext();
 
         dp = new int[1 << 19];
+        arr = new int[n];
 
         for (int i = 0; i < n; i++) {
             arr[i] = read.intNext();
@@ -119,47 +160,32 @@ public class HotelQueries {
 
         constructTree(0, n - 1, 0);
 
-        while (m-- > 0) {
-            int p = read.intNext();
-            isFound = false;
-            query(0, n - 1, 0, p);
-            if (!isFound) {
-                println(0);
-            }
+        for (int i = 0; i < n; i++) {
+            int tar = read.intNext();
+
+            println( arr[update(0, n - 1, 0, tar)]);
+
         }
     }
 
+    static int update(int l, int h, int pos, int target) {
+        dp[pos]--;
 
-    static void query(int l, int h, int pos, int target) {
-
-        if (l > h || dp[pos] < target) return;
-
-        if (l == h) {
-            isFound = true;
-            println(l + 1);
-            int diff = dp[pos] - target;
-            if (diff < 0) {
-                dp[pos] = 0;
-            } else {
-                dp[pos] = diff;
-            }
-            return;
+        if( h - l == 0){
+            return l;
         }
 
-        int mid = l + (h - l) / 2;
-        if (dp[2 * pos + 1] >= target) {
-            query(l, mid, 2 * pos + 1, target);
-            dp[pos] = max(dp[2 * pos + 1], dp[2 * pos + 2]);
-            return;
+        int mid = l + (h - l)/2;
+        if( dp[2 * pos + 1] >= target){
+            return update(l, mid, 2 * pos + 1, target);
         }
-        query(mid + 1, h, 2 * pos + 2, target);
-        dp[pos] = max(dp[2 * pos + 1], dp[2 * pos + 2]);
-
+        return update(mid + 1, h, 2 * pos + 2, target - dp[2 * pos + 1]);
     }
 
     static void constructTree(int l, int h, int pos) {
+
         if (l == h) {
-            dp[pos] = arr[l];
+            dp[pos] = 1;
             return;
         }
 
@@ -167,52 +193,15 @@ public class HotelQueries {
 
         constructTree(l, mid, 2 * pos + 1);
         constructTree(mid + 1, h, 2 * pos + 2);
-        dp[pos] = max(dp[2 * pos + 1], dp[2 * pos + 2]);
+
+        dp[pos] = dp[2 * pos + 1] + dp[2 * pos + 2];
     }
 
-    static void solve2() throws IOException {
-        int n = read.intNext(), m = read.intNext();
-
-        TreeMap<Integer, TreeSet<Integer>> map = new TreeMap<>();
-
-        for (int i = 0; i < n; i++) {
-            int h = read.intNext();
-            TreeSet<Integer> curr = map.getOrDefault(h, new TreeSet<>());
-            curr.add(i + 1);
-            map.put(h, curr);
-        }
-
-        while (m-- > 0) {
-            int p = read.intNext();
-
-            Integer hotel = map.ceilingKey(p);
-            if (hotel == null) {
-                println(0);
-                continue;
-            }
-            TreeSet<Integer> set = map.get(hotel);
-            int index = set.first();
-            println(index);
-            set.remove(index);
-
-            int diff = hotel - p;
-            if (diff != 0) {
-                TreeSet<Integer> curr = map.getOrDefault(diff, new TreeSet<>());
-                curr.add(index);
-                //map.put(diff, curr);
-            }
-
-            if( map.get(hotel).size() == 0){
-                map.remove(hotel);
-            }
-        }
-    }
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        //solve();
-        solve2();
+        solve();
         out.close();
     }
 
