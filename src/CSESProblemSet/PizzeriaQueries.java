@@ -2,66 +2,87 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Given an array of n
+ * There are n
  * n
- * integers, your task is to process q
- * q
- * queries of the following types:
- * update the value at position k
- * k
- * to u
- * u
- * <p>
- * what is the maximum prefix sum in range [a,b]
- * [
- * a
- * ,
- * b
- * ]
- * ?
- * Input
- * <p>
- * The first input line has two integers n
- * n
- * and q
- * q
- * : the number of values and queries.
- * <p>
- * The second line has n
- * n
- * integers x1,x2,…,xn
- * x
+ *  buildings on a street, numbered 1,2,…,n
  * 1
  * ,
- * x
  * 2
  * ,
  * …
  * ,
- * x
  * n
- * : the array values.
- * <p>
+ * . Each building has a pizzeria and an apartment.
+ *
+ * The pizza price in building k
+ * k
+ *  is pk
+ * p
+ * k
+ * . If you order a pizza from building a
+ * a
+ *  to building b
+ * b
+ * , its price (with delivery) is pa+|a−b|
+ * p
+ * a
+ * +
+ * |
+ * a
+ * −
+ * b
+ * |
+ * .
+ *
+ * Your task is to process two types of queries:
+ * The pizza price pk
+ * p
+ * k
+ *  in building k
+ * k
+ *  becomes x
+ * x
+ * .
+ * You are in building k
+ * k
+ *  and want to order a pizza. What is the minimum price?
+ * Input
+ *
+ * The first input line has two integers n
+ * n
+ *  and q
+ * q
+ * : the number of buildings and queries.
+ *
+ * The second line has n
+ * n
+ *  integers p1,p2,…,pn
+ * p
+ * 1
+ * ,
+ * p
+ * 2
+ * ,
+ * …
+ * ,
+ * p
+ * n
+ * : the initial pizza price in each building.
+ *
  * Finally, there are q
  * q
- * lines describing the queries. Each line has three integers: either "1
- * 1
+ *  lines that describe the queries. Each line is either "1 k
  * k
+ *  x
+ * x
+ * " or "2 k
  * k
- * u
- * u
- * " or "2
- * 2
- * a
- * a
- * b
- * b
  * ".
- * <p>
+ *
  * Output
- * <p>
- * Print the result of each query of type 2.
- * <p>
+ *
+ * Print the answer for each query of type 2.
+ *
  * Constraints
  * 1≤n,q≤2⋅105
  * 1
@@ -74,137 +95,130 @@ import java.util.*;
  * ⋅
  * 10
  * 5
- * <p>
- * −109≤xi,u≤109
- * −
- * 10
- * 9
+ *
+ * 1≤pi,x≤109
+ * 1
  * ≤
- * x
+ * p
  * i
  * ,
- * u
+ * x
  * ≤
  * 10
  * 9
- * <p>
+ *
  * 1≤k≤n
  * 1
  * ≤
  * k
  * ≤
  * n
- * <p>
- * 1≤a≤b≤n
- * 1
- * ≤
- * a
- * ≤
- * b
- * ≤
- * n
- * <p>
+ *
  * Example
- * <p>
+ *
  * Input:
- * 8 4
- * 1 2 -1 3 1 -5 1 4
- * 2 2 6
- * 1 4 -2
- * 2 2 6
- * 2 3 4
- * <p>
+ * 6 3
+ * 8 6 4 5 7 5
+ * 2 2
+ * 1 5 1
+ * 2 2
+ *
  * Output:
  * 5
- * 2
- * 0
+ * 4
+ * Range Queries
+ *
+ * ...
+ * List Removals
+ * Salary Queries
+ * Prefix Sum Queries
+ * Pizzeria Queries
+ * Subarray Sum Queries
+ * Distinct Values Queries
+ * Increasing Array Queries
+ * Forest Queries II
+ * ...
+ * Your submissions
+ *
+ * 2021-01-29 09:03:28
+ * 2021-01-29 08:51:43
+ * 2021-01-29 08:47:16
+ * 2021-01-29 07:15:54
  */
-public class PrefixSumQueries {
+public class PizzeriaQueries {
 
-	/**
-	 * For finding out the maximum prefix sum, we will require two things, one being the sum and the other prefix sum. The merging will return two things, sum of the ranges and the prefix sum that will store the max(prefix.left, prefix.sum + prefix.right) in the segment tree.
-	 * */
-    static long[][] seg = new long[1 << 19][2];
+    static int[] seg1 = new int[1 << 19], seg2 = new int[1 << 19];
     static int[] arr;
 
     static void solve() throws IOException {
 
         int n = read.intNext(), q = read.intNext();
+
         arr = new int[n];
 
         for (int i = 0; i < n; i++) {
             arr[i] = read.intNext();
         }
 
-        //constructTree(0, n - 1, 0);
-
         for (int i = 0; i < n; i++) {
-            update(0, n - 1, 0, i, arr[i]);
+            update1(0, n - 1, 0, i, arr[i]);
+            update2(0, n - 1, 0, i, arr[i]);
         }
-        
+
         for (int i = 0; i < q; i++) {
             int type = read.intNext();
+            int index = read.intNext() - 1;
             if (type == 1) {
-                update(0, n - 1, 0, read.intNext() - 1, read.intNext());
+                int val = read.intNext();
+                update1(0, n - 1, 0, index, val);
+                update2(0, n - 1, 0, index, val);
             } else {
-                long[] curr = query(0, n - 1, 0, read.intNext() - 1, read.intNext() - 1);
-                println((curr[0] < 0) ? 0 : curr[0]);
+                long a = query(0, n - 1, 0, index, n - 1, seg1);
+                long b = query(0, n - 1, 0, 0, index, seg2);
+                println(Math.min(a - (index), b + (index)));
             }
         }
-
     }
 
-    static long[] query(int l, int h, int pos, int ql, int qh) {
 
+    static long query(int l, int h, int pos, int ql, int qh, int[] tree) {
+        if ( l > qh || h < ql) return Long.MAX_VALUE;
         if (l >= ql && h <= qh) {
-            return seg[pos];
+            return tree[pos];
         }
 
         int mid = (h + l) / 2;
 
-        if (ql > mid) return query(mid + 1, h, 2 * pos + 2, ql, qh);
-        if (qh <= mid) return query(l, mid, 2 * pos + 1, ql, qh);
+        return Math.min(query(l, mid, 2 * pos + 1, ql, qh, tree), query(mid + 1, h, 2 * pos + 2, ql, qh, tree));
 
-        long[] a = query(l, mid, 2 * pos + 1, ql, qh);
-        long[] b = query(mid + 1, h, 2 * pos + 2, ql, qh);
-
-        long[] curr = new long[2];
-        curr[1] = a[1] + b[1];
-
-        curr[0] = max(a[0], a[1] + b[0]);
-        return curr;
     }
 
-    static void update(int l, int h, int pos, int tar, int value) {
+    static void update1(int l, int h, int pos, int tar, int value) {
         if (tar < l || tar > h) return;
         if (l == h) {
-            seg[pos][0] = value;
-            seg[pos][1] = value;
+            seg1[pos] = tar + value;
             return;
         }
+
         int mid = (h + l) / 2;
+        update1(l, mid, 2 * pos + 1, tar, value);
+        update1(mid + 1, h, 2 * pos + 2, tar, value);
 
-        update(l, mid, 2 * pos + 1, tar, value);
-        update(mid + 1, h, 2 * pos + 2, tar, value);
-
-        seg[pos][1] = seg[2 * pos + 1][1] + seg[2 * pos + 2][1];
-        seg[pos][0] = max(seg[2 * pos + 1][0], seg[2 * pos + 1][1] + seg[2 * pos + 2][0]);
+        seg1[pos] = min(seg1[2 * pos + 1], seg1[2 * pos + 2]);
     }
 
-    static void constructTree(int l, int h, int pos) {
+    static void update2(int l, int h, int pos, int tar, int value) {
+        if (tar < l || tar > h) return;
         if (l == h) {
-            seg[pos][0] = arr[l];
-            seg[pos][1] = arr[l];
+            seg2[pos] = value - tar;
             return;
         }
 
         int mid = (h + l) / 2;
+        update2(l, mid, 2 * pos + 1, tar, value);
+        update2(mid + 1, h, 2 * pos + 2, tar, value);
 
-        constructTree(l, mid, 2 * pos + 1);
-        constructTree(mid + 1, h, 2 * pos + 2);
-
-        seg[pos][1] = seg[2 * pos + 1][1] + seg[2 * pos + 2][1];
-        seg[pos][0] = max(seg[2 * pos + 1][0], seg[2 * pos + 1][1] + seg[2 * pos + 2][0]);
+        seg2[pos] = min(seg2[2 * pos + 1], seg2[2 * pos + 2]);
     }
 
 
@@ -427,15 +441,7 @@ public class PrefixSumQueries {
         return min;
     }
 
-    static long max(Long... objects) {
-        long max = Long.MIN_VALUE;
-        for (Object num : objects) {
-            max = Math.max(max, (Long) num);
-        }
-        return max;
-    }
-
-    static int max(Integer... objects) {
+    static int max(Object... objects) {
         int max = Integer.MIN_VALUE;
 
         for (Object num : objects) {
