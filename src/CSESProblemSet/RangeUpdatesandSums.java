@@ -2,160 +2,293 @@ import java.io.*;
 import java.util.*;
 
 /**
- * You are given an n×n
+ * Your task is to maintain an array of n
  * n
- * ×
- * n
- * grid representing the map of a forest. Each square is either empty or contains a tree. The upper-left square has coordinates (1,1)
- * (
- * 1
+ *  values and efficiently process the following types of queries:
+ * Increase each value in range [a,b]
+ * [
+ * a
  * ,
- * 1
- * )
- * , and the lower-right square has coordinates (n,n)
- * (
- * n
- * ,
- * n
- * )
+ * b
+ * ]
+ *  by x
+ * x
  * .
- * <p>
- * Your task is to process q
- * q
- * queries of the form: how many trees are inside a given rectangle in the forest?
- * <p>
+ * Set each value in range [a,b]
+ * [
+ * a
+ * ,
+ * b
+ * ]
+ *  to x
+ * x
+ * .
+ * Calculate the sum of values in range [a,b]
+ * [
+ * a
+ * ,
+ * b
+ * ]
+ * .
  * Input
- * <p>
+ *
  * The first input line has two integers n
  * n
- * and q
+ *  and q
  * q
- * : the size of the forest and the number of queries.
- * <p>
- * Then, there are n
+ * : the array size and the number of queries.
+ *
+ * The next line has n
  * n
- * lines describing the forest. Each line has n
+ *  values t1,t2,…,tn
+ * t
+ * 1
+ * ,
+ * t
+ * 2
+ * ,
+ * …
+ * ,
+ * t
  * n
- * characters: . is an empty square and * is a tree.
- * <p>
+ * : the initial contents of the array.
+ *
  * Finally, there are q
  * q
- * lines describing the queries. Each line has four integers y1
- * y
- * 1
- * , x1
+ *  lines describing the queries. The format of each line is one of the following: "1 a
+ * a
+ * b
+ * b
+ *  x
  * x
- * 1
- * , y2
- * y
- * 2
- * , x2
+ * ", "2 a
+ * a
+ * b
+ * b
+ *  x
  * x
- * 2
- * corresponding to the corners of a rectangle.
- * <p>
+ * ", or "3 a
+ * a
+ *  b
+ * b
+ * ".
+ *
  * Output
- * <p>
- * Print the number of trees inside each rectangle.
- * <p>
+ *
+ * Print the answer to each sum query.
+ *
  * Constraints
- * 1≤n≤1000
+ * 1≤n,q≤2⋅105
  * 1
  * ≤
  * n
- * ≤
- * 1000
- * <p>
- * 1≤q≤2⋅105
- * 1
- * ≤
+ * ,
  * q
  * ≤
  * 2
  * ⋅
  * 10
  * 5
- * <p>
- * 1≤y1≤y2≤n
+ *
+ * 1≤ti,x≤106
  * 1
  * ≤
- * y
+ * t
+ * i
+ * ,
+ * x
+ * ≤
+ * 10
+ * 6
+ *
+ * 1≤a≤b≤n
  * 1
  * ≤
- * y
- * 2
+ * a
+ * ≤
+ * b
  * ≤
  * n
- * <p>
- * 1≤x1≤x2≤n
- * 1
- * ≤
- * x
- * 1
- * ≤
- * x
- * 2
- * ≤
- * n
- * <p>
+ *
  * Example
- * <p>
+ *
  * Input:
- * 4 3
- * .*..
- * *.**
- * **..
- * ****
- * 2 2 3 4
- * 3 1 3 1
- * 1 1 2 2
- * <p>
+ * 6 5
+ * 2 3 1 1 5 3
+ * 3 3 5
+ * 1 2 4 2
+ * 3 3 5
+ * 2 2 4 5
+ * 3 3 5
+ *
  * Output:
- * 3
- * 1
- * 2
+ * 7
+ * 11
+ * 15
  */
-public class ForestQueries {
-    static long[][] dp;
+public class RangeUpdatesandSums {
 
-    static void solve() throws IOException {
+    Node[] seg;
+    int[] arr;
+    int n;
 
-        int n = read.intNext(), q = read.intNext();
-        dp = new long[n + 1][n + 1];
 
+    void solve() throws IOException {
+
+        n = read.intNext();
+        int q = read.intNext();
+        int len = nextPowOfTwo(n);
+        arr = new int[n];
+        seg = new Node[2 * len + 1];
+
+        for (int i = 0; i < seg.length; i++) {
+            seg[i] = new Node();
+        }
         for (int i = 0; i < n; i++) {
-            char[] curr = read.read().toCharArray();
-
-            for (int j = 0; j < curr.length; j++) {
-                if (curr[j] == '*') {
-                    dp[i + 1][j + 1]++;
-                }
-            }
-
-            for (int j = 0; j < n; j++) {
-                dp[i + 1][j + 1] += dp[i + 1][j];
-            }
+            arr[i] = read.intNext();
         }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 1; j <= n; j++) {
-                dp[i + 1][j] += dp[i][j];
-            }
-        }
+        constructTree(0, n - 1, 0);
 
-        while (q-- > 0) {
-            int y1 = read.intNext(), x1 = read.intNext(), y2 = read.intNext(), x2 = read.intNext();
-            --y1;
-            --x1;
-            println(dp[y2][x2] - dp[y2][x1] - dp[y1][x2] + dp[y1][x1]);
+
+        for (int i = 0; i < q; i++) {
+            int type = read.intNext();
+            if (type == 3) {
+                println(query(0, n - 1, read.intNext() - 1, read.intNext() - 1, 0));
+            } else if (type == 2) {
+                update2(0, n - 1, read.intNext() - 1, read.intNext() - 1, read.intNext(), 0);
+            } else {
+                update1(0, n - 1, read.intNext() - 1, read.intNext() - 1, read.intNext(), 0);
+            }
+
+        }
+    }
+
+    //Reset the value in range
+    void update2(int l, int h, int ql, int qh, long value, int pos) {
+
+
+        if (l > qh || h < ql) return; //No Overlapp
+
+        if (l >= ql && h <= qh) {
+            seg[pos].sum = (h - l + 1) * value;
+            seg[pos].setAll = value;
+            seg[pos].increment = 0;
+            seg[pos].setAllValid = true;
+
+        } else {
+            updateAllValues(l, h, pos);
+            int mid = (h + l) / 2;
+            update2(l, mid, ql, qh, value, 2 * pos + 1);
+            update2(mid + 1, h, ql, qh, value, 2 * pos + 2);
+            updateAllValues(l, mid, 2 * pos + 1);
+            updateAllValues(mid + 1, h, 2 * pos + 2);
+            seg[pos].sum = seg[2 * pos + 1].sum + seg[2 * pos + 2].sum;
         }
 
     }
 
+
+    //increase the value in range
+    void update1(int l, int h, int ql, int qh, int value, int pos) {
+
+        if (l > qh || h < ql) return; //No Overlapp
+
+        if (l >= ql && h <= qh) {
+            seg[pos].increment += value;
+        } else {
+            updateAllValues(l, h, pos);
+            int mid = (h + l) / 2;
+            update1(l, mid, ql, qh, value, 2 * pos + 1);
+            update1(mid + 1, h, ql, qh, value, 2 * pos + 2);
+            updateAllValues(l, mid, 2 * pos + 1);
+            updateAllValues(mid + 1, h, 2 * pos + 2);
+            seg[pos].sum = seg[2 * pos + 1].sum + seg[2 * pos + 2].sum;
+        }
+
+    }
+
+    void updateAllValues(int l, int h, int pos) {
+        if (seg[pos].setAllValid) {
+            //reset everything
+            seg[pos].sum = (h - l + 1) * seg[pos].setAll;
+        }
+
+        seg[pos].sum += (h - l + 1) * seg[pos].increment;
+        if (l != h) {
+            compose(pos, 2 * pos + 1);
+            compose(pos, 2 * pos + 2);
+        }
+        seg[pos].reset();
+    }
+
+    private void compose(int pos, int child) {
+        if (seg[pos].setAllValid) {
+            seg[child].setAllValid = true;
+            seg[child].setAll = seg[pos].setAll;
+            seg[child].increment = seg[pos].increment;
+        } else {
+            seg[child].increment += seg[pos].increment;
+        }
+    }
+
+    long query(int l, int h, int ql, int qh, int pos) {
+        if (l > qh || h < ql) return 0;
+
+        updateAllValues(l, h, pos);
+
+        if (l >= ql && h <= qh) {
+            return seg[pos].sum;
+        }
+
+        int mid = (h + l) / 2;
+
+        return query(l, mid, ql, qh, 2 * pos + 1) + query(mid + 1, h, ql, qh, 2 * pos + 2);
+    }
+
+    void constructTree(int l, int h, int pos) {
+        if (l == h) {
+            seg[pos].sum = arr[l];
+        } else {
+            int mid = (h + l) / 2;
+
+            constructTree(l, mid, 2 * pos + 1);
+            constructTree(mid + 1, h, 2 * pos + 2);
+
+            seg[pos].sum = seg[2 * pos + 1].sum + seg[2 * pos + 2].sum;
+        }
+    }
+
+    static int nextPowOfTwo(int len) {
+        if (len == 0) return 1;
+        if ((len & (len - 1)) == 0)
+            return len;
+
+        while ((len & (len - 1)) != 0) {
+            len = (len & (len - 1));
+        }
+        return len << 1;
+    }
+
+    static class Node {
+        long sum, setAll, increment;
+        boolean setAllValid = false;
+
+        public Node() {
+            sum = setAll = increment = 0;
+        }
+
+        void reset() {
+            increment = 0;
+            setAllValid = false;
+        }
+    }
+
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
+        RangeUpdatesandSums object = new RangeUpdatesandSums();
+        object.solve();
 
-        solve();
         out.close();
     }
 
@@ -362,38 +495,20 @@ public class ForestQueries {
     }
 
 
-    static long min(Long... objects) {
-        long min = Integer.MAX_VALUE;
-
-        for (Long num : objects) {
-            min = Math.min(min, num);
-        }
-        return min;
-    }
-
-    static int min(Integer... objects) {
+    static int min(Object... objects) {
         int min = Integer.MAX_VALUE;
 
-        for (Integer num : objects) {
-            min = Math.min(min, num);
+        for (Object num : objects) {
+            min = Math.min(min, (Integer) num);
         }
         return min;
     }
 
-    static long max(Long... objects) {
-        long max = Long.MIN_VALUE;
-
-        for (Long num : objects) {
-            max = Math.max(max, num);
-        }
-        return max;
-    }
-
-    static int max(Integer... objects) {
+    static int max(Object... objects) {
         int max = Integer.MIN_VALUE;
 
-        for (Integer num : objects) {
-            max = Math.max(max, num);
+        for (Object num : objects) {
+            max = Math.max(max, (Integer) num);
         }
         return max;
     }
