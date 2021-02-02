@@ -4,14 +4,14 @@ import java.util.*;
 /**
  * Your task is to maintain an array of n
  * n
- *  values and efficiently process the following types of queries:
+ * values and efficiently process the following types of queries:
  * Increase each value in range [a,b]
  * [
  * a
  * ,
  * b
  * ]
- *  by x
+ * by x
  * x
  * .
  * Set each value in range [a,b]
@@ -20,7 +20,7 @@ import java.util.*;
  * ,
  * b
  * ]
- *  to x
+ * to x
  * x
  * .
  * Calculate the sum of values in range [a,b]
@@ -31,16 +31,16 @@ import java.util.*;
  * ]
  * .
  * Input
- *
+ * <p>
  * The first input line has two integers n
  * n
- *  and q
+ * and q
  * q
  * : the array size and the number of queries.
- *
+ * <p>
  * The next line has n
  * n
- *  values t1,t2,…,tn
+ * values t1,t2,…,tn
  * t
  * 1
  * ,
@@ -52,31 +52,31 @@ import java.util.*;
  * t
  * n
  * : the initial contents of the array.
- *
+ * <p>
  * Finally, there are q
  * q
- *  lines describing the queries. The format of each line is one of the following: "1 a
+ * lines describing the queries. The format of each line is one of the following: "1 a
  * a
  * b
  * b
- *  x
+ * x
  * x
  * ", "2 a
  * a
  * b
  * b
- *  x
+ * x
  * x
  * ", or "3 a
  * a
- *  b
+ * b
  * b
  * ".
- *
+ * <p>
  * Output
- *
+ * <p>
  * Print the answer to each sum query.
- *
+ * <p>
  * Constraints
  * 1≤n,q≤2⋅105
  * 1
@@ -89,7 +89,7 @@ import java.util.*;
  * ⋅
  * 10
  * 5
- *
+ * <p>
  * 1≤ti,x≤106
  * 1
  * ≤
@@ -100,7 +100,7 @@ import java.util.*;
  * ≤
  * 10
  * 6
- *
+ * <p>
  * 1≤a≤b≤n
  * 1
  * ≤
@@ -109,9 +109,9 @@ import java.util.*;
  * b
  * ≤
  * n
- *
+ * <p>
  * Example
- *
+ * <p>
  * Input:
  * 6 5
  * 2 3 1 1 5 3
@@ -120,7 +120,7 @@ import java.util.*;
  * 3 3 5
  * 2 2 4 5
  * 3 3 5
- *
+ * <p>
  * Output:
  * 7
  * 11
@@ -154,7 +154,7 @@ public class RangeUpdatesandSums {
         for (int i = 0; i < q; i++) {
             int type = read.intNext();
             if (type == 3) {
-                println(query(0, n - 1, read.intNext() - 1, read.intNext() - 1, 0));
+                sbr.append(query(0, n - 1, read.intNext() - 1, read.intNext() - 1, 0)).append("\n");
             } else if (type == 2) {
                 update2(0, n - 1, read.intNext() - 1, read.intNext() - 1, read.intNext(), 0);
             } else {
@@ -162,6 +162,7 @@ public class RangeUpdatesandSums {
             }
 
         }
+        print(sbr);
     }
 
     //Reset the value in range

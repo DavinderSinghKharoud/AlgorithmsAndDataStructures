@@ -1,12 +1,127 @@
 import java.io.*;
 import java.util.*;
 
-public class Test {
+/**
+ * Your task is to maintain a list of arrays which initially has a single array. You have to process the following types of queries:
+ * Set the value a
+ * a
+ *  in array k
+ * k
+ *  to x
+ * x
+ * .
+ * Calculate the sum of values in range [a,b]
+ * [
+ * a
+ * ,
+ * b
+ * ]
+ *  in array k
+ * k
+ * .
+ * Create a copy of array k
+ * k
+ *  and add it to the end of the list.
+ * Input
+ *
+ * The first input line has two integers n
+ * n
+ *  and q
+ * q
+ * : the array size and the number of queries.
+ *
+ * The next line has n
+ * n
+ *  integers t1,t2,…,tn
+ * t
+ * 1
+ * ,
+ * t
+ * 2
+ * ,
+ * …
+ * ,
+ * t
+ * n
+ * : the initial contents of the array.
+ *
+ * Finally, there are q
+ * q
+ *  lines describing the queries. The format of each line is one of the following: "1 k
+ * k
+ * a
+ * a
+ *  x
+ * x
+ * ", "2 k
+ * k
+ * a
+ * a
+ *  b
+ * b
+ * " or "3 k
+ * k
+ * ".
+ *
+ * Output
+ *
+ * Print the answer to each sum query.
+ *
+ * Constraints
+ * 1≤n,q≤2⋅105
+ * 1
+ * ≤
+ * n
+ * ,
+ * q
+ * ≤
+ * 2
+ * ⋅
+ * 10
+ * 5
+ *
+ * 1≤ti,x≤109
+ * 1
+ * ≤
+ * t
+ * i
+ * ,
+ * x
+ * ≤
+ * 10
+ * 9
+ *
+ * 1≤a≤b≤n
+ * 1
+ * ≤
+ * a
+ * ≤
+ * b
+ * ≤
+ * n
+ *
+ * Example
+ *
+ * Input:
+ * 5 6
+ * 2 3 1 2 5
+ * 3 1
+ * 2 1 1 5
+ * 2 2 1 5
+ * 1 2 2 5
+ * 2 1 1 5
+ * 2 2 1 5
+ *
+ * Output:
+ * 13
+ * 13
+ * 13
+ * 15
+ */
+public class RangeQueriesandCopies {
 
-    int mxN = (int) 2e5;
-    int n, pos = 1;
-    Node[] seg = new Node[mxN * 40];
-    List<Integer> trees = new ArrayList<>();
+    int n;
+    List<Node> trees = new ArrayList<>();
     int[] arr;
 
     void solve() throws IOException {
@@ -14,83 +129,83 @@ public class Test {
         n = read.intNext();
         int q = read.intNext();
         arr = new int[n];
-        trees.add(0);
+        trees.add(new Node(null, null, 0));
 
         for (int i = 0; i < n; i++) {
             arr[i] = read.intNext();
-            update(0, n - 1, i, arr[i], trees.get(0));
         }
 
-
+        construct(0, n - 1, trees.get(0));
 
 
         for (int i = 0; i < q; i++) {
             int type = read.intNext();
             if (type == 3) {
                 int index = read.intNext() - 1;
-                trees.add(trees.get(index));
+                Node curr = trees.get(index);
+                trees.add(new Node(curr.left, curr.right, curr.sum));
             } else if (type == 2) {
                 int k = read.intNext() - 1;
 
                 sbr.append(query(0, n - 1, read.intNext() - 1, read.intNext() - 1, trees.get(k))).append("\n");
             } else {
                 int k = read.intNext() - 1;
-                int index = read.intNext() - 1;
-                int value = read.intNext();
-                update(0, n - 1, index, value - (int) query(0, n - 1, index, index, trees.get(k)), trees.get(k));
+
+                trees.set(k, update(0, n - 1, read.intNext() - 1, read.intNext(), trees.get(k)) );
             }
         }
         print(sbr);
     }
 
-    long query(int l, int h, int ql, int qh, int currPos) {
-        if (ql > h || qh < l) return 0;
+    Node update(int l, int h, int tar, int value, Node curr) {
 
-        if (l >= ql && h <= qh) return seg[currPos].sum;
-
+        if (l == h) {
+            return new Node(null, null, value);
+        }
         int mid = l + (h - l) / 2;
-        return query(l, mid, ql, qh, seg[currPos].left) + query(mid + 1, h, ql, qh, seg[currPos].right);
+        Node newNode = new Node(curr.left, curr.right, curr.sum);
+
+        if (tar <= mid) {
+            newNode.left = update(l, mid, tar, value, curr.left);
+
+        } else {
+            newNode.right = update(mid + 1, h, tar, value, curr.right);
+        }
+
+        newNode.sum = newNode.left.sum + newNode.right.sum;
+        return newNode;
     }
 
+    long query(int l, int h, int ql, int qh, Node curr) {
+        if (ql > h || qh < l) return 0;
 
-    void update(int l, int h, int tar, int value, int currPos) {
+        if (l >= ql && h <= qh) return curr.sum;
 
-        seg[pos].left = seg[currPos].left;
-        seg[pos].right = seg[currPos].right;
-        seg[pos].sum = seg[currPos].sum + value;
-        currPos = pos++;
+        int mid = l + (h - l) / 2;
+        return query(l, mid, ql, qh, curr.left) + query(mid + 1, h, ql, qh, curr.right);
+    }
 
-        if (l == h) return;
-        int mid = (h + l) / 2;
-        if (tar <= mid) {
-            update(l, mid, tar, value, seg[currPos].left);
+    void construct(int l, int h, Node curr) {
+        if (l == h) {
+            curr.sum = arr[l];
+
         } else {
-            update(mid + 1, h, tar, value, seg[currPos].right);
+            int mid = l + (h - l) / 2;
+            curr.left = new Node(null, null, 0);
+            curr.right = new Node(null, null, 0);
+
+            construct(l, mid, curr.left);
+            construct(mid + 1, h, curr.right);
+
+            curr.sum = curr.left.sum + curr.right.sum;
         }
     }
 
-
-//    void construct(int l, int h, int curr) {
-//        if (l == h) {
-//            curr.sum = arr[l];
-//
-//        } else {
-//            int mid = l + (h - l) / 2;
-//            curr.left = new Node(null, null, 0);
-//            curr.right = new Node(null, null, 0);
-//
-//            construct(l, mid, curr.left);
-//            construct(mid + 1, h, curr.right);
-//
-//            curr.sum = curr.left.sum + curr.right.sum;
-//        }
-//    }
-
     static class Node {
         long sum;
-        int left, right;
+        Node left, right;
 
-        public Node(int l, int r, long sum) {
+        public Node(Node l, Node r, long sum) {
             this.sum = sum;
             left = l;
             right = r;
@@ -100,7 +215,7 @@ public class Test {
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        Test object = new Test();
+        RangeQueriesandCopies object = new RangeQueriesandCopies();
         object.solve();
         out.close();
     }
