@@ -118,7 +118,7 @@ import java.util.*;
  * 13
  * 15
  */
-public class RangeQueriesandCopies {
+public class RangeQueriesandCopies_Persistent_Tree {
 
     int n;
     List<Node> trees = new ArrayList<>();
@@ -215,7 +215,7 @@ public class RangeQueriesandCopies {
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        RangeQueriesandCopies object = new RangeQueriesandCopies();
+        RangeQueriesandCopies_Persistent_Tree object = new RangeQueriesandCopies_Persistent_Tree();
         object.solve();
         out.close();
     }
