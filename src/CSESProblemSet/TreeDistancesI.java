@@ -1,166 +1,137 @@
 import java.io.*;
 import java.util.*;
 
-/**
- * You are given a tree consisting of n
- * n
- *  nodes.
- *
- * The diameter of a tree is the maximum distance between two nodes. Your task is to determine the diameter of the tree.
- *
- * Input
- *
- * The first input line contains an integer n
- * n
- * : the number of nodes. The nodes are numbered 1,2,…,n
- * 1
- * ,
- * 2
- * ,
- * …
- * ,
- * n
- * .
- *
- * Then there are n−1
- * n
- * −
- * 1
- *  lines describing the edges. Each line contains two integers a
- * a
- *  and b
- * b
- * : there is an edge between nodes a
- * a
- *  and b
- * b
- * .
- *
- * Output
- *
- * Print one integer: the diameter of the tree.
- *
- * Constraints
- * 1≤n≤2⋅105
- * 1
- * ≤
- * n
- * ≤
- * 2
- * ⋅
- * 10
- * 5
- *
- * 1≤a,b≤n
- * 1
- * ≤
- * a
- * ,
- * b
- * ≤
- * n
- *
- * Example
- *
- * Input:
- * 5
- * 1 2
- * 1 3
- * 3 4
- * 3 5
- *
- * Output:
- * 3
- *
- * Explanation: The diameter corresponds to the path 2→1→3→5
- * 2
- * →
- * 1
- * →
- * 3
- * →
- * 5
- * .
- */
-public class TreeDiameter {
+@SuppressWarnings("unchecked")
+public class TreeDistancesI {
 
-    List<List<Integer>> tree = new ArrayList<>();
+    int[] dp, res;
+    ArrayDeque<Integer>[] tree;
 
+    //Time Limit Exceeded
     void solve() throws IOException {
 
         int n = read.intNext();
+        dp = new int[n];
+        res = new int[n];
+        tree = new ArrayDeque[n];
 
         for (int i = 0; i < n; i++) {
-            tree.add(new ArrayList<>());
+            tree[i] = (new ArrayDeque<>());
         }
 
-        boolean[] parent = new boolean[n];
-        for (int i = 1; i < n; i++) {
-            int p = read.intNext() - 1, c = read.intNext() - 1;
-            parent[c] = true;
-            tree.get(p).add(c);
-            tree.get(c).add(p);
+        for (int i = 0; i < n - 1; i++) {
+            int a = read.intNext() - 1, b = read.intNext() - 1;
+            tree[a].add(b);
+            tree[b].add(a);
         }
 
-        int res = dmin;
-        for (int i = 0; i < n; i++) {
-            if (!parent[i]) {
-                if (tree.get(i).size() == 0) {
-                    println(0);
-                    return;
-                } else if (tree.get(i).size() == 1) {
-                    res = max(res, getMaxDepth(tree.get(i).get(0), i));
-                } else {
-                    res = max(res, getMaxDepth(tree.get(i).get(0), i) + getMaxDepth(tree.get(i).get(1), i));
-                }
-            }
+        dfs(0, -1);
 
+        dfs2(0, -1, 0);
+
+        for (int num : res) {
+            sbr.append(num).append("\n");
         }
-        println(res);
-
+        print(sbr);
     }
 
-    int getMaxDepth(int pos, int parent) {
-        int max = 0;
+    void dfs2(int pos, int parent, int partial_max) {
 
-        for (int child : tree.get(pos)) {
+
+        res[pos] = max(dp[pos], partial_max);
+
+        //Evaluate the max distance
+        //Assume the pos node does not exist for the parent
+
+        List<int[]> curr = new ArrayList<>();
+        for (int child : tree[pos]) {
             if (child != parent) {
-                max = max(max, getMaxDepth(child, pos));
+                curr.add(new int[]{dp[child] + 1, child});
             }
         }
-        return max + 1;
+
+        curr.add(new int[]{0, -1});
+        curr.add(new int[]{partial_max, -1});
+
+        curr.sort((o1, o2) -> Integer.compare(o2[0], o1[0]));
+
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                dfs2(child, pos, (curr.get(0)[1] == child) ? curr.get(1)[0] + 1 : curr.get(0)[0] + 1);
+            }
+        }
+
     }
 
-    int[] dp;
-    int res = 0;
-    public void solve2() throws IOException {
+    void dfs(int pos, int parent) {
 
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                dfs(child, pos);
+                dp[pos] = max(dp[pos], dp[child] + 1);
+            }
+        }
+    }
+
+
+    int[] best1, best2; //Store the top two max distance from nodes
+
+    private void solve2() throws IOException {
         int n = read.intNext();
         dp = new int[n];
+        best1 = new int[n];
+        best2 = new int[n];
+        res = new int[n];
+        tree = new ArrayDeque[n];
         for (int i = 0; i < n; i++) {
-            tree.add(new ArrayList<>());
+            tree[i] = new ArrayDeque<>();
         }
 
-        for (int i = 1; i < n; i++) {
-            int p = read.intNext() - 1, c = read.intNext() - 1;
-            tree.get(p).add(c);
-            tree.get(c).add(p);
+        for (int i = 0; i < n - 1; i++) {
+            int a = read.intNext() - 1, b = read.intNext() - 1;
+            tree[a].add(b);
+            tree[b].add(a);
         }
 
-        dfs2(0, 0);
-        print(res);
+        dfs3(0, -1);
+
+        dfs4(0, -1, 0);
+
+        for (int num : res) {
+            sbr.append(num).append("\n");
+        }
+        print(sbr);
     }
 
+    private void dfs3(int pos, int parent) {
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                dfs3(child, pos);
 
-    private void dfs2(int pos, int parent ) {
+                int childMax = dp[child] + 1;
+                if (childMax > best2[pos]) {
+                    best2[pos] = childMax;
+                    if (best2[pos] > best1[pos]) {
+                        int temp = best1[pos];
+                        best1[pos] = best2[pos];
+                        best2[pos] = temp;
+                    }
+                }
+                dp[pos] = max(dp[pos], childMax);
+            }
+        }
+    }
 
-         for(int child: tree.get(pos)){
-			 
-            if( child != parent){
-                dfs2(child, pos);
-                res = max(res, dp[pos] + dp[child] + 1);
-                dp[pos] = max(dp[pos],  dp[child] + 1);
+    private void dfs4(int pos, int parent, int partial_sum) {
+        res[pos] = max(best1[pos], partial_sum);
 
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                int nextMax = max(partial_sum, best1[pos]);
+                if (best1[pos] == dp[child] + 1) {//If max is in same path
+                    nextMax = max(partial_sum, best2[pos]);
+                }
+                dfs4(child, pos, nextMax + 1);
             }
         }
     }
@@ -168,7 +139,7 @@ public class TreeDiameter {
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        TreeDiameter object = new TreeDiameter();
+        TreeDistancesI object = new TreeDistancesI();
         //object.solve();
         object.solve2();
         out.close();
@@ -395,12 +366,22 @@ public class TreeDiameter {
         return min;
     }
 
-    static long max(long a, long b) {
-        return Math.max(a, b);
+    static long max(Long... objects) {
+        long max = Long.MIN_VALUE;
+
+        for (Long num : objects) {
+            max = Math.max(max, num);
+        }
+        return max;
     }
 
-    static int max(int a, int b) {
-        return Math.max(a, b);
+    static int max(Integer... objects) {
+        int max = Integer.MIN_VALUE;
+
+        for (Integer num : objects) {
+            max = Math.max(max, num);
+        }
+        return max;
     }
 }
 
