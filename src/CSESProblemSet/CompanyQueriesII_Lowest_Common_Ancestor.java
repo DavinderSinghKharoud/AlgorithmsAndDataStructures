@@ -1,102 +1,240 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * A company has n
+ * n
+ *  employees, who form a tree hierarchy where each employee has a boss, except for the general director.
+ *
+ * Your task is to process q
+ * q
+ *  queries of the form: who is the lowest common boss of employees a
+ * a
+ *  and b
+ * b
+ *  in the hierarchy?
+ *
+ * Input
+ *
+ * The first input line has two integers n
+ * n
+ *  and q
+ * q
+ * : the number of employees and queries. The employees are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * , and employee 1
+ * 1
+ *  is the general director.
+ *
+ * The next line has n−1
+ * n
+ * −
+ * 1
+ *  integers e2,e3,…,en
+ * e
+ * 2
+ * ,
+ * e
+ * 3
+ * ,
+ * …
+ * ,
+ * e
+ * n
+ * : for each employee 2,3,…,n
+ * 2
+ * ,
+ * 3
+ * ,
+ * …
+ * ,
+ * n
+ *  their boss.
+ *
+ * Finally, there are q
+ * q
+ *  lines describing the queries. Each line has two integers a
+ * a
+ *  and b
+ * b
+ * : who is the lowest common boss of employees a
+ * a
+ *  and b
+ * b
+ * ?
+ *
+ * Output
+ *
+ * Print the answer for each query.
+ *
+ * Constraints
+ * 1≤n,q≤2⋅105
+ * 1
+ * ≤
+ * n
+ * ,
+ * q
+ * ≤
+ * 2
+ * ⋅
+ * 10
+ * 5
+ *
+ * 1≤ei≤i−1
+ * 1
+ * ≤
+ * e
+ * i
+ * ≤
+ * i
+ * −
+ * 1
+ *
+ * 1≤a,b≤n
+ * 1
+ * ≤
+ * a
+ * ,
+ * b
+ * ≤
+ * n
+ *
+ * Example
+ *
+ * Input:
+ * 5 3
+ * 1 1 3 3
+ * 4 5
+ * 2 5
+ * 1 4
+ *
+ * Output:
+ * 3
+ * 1
+ * 1
+ */
 @SuppressWarnings("unchecked")
-public class Test {
+//Time Complexity O(n + qLogn)
+public class CompanyQueriesII_Lowest_Common_Ancestor {
 
-    int n, id[], size[], value[], getIndex[], dvalue[];
-    ArrayDeque<Integer> tree[];
-
-    //For segment tree
-    long[] dp;
+    int mxN = (int) 2e5;
+    int[][] dp = new int[mxN][20];
+    ArrayDeque<Integer>[] tree;
+    int[] depth;
 
     void solve() throws IOException {
-        n = read.intNext();
-        int q = read.intNext();
-        id = new int[n];
-        size = new int[n];
-        value = new int[n];
-        getIndex = new int[n];
-        dvalue = new int[n];
+        int n = read.intNext(), q = read.intNext();
+
         tree = new ArrayDeque[n];
-
-        Arrays.setAll(tree, o -> new ArrayDeque<>());
-        for (int i = 0; i < n; i++) {
-            dvalue[i] = read.intNext();
-        }
-
-        for (int i = 0; i < n - 1; i++) {
-            int a = read.intNext() - 1, b = read.intNext() - 1;
-            tree[a].add(b);
-            tree[b].add(a);
-        }
-
-        dfs(0, -1);
-
-        dp = new long[n + 1];
+        depth = new int[n];
 
         for (int i = 0; i < n; i++) {
-            update(i + 1, value[i]);
+            Arrays.fill(dp[i], -1);
+            tree[i] = new ArrayDeque();
         }
 
+        for (int i = 1; i < n; i++) {
+            int p = read.intNext() - 1;
+            dp[i][0] = p;
+            tree[p].add(i);
+        }
+
+        dfs(0, 1);
+
+        for (int i = 1; i < 20; i++) {
+            for (int node = 1; node < n; node++) {
+                dp[node][i] = (dp[node][i - 1] == -1) ? -1 : dp[dp[node][i - 1]][i - 1];
+            }
+        }
 
         while (q-- > 0) {
-            int type = read.intNext();
-            if (type == 2) {
-                int i = read.intNext() - 1;
+            int a = read.intNext() - 1, b = read.intNext() - 1;
+            if (a == b) {
+                sbr.append(a + 1).append(' ');
+            } else if (a == 0 || b == 0) {
+                sbr.append(1).append(' ');
+            } else {    //We can also use binary search to find the exact k value then move both nodes(Time complexity O(Logn)^2
 
-                int sizeSubtree = size[getIndex[i]];
-                int l = getIndex[i];
-                int h = getIndex[i] + sizeSubtree - 1;
-                sbr.append(query(h + 1) - query(l)).append(' ');
-            } else {
-                int i = read.intNext() - 1, v = read.intNext();
-                update(getIndex[i] + 1, v - dvalue[i]);
-                dvalue[i] = v;
+                int depth1 = depth[a], depth2 = depth[b];
+                //First we need to check if both are at the same level
+                if (depth1 != depth2) {
+
+                    if (depth2 < depth1) {//Swap
+                        int temp = a;
+                        a = b;
+                        b = temp;
+                        depth1 = depth[a];
+                        depth2 = depth[b];
+                    }
+
+                    int diff = depth2 - depth1;
+                    b = equalizeLevel(b, diff);
+                }
+
+                if (a == b) {//If both becomes equal
+                    sbr.append(a + 1).append(' ');
+                    continue;
+                }
+
+                //Now move up util both reach the last node of Lowest Common Ancestor
+
+                int[] updated = getUpdate(a, b);
+                a = updated[0];
+                b = updated[1];
+                if (a == b) {
+                    sbr.append(a + 1).append(' ');
+                } else {
+                    sbr.append(dp[a][0] + 1).append(' ');
+                }
+
             }
         }
-        println(sbr.toString());
+
+        print(sbr.toString());
+
     }
 
-    long query(int index) {
-        long sum = 0;
-        for (; index > 0; index -= (index & (- index))) {
-            sum += dp[index];
+    private int[] getUpdate(int a, int b) {
+        int parent1 = 0, parent2 = 0;
+        for (int i = 19; i >= 0; i--) {
+            parent1 = dp[a][i];
+            parent2 = dp[b][i];
+            if (parent1 == -1 || parent2 == -1) continue;
+            if (parent1 != parent2) {
+                return getUpdate(parent1, parent2);
+            }
         }
-        return sum;
+
+        return new int[]{parent1, parent2};
     }
 
-    void update(int index, int value) {
+    int equalizeLevel(int a, int k) {
 
-        for (; index <= n; index += (index & -index)) {
-            dp[index] += value;
+        for (int i = 19; i >= 0; i--) {
+            if ((k >> i & 1) != 0) {
+                a = dp[a][i];
+            }
         }
+        return a;
     }
 
-
-    int index = 0;
-
-    int dfs(int pos, int parent) {
-        value[index] = dvalue[pos];
-        id[index] = pos;
-        getIndex[pos] = index;
-        int currIndex = index;
-
-        index++;
+    void dfs(int pos, int dep) {
+        depth[pos] = dep;
         for (int child : tree[pos]) {
-            if (child != parent) {
-                size[currIndex] += dfs(child, pos);
-            }
+            dfs(child, dep + 1);
         }
-        size[currIndex]++;
-        return size[currIndex];
     }
-
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        Test object = new Test();
+        CompanyQueriesII_Lowest_Common_Ancestor object = new CompanyQueriesII_Lowest_Common_Ancestor();
         object.solve();
         out.close();
     }

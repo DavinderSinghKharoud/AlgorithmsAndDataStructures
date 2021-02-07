@@ -2,61 +2,146 @@ import java.io.*;
 import java.util.*;
 
 @SuppressWarnings("unchecked")
-public class CompanyQueriesI {
-	
-	int nxM = (int)2e5;
-	int[][] dp = new int[nxM][20];
-	int[] parent = new int[nxM];
-    void solve() throws IOException {
+public class CountingPaths {
+    int n, dp[][];
+    long[] depths, ans, count;
+    ArrayDeque<Integer> tree[];
 
-		int n = read.intNext(), q = read.intNext();
-        for (int i = 0; i < 20; i++) {
-            Arrays.fill(dp[i], -1);
+    void solve() throws IOException {
+        n = read.intNext();
+        int q = read.intNext();
+
+        tree = new ArrayDeque[n];
+        dp = new int[n][20];
+        count = new long[n];
+        ans = new long[n];
+        depths = new long[n];
+
+        for (int i = 0; i < n; i++) {
+            tree[i] = new ArrayDeque<>();
         }
 
-		for(int i = 1; i < n; i++ ){
-			parent[i] = read.intNext() - 1;
-			dp[i][0] = parent[i];
-		}
+        for (int i = 1; i < n; i++) {
+            int a = read.intNext() - 1, b = read.intNext() - 1;
+            tree[a].add(b);
+            tree[b].add(a);
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
+        boolean[] vis = new boolean[n];
+        int depth = 2;
+        vis[0] = true;
+        depths[0] = 1;
+        while ( !queue.isEmpty()){
+            int len = queue.size();
+            for (int i = 0; i < len; i++) {
+                int curr = queue.poll();
+                boolean isChild =false;
+                for(int child: tree[curr]){
+                    if( !vis[child]){
+                        dp[child][0] = curr;
+                        depths[child] = depth;
+                        vis[child] = true;
+                        queue.add(child);
+                        isChild = true;
+                    }
 
 
+                }
+                if(isChild) depth++;
+
+            }
+
+
+        }
+
+        //dfs(0, -1, 1);
 
 		for(int i = 1; i < 20; i++ ){
-			
 			for(int node = 1; node < n; node++ ){
-				dp[node][i] = (dp[node][i - 1] == - 1)? -1: dp[ dp[node][i - 1]][i - 1];
+				dp[node][i] = dp[dp[node][i - 1]][i - 1];
 			}
 		}
-		
-		while( q--> 0 ){
-			int src = read.intNext() - 1, k = read.intNext();
-			
-			if( src == 0 && k > 1){
-				println(-1);
-			}else{
-				
-				for(int i = 19; i >= 0; i-- ){
-					if( ((k >> i) & 1 ) != 0 ){
-						src = dp[src][i];
-						if(src == - 1) break;
-					}
-				}
 
-				sbr.append((src == -1)?-1: src + 1).append(" ");
+        while (q-- > 0) {
+            int a = read.intNext() - 1, b = read.intNext() - 1;
 
-			}
-		}
-		println(sbr);
-		
+            int lcm = findLcm(a, b);
+
+            count[a]++;
+            count[b]++;
+            --count[lcm];
+            if (lcm != 0) {
+                --count[dp[lcm][0]];
+            }
+
+        }
+
+        dfs2(0, -1);
+
+        for (int i = 0; i < n; i++) {
+            sbr.append(ans[i]).append(' ');
+        }
+
+        print(sbr);
+
+    }
+
+    void dfs2(int pos, int parent) {
+
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                dfs2(child, pos);
+                count[pos] += count[child];
+            }
+        }
+
+        ans[pos] = count[pos];
+    }
+
+    int findLcm(int a, int b) {
+        if (depths[a] > depths[b]) {//Swap the nodes
+            a = a ^ b ^ (b = a);
+        }
+
+        //Equalize depth if needed
+        for (int i = 19; i >= 0; i--) {
+            if ((depths[b] - (1 << i)) >= depths[a]) {
+                b = dp[b][i];
+            }
+        }
+
+        if (a == b) return a;
+
+        for (int i = 19; i >= 0; i--) {
+            if ((dp[a][i] ^ dp[b][i]) != 0) {
+                a = dp[a][i];
+                b = dp[b][i];
+            }
+        }
+
+        return dp[a][0];
+    }
+
+    void dfs(int pos, int parent, int depth) {
+        depths[pos] = depth++;
+
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                dfs(child, pos, depth);
+                dp[child][0] = pos;
+            }
+        }
     }
 
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        CompanyQueriesI object = new CompanyQueriesI();
-        object.solve();
+        new CountingPaths().solve();
         out.close();
+
     }
 
     static PrintWriter out = new PrintWriter(System.out);
