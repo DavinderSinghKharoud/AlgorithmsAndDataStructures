@@ -1,104 +1,86 @@
+
 import java.io.*;
 import java.util.*;
 
 @SuppressWarnings("unchecked")
-public class Test {
-
-    int n, id[], size[], value[], getIndex[], dvalue[];
+public class Test implements Runnable {
+    int n, dvalue[], dstart[], dend[], timer = 0;
     ArrayDeque<Integer> tree[];
-
-    //For segment tree
-    long[] dp;
+    long[] fen;
 
     void solve() throws IOException {
         n = read.intNext();
         int q = read.intNext();
-        id = new int[n];
-        size = new int[n];
-        value = new int[n];
-        getIndex = new int[n];
-        dvalue = new int[n];
+        fen = lArr(n + 1);
+        dstart = iArr(n);
+        dend = iArr(n);
+        dvalue = iArr(n);
         tree = new ArrayDeque[n];
-
         Arrays.setAll(tree, o -> new ArrayDeque<>());
+
         for (int i = 0; i < n; i++) {
             dvalue[i] = read.intNext();
         }
 
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 1; i < n; i++) {
             int a = read.intNext() - 1, b = read.intNext() - 1;
+
             tree[a].add(b);
             tree[b].add(a);
         }
 
         dfs(0, -1);
 
-        dp = new long[n + 1];
-
         for (int i = 0; i < n; i++) {
-            update(i + 1, value[i]);
+            update(dstart[i] + 1, dvalue[i]);
+            update(dend[i] + 1, -dvalue[i]);
         }
-
 
         while (q-- > 0) {
             int type = read.intNext();
-            if (type == 2) {
-                int i = read.intNext() - 1;
-
-                int sizeSubtree = size[getIndex[i]];
-                int l = getIndex[i];
-                int h = getIndex[i] + sizeSubtree - 1;
-                sbr.append(query(h + 1) - query(l)).append(' ');
-            } else {
+            if (type == 1) {
                 int i = read.intNext() - 1, v = read.intNext();
-                update(getIndex[i] + 1, v - dvalue[i]);
+                update(dstart[i] + 1, v - dvalue[i]);
+                update(dend[i] + 1, dvalue[i] - v);
                 dvalue[i] = v;
+            }else{
+                int i = read.intNext() - 1;
+                sbr.append(query(dstart[i] + 1)).append(' ');
             }
         }
         println(sbr.toString());
+
     }
 
-    long query(int index) {
-        long sum = 0;
-        for (; index > 0; index -= (index & (- index))) {
-            sum += dp[index];
+    private long query(int index) {
+        long res = 0;
+
+        for (; index > 0; index -= index & -index) {
+            res += fen[index];
         }
-        return sum;
+        return res;
     }
 
-    void update(int index, int value) {
-
-        for (; index <= n; index += (index & -index)) {
-            dp[index] += value;
+    private void update(int index, int value) {
+        for (; index <= n; index += index & -index) {
+            fen[index] += value;
         }
     }
 
-
-    int index = 0;
-
-    int dfs(int pos, int parent) {
-        value[index] = dvalue[pos];
-        id[index] = pos;
-        getIndex[pos] = index;
-        int currIndex = index;
-
-        index++;
+    private void dfs(int pos, int parent) {
+        dstart[pos] = timer++;
         for (int child : tree[pos]) {
             if (child != parent) {
-                size[currIndex] += dfs(child, pos);
+                dfs(child, pos);
             }
         }
-        size[currIndex]++;
-        return size[currIndex];
+        dend[pos] = timer;
     }
 
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
-
-        Test object = new Test();
-        object.solve();
-        out.close();
+        new Thread(null, new Test(), "Main", 1 << 26).start();
     }
 
     static PrintWriter out = new PrintWriter(System.out);
@@ -109,6 +91,17 @@ public class Test {
     static long lmax = Long.MAX_VALUE;
     static int dmin = Integer.MIN_VALUE;
     static long lmin = Long.MIN_VALUE;
+
+    @Override
+    public void run() {
+        try {
+            solve();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
 
     static class Reader {
         private byte[] buf = new byte[1024];
@@ -294,6 +287,13 @@ public class Test {
         }
     }
 
+    static int[] iArr(int len) {
+        return new int[len];
+    }
+
+    static long[] lArr(int len) {
+        return new long[len];
+    }
 
     static void print(Object object) {
         out.print(object);
@@ -303,41 +303,20 @@ public class Test {
         out.println(object);
     }
 
-
-    static long min(Long... objects) {
-        long min = Integer.MAX_VALUE;
-
-        for (Long num : objects) {
-            min = Math.min(min, num);
-        }
-        return min;
+    static long min(long a, long b) {
+        return Math.min(a, b);
     }
 
-    static int min(Integer... objects) {
-        int min = Integer.MAX_VALUE;
-
-        for (Integer num : objects) {
-            min = Math.min(min, num);
-        }
-        return min;
+    static int min(int a, int b) {
+        return Math.min(a, b);
     }
 
-    static long max(Long... objects) {
-        long max = Long.MIN_VALUE;
-
-        for (Long num : objects) {
-            max = Math.max(max, num);
-        }
-        return max;
+    static long max(Long a, Long b) {
+        return Math.max(a, b);
     }
 
-    static int max(Integer... objects) {
-        int max = Integer.MIN_VALUE;
-
-        for (Integer num : objects) {
-            max = Math.max(max, num);
-        }
-        return max;
+    static int max(int a, int b) {
+        return Math.max(a, b);
     }
 }
 
