@@ -231,7 +231,7 @@ public class SubtreeQueries {
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
 
-        Test object = new Test();
+        SubtreeQueries object = new SubtreeQueries();
         object.solve();
         out.close();
     }
