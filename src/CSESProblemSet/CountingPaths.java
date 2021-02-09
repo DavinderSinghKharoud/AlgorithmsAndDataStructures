@@ -4,65 +4,42 @@ import java.util.*;
 @SuppressWarnings("unchecked")
 public class CountingPaths {
     int n, dp[][];
+
+    int[][] tree;
     long[] depths, ans, count;
-    ArrayDeque<Integer> tree[];
 
     void solve() throws IOException {
         n = read.intNext();
         int q = read.intNext();
 
-        tree = new ArrayDeque[n];
+        tree = new int[n][];
         dp = new int[n][20];
         count = new long[n];
         ans = new long[n];
         depths = new long[n];
 
-        for (int i = 0; i < n; i++) {
-            tree[i] = new ArrayDeque<>();
-        }
+        int[] from = new int[n - 1], to = new int[n - 1], cnt = new int[n];
 
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n - 1; ++i) {
             int a = read.intNext() - 1, b = read.intNext() - 1;
-            tree[a].add(b);
-            tree[b].add(a);
+            from[i] = a;
+            to[i] = b;
+            cnt[from[i]]++;
+            cnt[to[i]]++;
+        }
+        for (int i = 0; i < n; ++i) tree[i] = new int[cnt[i]];
+        for (int i = 0; i < n - 1; ++i) {
+            tree[from[i]][--cnt[from[i]]] = to[i];
+            tree[to[i]][--cnt[to[i]]] = from[i];
         }
 
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(0);
-        boolean[] vis = new boolean[n];
-        int depth = 2;
-        vis[0] = true;
-        depths[0] = 1;
-        while ( !queue.isEmpty()){
-            int len = queue.size();
-            for (int i = 0; i < len; i++) {
-                int curr = queue.poll();
-                boolean isChild =false;
-                for(int child: tree[curr]){
-                    if( !vis[child]){
-                        dp[child][0] = curr;
-                        depths[child] = depth;
-                        vis[child] = true;
-                        queue.add(child);
-                        isChild = true;
-                    }
+        dfs(0, -1, 1);
 
-
-                }
-                if(isChild) depth++;
-
+        for (int i = 1; i < 20; i++) {
+            for (int node = 1; node < n; node++) {
+                dp[node][i] = dp[dp[node][i - 1]][i - 1];
             }
-
-
         }
-
-        //dfs(0, -1, 1);
-
-		for(int i = 1; i < 20; i++ ){
-			for(int node = 1; node < n; node++ ){
-				dp[node][i] = dp[dp[node][i - 1]][i - 1];
-			}
-		}
 
         while (q-- > 0) {
             int a = read.intNext() - 1, b = read.intNext() - 1;
@@ -138,7 +115,6 @@ public class CountingPaths {
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
-
         new CountingPaths().solve();
         out.close();
 
@@ -152,6 +128,7 @@ public class CountingPaths {
     static long lmax = Long.MAX_VALUE;
     static int dmin = Integer.MIN_VALUE;
     static long lmin = Long.MIN_VALUE;
+
 
     static class Reader {
         private byte[] buf = new byte[1024];
