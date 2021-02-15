@@ -1,0 +1,70 @@
+package Templates.SegmentTrees;
+
+public class SegmentTree {
+
+    long[] seg;
+    int[] arr;
+    int len;
+
+    public SegmentTree(int[] arr) {
+        len = arr.length;
+        this.arr = arr;
+        seg = new long[len << 1];
+        construct();
+    }
+
+    private void construct() {
+
+        //Assign values to leaves of the segment Tree
+        for (int i = 0; i < len; i++) {
+            seg[len + i] = arr[i];
+        }
+
+        //Compute sum
+        for (int i = len - 1; i >= 1; i--) {
+            int pos = i << 1;
+            seg[i] = seg[pos] + seg[pos + 1];
+        }
+    }
+
+    public void update(int target, int value) {
+        target += len;
+
+        seg[target] = value;
+
+        while (target > 1) {
+            //Move up by one level
+            target >>= 1;
+            int pos = target << 1;
+            seg[target] = seg[pos] + seg[pos + 1];
+        }
+
+    }
+
+    public long query(int l, int r) {
+        l += len;
+        r += len;
+
+        long res = 0;
+        while (l <= r) {
+
+            //If left index is odd
+            if ((l & 1) == 1) {
+                res += seg[l];
+                l++; //make it even
+            }
+
+            //If right index is even
+            if ((r & 1) == 0) {
+                res += seg[r];
+                r--;
+            }
+
+            //Move to the next higher level
+            l >>= 1;
+            r >>= 1;
+        }
+        return res;
+    }
+
+}
