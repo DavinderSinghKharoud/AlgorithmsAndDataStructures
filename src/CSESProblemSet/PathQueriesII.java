@@ -1,15 +1,151 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * You are given a tree consisting of n
+ * n
+ * nodes. The nodes are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * . Each node has a value.
+ * <p>
+ * Your task is to process following types of queries:
+ * change the value of node s
+ * s
+ * to x
+ * x
+ * <p>
+ * find the maximum value on the path between nodes a
+ * a
+ * and b
+ * b
+ * .
+ * Input
+ * <p>
+ * The first input line contains two integers n
+ * n
+ * and q
+ * q
+ * : the number of nodes and queries. The nodes are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * .
+ * <p>
+ * The next line has n
+ * n
+ * integers v1,v2,…,vn
+ * v
+ * 1
+ * ,
+ * v
+ * 2
+ * ,
+ * …
+ * ,
+ * v
+ * n
+ * : the value of each node.
+ * <p>
+ * Then there are n−1
+ * n
+ * −
+ * 1
+ * lines describing the edges. Each line contains two integers a
+ * a
+ * and b
+ * b
+ * : there is an edge between nodes a
+ * a
+ * and b
+ * b
+ * .
+ * <p>
+ * Finally, there are q
+ * q
+ * lines describing the queries. Each query is either of the form "1 s
+ * s
+ * x
+ * x
+ * " or "2 a
+ * a
+ * b
+ * b
+ * ".
+ * <p>
+ * Output
+ * <p>
+ * Print the answer to each query of type 2.
+ * <p>
+ * Constraints
+ * 1≤n,q≤2⋅105
+ * 1
+ * ≤
+ * n
+ * ,
+ * q
+ * ≤
+ * 2
+ * ⋅
+ * 10
+ * 5
+ * <p>
+ * 1≤a,b,s≤n
+ * 1
+ * ≤
+ * a
+ * ,
+ * b
+ * ,
+ * s
+ * ≤
+ * n
+ * <p>
+ * 1≤vi,x≤109
+ * 1
+ * ≤
+ * v
+ * i
+ * ,
+ * x
+ * ≤
+ * 10
+ * 9
+ * <p>
+ * Example
+ * <p>
+ * Input:
+ * 5 3
+ * 2 4 1 3 3
+ * 1 2
+ * 1 3
+ * 2 4
+ * 2 5
+ * 2 3 5
+ * 1 2 2
+ * 2 3 5
+ * <p>
+ * Output:
+ * 4 3
+ */
 @SuppressWarnings("unchecked")
 public class PathQueriesII implements Runnable {
 
     int n, dvalue[], dp[][], tree[][], depth[], size[];
-	
-	int values[], chainHead[], position[], chains[];
-	int pos = 0, chainId = 0;
-	SegmentTree seg;
-	
+
+    int values[], chainHead[], position[], chains[];
+    int pos = 0, chainId = 0;
+    SegmentTree seg;
+
     void solve() throws IOException {
 
         n = read.intNext();
@@ -20,7 +156,7 @@ public class PathQueriesII implements Runnable {
         values = iArr(n);
         position = iArr(n);
         chains = iArr(n);
-        
+
         for (int i = 0; i < n; i++) {
             dvalue[i] = read.intNext();
         }
@@ -37,73 +173,72 @@ public class PathQueriesII implements Runnable {
         //Create a tree
         tree = ctree.create();
         dfs(0, 1, -1);
-		
-		hd(0, -1);
-		
-		seg = new SegmentTree(values);
-		
-		
-		while( q--> 0 ){
-			int type = read.intNext();
-			if( type == 1 ){
-				seg.update(position[read.intNext() - 1], read.intNext());
-			}else{
-				int a = read.intNext() - 1, b = read.intNext() - 1, lca = getlca(a, b);
-				
-				sbr.append( max( query(a, lca), query(b, lca) ) ).append(' ');
-				
-			}
-		}
 
-		print(sbr.toString());
+        hd(0, -1);
+
+        seg = new SegmentTree(values);
+
+
+        while (q-- > 0) {
+            int type = read.intNext();
+            if (type == 1) {
+                seg.update(position[read.intNext() - 1], read.intNext());
+            } else {
+                int a = read.intNext() - 1, b = read.intNext() - 1, lca = getlca(a, b);
+
+                sbr.append(max(query(a, lca), query(b, lca))).append(' ');
+
+            }
+        }
+
+        print(sbr.toString());
     }
-    
-	
-    int query(int from, int to ){
-		int ans = -1;
-		
-		while( chains[from] != chains[to]){
-			ans = max(ans, seg.query( position[ chainHead[ chains[from]]], position[from]));
-			from = dp[ chainHead[chains[from]]][0];
-		}
-		
-		ans = max( ans,seg.query(position[to], position[from]) );
-		return ans;
-	}
-	
-	
 
-	//Method to do heavy light decomposition
-	void hd(int node, int parent ){
-		int heavyChild = -1, heavySize = 0;
-		chains[node] = chainId; //chain of node
-		position[node] = pos; //the position in segment tree
-		values[pos] = dvalue[node];//Set the edge weight
-		pos++;
-		
-		for(int child: tree[node]){
-			if( child != parent ){
-				if( size[child] > heavySize){
-					heavyChild = child;
-					heavySize = size[child];
-				}
-			}
-		}
-		
-		if( heavyChild != -1 ){
-			//it is not a leaf
-			hd(heavyChild, node);
-		}
-		
-		for(int child: tree[node]){
-			if( child != parent && child != heavyChild){
-				chainId++;
-				chainHead[chainId] = child;
-				hd(child, node );
-			}
-		}
-	}
-	
+
+    int query(int from, int to) {
+        int ans = -1;
+
+        while (chains[from] != chains[to]) {
+            ans = max(ans, seg.query(position[chainHead[chains[from]]], position[from]));
+            from = dp[chainHead[chains[from]]][0];
+        }
+
+        ans = max(ans, seg.query(position[to], position[from]));
+        return ans;
+    }
+
+
+    //Method to do heavy light decomposition
+    void hd(int node, int parent) {
+        int heavyChild = -1, heavySize = 0;
+        chains[node] = chainId; //chain of node
+        position[node] = pos; //the position in segment tree
+        values[pos] = dvalue[node];//Set the edge weight
+        pos++;
+
+        for (int child : tree[node]) {
+            if (child != parent) {
+                if (size[child] > heavySize) {
+                    heavyChild = child;
+                    heavySize = size[child];
+                }
+            }
+        }
+
+        if (heavyChild != -1) {
+            //it is not a leaf
+            hd(heavyChild, node);
+        }
+
+        for (int child : tree[node]) {
+            if (child != parent && child != heavyChild) {
+                chainId++;
+                chainHead[chainId] = child;
+                hd(child, node);
+            }
+        }
+    }
+
     int getlca(int a, int b) {
 
         if (a == b) return a;
@@ -135,12 +270,12 @@ public class PathQueriesII implements Runnable {
 
     void dfs(int pos, int d, int parent) {
         depth[pos] = d++;
-		size[pos] = 1;
+        size[pos] = 1;
         //Prepare a Binary lifting array
         for (int i = 1; i < 20; i++) {
             dp[pos][i] = dp[dp[pos][i - 1]][i - 1];
         }
-        
+
         for (int child : tree[pos]) {
             if (child != parent) {
                 dp[child][0] = pos;
@@ -158,82 +293,74 @@ public class PathQueriesII implements Runnable {
 
 
 
-	public class SegmentTree {
-		
-			
-		int[] arr;
-		int[] nodes;
-		int n;
-	
-		public SegmentTree(int[] nodes){
-			arr = new int[( getSize(nodes.length) * 2 + 1)];
-			n = nodes.length;
-			this.nodes = nodes;
-			construct(0, n - 1, 0);
-		}
-		
-		void update(int node, int value ){
-		update(0, n - 1, 0, node, value);
-		}
-	
-		private void update(int l, int h, int pos, int node, int value ){
-			if( l == h ){
-				arr[pos] = value;
-			}else{
-				int mid = l + (h - l)/2;
-				int p = pos << 1;
-				if( node <= mid ){
-					update(l, mid, p + 1, node, value );
-				}else{
-					update(mid + 1, h, p + 2, node, value);
-				}
-				
-				arr[pos] = Math.max( arr[p + 1], arr[p + 2]);
-			}
-			
-		}
-		
-		int query(int a, int b ){
-			return query(0, n - 1, 0, a, b);
-		}
-		
-		private int query(int l, int h, int pos, int a, int b ){
-			if( l > b || h < a ) return Integer.MIN_VALUE;
-			
-			if( l >= a && h <= b ){
-				return arr[pos];
-			}else{
-				int mid = l + (h - l)/2;
-				int p = pos << 1;
-				return Math.max( query(l, mid, p + 1, a, b ), query(mid + 1, h, p + 2, a, b) );
-			}
-		}
-		
-		void construct(int l, int h, int pos ){
-			if( l == h ){
-				arr[pos] = nodes[l];
-			}else{
-				int mid = l + (h - l)/2;
-				int p = pos << 1;
-				construct(l, mid, p + 1);
-				construct(mid + 1, h, p + 2);
-				
-				arr[pos] = Math.max( arr[p + 1], arr[p + 2]);
-			}	
-		}
-		
-		int getSize(int len ){
-			if( len < 2 ) return 1;
-			
-			if( (len & (len - 1)) == 0 ) return len;
-			
-			while( ( len & (len - 1) ) != 0 ){
-				len = len & (len - 1);
-			}
-			
-			return len << 1;
-		}
-	}
+    public class SegmentTree {
+
+        int[] seg;
+        int[] arr;
+        int len;
+
+        public SegmentTree(int[] arr) {
+            len = arr.length;
+            this.arr = arr;
+            seg = new int[len << 1];
+            construct();
+        }
+
+        private void construct() {
+
+            //Assign values to leaves of the segment Tree
+            for (int i = 0; i < len; i++) {
+                seg[len + i] = arr[i];
+            }
+
+            //Compute sum
+            for (int i = len - 1; i >= 1; i--) {
+                int pos = i << 1;
+                seg[i] = Math.max(seg[pos], seg[pos + 1]);
+            }
+        }
+
+        public void update(int target, int value) {
+            target += len;
+
+            seg[target] = value;
+
+            while (target > 1) {
+                //Move up by one level
+                target >>= 1;
+                int pos = target << 1;
+                seg[target] = Math.max(seg[pos], seg[pos + 1]);
+            }
+
+        }
+
+        public int query(int l, int r) {
+            l += len;
+            r += len;
+
+            int res = Integer.MIN_VALUE;
+            while (l <= r) {
+
+                //If left index is odd
+                if ((l & 1) == 1) {
+                    res = Math.max(res, seg[l]);
+                    l++; //make it even
+                }
+
+                //If right index is even
+                if ((r & 1) == 0) {
+                    res = Math.max(res, seg[r]);
+                    r--;
+                }
+
+                //Move to the next higher level
+                l >>= 1;
+                r >>= 1;
+            }
+            return res;
+        }
+    }
+
 
 
     static class CreateTree {

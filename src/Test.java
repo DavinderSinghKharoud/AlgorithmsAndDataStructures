@@ -1,124 +1,411 @@
+
 import java.io.*;
 import java.util.*;
 
+/**
+ * You are given a tree consisting of n
+ * n
+ * nodes. The nodes are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * . Each node has a value.
+ * <p>
+ * Your task is to process following types of queries:
+ * change the value of node s
+ * s
+ * to x
+ * x
+ * <p>
+ * find the maximum value on the path between nodes a
+ * a
+ * and b
+ * b
+ * .
+ * Input
+ * <p>
+ * The first input line contains two integers n
+ * n
+ * and q
+ * q
+ * : the number of nodes and queries. The nodes are numbered 1,2,…,n
+ * 1
+ * ,
+ * 2
+ * ,
+ * …
+ * ,
+ * n
+ * .
+ * <p>
+ * The next line has n
+ * n
+ * integers v1,v2,…,vn
+ * v
+ * 1
+ * ,
+ * v
+ * 2
+ * ,
+ * …
+ * ,
+ * v
+ * n
+ * : the value of each node.
+ * <p>
+ * Then there are n−1
+ * n
+ * −
+ * 1
+ * lines describing the edges. Each line contains two integers a
+ * a
+ * and b
+ * b
+ * : there is an edge between nodes a
+ * a
+ * and b
+ * b
+ * .
+ * <p>
+ * Finally, there are q
+ * q
+ * lines describing the queries. Each query is either of the form "1 s
+ * s
+ * x
+ * x
+ * " or "2 a
+ * a
+ * b
+ * b
+ * ".
+ * <p>
+ * Output
+ * <p>
+ * Print the answer to each query of type 2.
+ * <p>
+ * Constraints
+ * 1≤n,q≤2⋅105
+ * 1
+ * ≤
+ * n
+ * ,
+ * q
+ * ≤
+ * 2
+ * ⋅
+ * 10
+ * 5
+ * <p>
+ * 1≤a,b,s≤n
+ * 1
+ * ≤
+ * a
+ * ,
+ * b
+ * ,
+ * s
+ * ≤
+ * n
+ * <p>
+ * 1≤vi,x≤109
+ * 1
+ * ≤
+ * v
+ * i
+ * ,
+ * x
+ * ≤
+ * 10
+ * 9
+ * <p>
+ * Example
+ * <p>
+ * Input:
+ * 5 3
+ * 2 4 1 3 3
+ * 1 2
+ * 1 3
+ * 2 4
+ * 2 5
+ * 2 3 5
+ * 1 2 2
+ * 2 3 5
+ * <p>
+ * Output:
+ * 4 3
+ */
 @SuppressWarnings("unchecked")
 public class Test implements Runnable {
 
-    int n, k, subtree[], tree[][], max_depth, count[];
+    int n, dvalue[], dp[][], tree[][], depth[], size[];
 
-    long ans;
-    boolean visited[];
+    int values[], chainHead[], position[], chains[];
+    int pos = 0, chainId = 0;
+    SegmentTree seg;
 
-    //Time complexity O(n log n)
     void solve() throws IOException {
 
         n = read.intNext();
-        k = read.intNext();
+        int q = read.intNext();
+        dvalue = iArr(n);
+        size = iArr(n);
+        chainHead = iArr(n);
+        values = iArr(n);
+        position = iArr(n);
+        chains = iArr(n);
 
-        subtree = iArr(n + 1);
-        count = iArr(n + 1);
-        visited = new boolean[n + 1];
+        for (int i = 0; i < n; i++) {
+            dvalue[i] = read.intNext();
+        }
 
-        CreateTree ctree = new CreateTree(n);
+        depth = iArr(n);
+        dp = new int[n][20];
+
+        CreateTree ctree = new CreateTree(n - 1);
 
         for (int i = 0; i < n - 1; i++) {
-            int a = read.intNext() - 1, b = read.intNext() - 1;
-            ctree.addEdge(a, b, i);
+            ctree.addEdge(read.intNext() - 1, read.intNext() - 1, i);
         }
 
+        //Create a tree
         tree = ctree.create();
 
+        //IterativeDfs();
+        hd(0, -1);
+
+        seg = new SegmentTree(values);
 
 
-        print(ans);
-    }
+        while (q-- > 0) {
+            int type = read.intNext();
+            if (type == 1) {
+                seg.update(position[read.intNext() - 1], read.intNext());
+            } else {
+                int a = read.intNext() - 1, b = read.intNext() - 1, lca = getlca(a, b);
 
+                sbr.append(max(query(a, lca), query(b, lca))).append(' ');
 
-
-
-    void centroidDecomposition(int node) {
-        getSubtreeSize(node, -1);
-        int centroid = getCentroid(subtree[node] >> 1, node, -1);
-
-        //put centroid to true
-        visited[centroid] = true;
-        max_depth = 0;
-        for (int child : tree[centroid]) {
-            if (!visited[child]) {
-                getCount(child, centroid, false, 1);
-                getCount(child, centroid, true, 1);
             }
         }
 
-
-        Arrays.fill(count, 1, max_depth + 1, 0);
-        for (int child : tree[centroid]) {
-            if (!visited[child]) {
-                centroidDecomposition(child);
-            }
-        }
+        print(sbr.toString());
     }
 
-    void getCount(int node, int parent, boolean filling, int depth) {
-        if (depth > k) return;
 
-        max_depth = max(max_depth, depth);
-        if (filling) {
-            count[depth]++;
-        } else {
-            ans += count[k - depth];
+    int query(int from, int to) {
+        int ans = -1;
+
+        while (chains[from] != chains[to]) {
+            ans = max(ans, seg.query(position[chainHead[chains[from]]], position[from]));
+            from = dp[chainHead[chains[from]]][0];
+        }
+
+        ans = max(ans, seg.query(position[to], position[from]));
+        return ans;
+    }
+
+
+    //Method to do heavy light decomposition
+    void hd(int node, int parent) {
+        int heavyChild = -1, heavySize = 0;
+        chains[node] = chainId; //chain of node
+        position[node] = pos; //the position in segment tree
+        values[pos] = dvalue[node];//Set the edge weight
+        pos++;
+
+        for (int child : tree[node]) {
+            if (child != parent) {
+                if (size[child] > heavySize) {
+                    heavyChild = child;
+                    heavySize = size[child];
+                }
+            }
+        }
+
+        if (heavyChild != -1) {
+            //it is not a leaf
+            hd(heavyChild, node);
         }
 
         for (int child : tree[node]) {
-            if (!visited[child] && child != parent) {
-                getCount(child, node, filling, depth + 1);
+            if (child != parent && child != heavyChild) {
+                chainId++;
+                chainHead[chainId] = child;
+                hd(child, node);
             }
         }
     }
 
-    int getCentroid(int desired, int node, int parent) {
-        for (int child : tree[node]) {
-            if (child != parent && !visited[child] && subtree[child] >= desired) {
-                return getCentroid(desired, child, node);
+    int getlca(int a, int b) {
+
+        if (a == b) return a;
+
+        if (depth[a] > depth[b]) { //swap the nodes
+            a = a ^ b ^ (b = a);
+        }
+
+        for (int i = 19; i >= 0; i--) {
+            if ((depth[b] - (1 << i)) >= depth[a]) {
+                b = dp[b][i];
             }
         }
 
-        return node;
+        if (a == b) return a;
+
+        for (int i = 19; i >= 0; i--) {
+            if ((dp[a][i] ^ dp[b][i]) != 0) {
+                a = dp[a][i];
+                b = dp[b][i];
+            }
+        }
+
+        if (a == b) return a;
+
+        return dp[a][0];
+
     }
 
-    void getSubtreeSize(int node, int parent) {
-        subtree[node] = 1;
-        for (int child : tree[node]) {
-            if (!visited[child] && child != parent) {
-                getSubtreeSize(child, node);
-                subtree[node] += subtree[child];
+    void dfs(int pos, int d, int parent) {
+        depth[pos] = d++;
+        size[pos] = 1;
+        //Prepare a Binary lifting array
+        for (int i = 1; i < 20; i++) {
+            dp[pos][i] = dp[dp[pos][i - 1]][i - 1];
+        }
+
+        for (int child : tree[pos]) {
+            if (child != parent) {
+                dp[child][0] = pos;
+                dfs(child, d, pos);
+                size[pos] += size[child];
             }
+        }
+    }
+
+    public void IterativeDfs() {
+
+        int dep = 1;
+        ArrayDeque<Node> queue = new ArrayDeque<>();
+        ArrayDeque<Node> queue2 = new ArrayDeque<>();
+        queue.add(new Node(0, -1));
+
+        while (!queue.isEmpty()) {
+            int len = queue.size();
+            for (int i = 0; i < len; i++) {
+                Node curr = queue.pollFirst();
+                size[curr.index] = 1;
+                depth[curr.index] = dep;
+
+                //Prepare a Binary lifting array
+                for (int j = 1; j < 20; j++) {
+                    dp[curr.index][j] = dp[dp[curr.index][j - 1]][j - 1];
+                }
+
+                queue2.add(curr);
+                for (int child : tree[curr.index]) {
+                    if (curr.parent == -1 || child != curr.parent) {
+                        dp[child][0] = curr.index;
+                        queue.add(new Node(child, curr.index));
+                    }
+                }
+            }
+            dep++;
+        }
+
+        while (!queue2.isEmpty()) {
+            Node curr = queue2.pollLast();
+            if (curr.parent != -1) {
+                size[curr.parent] += size[curr.index];
+            }
+        }
+    }
+
+    static class Node {
+        int index;
+        int parent;
+
+        public Node(int index, int parent) {
+            this.index = index;
+            this.parent = parent;
         }
     }
 
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
-        new Thread(null, new Test(), "1").start();
+        new Thread(null, new Test(), "1", 1 << 26).start();
     }
 
-    static PrintWriter out = new PrintWriter(System.out);
-    static Reader read = new Reader();
-    static StringBuilder sbr = new StringBuilder();
-    static int mod = (int) 1e9 + 7;
-    static int dmax = Integer.MAX_VALUE;
-    static long lmax = Long.MAX_VALUE;
-    static int dmin = Integer.MIN_VALUE;
-    static long lmin = Long.MIN_VALUE;
 
-    @Override
-    public void run() {
-        try {
-            solve();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
+    public class SegmentTree {
+
+        int[] seg;
+        int[] arr;
+        int len;
+
+        public SegmentTree(int[] arr) {
+            len = arr.length;
+            this.arr = arr;
+            seg = new int[len << 1];
+            construct();
+        }
+
+        private void construct() {
+
+            //Assign values to leaves of the segment Tree
+            for (int i = 0; i < len; i++) {
+                seg[len + i] = arr[i];
+            }
+
+            //Compute sum
+            for (int i = len - 1; i >= 1; i--) {
+                int pos = i << 1;
+                seg[i] = Math.max(seg[pos], seg[pos + 1]);
+            }
+        }
+
+        public void update(int target, int value) {
+            target += len;
+
+            seg[target] = value;
+
+            while (target > 1) {
+                //Move up by one level
+                target >>= 1;
+                int pos = target << 1;
+                seg[target] = Math.max(seg[pos], seg[pos + 1]);
+            }
+
+        }
+
+        public int query(int l, int r) {
+            l += len;
+            r += len;
+
+            int res = Integer.MIN_VALUE;
+            while (l <= r) {
+
+                //If left index is odd
+                if ((l & 1) == 1) {
+                    res = Math.max(res, seg[l]);
+                    l++; //make it even
+                }
+
+                //If right index is even
+                if ((r & 1) == 0) {
+                    res = Math.max(res, seg[r]);
+                    r--;
+                }
+
+                //Move to the next higher level
+                l >>= 1;
+                r >>= 1;
+            }
+            return res;
         }
     }
 
@@ -128,7 +415,6 @@ public class Test implements Runnable {
         int len;
 
         public CreateTree(int len) {
-            len--;
             count = iArr(len + 1);
             from = iArr(len);
             to = iArr(len);
@@ -153,6 +439,26 @@ public class Test implements Runnable {
                 arr[to[i]][--count[to[i]]] = from[i];
             }
             return arr;
+        }
+    }
+
+    static PrintWriter out = new PrintWriter(System.out);
+    static Reader read = new Reader();
+    static StringBuilder sbr = new StringBuilder();
+    static int mod = (int) 1e9 + 7;
+    static int dmax = Integer.MAX_VALUE;
+    static long lmax = Long.MAX_VALUE;
+    static int dmin = Integer.MIN_VALUE;
+    static long lmin = Long.MIN_VALUE;
+
+    @Override
+    public void run() {
+        try {
+            solve();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
         }
     }
 
@@ -310,6 +616,26 @@ public class Test implements Runnable {
         }
     }
 
+    /**
+     * It is a HashMap
+     */
+    static class HMap<T> extends HashMap<T, Integer> {
+        void add(T key) {
+            Integer count = get(key);
+            put(key, count == null ? 1 : count + 1);
+        }
+
+        @SuppressWarnings(value = "unchecked")
+        @Override
+        public Integer remove(Object key) {
+            if (!containsKey(key)) return null;
+
+            int count = get(key);
+            if (count > 1) return put((T) key, count - 1);
+
+            return super.remove(key);
+        }
+    }
 
     static final class Comparators {
         public static final Comparator<int[]> pairIntArr =
@@ -318,6 +644,7 @@ public class Test implements Runnable {
         private static final int compare(final int x, final int y) {
             return Integer.compare(x, y);
         }
+
     }
 
 
@@ -354,5 +681,3 @@ public class Test implements Runnable {
         return Math.max(a, b);
     }
 }
-
-
