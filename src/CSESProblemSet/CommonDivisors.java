@@ -1,131 +1,34 @@
 import java.io.*;
 import java.util.*;
 
-/**
- * Given n
- * n
- * integers, your task is to report for each integer the number of its divisors.
- * <p>
- * For example, if x=18
- * x
- * =
- * 18
- * , the correct answer is 6
- * 6
- * because its divisors are 1,2,3,6,9,18
- * 1
- * ,
- * 2
- * ,
- * 3
- * ,
- * 6
- * ,
- * 9
- * ,
- * 18
- * .
- * <p>
- * Input
- * <p>
- * The first input line has an integer n
- * n
- * : the number of integers.
- * <p>
- * After this, there are n
- * n
- * lines, each containing an integer x
- * x
- * .
- * <p>
- * Output
- * <p>
- * For each integer, print the number of its divisors.
- * <p>
- * Constraints
- * 1≤n≤105
- * 1
- * ≤
- * n
- * ≤
- * 10
- * 5
- * <p>
- * 1≤x≤106
- * 1
- * ≤
- * x
- * ≤
- * 10
- * 6
- * <p>
- * Example
- * <p>
- * Input:
- * 3
- * 16
- * 17
- * 18
- * <p>
- * Output:
- * 5
- * 2
- * 6
- */
 @SuppressWarnings("unchecked")
-public class CountingDivisors implements Runnable {
+public class CommonDivisors implements Runnable {
 
     void solve() throws IOException {
-        int q = read.intNext();
-
-        while (q-- > 0) {
-            int n = read.intNext();
-
-            sbr.append(find(n)).append(' ');
-        }
-        print(sbr.toString());
-    }
-
-    int find(int n) {
-        if (n ==  1) return 1;
-        int res = 2;
-        int sqrt = (int) Math.sqrt(n);
-        for (int i = 2; i <= sqrt; i++) {
-            if (i * i == n) {
-                res++;
-            } else if (n % i == 0) {
-                res += 2;
-            }
-        }
-        
-        return res;
-    }
-
-
-    //Time complexity O(n Log(n))
-    private void solve2() throws IOException {
-        int q = read.intNext();
+        int n = read.intNext();
         int limit = (int) 1e6 + 1;
-        int[] count = new int[limit];
-        Arrays.fill(count, 1);
-        for (int i = 2; i < limit; i++) {
+        int[] count = iArr(limit);
 
+        for (int i = 0; i < n; i++) {
+            count[read.intNext()]++;
+        }
+
+        for (int i = limit - 1; i >= 1; i--) {
+            int res = 0;
             for (int j = i; j < limit; j += i) {
-                count[j]++;
+                res += count[j];
+            }
+            if(res > 1){
+                print(i);
+                return;
             }
         }
-        while (q-- > 0) {
-            int n = read.intNext();
 
-            sbr.append(count[n]).append(' ');
-        }
-        print(sbr.toString());
     }
-
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
-        new Thread(null, new CountingDivisors(), "1").start();
+        new Thread(null, new CommonDivisors(), "1").start();
     }
 
     static PrintWriter out = new PrintWriter(System.out);
@@ -140,8 +43,7 @@ public class CountingDivisors implements Runnable {
     @Override
     public void run() {
         try {
-            //solve();
-            solve2();
+            solve();
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
