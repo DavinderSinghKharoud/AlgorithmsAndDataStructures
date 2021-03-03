@@ -29,7 +29,7 @@ public class SegmentTree {
 				update(mid + 1, h, p + 2, node, value);
 			}
 			
-			arr[pos] = Math.min( arr[p + 1], arr[p + 2]);
+			arr[pos] = Math.SparseTableMin( arr[p + 1], arr[p + 2]);
 		}
 		
 	}
@@ -46,7 +46,7 @@ public class SegmentTree {
 		}else{
 			int mid = l + (h - l)/2;
 			int p = pos << 1;
-			return Math.min( query(l, mid, p + 1, a, b ), query(mid + 1, h, p + 2, a, b) );
+			return Math.SparseTableMin( query(l, mid, p + 1, a, b ), query(mid + 1, h, p + 2, a, b) );
 		}
 	}
 	
@@ -59,7 +59,7 @@ public class SegmentTree {
 			construct(l, mid, p + 1);
 			construct(mid + 1, h, p + 2);
 			
-			arr[pos] = Math.min( arr[p + 1], arr[p + 2]);
+			arr[pos] = Math.SparseTableMin( arr[p + 1], arr[p + 2]);
 		}	
 	}
 	

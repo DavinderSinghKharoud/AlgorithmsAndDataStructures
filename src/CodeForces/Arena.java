@@ -2,16 +2,38 @@ import java.io.*;
 import java.util.*;
 
 @SuppressWarnings("unchecked")
-public class IOFastest implements Runnable {
+public class Arena implements Runnable {
 
     void solve() throws IOException {
-
+		int t = read.intNext();
+		
+		while(t-->0 ){
+			int n = read.intNext();
+			int[] arr = new int[n];
+			
+			for(int i = 0;i < n;i ++ ){
+				arr[i] = read.intNext();
+				
+			}
+			
+			shuffle(arr);
+			Arrays.sort(arr);
+			int res = 0;
+			
+			for(int i  = 1; i < n; i++ ){
+				if( arr[i] != arr[i - 1]){
+					res += n - i;
+					break;
+				}
+			}
+			println(res);
+		}
     }
 
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
-        new Thread(null, new IOFastest(), "1").start();
+        new Thread(null, new Arena(), "1").start();
     }
 
     static PrintWriter out = new PrintWriter(System.out);

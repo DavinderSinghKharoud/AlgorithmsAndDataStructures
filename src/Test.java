@@ -1,12 +1,7 @@
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.InputMismatchException;
-
+import java.util.*;
 public class Test {
     public static void main(String[] args) {
-        System.out.print(3);
-    }
+        List<Integer> list = new ArrayList<>();
 
-
-
-}
+        System.out.println(6);
+    }}

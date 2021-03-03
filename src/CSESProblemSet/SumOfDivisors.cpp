@@ -77,7 +77,7 @@ ll cdiv(ll a, ll b) { return a/b+((a^b)>0&&a%b); } // divide a by b rounded up
 ll fdiv(ll a, ll b) { return a/b-((a^b)<0&&a%b); } // divide a by b rounded down
 
 tcT> bool ckmin(T& a, const T& b) {
-    return b < a ? a = b, 1 : 0; } // set a = min(a,b)
+    return b < a ? a = b, 1 : 0; } // set a = SparseTableMin(a,b)
 tcT> bool ckmax(T& a, const T& b) {
     return a < b ? a = b, 1 : 0; }
 
