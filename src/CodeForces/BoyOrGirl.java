@@ -1,5 +1,3 @@
-
-
 import java.io.*;
 import java.util.*;
 
@@ -7,18 +5,17 @@ import java.util.*;
 public class BoyOrGirl implements Runnable {
 
     void solve() throws IOException {
-          String input = read.read();
-          Set<Character> set = new HashSet<Character>();
-          for(char c: input.toCharArray()){
-              set.add(c);
-          }
-          if( (set.size() & 1) == 0 ){
-              println("CHAT WITH HER!");
-          }else{
-              println("IGNORE HIM!");
-          }
+        String input = read.read();
+        Set<Character> set = new HashSet<Character>();
+        for (char c : input.toCharArray()) {
+            set.add(c);
+        }
+        if ((set.size() & 1) == 0) {
+            println("CHAT WITH HER!");
+        } else {
+            println("IGNORE HIM!");
+        }
     }
-
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
@@ -82,7 +79,8 @@ public class BoyOrGirl implements Runnable {
                     integer *= 10;
                     integer += n - '0';
                     n = scan();
-                } else throw new InputMismatchException();
+                } else
+                    throw new InputMismatchException();
             }
             return neg * integer;
         }
@@ -102,7 +100,8 @@ public class BoyOrGirl implements Runnable {
                     doub *= 10;
                     doub += n - '0';
                     n = scan();
-                } else throw new InputMismatchException();
+                } else
+                    throw new InputMismatchException();
             }
             if (n == '.') {
                 n = scan();
@@ -112,7 +111,8 @@ public class BoyOrGirl implements Runnable {
                         temp /= 10;
                         doub += (n - '0') * temp;
                         n = scan();
-                    } else throw new InputMismatchException();
+                    } else
+                        throw new InputMismatchException();
                 }
             }
             return doub * neg;
@@ -163,14 +163,13 @@ public class BoyOrGirl implements Runnable {
     }
 
     static final class Comparators {
-        public static final Comparator<int[]> pairIntArr =
-                (x, y) -> x[0] == y[0] ? compare(x[1], y[1]) : compare(x[0], y[0]);
+        public static final Comparator<int[]> pairIntArr = (x, y) -> x[0] == y[0] ? compare(x[1], y[1])
+                : compare(x[0], y[0]);
 
         private static final int compare(final int x, final int y) {
             return Integer.compare(x, y);
         }
     }
-
 
     static void print(Object object) {
         out.print(object);
@@ -179,7 +178,6 @@ public class BoyOrGirl implements Runnable {
     static void println(Object object) {
         out.println(object);
     }
-
 
     static int[] iArr(int len) {
         return new int[len];
@@ -205,4 +203,3 @@ public class BoyOrGirl implements Runnable {
         return Math.max(a, b);
     }
 }
-
