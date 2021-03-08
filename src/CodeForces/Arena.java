@@ -5,31 +5,30 @@ import java.util.*;
 public class Arena implements Runnable {
 
     void solve() throws IOException {
-		int t = read.intNext();
-		
-		while(t-->0 ){
-			int n = read.intNext();
-			int[] arr = new int[n];
-			
-			for(int i = 0;i < n;i ++ ){
-				arr[i] = read.intNext();
-				
-			}
-			
-			shuffle(arr);
-			Arrays.sort(arr);
-			int res = 0;
-			
-			for(int i  = 1; i < n; i++ ){
-				if( arr[i] != arr[i - 1]){
-					res += n - i;
-					break;
-				}
-			}
-			println(res);
-		}
-    }
+        int t = read.intNext();
 
+        while (t-- > 0) {
+            int n = read.intNext();
+            int[] arr = new int[n];
+
+            for (int i = 0; i < n; i++) {
+                arr[i] = read.intNext();
+
+            }
+
+            shuffle(arr);
+            Arrays.sort(arr);
+            int res = 0;
+
+            for (int i = 1; i < n; i++) {
+                if (arr[i] != arr[i - 1]) {
+                    res += n - i;
+                    break;
+                }
+            }
+            println(res);
+        }
+    }
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
@@ -93,7 +92,8 @@ public class Arena implements Runnable {
                     integer *= 10;
                     integer += n - '0';
                     n = scan();
-                } else throw new InputMismatchException();
+                } else
+                    throw new InputMismatchException();
             }
             return neg * integer;
         }
@@ -113,7 +113,8 @@ public class Arena implements Runnable {
                     doub *= 10;
                     doub += n - '0';
                     n = scan();
-                } else throw new InputMismatchException();
+                } else
+                    throw new InputMismatchException();
             }
             if (n == '.') {
                 n = scan();
@@ -123,7 +124,8 @@ public class Arena implements Runnable {
                         temp /= 10;
                         doub += (n - '0') * temp;
                         n = scan();
-                    } else throw new InputMismatchException();
+                    } else
+                        throw new InputMismatchException();
                 }
             }
             return doub * neg;
@@ -174,14 +176,13 @@ public class Arena implements Runnable {
     }
 
     static final class Comparators {
-        public static final Comparator<int[]> pairIntArr =
-                (x, y) -> x[0] == y[0] ? compare(x[1], y[1]) : compare(x[0], y[0]);
+        public static final Comparator<int[]> pairIntArr = (x, y) -> x[0] == y[0] ? compare(x[1], y[1])
+                : compare(x[0], y[0]);
 
         private static final int compare(final int x, final int y) {
             return Integer.compare(x, y);
         }
     }
-
 
     static void print(Object object) {
         out.print(object);
@@ -190,7 +191,6 @@ public class Arena implements Runnable {
     static void println(Object object) {
         out.println(object);
     }
-
 
     static int[] iArr(int len) {
         return new int[len];
@@ -216,5 +216,3 @@ public class Arena implements Runnable {
         return Math.max(a, b);
     }
 }
-
-
