@@ -3,52 +3,52 @@ package CodeForces;
 import java.io.*;
 import java.util.*;
 
-public class CardDeck implements Runnable {
+public class Books implements Runnable {
 
     void solve() throws IOException {
-        int t = read.intNext();
+        int n = ri(), t = ri();
 
-        while (t-- > 0) {
-            int n = read.intNext();
+        int[] arr = iArr(n);
+        for (int i = 0; i < n; i++) {
+            arr[i] = ri();
+        }
 
-            int[] arr = new int[n];
-            for (int i = 0; i < n; i++) {
-                arr[i] = read.intNext();
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+        long total = 0;
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            int curr = arr[i];
 
-            }
+            if (total + curr <= t) {
+                queue.addLast(curr);
+                total += curr;
+                res = max(res, queue.size());
+            } else {
+                res = max(res, queue.size());
+                while (!queue.isEmpty() && total + curr > t) {
+                    int a = queue.pollFirst();
+                    total -= a;
+                }
 
-            int[] max = new int[n];
-            max[0] = arr[0];
-            for (int i = 1; i < n; i++) {
-                max[i] = max(max[i - 1], arr[i]);
-            }
-
-            List<Integer> rev = new ArrayList<Integer>();
-
-            for (int i = n - 1; i >= 0; i--) {
-                int curr = arr[i];
-                rev.add(curr);
-                if (arr[i] == max[i]) {
-                    add(rev);
-                    rev = new ArrayList<>();
+                if (total + curr <= t) {
+                    queue.add(curr);
+                    total += curr;
                 }
             }
-
-            println(sbr);
-            sbr = new StringBuilder();
-
         }
-    }
 
-    void add(List<Integer> lst) {
-        for (int i = lst.size() - 1; i >= 0; i--) {
-            sbr.append(lst.get(i)).append(" ");
+        while (!queue.isEmpty() && total > t) {
+            total -= queue.pollFirst();
         }
+        res = max(res, queue.size());
+
+        println(res);
+
     }
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
-        new Thread(null, new CardDeck(), "1").start();
+        new Thread(null, new Books(), "1").start();
     }
 
     static PrintWriter out = new PrintWriter(System.out);
@@ -230,5 +230,21 @@ public class CardDeck implements Runnable {
 
     static int max(int a, int b) {
         return Math.max(a, b);
+    }
+
+    static int ri() throws IOException {
+        return read.intNext();
+    }
+
+    static long rl() throws IOException {
+        return Long.parseLong(read.read());
+    }
+
+    static String rs() throws IOException {
+        return read.read();
+    }
+
+    static double rd() throws IOException {
+        return read.doubleNext();
     }
 }
