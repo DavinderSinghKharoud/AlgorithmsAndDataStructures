@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Zero Remainder Array" />
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Non Decreasing Array">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +30,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="Application.ContainsDuplicateIII">
+  <component name="RunManager" selected="Application.ReverseWordsInAString">
     <configuration name="ContainsDuplicateIII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ContainsDuplicateIII" />
       <module name="AlgorithmsAndDataStructures" />
@@ -68,6 +70,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReverseWordsInAString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ReverseWordsInAString" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algorithms.LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Winner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CodeForces.Winner" />
       <module name="AlgorithmsAndDataStructures" />
@@ -81,26 +96,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZeroRemainderArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.ZeroRemainderArray" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ReverseWordsInAString" />
         <item itemvalue="Application.ContainsDuplicateIII" />
         <item itemvalue="Application.NonDecreasingArray" />
         <item itemvalue="Application.FindtheClosestPalindrome" />
         <item itemvalue="Application.Winner" />
-        <item itemvalue="Application.ZeroRemainderArray" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +220,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615772773535</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Contains Duplicate III">
+      <created>1615863108286</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1615863108286</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Non Decreasing Array">
+      <created>1615863116586</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1615863116586</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,7 +265,9 @@
     <MESSAGE value="Winner" />
     <MESSAGE value="Woodcutters" />
     <MESSAGE value="Zero Remainder Array" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zero Remainder Array" />
+    <MESSAGE value="Contains Duplicate III" />
+    <MESSAGE value="Non Decreasing Array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Non Decreasing Array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -361,13 +379,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ContainsDuplicateIII.java</url>
-          <line>15</line>
+          <line>16</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ContainsDuplicateIII.java</url>
-          <line>23</line>
+          <line>24</line>
           <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ReverseWordsInAString.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
