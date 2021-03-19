@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Reverse Words in a String">
-      <change afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/AvoidFloodInTheCity.java" afterDir="false" />
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Continuous Subarray Sum">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +30,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="Application.ContinuousSubarraySum">
-    <configuration name="AvoidFloodInTheCity" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.AvoidFloodInTheCity" />
+  <component name="RunManager" selected="Application.FancySequenceSqrtDecomposition">
+    <configuration name="FancySequence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.FancySequence" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -45,8 +44,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContainsDuplicateIII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ContainsDuplicateIII" />
+    <configuration name="FancySequenceSqrtDecomposition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.FancySequenceSqrtDecomposition" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -58,8 +57,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContinuousSubarraySum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ContinuousSubarraySum" />
+    <configuration name="MinimumJumpsToReachHome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.MinimumJumpsToReachHome" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -71,8 +70,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NonDecreasingArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.NonDecreasingArray" />
+    <configuration name="ShortestSubarrayWithSumAtLeastK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ShortestSubarrayWithSumAtLeastK" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -84,8 +83,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReverseWordsInAString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ReverseWordsInAString" />
+    <configuration name="ValidateIpAddress" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ValidateIpAddress" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -99,11 +98,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ContinuousSubarraySum" />
-        <item itemvalue="Application.AvoidFloodInTheCity" />
-        <item itemvalue="Application.ReverseWordsInAString" />
-        <item itemvalue="Application.ContainsDuplicateIII" />
-        <item itemvalue="Application.NonDecreasingArray" />
+        <item itemvalue="Application.FancySequenceSqrtDecomposition" />
+        <item itemvalue="Application.FancySequence" />
+        <item itemvalue="Application.ShortestSubarrayWithSumAtLeastK" />
+        <item itemvalue="Application.MinimumJumpsToReachHome" />
+        <item itemvalue="Application.ValidateIpAddress" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +241,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615864278297</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Avoid Flood in the City">
+      <created>1615871781315</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1615871781315</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Continuous Subarray Sum">
+      <created>1615871792193</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1615871792193</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -276,7 +289,9 @@
     <MESSAGE value="Contains Duplicate III" />
     <MESSAGE value="Non Decreasing Array" />
     <MESSAGE value="Reverse Words in a String" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reverse Words in a String" />
+    <MESSAGE value="Avoid Flood in the City" />
+    <MESSAGE value="Continuous Subarray Sum" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continuous Subarray Sum" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -403,10 +418,106 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ContinuousSubarraySum.java</url>
-          <line>23</line>
+          <line>39</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/PrimePalindrome.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/PrimePalindrome.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/PrimePalindrome.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ValidateIpAddress.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ValidateIpAddress.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ValidateIpAddress.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/MinimumJumpsToReachHome.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/MinimumJumpsToReachHome.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ShortestSubarrayWithSumAtLeastK.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequence.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequence.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequence.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequence.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequence.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequence.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequenceSqrtDecomposition.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequenceSqrtDecomposition.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Algorithms.LeetCode.FancySequence" memberName="list" />
+        <PinnedItemInfo parentTag="Algorithms.LeetCode.FancySequence" memberName="mul" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AlgorithmsAndDataStructures$FancySequence.ic" NAME="FancySequence Coverage Results" MODIFIED="1616118442630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Algorithms.LeetCode.*</FILTER>
+    </SUITE>
   </component>
 </project>
