@@ -20,7 +20,7 @@ public class AppleDivision {
 
 
 		int ans = Integer.MAX_VALUE;
-		//Create all the subsets usign bit mask
+		//Create all the subsets using bit mask
 		
 		for(int index = 0; index < ( 1 << size); index++ ){
 			long curr = 0;

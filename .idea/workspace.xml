@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Continuous Subarray Sum">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/AppleDivision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/AppleDivision.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +30,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.FancySequenceSqrtDecomposition">
+  <component name="RunManager" selected="Application.ParallelCoursesII">
     <configuration name="FancySequence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.FancySequence" />
       <module name="AlgorithmsAndDataStructures" />
@@ -70,6 +72,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParallelCoursesII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ParallelCoursesII" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algorithms.LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShortestSubarrayWithSumAtLeastK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ShortestSubarrayWithSumAtLeastK" />
       <module name="AlgorithmsAndDataStructures" />
@@ -83,26 +98,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ValidateIpAddress" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.ValidateIpAddress" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ParallelCoursesII" />
         <item itemvalue="Application.FancySequenceSqrtDecomposition" />
         <item itemvalue="Application.FancySequence" />
         <item itemvalue="Application.ShortestSubarrayWithSumAtLeastK" />
         <item itemvalue="Application.MinimumJumpsToReachHome" />
-        <item itemvalue="Application.ValidateIpAddress" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +257,49 @@
       <option name="project" value="LOCAL" />
       <updated>1615871792193</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fancy Sequence">
+      <created>1616133547402</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1616133547402</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fancy Sequence SquareRoot Decomposition">
+      <created>1616133563748</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1616133563748</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Minimum Jumps to reach Home">
+      <created>1616133576008</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1616133576008</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Prime Palindrome">
+      <created>1616133583889</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1616133583889</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Shortest Subarray Sum With Atleast k">
+      <created>1616133602519</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1616133602519</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Validate Ip Address">
+      <created>1616133611015</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1616133611015</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +315,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minor update" />
     <MESSAGE value="Longest Simple Cycle" />
     <MESSAGE value="Books" />
     <MESSAGE value="Boredom" />
@@ -291,7 +334,13 @@
     <MESSAGE value="Reverse Words in a String" />
     <MESSAGE value="Avoid Flood in the City" />
     <MESSAGE value="Continuous Subarray Sum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continuous Subarray Sum" />
+    <MESSAGE value="Fancy Sequence" />
+    <MESSAGE value="Fancy Sequence SquareRoot Decomposition" />
+    <MESSAGE value="Minimum Jumps to reach Home" />
+    <MESSAGE value="Prime Palindrome" />
+    <MESSAGE value="Shortest Subarray Sum With Atleast k" />
+    <MESSAGE value="Validate Ip Address" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validate Ip Address" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -498,13 +547,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequenceSqrtDecomposition.java</url>
-          <line>78</line>
+          <line>83</line>
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FancySequenceSqrtDecomposition.java</url>
-          <line>97</line>
+          <line>99</line>
           <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
