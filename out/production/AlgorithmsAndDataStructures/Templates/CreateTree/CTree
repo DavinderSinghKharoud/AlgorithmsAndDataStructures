@@ -1,0 +1,31 @@
+static class CreateTree {
+        int[] count, from, to;
+        int len;
+
+        public CreateTree(int len) {
+            count = iArr(len + 1);
+            from = iArr(len);
+            to = iArr(len);
+            this.len = len;
+        }
+
+        void addEdge(int a, int b, int index) {
+            from[index] = a;
+            to[index] = b;
+            count[from[index]]++;
+            count[to[index]]++;
+        }
+
+        int[][] create() {
+            int[][] arr = new int[len + 1][];
+
+            for (int i = 0; i < len + 1; i++) {
+                arr[i] = new int[count[i]];
+            }
+            for (int i = 0; i < len; ++i) {
+                arr[from[i]][--count[from[i]]] = to[i];
+                arr[to[i]][--count[to[i]]] = from[i];
+            }
+            return arr;
+        }
+    }
