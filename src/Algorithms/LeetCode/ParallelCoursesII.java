@@ -64,7 +64,7 @@ public class ParallelCoursesII {
                 = new ParallelCoursesII();
 
        // System.out.println(parallelCoursesII.minNumberOfSemesters2(13, arr, 9));
-       System.out.println(parallelCoursesII.minNumberOfSemesters2(14, new int[][]{ {11, 7}}, 2));
+       System.out.println(parallelCoursesII.minNumberOfSemesters2(5, new int[][]{ {2,1},{3,1},{4,1},{1,5}}, 2));
     }
 
     int n, k;
@@ -126,7 +126,7 @@ public class ParallelCoursesII {
         if (availableCourses > k) {
             // We need to find all possible combinations that can yield an answer and select
             // the minimum
-            for (int i = nodes; i > 0; i = (i - 1) & nodes) {
+           for (int i = nodes; i > 0; i = (i - 1) & nodes) {
                 int took = Integer.bitCount(i);
                 if (took != k) {
                     // It will never be optimal to take less and k courses, and it is also not
