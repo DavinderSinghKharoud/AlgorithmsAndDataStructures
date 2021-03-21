@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Parallel Courses II">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Templates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/ParallelCoursesII.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/CountPairsOfNodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/CountPairsOfNodes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +40,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.RabbitHouse">
+  <component name="RunManager" selected="Application.CountPairsOfNodes">
     <configuration name="C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GoogleKickStart.C" />
       <module name="AlgorithmsAndDataStructures" />
@@ -109,10 +108,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CountPairsOfNodes" />
         <item itemvalue="Application.RabbitHouse" />
         <item itemvalue="Application.C" />
         <item itemvalue="Application.LShapedPlots" />
-        <item itemvalue="Application.CountPairsOfNodes" />
         <item itemvalue="Application.ParallelCoursesII" />
       </list>
     </recent_temporary>
@@ -315,7 +314,42 @@
       <option name="project" value="LOCAL" />
       <updated>1616276108320</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Count Pairs Of Nodes">
+      <created>1616359701682</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1616359701682</updated>
+    </task>
+    <task id="LOCAL-00029" summary="K Goodness Strings( Google kickstart )">
+      <created>1616359716142</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1616359716142</updated>
+    </task>
+    <task id="LOCAL-00030" summary="L Shaped Plots( Google kickstart )">
+      <created>1616359725659</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1616359725659</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Rabbit House( Google kickstart )">
+      <created>1616359736140</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1616359736140</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Templates">
+      <created>1616359746096</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1616359746096</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -331,11 +365,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Books" />
-    <MESSAGE value="Boredom" />
-    <MESSAGE value="Coin Combinations" />
-    <MESSAGE value="Find the Closest Palindrome" />
-    <MESSAGE value="Length And Sums" />
     <MESSAGE value="Number Game" />
     <MESSAGE value="Sequence And Swaps" />
     <MESSAGE value="Row GCD" />
@@ -356,7 +385,12 @@
     <MESSAGE value="Shortest Subarray Sum With Atleast k" />
     <MESSAGE value="Validate Ip Address" />
     <MESSAGE value="Parallel Courses II" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parallel Courses II" />
+    <MESSAGE value="Count Pairs Of Nodes" />
+    <MESSAGE value="K Goodness Strings( Google kickstart )" />
+    <MESSAGE value="L Shaped Plots( Google kickstart )" />
+    <MESSAGE value="Rabbit House( Google kickstart )" />
+    <MESSAGE value="Templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Templates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,17 +637,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/CountPairsOfNodes.java</url>
-          <line>36</line>
+          <line>38</line>
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/CountPairsOfNodes.java</url>
-          <line>82</line>
+          <line>116</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/CountPairsOfNodes.java</url>
-          <line>93</line>
+          <line>151</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -640,6 +674,11 @@
           <url>file://$PROJECT_DIR$/src/GoogleKickStart/RabbitHouse.java</url>
           <line>105</line>
           <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/CountPairsOfNodes.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="155" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
