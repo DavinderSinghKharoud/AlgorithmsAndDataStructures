@@ -104,7 +104,7 @@ public class FindingaCentroid implements Runnable {
 
         for (int child : tree[pos]) {
             if (child != parent && sum[child] > n / 2) {
-                return dfs2(child, pos);
+                    return dfs2(child, pos);
             }
         }
 
