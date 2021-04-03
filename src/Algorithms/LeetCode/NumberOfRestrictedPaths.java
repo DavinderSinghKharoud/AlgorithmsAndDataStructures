@@ -37,7 +37,7 @@ import java.util.*;
  * edges[i].length == 3
  * 1 <= ui, vi <= n
  * ui != vi
- * 1 <= weighti <= 105
+ * 1 <= weight <= 105
  * There is at most one edge between any two nodes.
  * There is at least one path between any two nodes.
  */

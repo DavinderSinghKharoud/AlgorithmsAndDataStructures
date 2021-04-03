@@ -3,55 +3,62 @@ package CodeForces;
 import java.io.*;
 import java.util.*;
 
-public class Winner implements Runnable {
+public class DoubleEndedString implements Runnable {
 
    void solve() throws IOException {
+      int t = ri();
+      while (t-- > 0) {
+         StringBuilder a = new StringBuilder(rs()), b = new StringBuilder(rs());
 
-      int n = ri();
-
-      Map<String, Integer> map = new HashMap<>();
-      int maxPoints = dmin;
-
-      String[] sarr = new String[n];
-      int[] point = iArr(n);
-
-      for (int i = 0; i < n; i++) {
-         String curr = rs();
-         int points = ri();
-
-         sarr[i] = curr;
-         point[i] = points;
-         map.put(curr, map.getOrDefault(curr, 0) + points);
-      }
-
-      Set<String> set = new HashSet<>();
-      for (Map.Entry<String, Integer> entry : map.entrySet()) {
-         if (maxPoints == entry.getValue()) {
-            set.add(entry.getKey());
-         } else if (maxPoints < entry.getValue()) {
-            maxPoints = entry.getValue();
-            set = new HashSet<>();
-            set.add(entry.getKey());
+         int ans = 0;
+         int minLength = min(a.length(), b.length());
+         for (int len = 1; len <= minLength; len++) {
+            for (int i = 0; i + len <= a.length(); i++) {
+               for (int j = 0; j + len <= b.length(); j++) {
+                  if (a.substring(i, i + len).equals(b.substring(j, j + len))) {
+                     ans = max(ans, len);
+                  }
+               }
+            }
          }
+
+         println(a.length() + b.length() - 2 * ans);
       }
+   }
 
-      map = new HashMap<>();
-      for (int i = 0; i < n; i++) {
-         String curr = sarr[i];
-         int points = point[i];
+   String join(StringBuilder a, StringBuilder b) {
 
-         map.put(curr, map.getOrDefault(curr, 0) + points);
-         if (set.contains(curr) && maxPoints <= map.get(curr)) {
-            print(curr);
-            return;
-         }
+      StringBuilder aa = new StringBuilder(a);
+      StringBuilder bb = new StringBuilder(b);
+
+      if (a.length() < b.length()) {
+         return bb.append(";").append(a.toString()).toString();
       }
+      return aa.append(";").append(b.toString()).toString();
+   }
 
+   StringBuilder removeLastChar(StringBuilder a) {
+      return new StringBuilder(a.substring(0, a.length() - 1));
+   }
+
+   StringBuilder removeFirstChar(StringBuilder a) {
+      return new StringBuilder(a.substring(1, a.length()));
+   }
+
+   class Node {
+      StringBuilder a, b;
+      int steps = 0;
+
+      public Node(StringBuilder a, StringBuilder b, int steps) {
+         this.a = a;
+         this.b = b;
+         this.steps = steps;
+      }
    }
 
    /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
-      new Thread(null, new Winner(), "1").start();
+      new Thread(null, new DoubleEndedString(), "1").start();
    }
 
    static PrintWriter out = new PrintWriter(System.out);

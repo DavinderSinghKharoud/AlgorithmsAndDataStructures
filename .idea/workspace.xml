@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Check Sum (Google Kick Start)">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Redundant Connection II">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/FindingaCentroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/FindingaCentroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/NumberOfRestrictedPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/NumberOfRestrictedPaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeForces/Winner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/Winner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +41,13 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.NumberOfRestrictedPaths">
-    <configuration name="Checksum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.Checksum" />
+  <component name="RunManager" selected="Application.Winner">
+    <configuration name="EpicTransformation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.EpicTransformation" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="GoogleKickStart.*" />
+          <option name="PATTERN" value="CodeForces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -54,19 +55,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FindingaCentroid" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="FindingaCentroid" />
-      <module name="AlgorithmsAndDataStructures" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MinimumHeightTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.MinimumHeightTree" />
+    <configuration name="MaximizeTheRemainingString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.MaximizeTheRemainingString" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.*" />
+          <option name="PATTERN" value="CodeForces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -74,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NumberOfRestrictedPaths" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.NumberOfRestrictedPaths" />
+    <configuration name="RestorePermutation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.RestorePermutation" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.*" />
+          <option name="PATTERN" value="CodeForces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,12 +81,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedundantConnectionII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.RedundantConnectionII" />
+    <configuration name="TriangularPaths" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.TriangularPaths" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.*" />
+          <option name="PATTERN" value="CodeForces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Winner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Winner" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CodeForces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,11 +109,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NumberOfRestrictedPaths" />
-        <item itemvalue="Application.MinimumHeightTree" />
-        <item itemvalue="Application.FindingaCentroid" />
-        <item itemvalue="Application.RedundantConnectionII" />
-        <item itemvalue="Application.Checksum" />
+        <item itemvalue="Application.Winner" />
+        <item itemvalue="Application.MaximizeTheRemainingString" />
+        <item itemvalue="Application.TriangularPaths" />
+        <item itemvalue="Application.RestorePermutation" />
+        <item itemvalue="Application.EpicTransformation" />
       </list>
     </recent_temporary>
   </component>
@@ -350,7 +357,28 @@
       <option name="project" value="LOCAL" />
       <updated>1616463402991</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Minimum Height Tree">
+      <created>1616639639245</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1616639639245</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Number of Restricted Paths">
+      <created>1616639651004</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1616639651004</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Redundant Connection II">
+      <created>1616639662194</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1616639662194</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -366,9 +394,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sequence And Swaps" />
-    <MESSAGE value="Row GCD" />
-    <MESSAGE value="Two Buttons" />
     <MESSAGE value="Two Substrings" />
     <MESSAGE value="Winner" />
     <MESSAGE value="Woodcutters" />
@@ -391,7 +416,10 @@
     <MESSAGE value="Rabbit House( Google kickstart )" />
     <MESSAGE value="Templates" />
     <MESSAGE value="Check Sum (Google Kick Start)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check Sum (Google Kick Start)" />
+    <MESSAGE value="Minimum Height Tree" />
+    <MESSAGE value="Number of Restricted Paths" />
+    <MESSAGE value="Redundant Connection II" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redundant Connection II" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -448,13 +476,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CodeForces/Winner.java</url>
-          <line>13</line>
+          <line>9</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CodeForces/Winner.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/FindtheClosestPalindrome.java</url>
@@ -708,13 +731,158 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/NumberOfRestrictedPaths.java</url>
-          <line>82</line>
+          <line>121</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/NumberOfRestrictedPaths.java</url>
-          <line>57</line>
+          <line>96</line>
           <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/Revertsort.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/Revertsort.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/MoonsAndUmbrellas.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/ReversortEngineering.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/ReversortEngineering.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ReconstructItenary.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ReconstructItenary.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/ReconstructItenary.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/KSimilarString.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/KSimilarString.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/KSimilarString.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/StrangeTable.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/PartialReplacement.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/DoubleEndedString.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/DoubleEndedString.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/DoubleEndedString.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/EpicTransformation.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/EpicTransformation.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/RestorePermutation.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/RestorePermutation.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/TriangularPaths.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/TriangularPaths.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="212" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MaximizeTheRemainingString.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MaximizeTheRemainingString.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="215" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MaximizeTheRemainingString.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MaximizeTheRemainingString.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="224" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MaximizeTheRemainingString.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="225" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MaximizeTheRemainingString.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="226" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Winner.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="227" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
