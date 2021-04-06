@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Triangular Paths">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Three Coloring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CodeForces/AdvertisingAgency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/AdvertisingAgency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CodeForces/out/BuildingAFence.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
       <recent name="$PROJECT_DIR$/src/CodeForces" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BalanceTheBits">
+  <component name="RunManager" selected="Application.FacebookPriorityWall">
     <configuration name="BalanceTheBits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CodeForces.Round712.BalanceTheBits" />
       <module name="AlgorithmsAndDataStructures" />
@@ -60,12 +58,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DejaVu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round712.DejaVu" />
+    <configuration name="FacebookPriorityWall" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.FacebookPriorityWall" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.Round712.*" />
+          <option name="PATTERN" value="CodeForces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FacebookPriorityWall" />
         <item itemvalue="Application.BalanceTheBits" />
         <item itemvalue="Application.FlipTheBits" />
         <item itemvalue="Application.FriendsorNot" />
         <item itemvalue="Application.NameQuest" />
-        <item itemvalue="Application.DejaVu" />
       </list>
     </recent_temporary>
   </component>
@@ -130,48 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Minor update">
-      <created>1615171194183</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1615171194183</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Longest Simple Cycle">
-      <created>1615182524493</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1615182524493</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Books">
-      <created>1615772638292</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772638292</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Boredom">
-      <created>1615772645233</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772645233</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Coin Combinations">
-      <created>1615772652810</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772652810</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Find the Closest Palindrome">
-      <created>1615772690482</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772690482</updated>
     </task>
     <task id="LOCAL-00007" summary="Length And Sums">
       <created>1615772703661</created>
@@ -474,7 +430,49 @@
       <option name="project" value="LOCAL" />
       <updated>1617429551894</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Balance the Bits">
+      <created>1617677858156</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1617677858157</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Deja Vu">
+      <created>1617677865372</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1617677865372</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Flip the Bits">
+      <created>1617677873795</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1617677873795</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Friends Or Not">
+      <created>1617677883488</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1617677883488</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Name Quest">
+      <created>1617677891404</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1617677891404</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Three Coloring">
+      <created>1617677898162</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1617677898162</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -490,12 +488,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Shortest Subarray Sum With Atleast k" />
-    <MESSAGE value="Validate Ip Address" />
-    <MESSAGE value="Parallel Courses II" />
-    <MESSAGE value="Count Pairs Of Nodes" />
-    <MESSAGE value="K Goodness Strings( Google kickstart )" />
-    <MESSAGE value="L Shaped Plots( Google kickstart )" />
     <MESSAGE value="Rabbit House( Google kickstart )" />
     <MESSAGE value="Templates" />
     <MESSAGE value="Check Sum (Google Kick Start)" />
@@ -515,7 +507,13 @@
     <MESSAGE value="Reverse Sort" />
     <MESSAGE value="Strange Table" />
     <MESSAGE value="Triangular Paths" />
-    <option name="LAST_COMMIT_MESSAGE" value="Triangular Paths" />
+    <MESSAGE value="Balance the Bits" />
+    <MESSAGE value="Deja Vu" />
+    <MESSAGE value="Flip the Bits" />
+    <MESSAGE value="Friends Or Not" />
+    <MESSAGE value="Name Quest" />
+    <MESSAGE value="Three Coloring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Three Coloring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1029,6 +1027,21 @@
           <url>file://$PROJECT_DIR$/src/CodeForces/Round712/BalanceTheBits.java</url>
           <line>42</line>
           <option name="timeStamp" value="258" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/FacebookPriorityWall.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="262" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/FacebookPriorityWall.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="264" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/FacebookPriorityWall.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="266" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />
