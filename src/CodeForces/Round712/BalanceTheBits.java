@@ -1,83 +1,70 @@
-package CodeForces;
+package CodeForces.Round712;
 
 import java.io.*;
 import java.util.*;
 
-@SuppressWarnings("unchecked")
-public class AdvertisingAgency implements Runnable {
+public class BalanceTheBits implements Runnable {
 
    void solve() throws IOException {
-      int t = read.intNext();
+      int t = ri();
       while (t-- > 0) {
-         int n = read.intNext(), k = read.intNext();
 
-         int[] arr = iArr(n);
-         Map<Integer, Integer> map = new HashMap<>();
+         int len = ri();
+         String s = rs();
 
-         for (int i = 0; i < n; i++) {
-            arr[i] = read.intNext();
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+         if (len % 2 == 1) {
+            println("NO");
+            continue;
          }
-
-         shuffle(arr);
-         Arrays.sort(arr);
-
-         int count = 0, last = -1, i = n - 1;
-
-         for (; i >= 0; i--) {
-            if (last != arr[i]) {
-               last = arr[i];
-               count = 1;
+         int countZero = 0, countOne = 0;
+         for (char c : s.toCharArray()) {
+            if (c == '1') {
+               countOne++;
             } else {
-               count++;
+               countZero++;
             }
-            k--;
-            if (k == 0)
-               break;
+         }
+         if ((countZero & 1) == 1 || (countOne & 1) == 1 || s.charAt(0) == '0' || s.charAt(len - 1) == '0') {
+            println("NO");
+            continue;
          }
 
-         // find the combinations
-         println(findFactorial(map.get(last), count));
-      }
-   }
+         StringBuilder first = new StringBuilder(), second = new StringBuilder();
 
-   long findFactorial(int num, int count) {
-      return findFact(num) * multiplicativeInverse(findFact(count)) % mod * multiplicativeInverse(findFact(num - count))
-            % mod;
-   }
+         for (char c : s.toCharArray()) {
+            if (c == '1') {
+               // For the first halfs we put '(' and ')' for second halfs
+               if ((countOne > 0)) {
+                  first.append('(');
+                  second.append('(');
+                  countOne -= 2;
+               } else {
+                  first.append(')');
+                  second.append(')');
 
-   long multiplicativeInverse(long num) {
-      return expo(num, mod - 2);
-   }
+               }
+            } else {
 
-   long expo(long num, long p) {
-      long res = 1;
-
-      while (p >= 1) {
-         if ((p & 1) == 0) {
-            num = num * num % mod;
-            p /= 2;
-         } else {
-            res = res * num % mod;
-            p--;
+               if ((countZero & 1) == 0) {
+                  first.append('(');
+                  second.append(')');
+               } else {
+                  first.append(')');
+                  second.append('(');
+               }
+               countZero--;
+            }
          }
 
+         println("YES");
+         println(first.toString());
+         println(second.toString());
       }
-      return res;
-   }
-
-   long findFact(int num) {
-      long res = 1;
-
-      for (int i = num; i > 1; i--) {
-         res = (res * i) % mod;
-      }
-      return res;
    }
 
    /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
-      new Thread(null, new AdvertisingAgency(), "1").start();
+      new Thread(null, new BalanceTheBits(), "1").start();
    }
 
    static PrintWriter out = new PrintWriter(System.out);
@@ -259,5 +246,21 @@ public class AdvertisingAgency implements Runnable {
 
    static int max(int a, int b) {
       return Math.max(a, b);
+   }
+
+   static int ri() throws IOException {
+      return read.intNext();
+   }
+
+   static long rl() throws IOException {
+      return Long.parseLong(read.read());
+   }
+
+   static String rs() throws IOException {
+      return read.read();
+   }
+
+   static double rd() throws IOException {
+      return read.doubleNext();
    }
 }

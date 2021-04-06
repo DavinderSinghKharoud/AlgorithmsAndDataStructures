@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Redundant Connection II">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Triangular Paths">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/NumberOfRestrictedPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/NumberOfRestrictedPaths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CodeForces/Winner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/Winner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeForces/AdvertisingAgency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/AdvertisingAgency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeForces/out/BuildingAFence.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +41,53 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Winner">
-    <configuration name="EpicTransformation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.EpicTransformation" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/CodeForces" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.BalanceTheBits">
+    <configuration name="BalanceTheBits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round712.BalanceTheBits" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CodeForces.Round712.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DejaVu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round712.DejaVu" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CodeForces.Round712.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlipTheBits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round712.FlipTheBits" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CodeForces.Round712.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FriendsorNot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.FriendsorNot" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -55,47 +99,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaximizeTheRemainingString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.MaximizeTheRemainingString" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RestorePermutation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.RestorePermutation" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangularPaths" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.TriangularPaths" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Winner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Winner" />
+    <configuration name="NameQuest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.NameQuest" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -109,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Winner" />
-        <item itemvalue="Application.MaximizeTheRemainingString" />
-        <item itemvalue="Application.TriangularPaths" />
-        <item itemvalue="Application.RestorePermutation" />
-        <item itemvalue="Application.EpicTransformation" />
+        <item itemvalue="Application.BalanceTheBits" />
+        <item itemvalue="Application.FlipTheBits" />
+        <item itemvalue="Application.FriendsorNot" />
+        <item itemvalue="Application.NameQuest" />
+        <item itemvalue="Application.DejaVu" />
       </list>
     </recent_temporary>
   </component>
@@ -378,7 +383,98 @@
       <option name="project" value="LOCAL" />
       <updated>1616639662194</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Double Ended String">
+      <created>1617429428826</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429428826</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Epic Transformation">
+      <created>1617429440776</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429440776</updated>
+    </task>
+    <task id="LOCAL-00039" summary="K Similar String">
+      <created>1617429449992</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429449992</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Maximize the remaining string">
+      <created>1617429465058</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429465058</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Minimum Degree of connected trio">
+      <created>1617429475644</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429475644</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Moons And Umbrellas">
+      <created>1617429486399</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429486399</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Partial Replacement">
+      <created>1617429496882</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429496882</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Reconstruct Itenary">
+      <created>1617429507200</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429507200</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Restore Permutations">
+      <created>1617429517636</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429517636</updated>
+    </task>
+    <task id="LOCAL-00046" summary="ReverseSort Engineering">
+      <created>1617429528054</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429528054</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Reverse Sort">
+      <created>1617429535574</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429535574</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Strange Table">
+      <created>1617429543101</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429543101</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Triangular Paths">
+      <created>1617429551894</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1617429551894</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,19 +490,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Two Substrings" />
-    <MESSAGE value="Winner" />
-    <MESSAGE value="Woodcutters" />
-    <MESSAGE value="Zero Remainder Array" />
-    <MESSAGE value="Contains Duplicate III" />
-    <MESSAGE value="Non Decreasing Array" />
-    <MESSAGE value="Reverse Words in a String" />
-    <MESSAGE value="Avoid Flood in the City" />
-    <MESSAGE value="Continuous Subarray Sum" />
-    <MESSAGE value="Fancy Sequence" />
-    <MESSAGE value="Fancy Sequence SquareRoot Decomposition" />
-    <MESSAGE value="Minimum Jumps to reach Home" />
-    <MESSAGE value="Prime Palindrome" />
     <MESSAGE value="Shortest Subarray Sum With Atleast k" />
     <MESSAGE value="Validate Ip Address" />
     <MESSAGE value="Parallel Courses II" />
@@ -419,7 +502,20 @@
     <MESSAGE value="Minimum Height Tree" />
     <MESSAGE value="Number of Restricted Paths" />
     <MESSAGE value="Redundant Connection II" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redundant Connection II" />
+    <MESSAGE value="Double Ended String" />
+    <MESSAGE value="Epic Transformation" />
+    <MESSAGE value="K Similar String" />
+    <MESSAGE value="Maximize the remaining string" />
+    <MESSAGE value="Minimum Degree of connected trio" />
+    <MESSAGE value="Moons And Umbrellas" />
+    <MESSAGE value="Partial Replacement" />
+    <MESSAGE value="Reconstruct Itenary" />
+    <MESSAGE value="Restore Permutations" />
+    <MESSAGE value="ReverseSort Engineering" />
+    <MESSAGE value="Reverse Sort" />
+    <MESSAGE value="Strange Table" />
+    <MESSAGE value="Triangular Paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Triangular Paths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -884,6 +980,60 @@
           <line>26</line>
           <option name="timeStamp" value="227" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/DejaVu.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="228" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/DejaVu.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="229" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/NameQuest.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="238" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/FriendsorNot.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="239" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/FlipTheBits.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/FlipTheBits.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/FlipTheBits.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/FlipTheBits.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/BalanceTheBits.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round712/BalanceTheBits.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="258" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.InputMismatchException" package="java.util" />
+          <option name="timeStamp" value="240" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
