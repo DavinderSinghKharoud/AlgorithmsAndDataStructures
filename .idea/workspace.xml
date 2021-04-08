@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Facebook Priority Wall">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Balancer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/WordSearchII.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/WordSearchII.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,20 +45,7 @@
       <recent name="$PROJECT_DIR$/src/CodeForces" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SmallestNumber">
-    <configuration name="BalanceTheBits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round712.BalanceTheBits" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CodeForces.Round712.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Title">
     <configuration name="Balancer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CodeForces.Balancer" />
       <module name="AlgorithmsAndDataStructures" />
@@ -71,8 +59,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FacebookPriorityWall" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.FacebookPriorityWall" />
+    <configuration name="MakingGenomeInBerland" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.MakingGenomeInBerland" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -110,13 +98,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Title" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Title" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CodeForces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Title" />
+        <item itemvalue="Application.MakingGenomeInBerland" />
         <item itemvalue="Application.SmallestNumber" />
         <item itemvalue="Application.Balancer" />
         <item itemvalue="Application.Permutations" />
-        <item itemvalue="Application.FacebookPriorityWall" />
-        <item itemvalue="Application.BalanceTheBits" />
       </list>
     </recent_temporary>
   </component>
@@ -128,34 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Number Game">
-      <created>1615772712228</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772712228</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Sequence And Swaps">
-      <created>1615772724409</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772724409</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Row GCD">
-      <created>1615772733151</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772733151</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Two Buttons">
-      <created>1615772741344</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1615772741344</updated>
     </task>
     <task id="LOCAL-00012" summary="Two Substrings">
       <created>1615772749228</created>
@@ -472,7 +445,35 @@
       <option name="project" value="LOCAL" />
       <updated>1617680031443</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Balancer">
+      <created>1617845411042</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1617845411043</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Permutations">
+      <created>1617845422160</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1617845422161</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Smallest Number">
+      <created>1617845432021</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1617845432021</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Balancer">
+      <created>1617845438367</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1617845438367</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -488,9 +489,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Templates" />
-    <MESSAGE value="Check Sum (Google Kick Start)" />
-    <MESSAGE value="Minimum Height Tree" />
     <MESSAGE value="Number of Restricted Paths" />
     <MESSAGE value="Redundant Connection II" />
     <MESSAGE value="Double Ended String" />
@@ -513,7 +511,10 @@
     <MESSAGE value="Name Quest" />
     <MESSAGE value="Three Coloring" />
     <MESSAGE value="Facebook Priority Wall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Facebook Priority Wall" />
+    <MESSAGE value="Permutations" />
+    <MESSAGE value="Smallest Number" />
+    <MESSAGE value="Balancer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Balancer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1057,6 +1058,21 @@
           <url>file://$PROJECT_DIR$/src/CodeForces/SmallestNumber.java</url>
           <line>17</line>
           <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MakingGenomeInBerland.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="276" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/MakingGenomeInBerland.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="282" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Title.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="284" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />
