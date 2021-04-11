@@ -151,16 +151,6 @@ public class IOFastest implements Runnable {
         }
     }
 
-    static final class Comparators {
-        public static final Comparator<int[]> pairIntArr =
-                (x, y) -> x[0] == y[0] ? compare(x[1], y[1]) : compare(x[0], y[0]);
-
-        private static final int compare(final int x, final int y) {
-            return Integer.compare(x, y);
-        }
-    }
-
-
     static void print(Object object) {
         out.print(object);
     }
@@ -168,7 +158,6 @@ public class IOFastest implements Runnable {
     static void println(Object object) {
         out.println(object);
     }
-
 
     static int[] iArr(int len) {
         return new int[len];
@@ -193,6 +182,23 @@ public class IOFastest implements Runnable {
     static int max(int a, int b) {
         return Math.max(a, b);
     }
+
+    static int ri() throws IOException {
+        return read.intNext();
+    }
+
+    static long rl() throws IOException {
+        return Long.parseLong(read.read());
+    }
+
+    static String rs() throws IOException {
+        return read.read();
+    }
+
+    static double rd() throws IOException {
+        return read.doubleNext();
+    }
+
 }
 
 
