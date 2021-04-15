@@ -22,6 +22,7 @@ public class IOFastest implements Runnable {
     static long lmax = Long.MAX_VALUE;
     static int dmin = Integer.MIN_VALUE;
     static long lmin = Long.MIN_VALUE;
+    static int[] gcds = new int[] { 1, 11, 101, 1087, 99991, 100001, 1000003, 15485863, 999999937 };
 
     @Override
     public void run() {
