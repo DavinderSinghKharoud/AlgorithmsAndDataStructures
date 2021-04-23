@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Short Task">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Min Cost String">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/IOFastest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/IOFastest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Max" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Max" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/programminBook/MaximumValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/MaximumValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeForces/EducationalRound107/MinCostString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/EducationalRound107/MinCostString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Max" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Max" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,19 +48,30 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/A" />
       <recent name="$PROJECT_DIR$/src/CodeForces" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="GoogleKickStart.RoundB2021.D" />
+      <recent name="GoogleKickStart.RoundB2021.C" />
+      <recent name="GoogleKickStart.RoundB2021.B" />
       <recent name="CodeForces.Round713" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GCDLength">
-    <configuration name="Cola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Cola" />
+  <component name="RunManager" selected="Application.Solution (3)">
+    <configuration name="MillerRabin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MillerRabin" />
+      <module name="AlgorithmsAndDataStructures" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.B.Solution" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
+          <option name="PATTERN" value="GoogleKickStart.RoundB2021.B.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -65,12 +79,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DoorFrames" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.DoorFrames" />
+    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.C.Solution" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
+          <option name="PATTERN" value="GoogleKickStart.RoundB2021.C.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,12 +92,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Education" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round713.Education" />
+    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.D.Solution" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.Round713.*" />
+          <option name="PATTERN" value="GoogleKickStart.RoundB2021.D.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,25 +105,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GCDLength" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.EducationalRound107.GCDLength" />
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.A.Solution" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.EducationalRound107.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PhysicalEducation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.PhysicalEducation" />
-      <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
+          <option name="PATTERN" value="GoogleKickStart.RoundB2021.A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GCDLength" />
-        <item itemvalue="Application.PhysicalEducation" />
-        <item itemvalue="Application.Cola" />
-        <item itemvalue="Application.DoorFrames" />
-        <item itemvalue="Application.Education" />
+        <item itemvalue="Application.Solution (3)" />
+        <item itemvalue="Application.Solution (2)" />
+        <item itemvalue="Application.MillerRabin" />
+        <item itemvalue="Application.Solution (1)" />
+        <item itemvalue="Application.Solution" />
       </list>
     </recent_temporary>
   </component>
@@ -135,34 +136,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Validate Ip Address">
-      <created>1616133611015</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1616133611015</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Parallel Courses II">
-      <created>1616276108320</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1616276108320</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Count Pairs Of Nodes">
-      <created>1616359701682</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1616359701682</updated>
-    </task>
-    <task id="LOCAL-00029" summary="K Goodness Strings( Google kickstart )">
-      <created>1616359716142</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1616359716142</updated>
     </task>
     <task id="LOCAL-00030" summary="L Shaped Plots( Google kickstart )">
       <created>1616359725659</created>
@@ -479,7 +452,35 @@
       <option name="project" value="LOCAL" />
       <updated>1618364642534</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="GCD Length">
+      <created>1618453306906</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1618453306906</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Yet Another Card Deck">
+      <created>1618453316359</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1618453316359</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Review Site">
+      <created>1618453325627</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1618453325627</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Min Cost String">
+      <created>1618453333580</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1618453333580</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -495,10 +496,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Triangular Paths" />
-    <MESSAGE value="Balance the Bits" />
-    <MESSAGE value="Deja Vu" />
-    <MESSAGE value="Flip the Bits" />
     <MESSAGE value="Friends Or Not" />
     <MESSAGE value="Name Quest" />
     <MESSAGE value="Three Coloring" />
@@ -520,7 +517,11 @@
     <MESSAGE value="Door Frames" />
     <MESSAGE value="Physical Education" />
     <MESSAGE value="Short Task" />
-    <option name="LAST_COMMIT_MESSAGE" value="Short Task" />
+    <MESSAGE value="GCD Length" />
+    <MESSAGE value="Yet Another Card Deck" />
+    <MESSAGE value="Review Site" />
+    <MESSAGE value="Min Cost String" />
+    <option name="LAST_COMMIT_MESSAGE" value="Min Cost String" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1175,6 +1176,141 @@
           <line>13</line>
           <option name="timeStamp" value="333" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/EducationalRound107/MinCostString.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/BiweeklyContest50/QueriesInsideCirlce.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="337" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/BiweeklyContest50/QueriesInsideCirlce.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="338" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/BiweeklyContest50/MaximumXORForEachQuery.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="343" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/BiweeklyContest50/MaximumXORForEachQuery.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="347" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/BiweeklyContest50/MaximumXORForEachQuery.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="348" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/BiweeklyContest50/MinimumOperationsToMakeStringSorted.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="350" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/ANDSequence.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="355" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/ANDSequence.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="356" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/GCDAndMST.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="362" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/GCDAndMST.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="364" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/GCDAndMST.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="365" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/GCDAndMST.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="366" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/C/Solution.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="388" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/B/Solution.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="394" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/B/Solution.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="395" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Templates/PrimalityTest/MillerRabin.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="396" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Templates/PrimalityTest/MillerRabin.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="397" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Templates/PrimalityTest/MillerRabin.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="398" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/C/Solution.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="399" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/C/Solution.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="400" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/D/Solution.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="401" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/D/Solution.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="410" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/D/Solution.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="413" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/D/Solution.java</url>
+          <line>204</line>
+          <option name="timeStamp" value="414" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/D/Solution.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="416" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/D/Solution.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="417" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />
           <option name="timeStamp" value="240" />
@@ -1191,6 +1327,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AlgorithmsAndDataStructures$FancySequence.ic" NAME="FancySequence Coverage Results" MODIFIED="1616118442630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Algorithms.LeetCode.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AlgorithmsAndDataStructures$C.ic" NAME="C Coverage Results" MODIFIED="1618673393704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Algorithms.LeetCode.BiweeklyContest50.*</FILTER>
     </SUITE>
   </component>
 </project>

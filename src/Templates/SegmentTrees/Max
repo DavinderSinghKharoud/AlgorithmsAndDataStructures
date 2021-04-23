@@ -11,7 +11,19 @@ public class SegmentTree {
 		this.nodes = nodes;
 		construct(0, n - 1, 0);
 	}
-	
+
+	void construct(int l, int h, int pos ){
+    	if( l == h ){
+   			arr[pos] = nodes[l];
+    	}else{
+   			int mid = l + (h - l)/2;
+   			int p = pos << 1;
+   			construct(l, mid, p + 1);
+   			construct(mid + 1, h, p + 2);
+    		arr[pos] = Math.max( arr[p + 1], arr[p + 2]);
+        }
+    }
+
 	void update(int node, int value ){
 		update(0, n - 1, 0, node, value);
 	}
@@ -48,21 +60,7 @@ public class SegmentTree {
 			return Math.max( query(l, mid, p + 1, a, b ), query(mid + 1, h, p + 2, a, b) );
 		}
 	}
-	
-	void construct(int l, int h, int pos ){
-		if( l == h ){
-			arr[pos] = nodes[l];
-		}else{
-			int mid = l + (h - l)/2;
-			int p = pos << 1;
-			construct(l, mid, p + 1);
-			construct(mid + 1, h, p + 2);
-			
-			arr[pos] = Math.max( arr[p + 1], arr[p + 2]);
-		}	
-	}
-	
-	
+
 	
 	int getSize(int len ){
 		if( len < 2 ) return 1;

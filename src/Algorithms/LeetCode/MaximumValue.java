@@ -1,4 +1,4 @@
-package Algorithms.programminBook;
+package Algorithms.LeetCode;
 
 import java.util.ArrayList;
 import java.util.List;

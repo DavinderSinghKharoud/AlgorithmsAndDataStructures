@@ -1,49 +1,45 @@
-package CodeForces.EducationalRound107;
+package CodeForces.Round714;
 
 import java.io.*;
 import java.util.*;
 
-public class MinCostString implements Runnable {
-
-   ArrayDeque<Integer>[] tree;
-   List<Integer> path = new ArrayList<>();
+public class AddOne implements Runnable {
+   int limit = (int) 1e5 * 2 + 1;
 
    void solve() throws IOException {
-      int n = ri(), k = ri();
-      // We will use Eulerian cycle to construct the string having unique pairs
-      tree = new ArrayDeque[k];
-      Arrays.setAll(tree, o -> new ArrayDeque<>());
-      for (int i = 0; i < k; i++) {
-         tree[i].add(i);
-         for (int j = i + 1; j < k; j++) {
-            tree[i].add(j);
-            tree[j].add(i);
+      int t = ri();
+      int[][] dp = new int[10][limit];
+
+      for (int i = 0; i < 10; i++) {
+         dp[i][0] = 1;
+      }
+
+      // We check for after each step the length of the number
+      for (int i = 1; i < limit; i++) {
+         for (int j = 0; j < 9; j++) {
+            dp[j][i] = dp[j + 1][i - 1];
          }
+
+         // For 9 the next length would be 1 , 0
+         dp[9][i] = (dp[1][i - 1] + dp[0][i - 1]) % mod;
       }
 
-      // Find Eulerian Cycle( It always exist as it is strongly connected )
-      dfs(0);
-      sbr.append('a');
-      // If required length is more than the found then we need to start repeating
-      // characters except starting 'a'
-      path.remove(0);
-      for (int i = 0; i < n - 1; i++) {
-         sbr.append((char) (path.get(i % path.size()) + 'a'));
-      }
-      print(sbr.toString());
-   }
-
-   void dfs(int u) {
-      while (!tree[u].isEmpty()) {
-         dfs(tree[u].pollLast());
+      while (t-- > 0) {
+         int num = ri(), k = ri();
+         int count = 0;
+         while (num > 0) {
+            int div = num % 10;
+            count = (count + dp[div][k]) % mod;
+            num /= 10;
+         }
+         println(count);
       }
 
-      path.add(u);
    }
 
    /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
-      new Thread(null, new MinCostString(), "1").start();
+      new Thread(null, new AddOne(), "1").start();
    }
 
    static PrintWriter out = new PrintWriter(System.out);
