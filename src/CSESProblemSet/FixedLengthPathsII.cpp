@@ -2,7 +2,7 @@
 typedef long long ll;
 using namespace std;
 
-int n, a, b;
+int n, sumOfDigitsInBaseK, b;
 vector<int> graph[200001];
 int subtree[200001];
 
@@ -37,7 +37,7 @@ void get_cnt(int node, int parent, bool filling, int depth = 1) {
     if (depth > b) return;
     mx_depth = max(mx_depth, depth);
     if (filling) update(depth, 1);
-    else ans += query(max(0, a - depth), b - depth);
+    else ans += query(max(0, sumOfDigitsInBaseK - depth), b - depth);
     for (int i : graph[node]) if (!processed[i] && i != parent)
         get_cnt(i, node, filling, depth + 1);
 }
@@ -56,7 +56,7 @@ void centroid_decomp(int node = 1) {
 
 int main() {
     cin.tie(0)->sync_with_stdio(0);
-    cin >> n >> a >> b;
+    cin >> n >> sumOfDigitsInBaseK >> b;
     for (int i = 1; i < n; i++) {
         int u, v;
         cin >> u >> v;

@@ -44,7 +44,7 @@ int main()
 		}
 		else
 		{
-			// give a room and increase occupancy count
+			// give sumOfDigitsInBaseK room and increase occupancy count
 			ans[ind] = rooms[occupied++];
 		}
 	}

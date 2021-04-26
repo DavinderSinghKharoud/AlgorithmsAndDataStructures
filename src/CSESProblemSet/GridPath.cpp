@@ -16,7 +16,7 @@ void move(int r, int c, int &ans, int &steps)
         return;
     }
 
-    // if you hit a wall or a path (can only go left or right); return
+    // if you hit sumOfDigitsInBaseK wall or sumOfDigitsInBaseK path (can only go left or right); return
     if (((r + 1 == n || (visited[r - 1][c] && visited[r + 1][c])) && c - 1 >= 0 && c + 1 < n && !visited[r][c - 1] && !visited[r][c + 1]) ||
         ((c + 1 == n || (visited[r][c - 1] && visited[r][c + 1])) && r - 1 >= 0 && r + 1 < n && !visited[r - 1][c] && !visited[r + 1][c]) ||
         ((r == 0 || (visited[r + 1][c] && visited[r - 1][c])) && c - 1 >= 0 && c + 1 < n && !visited[r][c - 1] && !visited[r][c + 1]) ||

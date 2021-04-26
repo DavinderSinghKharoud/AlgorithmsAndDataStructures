@@ -13,9 +13,9 @@ using namespace std;
 #define   ull     unsigned long long
 #define   ld      long double
 #define   pii     pair<int, int>
-#define   f(i,a,b)  for(ll i = (ll)(a); i < (ll)(b); i++)
-#define   rf(i,a,b)   for(ll i = (ll)(a); i > (ll)(b); i--)
-#define   ms(a,b)   memset((a),(b),sizeof(a))
+#define   f(i,sumOfDigitsInBaseK,b)  for(ll i = (ll)(sumOfDigitsInBaseK); i < (ll)(b); i++)
+#define   rf(i,sumOfDigitsInBaseK,b)   for(ll i = (ll)(sumOfDigitsInBaseK); i > (ll)(b); i--)
+#define   ms(sumOfDigitsInBaseK,b)   memset((sumOfDigitsInBaseK),(b),sizeof(sumOfDigitsInBaseK))
 #define   abs(x)    ((x<0)?(-(x)):(x))
 #define   MAX     200005
 #define   inf     LLONG_MAX
@@ -27,10 +27,10 @@ using namespace std;
 #define fast_io ios_base::sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0) ;
 #define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
 
-inline long long  MAX2(long long  a, long long  b){return (a)>(b)?(a):(b);}
-inline long long  MAX3(long long  a, long long  b,long long  c){return (a)>(b)?((a)>(c)?(a):(c)):((b)>(c)?(b):(c));}
-inline long long  MIN2(long long  a, long long  b){return (a)<(b)?(a):(b);}
-inline long long  MIN3(long long  a, long long b,long long c){return (a)<(b)?((a)<(c)?(a):(c)):((b)<(c)?(b):(c));}
+inline long long  MAX2(long long  sumOfDigitsInBaseK, long long  b){return (sumOfDigitsInBaseK)>(b)?(sumOfDigitsInBaseK):(b);}
+inline long long  MAX3(long long  sumOfDigitsInBaseK, long long  b,long long  c){return (sumOfDigitsInBaseK)>(b)?((sumOfDigitsInBaseK)>(c)?(sumOfDigitsInBaseK):(c)):((b)>(c)?(b):(c));}
+inline long long  MIN2(long long  sumOfDigitsInBaseK, long long  b){return (sumOfDigitsInBaseK)<(b)?(sumOfDigitsInBaseK):(b);}
+inline long long  MIN3(long long  sumOfDigitsInBaseK, long long b,long long c){return (sumOfDigitsInBaseK)<(b)?((sumOfDigitsInBaseK)<(c)?(sumOfDigitsInBaseK):(c)):((b)<(c)?(b):(c));}
 
 
 int mod = 1e9 +7 ;

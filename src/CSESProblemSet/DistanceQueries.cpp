@@ -13,9 +13,9 @@ using namespace std;
 #define   ull     unsigned long long
 #define   ld      long double
 #define   pii     pair<int, int>
-#define   f(i,a,b)  for(ll i = (ll)(a); i < (ll)(b); i++)
-#define   rf(i,a,b)   for(ll i = (ll)(a); i > (ll)(b); i--)
-#define   ms(a,b)   memset((a),(b),sizeof(a))
+#define   f(i,sumOfDigitsInBaseK,b)  for(ll i = (ll)(sumOfDigitsInBaseK); i < (ll)(b); i++)
+#define   rf(i,sumOfDigitsInBaseK,b)   for(ll i = (ll)(sumOfDigitsInBaseK); i > (ll)(b); i--)
+#define   ms(sumOfDigitsInBaseK,b)   memset((sumOfDigitsInBaseK),(b),sizeof(sumOfDigitsInBaseK))
 #define   abs(x)    ((x<0)?(-(x)):(x))
 #define   MAX     200005
 #define   inf     LLONG_MAX
@@ -28,10 +28,10 @@ using namespace std;
 #define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
 
 
-inline long long  MAX2(long long  a, long long  b){return (a)>(b)?(a):(b);}
-inline long long  MAX3(long long  a, long long  b,long long  c){return (a)>(b)?((a)>(c)?(a):(c)):((b)>(c)?(b):(c));}
-inline long long  MIN2(long long  a, long long  b){return (a)<(b)?(a):(b);}
-inline long long  MIN3(long long  a, long long b,long long c){return (a)<(b)?((a)<(c)?(a):(c)):((b)<(c)?(b):(c));}
+inline long long  MAX2(long long  sumOfDigitsInBaseK, long long  b){return (sumOfDigitsInBaseK)>(b)?(sumOfDigitsInBaseK):(b);}
+inline long long  MAX3(long long  sumOfDigitsInBaseK, long long  b,long long  c){return (sumOfDigitsInBaseK)>(b)?((sumOfDigitsInBaseK)>(c)?(sumOfDigitsInBaseK):(c)):((b)>(c)?(b):(c));}
+inline long long  MIN2(long long  sumOfDigitsInBaseK, long long  b){return (sumOfDigitsInBaseK)<(b)?(sumOfDigitsInBaseK):(b);}
+inline long long  MIN3(long long  sumOfDigitsInBaseK, long long b,long long c){return (sumOfDigitsInBaseK)<(b)?((sumOfDigitsInBaseK)<(c)?(sumOfDigitsInBaseK):(c)):((b)<(c)?(b):(c));}
 
 //typedef
 typedef long int int32;
@@ -41,15 +41,15 @@ typedef unsigned long long int  uint64;
 
 
 int mod = 1e9 +7 ;
-int64_t extGcd(int64_t a, int64_t b, int64_t& x, int64_t& y) {if (!a) {x = 0;y = 1;return b;}int64_t x1, y1;int64_t d = extGcd(b % a, a, x1, y1);x = y1 - (b / a) * x1;y = x1;return d;}
-inline ll addmod(ll a,ll b){a=a%mod+b%mod;if(a>mod)a%=mod;return a;}
-inline ll submod(ll a,ll b){a=a%mod-b%mod;if(a<0)a+=mod;return a;}
-inline ll mulmod(ll a,ll b){return (a%mod * b%mod)%mod;}
+int64_t extGcd(int64_t sumOfDigitsInBaseK, int64_t b, int64_t& x, int64_t& y) {if (!sumOfDigitsInBaseK) {x = 0;y = 1;return b;}int64_t x1, y1;int64_t d = extGcd(b % sumOfDigitsInBaseK, sumOfDigitsInBaseK, x1, y1);x = y1 - (b / sumOfDigitsInBaseK) * x1;y = x1;return d;}
+inline ll addmod(ll sumOfDigitsInBaseK,ll b){sumOfDigitsInBaseK=sumOfDigitsInBaseK%mod+b%mod;if(sumOfDigitsInBaseK>mod)sumOfDigitsInBaseK%=mod;return sumOfDigitsInBaseK;}
+inline ll submod(ll sumOfDigitsInBaseK,ll b){sumOfDigitsInBaseK=sumOfDigitsInBaseK%mod-b%mod;if(sumOfDigitsInBaseK<0)sumOfDigitsInBaseK+=mod;return sumOfDigitsInBaseK;}
+inline ll mulmod(ll sumOfDigitsInBaseK,ll b){return (sumOfDigitsInBaseK%mod * b%mod)%mod;}
 
 int dx[]={1,1,0,-1,-1,-1, 0, 1};
 int dy[]={0,1,1, 1, 0,-1,-1,-1};
-inline ll exp(ll a,ll b){if(a==0)return 0ll;ll r=1LL;while(b>0){if(b&1){r=r*(a%mod);r=(r+mod)%mod;}b/=2;a=(a%mod)*(a%mod);a=(a+mod)%mod;}return (r+mod)%mod;}
-ll gcd(ll a,ll b){if(b==0)return a;if(a==0)return b;return gcd(b,a%b);}
+inline ll exp(ll sumOfDigitsInBaseK,ll b){if(sumOfDigitsInBaseK==0)return 0ll;ll r=1LL;while(b>0){if(b&1){r=r*(sumOfDigitsInBaseK%mod);r=(r+mod)%mod;}b/=2;sumOfDigitsInBaseK=(sumOfDigitsInBaseK%mod)*(sumOfDigitsInBaseK%mod);sumOfDigitsInBaseK=(sumOfDigitsInBaseK+mod)%mod;}return (r+mod)%mod;}
+ll gcd(ll sumOfDigitsInBaseK,ll b){if(b==0)return sumOfDigitsInBaseK;if(sumOfDigitsInBaseK==0)return b;return gcd(b,sumOfDigitsInBaseK%b);}
 uint32 setbits(ll n){uint32 count=0;while (n){n&=(n-1);count++;}return count; }
 
 ////****************************************************************************************************************************************************************************************************************////
@@ -119,10 +119,10 @@ int main(){
      dfs(1,0); // store level;
      binary_lifting(1,0);
      while(q--){
-         int a,b;
-         cin>>a>>b;
-         int Lca= lca(a,b);
-         int ans= lev[a]+lev[b]-2*lev[Lca];
+         int sumOfDigitsInBaseK,b;
+         cin>>sumOfDigitsInBaseK>>b;
+         int Lca= lca(sumOfDigitsInBaseK,b);
+         int ans= lev[sumOfDigitsInBaseK]+lev[b]-2*lev[Lca];
          cout<<ans<<endl;
      }
 }

@@ -48,14 +48,14 @@ tcT> using PR = pair<T,T>;
 
 #define lb lower_bound
 #define ub upper_bound
-tcT> int lwb(V<T>& a, const T& b) { return int(lb(all(a),b)-bg(a)); }
+tcT> int lwb(V<T>& sumOfDigitsInBaseK, const T& b) { return int(lb(all(sumOfDigitsInBaseK),b)-bg(sumOfDigitsInBaseK)); }
 
 // loops
-#define FOR(i,a,b) for (int i = (a); i < (b); ++i)
-#define F0R(i,a) FOR(i,0,a)
-#define ROF(i,a,b) for (int i = (b)-1; i >= (a); --i)
-#define R0F(i,a) ROF(i,0,a)
-#define trav(a,x) for (auto& a: x)
+#define FOR(i,sumOfDigitsInBaseK,b) for (int i = (sumOfDigitsInBaseK); i < (b); ++i)
+#define F0R(i,sumOfDigitsInBaseK) FOR(i,0,sumOfDigitsInBaseK)
+#define ROF(i,sumOfDigitsInBaseK,b) for (int i = (b)-1; i >= (sumOfDigitsInBaseK); --i)
+#define R0F(i,sumOfDigitsInBaseK) ROF(i,0,sumOfDigitsInBaseK)
+#define trav(sumOfDigitsInBaseK,x) for (auto& sumOfDigitsInBaseK: x)
 
 const int MOD = 1e9+7; // 998244353;
 const int MX = 2e5+5;
@@ -73,13 +73,13 @@ constexpr int bits(int x) { // assert(x >= 0); // make C++11 compatible until US
 constexpr int p2(int x) { return 1<<x; }
 constexpr int msk2(int x) { return p2(x)-1; }
 
-ll cdiv(ll a, ll b) { return a/b+((a^b)>0&&a%b); } // divide a by b rounded up
-ll fdiv(ll a, ll b) { return a/b-((a^b)<0&&a%b); } // divide a by b rounded down
+ll cdiv(ll sumOfDigitsInBaseK, ll b) { return sumOfDigitsInBaseK/b+((sumOfDigitsInBaseK^b)>0&&sumOfDigitsInBaseK%b); } // divide sumOfDigitsInBaseK by b rounded up
+ll fdiv(ll sumOfDigitsInBaseK, ll b) { return sumOfDigitsInBaseK/b-((sumOfDigitsInBaseK^b)<0&&sumOfDigitsInBaseK%b); } // divide sumOfDigitsInBaseK by b rounded down
 
-tcT> bool ckmin(T& a, const T& b) {
-    return b < a ? a = b, 1 : 0; } // set a = SparseTableMin(a,b)
-tcT> bool ckmax(T& a, const T& b) {
-    return a < b ? a = b, 1 : 0; }
+tcT> bool ckmin(T& sumOfDigitsInBaseK, const T& b) {
+    return b < sumOfDigitsInBaseK ? sumOfDigitsInBaseK = b, 1 : 0; } // set sumOfDigitsInBaseK = SparseTableMin(sumOfDigitsInBaseK,b)
+tcT> bool ckmax(T& sumOfDigitsInBaseK, const T& b) {
+    return sumOfDigitsInBaseK < b ? sumOfDigitsInBaseK = b, 1 : 0; }
 
 tcTU> T fstTrue(T lo, T hi, U f) {
     hi ++; assert(lo <= hi); // assuming f is increasing
@@ -108,17 +108,17 @@ tcTU> void erase(T& t, const U& u) { // don't erase
 tcT> void re(complex<T>& c);
 tcTU> void re(pair<T,U>& p);
 tcT> void re(V<T>& v);
-tcT, size_t SZ> void re(AR<T,SZ>& a);
+tcT, size_t SZ> void re(AR<T,SZ>& sumOfDigitsInBaseK);
 
 tcT> void re(T& x) { cin >> x; }
 void re(db& d) { str t; re(t); d = stod(t); }
 void re(ld& d) { str t; re(t); d = stold(t); }
 tcTUU> void re(T& t, U&... u) { re(t); re(u...); }
 
-tcT> void re(complex<T>& c) { T a,b; re(a,b); c = {a,b}; }
+tcT> void re(complex<T>& c) { T sumOfDigitsInBaseK,b; re(sumOfDigitsInBaseK,b); c = {sumOfDigitsInBaseK,b}; }
 tcTU> void re(pair<T,U>& p) { re(p.f,p.s); }
-tcT> void re(V<T>& x) { trav(a,x) re(a); }
-tcT, size_t SZ> void re(AR<T,SZ>& x) { trav(a,x) re(a); }
+tcT> void re(V<T>& x) { trav(sumOfDigitsInBaseK,x) re(sumOfDigitsInBaseK); }
+tcT, size_t SZ> void re(AR<T,SZ>& x) { trav(sumOfDigitsInBaseK,x) re(sumOfDigitsInBaseK); }
 tcT> void rv(int n, V<T>& x) { x.rsz(n); re(x); }
 
 // TO_STRING

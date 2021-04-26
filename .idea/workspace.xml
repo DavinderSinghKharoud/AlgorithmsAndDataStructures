@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Min Cost String">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Tennis Championship">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Max" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Max" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/programminBook/MaximumValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/MaximumValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CodeForces/EducationalRound107/MinCostString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/EducationalRound107/MinCostString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/2Sat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/2Sat.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/CountingPaths.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/CountingPaths.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/DistanceQueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/DistanceQueries.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/DistinctColors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/DistinctColors.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/FactoryMachines.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/FactoryMachines.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/FixedLengthPathsII.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/FixedLengthPathsII.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/GridPath.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/GridPath.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/ListRemovals.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/ListRemovals.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/PathQueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/PathQueries.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/PolynomialQueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/PolynomialQueries.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/RangeUpdateAndSums.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/RangeUpdateAndSums.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/RoomAllocation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/RoomAllocation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/SlidingMedian.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/SlidingMedian.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/SumOfDivisors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/SumOfDivisors.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/TeleportesPath.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/TeleportesPath.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/TrafficLights.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/TrafficLights.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/Treedistance1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/Treedistance1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/treeDistanceII.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/treeDistanceII.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/treeMatching.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/treeMatching.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/CreateTree/CTree" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/CreateTree/CTree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Max" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Max" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Min" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Min" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Sum" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,26 +71,20 @@
       <recent name="$PROJECT_DIR$/src/CodeForces" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Algorithms.LeetCode.WeeklyContest238" />
       <recent name="GoogleKickStart.RoundB2021.D" />
       <recent name="GoogleKickStart.RoundB2021.C" />
       <recent name="GoogleKickStart.RoundB2021.B" />
       <recent name="CodeForces.Round713" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Solution (3)">
-    <configuration name="MillerRabin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MillerRabin" />
-      <module name="AlgorithmsAndDataStructures" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.B.Solution" />
+  <component name="RunManager" selected="Application.MaximumBuildingHeight">
+    <configuration name="C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.C" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="GoogleKickStart.RoundB2021.B.*" />
+          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,12 +92,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.C.Solution" />
+    <configuration name="FrequencyOfMostFrequenctElement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.FrequencyOfMostFrequenctElement" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="GoogleKickStart.RoundB2021.C.*" />
+          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,12 +105,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.D.Solution" />
+    <configuration name="MaximumBuildingHeight" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.MaximumBuildingHeight" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="GoogleKickStart.RoundB2021.D.*" />
+          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,12 +118,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.RoundB2021.A.Solution" />
+    <configuration name="SubstringOfAllVowelsInOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.SubstringOfAllVowelsInOrder" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="GoogleKickStart.RoundB2021.A.*" />
+          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SumOfDigitsInBaseK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.SumOfDigitsInBaseK" />
+      <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Solution (3)" />
-        <item itemvalue="Application.Solution (2)" />
-        <item itemvalue="Application.MillerRabin" />
-        <item itemvalue="Application.Solution (1)" />
-        <item itemvalue="Application.Solution" />
+        <item itemvalue="Application.MaximumBuildingHeight" />
+        <item itemvalue="Application.FrequencyOfMostFrequenctElement" />
+        <item itemvalue="Application.SubstringOfAllVowelsInOrder" />
+        <item itemvalue="Application.C" />
+        <item itemvalue="Application.SumOfDigitsInBaseK" />
       </list>
     </recent_temporary>
   </component>
@@ -136,104 +162,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00030" summary="L Shaped Plots( Google kickstart )">
-      <created>1616359725659</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1616359725659</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Rabbit House( Google kickstart )">
-      <created>1616359736140</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1616359736140</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Templates">
-      <created>1616359746096</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1616359746096</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Check Sum (Google Kick Start)">
-      <created>1616463402991</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1616463402991</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Minimum Height Tree">
-      <created>1616639639245</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1616639639245</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Number of Restricted Paths">
-      <created>1616639651004</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1616639651004</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Redundant Connection II">
-      <created>1616639662194</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1616639662194</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Double Ended String">
-      <created>1617429428826</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429428826</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Epic Transformation">
-      <created>1617429440776</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429440776</updated>
-    </task>
-    <task id="LOCAL-00039" summary="K Similar String">
-      <created>1617429449992</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429449992</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Maximize the remaining string">
-      <created>1617429465058</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429465058</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Minimum Degree of connected trio">
-      <created>1617429475644</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429475644</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Moons And Umbrellas">
-      <created>1617429486399</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429486399</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Partial Replacement">
-      <created>1617429496882</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429496882</updated>
     </task>
     <task id="LOCAL-00044" summary="Reconstruct Itenary">
       <created>1617429507200</created>
@@ -480,7 +408,105 @@
       <option name="project" value="LOCAL" />
       <updated>1618453333580</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Add one">
+      <created>1619148044938</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148044939</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Minimum Operations To Make Array Increasing">
+      <created>1619148060895</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148060895</updated>
+    </task>
+    <task id="LOCAL-00081" summary="AND Sequence">
+      <created>1619148069633</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148069633</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Array And Peaks">
+      <created>1619148078131</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148078131</updated>
+    </task>
+    <task id="LOCAL-00083" summary="GCD And MST">
+      <created>1619148087045</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148087045</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Maximum XOR For Each Query">
+      <created>1619148102815</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148102815</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Miller Rabin Primality Test">
+      <created>1619148115523</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148115523</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Minimum Operations To Make String Sorted">
+      <created>1619148128104</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148128104</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Queries Inside Circle">
+      <created>1619148137810</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148137810</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Google Kick Start Question A">
+      <created>1619148158881</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148158881</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Google Kick Start Question B">
+      <created>1619148167296</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148167296</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Google Kick Start Question C">
+      <created>1619148173331</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148173331</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Google Kick Start Question D">
+      <created>1619148179322</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148179322</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Tennis Championship">
+      <created>1619148212782</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1619148212782</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -496,20 +522,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Friends Or Not" />
-    <MESSAGE value="Name Quest" />
-    <MESSAGE value="Three Coloring" />
-    <MESSAGE value="Facebook Priority Wall" />
-    <MESSAGE value="Permutations" />
-    <MESSAGE value="Smallest Number" />
-    <MESSAGE value="Balancer" />
-    <MESSAGE value="Making Genome In Berland" />
-    <MESSAGE value="Title" />
-    <MESSAGE value="Hockey" />
-    <MESSAGE value="Permutations By Sum" />
-    <MESSAGE value="Multicolored Marbles" />
-    <MESSAGE value="Spy Detected" />
-    <MESSAGE value="AB Palindrome" />
     <MESSAGE value="Almost Rectangle" />
     <MESSAGE value="Corrupted Array" />
     <MESSAGE value="Cola" />
@@ -521,7 +533,21 @@
     <MESSAGE value="Yet Another Card Deck" />
     <MESSAGE value="Review Site" />
     <MESSAGE value="Min Cost String" />
-    <option name="LAST_COMMIT_MESSAGE" value="Min Cost String" />
+    <MESSAGE value="Add one" />
+    <MESSAGE value="Minimum Operations To Make Array Increasing" />
+    <MESSAGE value="AND Sequence" />
+    <MESSAGE value="Array And Peaks" />
+    <MESSAGE value="GCD And MST" />
+    <MESSAGE value="Maximum XOR For Each Query" />
+    <MESSAGE value="Miller Rabin Primality Test" />
+    <MESSAGE value="Minimum Operations To Make String Sorted" />
+    <MESSAGE value="Queries Inside Circle" />
+    <MESSAGE value="Google Kick Start Question A" />
+    <MESSAGE value="Google Kick Start Question B" />
+    <MESSAGE value="Google Kick Start Question C" />
+    <MESSAGE value="Google Kick Start Question D" />
+    <MESSAGE value="Tennis Championship" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tennis Championship" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1311,6 +1337,71 @@
           <line>206</line>
           <option name="timeStamp" value="417" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/CostEquilibirium.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="419" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/CostEquilibirium.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="429" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round714/CostEquilibirium.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="430" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/SumOfDigitsInBaseK.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="432" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/SumOfDigitsInBaseK.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="433" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/SubstringOfAllVowelsInOrder.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="436" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/SubstringOfAllVowelsInOrder.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="437" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/SubstringOfAllVowelsInOrder.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="438" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/FrequencyOfMostFrequenctElement.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="440" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/FrequencyOfMostFrequenctElement.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="441" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/FrequencyOfMostFrequenctElement.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="442" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/FrequencyOfMostFrequenctElement.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="443" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/MaximumBuildingHeight.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="448" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />
           <option name="timeStamp" value="240" />
@@ -1327,6 +1418,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AlgorithmsAndDataStructures$FancySequence.ic" NAME="FancySequence Coverage Results" MODIFIED="1616118442630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Algorithms.LeetCode.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AlgorithmsAndDataStructures$MaximumBuildingHeight.ic" NAME="MaximumBuildingHeight Coverage Results" MODIFIED="1619402119652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Algorithms.LeetCode.WeeklyContest238.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AlgorithmsAndDataStructures$C.ic" NAME="C Coverage Results" MODIFIED="1618673393704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Algorithms.LeetCode.BiweeklyContest50.*</FILTER>
