@@ -14,7 +14,7 @@ void putl(T&&... args) { ((cout << args << " "), ...); cout<<'\n';}
 #define error(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
 void err(istream_iterator<string> it) {}
 template<typename T, typename... Args>
-void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << "=" << a << ", "; err(++it, args...);}
+void err(istream_iterator<string> it, T sumOfDigitsInBaseK, Args... args) {cerr << *it << "=" << sumOfDigitsInBaseK << ", "; err(++it, args...);}
 #define int long long
 #define pb push_back
 #define F first
@@ -30,12 +30,12 @@ void err(istream_iterator<string> it, T a, Args... args) {cerr << *it << "=" << 
 #define L cout<<'\n';
 #define E cerr<<'\n';
 #define all(x) x.begin(),x.end()
-#define rep(i,a,b) for (int i=a; i<b; ++i)
-#define rev(i,a,b) for (int i=a; i>b; --i)
+#define rep(i,sumOfDigitsInBaseK,b) for (int i=sumOfDigitsInBaseK; i<b; ++i)
+#define rev(i,sumOfDigitsInBaseK,b) for (int i=sumOfDigitsInBaseK; i>b; --i)
 #define IOS ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #define setpr(x) cout<<setprecision(x)<<fixed
 #define sz size()
-#define seea(a,x,y) for(int i=x;i<y;i++){cin>>a[i];}
+#define seea(sumOfDigitsInBaseK,x,y) for(int i=x;i<y;i++){cin>>sumOfDigitsInBaseK[i];}
 #define seev(v,n) for(int i=0;i<n;i++){int x; cin>>x; v.push_back(x);}
 #define sees(s,n) for(int i=0;i<n;i++){int x; cin>>x; s.insert(x);}
 const ll inf = 1LL<<62;
@@ -60,14 +60,14 @@ void solve(){
         adj[x].pb(y);
         in[y]++, out[x]++;
     }
-    int a=0,b=0,c=0,s1=0,s2=0;
+    int sumOfDigitsInBaseK=0,b=0,c=0,s1=0,s2=0;
     rep(i,1,n+1){
         if (in[i]==out[i]) c++;
         if (in[i]-out[i]==1) {b++;; s2=i;}
-        if (in[i]-out[i]==-1) {a++; s1=i;}
+        if (in[i]-out[i]==-1) {sumOfDigitsInBaseK++; s1=i;}
     }
     if (s1!=1 || s2!=n){put("IMPOSSIBLE"); return;}
-    if (!(c==n-2 && a==1 && b==1)){put("IMPOSSIBLE"); return;}
+    if (!(c==n-2 && sumOfDigitsInBaseK==1 && b==1)){put("IMPOSSIBLE"); return;}
     dfs(1);
     if (p.sz!=m+1) {put("IMPOSSIBLE"); return;}
     reverse(all(p));

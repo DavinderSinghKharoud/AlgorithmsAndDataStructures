@@ -13,7 +13,7 @@
 #define forn(i, n) for (int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)
 #define ford(i, n) for (int i = (int)(n) - 1; i >= 0; --i)
-#define fore(i, a, b) for (int i = (int)(a); i <= (int)(b); ++i)
+#define fore(i, sumOfDigitsInBaseK, b) for (int i = (int)(sumOfDigitsInBaseK); i <= (int)(b); ++i)
 using namespace std;
 typedef long long ll;
 typedef vector<ll> vi;
@@ -24,7 +24,7 @@ typedef string st;
 const double PI=3.14159265358979323846264338327950288419716939937510582097494459230;
 const ll MOD = 1e9 + 7 ;
 const ll INF=1e14;
-ll mpow(ll a,ll b,ll p=MOD){a=a%p;ll res=1;while(b>0){if(b&1)res=(res*a)%p;a=(a*a)%p;b=b>>1;}return res%p;}
+ll mpow(ll sumOfDigitsInBaseK,ll b,ll p=MOD){sumOfDigitsInBaseK=sumOfDigitsInBaseK%p;ll res=1;while(b>0){if(b&1)res=(res*sumOfDigitsInBaseK)%p;sumOfDigitsInBaseK=(sumOfDigitsInBaseK*sumOfDigitsInBaseK)%p;b=b>>1;}return res%p;}
 const ll N=1000005;
 
 int main(){
@@ -35,22 +35,22 @@ int main(){
   #endif*/
   ll n,x;
   cin>>x>>n;
-  multiset<ll> a,b;
-  a.insert(0);
-  a.insert(x);
+  multiset<ll> sumOfDigitsInBaseK,b;
+  sumOfDigitsInBaseK.insert(0);
+  sumOfDigitsInBaseK.insert(x);
   b.insert(x);
   forn(i,n)
   {
     ll k;
     cin>>k;
-    auto it=a.upper_bound(k);
+    auto it=sumOfDigitsInBaseK.upper_bound(k);
     auto it1=it;
     it1--;
     ll diff=*it-*it1;
     //cout<<*it<<" "<<*it1<<"\n";
     //return 0;
     b.erase(b.find(diff));
-    a.insert(k);
+    sumOfDigitsInBaseK.insert(k);
     b.insert(*it-k);
     b.insert(k-*it1);
     cout<<(*b.rbegin())<<" ";

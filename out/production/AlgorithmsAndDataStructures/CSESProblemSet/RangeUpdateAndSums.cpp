@@ -4,7 +4,7 @@
 #include<bits/stdc++.h>
 #define ll long long
 #define pb push_back
-#define fr(a,b) for(ll i = a; i < b; i++)
+#define fr(sumOfDigitsInBaseK,b) for(ll i = sumOfDigitsInBaseK; i < b; i++)
 #define mod 1000000007
 #define inf (1LL<<60)
 #define all(x) (x).begin(), (x).end()
@@ -162,19 +162,19 @@ int main() {
         int t;
         cin >> t;
         if(t == 1){
-            int a,b,x;
-            cin >> a >> b >> x;
-            sg.incUpdate(a-1,b-1,x);
+            int sumOfDigitsInBaseK,b,x;
+            cin >> sumOfDigitsInBaseK >> b >> x;
+            sg.incUpdate(sumOfDigitsInBaseK-1,b-1,x);
         }
         else if(t == 2){
-            int a,b,x;
-            cin >> a >> b >> x;
-            sg.setUpdate(a-1,b-1,x);
+            int sumOfDigitsInBaseK,b,x;
+            cin >> sumOfDigitsInBaseK >> b >> x;
+            sg.setUpdate(sumOfDigitsInBaseK-1,b-1,x);
         }
         else {
-            int a,b;
-            cin >> a >> b;
-            cout << sg.range_query(a-1,b-1) <<'\n';
+            int sumOfDigitsInBaseK,b;
+            cin >> sumOfDigitsInBaseK >> b;
+            cout << sg.range_query(sumOfDigitsInBaseK-1,b-1) <<'\n';
         }
    }
    return 0;

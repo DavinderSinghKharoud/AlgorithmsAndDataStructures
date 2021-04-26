@@ -22,13 +22,13 @@ int main()
 	set<pair<int,int>> big;
     set<pair<int,int>, greater<pair<int,int>>> small;
 
-    auto insert = [&](pair<int,int> a) {
+    auto insert = [&](pair<int,int> sumOfDigitsInBaseK) {
         if (small.size() > big.size()) {
-            small.insert(a);
+            small.insert(sumOfDigitsInBaseK);
             big.insert(*small.begin());
             small.erase(small.begin());
         } else {
-            big.insert(a);
+            big.insert(sumOfDigitsInBaseK);
             small.insert(*big.begin());
             big.erase(big.begin());
         }

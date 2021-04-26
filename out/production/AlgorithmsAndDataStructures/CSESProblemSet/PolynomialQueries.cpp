@@ -11,8 +11,8 @@ struct fenwick {
         this -> n = n;
         for(auto& i: bit) i.assign(n + 1, 0);
     }
-    fenwick(vector<int>& a): fenwick(a.size()) {
-        for(int i = 1; i <= n; ++i) updatex(i, a[i - 1], 5);
+    fenwick(vector<int>& sumOfDigitsInBaseK): fenwick(sumOfDigitsInBaseK.size()) {
+        for(int i = 1; i <= n; ++i) updatex(i, sumOfDigitsInBaseK[i - 1], 5);
     }
     int queryx(int i, int key) {
         int result = 0;
@@ -20,9 +20,9 @@ struct fenwick {
         return result;
     }
     int query(int i) {
-        int a = queryx(i, 0), b = queryx(i, 1), c = queryx(i, 2);
+        int sumOfDigitsInBaseK = queryx(i, 0), b = queryx(i, 1), c = queryx(i, 2);
         int d = queryx(i, 3), e = queryx(i, 4), f = queryx(i, 5);
-        return a * i + b + ((c * i * i + d * i + e) / 2) + f;
+        return sumOfDigitsInBaseK * i + b + ((c * i * i + d * i + e) / 2) + f;
     }
     int query(int lo, int hi) {
         return query(hi) - query(lo - 1);
@@ -47,17 +47,17 @@ struct fenwick {
 
 signed main() {
     int n, q; cin >> n >> q;
-    vector<int> a(n);
-    for(int& i: a) cin >> i;
-    fenwick tree(a);
+    vector<int> sumOfDigitsInBaseK(n);
+    for(int& i: sumOfDigitsInBaseK) cin >> i;
+    fenwick tree(sumOfDigitsInBaseK);
     while(q--) {
         int t; cin >> t;
         if(t == 1) {
-            int a, b; cin >> a >> b;
-            tree.update(a, b, 1);
+            int sumOfDigitsInBaseK, b; cin >> sumOfDigitsInBaseK >> b;
+            tree.update(sumOfDigitsInBaseK, b, 1);
         } else {
-            int a, b; cin >> a >> b;
-            cout << tree.query(a, b) << "\n";
+            int sumOfDigitsInBaseK, b; cin >> sumOfDigitsInBaseK >> b;
+            cout << tree.query(sumOfDigitsInBaseK, b) << "\n";
         }
     }
     return 0;

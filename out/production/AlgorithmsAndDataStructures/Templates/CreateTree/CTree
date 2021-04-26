@@ -9,8 +9,8 @@ static class CreateTree {
             this.len = len;
         }
 
-        void addEdge(int a, int b, int index) {
-            from[index] = a;
+        void addEdge(int sumOfDigitsInBaseK, int b, int index) {
+            from[index] = sumOfDigitsInBaseK;
             to[index] = b;
             count[from[index]]++;
             count[to[index]]++;

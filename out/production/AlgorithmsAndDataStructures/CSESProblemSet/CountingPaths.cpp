@@ -5,7 +5,7 @@ typedef vector<int> vi;
 #define pb push_back
 #define For(i,n) for(int i=0;i<n;i++)
 vi adj[mxN] ;
-int anc[mxN][18],d[mxN],n,m,a[mxN],c[mxN];
+int anc[mxN][18],d[mxN],n,m,sumOfDigitsInBaseK[mxN],c[mxN];
 void dfs2(int v,int p){
   anc[v][0]=p ;d[v]=d[p]+1 ;
   for(int i=1;i<18;i++)
@@ -30,14 +30,14 @@ int lca(int u,int v){
   return anc[u][0] ;
 }
 int dfs3(int v,int p){
-  c[v]=a[v] ;
+  c[v]=sumOfDigitsInBaseK[v] ;
   for(int x:adj[v])
     if(x^p)
       c[v]+=dfs3(x,v);
   return c[v] ;
 }
 signed main() {
-  memset(a,0,sizeof(a)) ;
+  memset(sumOfDigitsInBaseK,0,sizeof(sumOfDigitsInBaseK)) ;
   cin >> n >> m ;
   For(i,n-1){
     int u,v ;
@@ -50,7 +50,7 @@ signed main() {
     int u,v,l;cin >> u >> v ;
     l = lca(u,v) ;
     k[l]++ ;
-    ++a[u];++a[v];a[l]-=2 ;
+    ++sumOfDigitsInBaseK[u];++sumOfDigitsInBaseK[v];sumOfDigitsInBaseK[l]-=2 ;
   }
   dfs3(1,0) ;
   for(int i=1;i<=n;i++)
