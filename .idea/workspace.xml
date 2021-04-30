@@ -1,31 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Tennis Championship">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Sum Of Digits in Base K">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/2Sat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/2Sat.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/CountingPaths.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/CountingPaths.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/DistanceQueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/DistanceQueries.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/DistinctColors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/DistinctColors.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/FactoryMachines.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/FactoryMachines.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/FixedLengthPathsII.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/FixedLengthPathsII.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/GridPath.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/GridPath.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/ListRemovals.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/ListRemovals.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/PathQueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/PathQueries.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/PolynomialQueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/PolynomialQueries.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/RangeUpdateAndSums.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/RangeUpdateAndSums.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/RoomAllocation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/RoomAllocation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/SlidingMedian.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/SlidingMedian.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/SumOfDivisors.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/SumOfDivisors.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/TeleportesPath.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/TeleportesPath.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/TrafficLights.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/TrafficLights.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/Treedistance1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/Treedistance1.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/treeDistanceII.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/treeDistanceII.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSESProblemSet/treeMatching.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSESProblemSet/treeMatching.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/CreateTree/CTree" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/CreateTree/CTree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Max" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Max" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Min" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Min" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/SegmentTrees/Sum" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/SegmentTrees/Sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/MaximumBuildingHeight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/MaximumBuildingHeight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,20 +50,20 @@
       <recent name="$PROJECT_DIR$/src/CodeForces" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="CodeForces.Round716" />
       <recent name="Algorithms.LeetCode.WeeklyContest238" />
       <recent name="GoogleKickStart.RoundB2021.D" />
       <recent name="GoogleKickStart.RoundB2021.C" />
       <recent name="GoogleKickStart.RoundB2021.B" />
-      <recent name="CodeForces.Round713" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MaximumBuildingHeight">
-    <configuration name="C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.C" />
+  <component name="RunManager" selected="Application.CutAnsStick">
+    <configuration name="CutAnsStick" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.CutAnsStick" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
+          <option name="PATTERN" value="CodeForces.Round716.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,12 +71,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FrequencyOfMostFrequenctElement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.FrequencyOfMostFrequenctElement" />
+    <configuration name="PerfectlyImperfectArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.PerfectlyImperfectArray" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
+          <option name="PATTERN" value="CodeForces.Round716.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,12 +84,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaximumBuildingHeight" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.MaximumBuildingHeight" />
+    <configuration name="ProductModuloN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.ProductModuloN" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
+          <option name="PATTERN" value="CodeForces.Round716.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,25 +97,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubstringOfAllVowelsInOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.SubstringOfAllVowelsInOrder" />
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="AlgorithmsAndDataStructures" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SumOfDigitsInBaseK" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.WeeklyContest238.SumOfDigitsInBaseK" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.Test" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Algorithms.LeetCode.WeeklyContest238.*" />
+          <option name="PATTERN" value="CodeForces.Round716.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MaximumBuildingHeight" />
-        <item itemvalue="Application.FrequencyOfMostFrequenctElement" />
-        <item itemvalue="Application.SubstringOfAllVowelsInOrder" />
-        <item itemvalue="Application.C" />
-        <item itemvalue="Application.SumOfDigitsInBaseK" />
+        <item itemvalue="Application.CutAnsStick" />
+        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ProductModuloN" />
+        <item itemvalue="Application.PerfectlyImperfectArray" />
       </list>
     </recent_temporary>
   </component>
@@ -162,34 +135,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Reconstruct Itenary">
-      <created>1617429507200</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429507200</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Restore Permutations">
-      <created>1617429517636</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429517636</updated>
-    </task>
-    <task id="LOCAL-00046" summary="ReverseSort Engineering">
-      <created>1617429528054</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429528054</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Reverse Sort">
-      <created>1617429535574</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429535574</updated>
     </task>
     <task id="LOCAL-00048" summary="Strange Table">
       <created>1617429543101</created>
@@ -506,7 +451,35 @@
       <option name="project" value="LOCAL" />
       <updated>1619148212782</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Frequency Of Most Frequent Element">
+      <created>1619414438000</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1619414438000</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Maximum Building Height">
+      <created>1619414471877</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1619414471878</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Substring Of All Vowels In Order">
+      <created>1619414493191</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1619414493191</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Sum Of Digits in Base K">
+      <created>1619414504936</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1619414504936</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,10 +495,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Almost Rectangle" />
-    <MESSAGE value="Corrupted Array" />
-    <MESSAGE value="Cola" />
-    <MESSAGE value="Education" />
     <MESSAGE value="Door Frames" />
     <MESSAGE value="Physical Education" />
     <MESSAGE value="Short Task" />
@@ -547,7 +516,11 @@
     <MESSAGE value="Google Kick Start Question C" />
     <MESSAGE value="Google Kick Start Question D" />
     <MESSAGE value="Tennis Championship" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tennis Championship" />
+    <MESSAGE value="Frequency Of Most Frequent Element" />
+    <MESSAGE value="Maximum Building Height" />
+    <MESSAGE value="Substring Of All Vowels In Order" />
+    <MESSAGE value="Sum Of Digits in Base K" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sum Of Digits in Base K" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1118,21 +1091,6 @@
           <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="293" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="295" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="296" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CodeForces/Round713/CorruptedArray.java</url>
           <line>52</line>
           <option name="timeStamp" value="301" />
@@ -1401,6 +1359,56 @@
           <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/MaximumBuildingHeight.java</url>
           <line>25</line>
           <option name="timeStamp" value="448" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/PerfectlyImperfectArray.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="449" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/PerfectlyImperfectArray.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="450" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/ProductModuloN.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="452" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="458" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="461" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Test.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="462" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Test.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="463" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="464" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="465" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="466" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />
