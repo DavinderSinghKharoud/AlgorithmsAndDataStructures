@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Sum Of Digits in Base K">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Cut And Stick ( Randomized Algo and MO's Algo)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/MaximumBuildingHeight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/LeetCode/WeeklyContest238/MaximumBuildingHeight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PerfectlyImperfectArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.PerfectlyImperfectArray" />
+    <configuration name="ProductModuloN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.ProductModuloN" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
@@ -84,12 +84,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductModuloN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.ProductModuloN" />
+    <configuration name="RowGCD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.RowGCD" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.Round716.*" />
+          <option name="PATTERN" value="CodeForces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,9 +121,9 @@
       <list>
         <item itemvalue="Application.CutAnsStick" />
         <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.RowGCD" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.ProductModuloN" />
-        <item itemvalue="Application.PerfectlyImperfectArray" />
       </list>
     </recent_temporary>
   </component>
@@ -135,34 +135,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Strange Table">
-      <created>1617429543101</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429543101</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Triangular Paths">
-      <created>1617429551894</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1617429551894</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Balance the Bits">
-      <created>1617677858156</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1617677858157</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Deja Vu">
-      <created>1617677865372</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1617677865372</updated>
     </task>
     <task id="LOCAL-00052" summary="Flip the Bits">
       <created>1617677873795</created>
@@ -479,7 +451,35 @@
       <option name="project" value="LOCAL" />
       <updated>1619414504936</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="AndZeroBigSum">
+      <created>1619757506653</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1619757506653</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Perfect Imperfect Array">
+      <created>1619757519525</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1619757519525</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Product Modulo N">
+      <created>1619757530059</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1619757530059</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Cut And Stick ( Randomized Algo and MO's Algo)">
+      <created>1619757554678</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1619757554678</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -495,10 +495,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Door Frames" />
-    <MESSAGE value="Physical Education" />
-    <MESSAGE value="Short Task" />
-    <MESSAGE value="GCD Length" />
     <MESSAGE value="Yet Another Card Deck" />
     <MESSAGE value="Review Site" />
     <MESSAGE value="Min Cost String" />
@@ -520,7 +516,11 @@
     <MESSAGE value="Maximum Building Height" />
     <MESSAGE value="Substring Of All Vowels In Order" />
     <MESSAGE value="Sum Of Digits in Base K" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sum Of Digits in Base K" />
+    <MESSAGE value="AndZeroBigSum" />
+    <MESSAGE value="Perfect Imperfect Array" />
+    <MESSAGE value="Product Modulo N" />
+    <MESSAGE value="Cut And Stick ( Randomized Algo and MO's Algo)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cut And Stick ( Randomized Algo and MO's Algo)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1387,12 +1387,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>41</line>
+          <line>42</line>
           <option name="timeStamp" value="462" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>55</line>
+          <line>56</line>
           <option name="timeStamp" value="463" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1409,6 +1409,21 @@
           <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
           <line>136</line>
           <option name="timeStamp" value="466" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>220</line>
+          <option name="timeStamp" value="472" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>251</line>
+          <option name="timeStamp" value="480" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Test.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="489" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />
