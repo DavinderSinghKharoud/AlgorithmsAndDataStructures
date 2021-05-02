@@ -1,5 +1,5 @@
 
-public class SegmentTree {
+ class SegmentTree {
 
     int[] arr;
     int[] nodes;
@@ -37,17 +37,19 @@ public class SegmentTree {
         return query(0, n - 1, 0, sumOfDigitsInBaseK, b);
     }
 
-    private long query(int l, int h, int pos, int sumOfDigitsInBaseK, int b) {
-        if (l > b || h < sumOfDigitsInBaseK) return 0;
+    private long query(int start, int end, int pos, int left, int right) {
+        if (start > right || end < left)
+            return 0;
 
-        if (l >= sumOfDigitsInBaseK && h <= b) {
+         if (start >= left && end <= right) {
             return arr[pos];
-        } else {
-            int mid = l + (h - l) / 2;
+         } else {
+            int mid = start + (end - start) / 2;
             int p = pos << 1;
-            return query(l, mid, p + 1, sumOfDigitsInBaseK, b) + query(mid + 1, h, p + 2, sumOfDigitsInBaseK, b);
-        }
-    }
+            return query(start, mid, p + 1, left, right) + query(mid + 1, end, p + 2, left, right);
+         }
+      }
+
 
     void construct(int l, int h, int pos) {
         if (l == h) {

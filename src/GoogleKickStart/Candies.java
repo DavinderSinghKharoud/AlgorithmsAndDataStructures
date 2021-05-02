@@ -63,6 +63,127 @@ public class Candies implements Runnable {
    }
 
    /************************************************************************************************************************************************/
+
+   void solveSegTree() throws IOException {
+      int t = ri();
+      for (int tt = 1; tt <= t; tt++) {
+         int n = ri(), q = ri();
+         long[] prefix = lArr(n), ms = lArr(n);
+         int[] arr = iArr(n);
+         for (int i = 0; i < n; i++) {
+            arr[i] = ri();
+            int negation = ((i & 1) == 1) ? -1 : 1;
+            ms[i] = (long) (i + 1) * arr[i] * negation;
+
+            // Fill the prefix sum
+            prefix[i] = negation * arr[i];
+         }
+
+         SegmentTree segMs = new SegmentTree(ms), segPrefix = new SegmentTree(prefix);
+         long score = 0;
+         while (q-- > 0) {
+            char c = rc();
+            if (c == 'Q') {
+               int l = ri() - 1, r = ri() - 1;
+               int negation = ((l & 1) == 1) ? -1 : 1;
+               long ans = segMs.query(l, r);
+
+               long pref = l * segPrefix.query(l, r);
+               score += negation * (ans - pref);
+            } else {
+               // For update
+               int index = ri() - 1, val = ri();
+               int negation = ((index & 1) == 1) ? -1 : 1;
+               segMs.update(index, negation * (index + 1) * val);
+               segPrefix.update(index, negation * val);
+            }
+         }
+
+         println(String.format("Case #%s: %s", tt, score));
+      }
+   }
+
+   class SegmentTree {
+
+      long[] arr;
+      long[] nodes;
+      int n;
+
+      public SegmentTree(long[] nodes) {
+         arr = new long[(getSize(nodes.length) * 2 + 1)];
+         n = nodes.length;
+         this.nodes = nodes;
+         construct(0, n - 1, 0);
+      }
+
+      void update(int node, int value) {
+         update(0, n - 1, 0, node, value);
+      }
+
+      private void update(int l, int h, int pos, int node, int value) {
+         if (l == h) {
+            arr[pos] = value;
+         } else {
+            int mid = l + (h - l) / 2;
+            int p = pos << 1;
+            if (node <= mid) {
+               update(l, mid, p + 1, node, value);
+            } else {
+               update(mid + 1, h, p + 2, node, value);
+            }
+
+            arr[pos] = arr[p + 1] + arr[p + 2];
+         }
+
+      }
+
+      long query(int left, int right) {
+         return query(0, n - 1, 0, left, right);
+      }
+
+      private long query(int start, int end, int pos, int left, int right) {
+         if (start > right || end < left)
+            return 0;
+
+         if (start >= left && end <= right) {
+            return arr[pos];
+         } else {
+            int mid = start + (end - start) / 2;
+            int p = pos << 1;
+            return query(start, mid, p + 1, left, right) + query(mid + 1, end, p + 2, left, right);
+         }
+      }
+
+      void construct(int l, int h, int pos) {
+         if (l == h) {
+            arr[pos] = nodes[l];
+         } else {
+            int mid = l + (h - l) / 2;
+            int p = pos << 1;
+            construct(l, mid, p + 1);
+            construct(mid + 1, h, p + 2);
+
+            arr[pos] = arr[p + 1] + arr[p + 2];
+         }
+      }
+
+      int getSize(int len) {
+         if (len < 2)
+            return 1;
+
+         if ((len & (len - 1)) == 0)
+            return len;
+
+         while ((len & (len - 1)) != 0) {
+            len = len & (len - 1);
+         }
+
+         return len << 1;
+      }
+
+   }
+
+   /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
       new Thread(null, new Candies(), "1").start();
    }
@@ -79,7 +200,8 @@ public class Candies implements Runnable {
    @Override
    public void run() {
       try {
-         solve();
+         // solve();
+         solveSegTree();
          out.close();
       } catch (IOException e) {
          e.printStackTrace();
