@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Cut And Stick ( Randomized Algo and MO's Algo)">
+    <list default="true" id="a10ebac3-90dd-4623-9dec-fe4b5887a564" name="Default Changelist" comment="Cut And Stick ( Segment Tree)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/2Sat.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/CoinComibinations1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/ConcertTickets.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/CountingPaths.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/CountingRooms.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/DistanceQueries.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/DistinctColors.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/FactoryMachines.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/FerrisWheelC.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/FixedLengthPathsI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/FixedLengthPathsII.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/GridPath.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/ListRemovals.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/MailDelivery.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/MovieFestival_II.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/PathQueries.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/PlanetCycles.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/PlanetQueriesII.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/PolynomialQueries.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/RangeUpdateAndSums.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/RemovalGame.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/RoomAllocation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/SlidingMedian.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/SumOfDivisors.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/TeleportesPath.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/TrafficLights.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/Treedistance1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/treeDistanceII.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/CSESProblemSet/treeMatching.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/ProjectEuler/euler12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/CreateTree/CTree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Iterative/Max" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Iterative/Min" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Iterative/Sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Max" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Min" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SegmentTrees/Sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/SparseTable/SparseTable" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDataStructures/Templates/TreeMultiset/TMultiset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodeForces/AdvertisingAgency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/AdvertisingAgency.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/IOFastest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/IOFastest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,29 +82,35 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/CodeForces/GlobalRound14" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/CodeForces/GlobalRound14" />
+      <recent name="$PROJECT_DIR$/src/Templates/Codeforces" />
+      <recent name="$PROJECT_DIR$/src/Algorithms/LeetCode/Biweekly51" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/GoogleKickStart/RoundB2021/A" />
       <recent name="$PROJECT_DIR$/src/CodeForces" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Templates.Codeforces" />
+      <recent name="Templates.LeetCode" />
       <recent name="CodeForces.Round716" />
       <recent name="Algorithms.LeetCode.WeeklyContest238" />
       <recent name="GoogleKickStart.RoundB2021.D" />
-      <recent name="GoogleKickStart.RoundB2021.C" />
-      <recent name="GoogleKickStart.RoundB2021.B" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CutAnsStick">
-    <configuration name="CutAnsStick" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.CutAnsStick" />
+  <component name="RunManager" selected="Application.A (1)">
+    <configuration name="A (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeForces.GlobalRound14.A" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.Round716.*" />
+          <option name="PATTERN" value="CodeForces.GlobalRound14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,12 +118,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductModuloN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.ProductModuloN" />
+    <configuration name="Candies" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GoogleKickStart.Candies" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.Round716.*" />
+          <option name="PATTERN" value="GoogleKickStart.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,12 +131,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RowGCD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.RowGCD" />
+    <configuration name="ClosestRoom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.Biweekly51.ClosestRoom" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.*" />
+          <option name="PATTERN" value="Algorithms.LeetCode.Biweekly51.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,19 +144,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
+    <configuration name="MaximumElementAfterDecreasingandRearranging" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.Biweekly51.MaximumElementAfterDecreasingandRearranging" />
       <module name="AlgorithmsAndDataStructures" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algorithms.LeetCode.Biweekly51.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CodeForces.Round716.Test" />
+    <configuration name="ReplaceAllDigitwithCharacters" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.LeetCode.Biweekly51.ReplaceAllDigitwithCharacters" />
       <module name="AlgorithmsAndDataStructures" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CodeForces.Round716.*" />
+          <option name="PATTERN" value="Algorithms.LeetCode.Biweekly51.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CutAnsStick" />
-        <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.RowGCD" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.ProductModuloN" />
+        <item itemvalue="Application.A (1)" />
+        <item itemvalue="Application.Candies" />
+        <item itemvalue="Application.ClosestRoom" />
+        <item itemvalue="Application.MaximumElementAfterDecreasingandRearranging" />
+        <item itemvalue="Application.ReplaceAllDigitwithCharacters" />
       </list>
     </recent_temporary>
   </component>
@@ -135,13 +188,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615170974953</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Flip the Bits">
-      <created>1617677873795</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1617677873795</updated>
     </task>
     <task id="LOCAL-00053" summary="Friends Or Not">
       <created>1617677883488</created>
@@ -479,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619757554678</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Cut And Stick ( Segment Tree)">
+      <created>1619849379788</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1619849379788</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -495,7 +548,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Yet Another Card Deck" />
     <MESSAGE value="Review Site" />
     <MESSAGE value="Min Cost String" />
     <MESSAGE value="Add one" />
@@ -520,7 +572,8 @@
     <MESSAGE value="Perfect Imperfect Array" />
     <MESSAGE value="Product Modulo N" />
     <MESSAGE value="Cut And Stick ( Randomized Algo and MO's Algo)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cut And Stick ( Randomized Algo and MO's Algo)" />
+    <MESSAGE value="Cut And Stick ( Segment Tree)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cut And Stick ( Segment Tree)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1387,13 +1440,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>42</line>
+          <line>39</line>
           <option name="timeStamp" value="462" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="463" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
@@ -1417,13 +1465,73 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
-          <line>251</line>
+          <line>276</line>
           <option name="timeStamp" value="480" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Test.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="489" />
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>246</line>
+          <option name="timeStamp" value="500" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>254</line>
+          <option name="timeStamp" value="501" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>234</line>
+          <option name="timeStamp" value="502" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/Round716/CutAnsStick.java</url>
+          <line>242</line>
+          <option name="timeStamp" value="503" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/Biweekly51/ReplaceAllDigitwithCharacters.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="504" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Algorithms/LeetCode/Biweekly51/ClosestRoom.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="508" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/Candies.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="509" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/Candies.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="510" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/Candies.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="511" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GoogleKickStart/Candies.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="512" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/GlobalRound14/A.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="513" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/GlobalRound14/A.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="514" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CodeForces/GlobalRound14/A.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="515" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.InputMismatchException" package="java.util" />

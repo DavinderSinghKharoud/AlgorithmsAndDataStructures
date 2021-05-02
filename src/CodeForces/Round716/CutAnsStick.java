@@ -225,9 +225,34 @@ public class CutAnsStick implements Runnable {
 
     int count(int l, int r, int val) {
         if(counts[val] == null) return -1;
-        int up =  upperBound(counts[val], r);
-        int low = lowerBound(counts[val], l);
-        return up - low;
+        int up =  upperBoundSeg(counts[val], r);
+        int low = lowerBoundSeg(counts[val], l);
+        return up - low + 1;
+    }
+
+
+    int lowerBoundSeg(int[] arr, int val) {
+        int l = 0, r = arr.length - 1;
+        while (l < r) {
+            int mid = (r + l) >> 1;
+            if (arr[mid] >= val) {
+                r = mid;
+            } else
+                l = mid + 1;
+        }
+        return l;
+    }
+
+    int upperBoundSeg(int[] arr, int val) {
+        int l = 0, r = arr.length - 1;
+        while (l < r) {
+            int mid = (r + l + 1) >> 1;
+            if (arr[mid] <= val) {
+                l = mid;
+            } else
+                r = mid - 1;
+        }
+        return l;
     }
 
     class Seg {
@@ -277,29 +302,6 @@ public class CutAnsStick implements Runnable {
         }
     }
 
-    int lowerBoundSeg(int[] arr, int val) {
-        int l = 0, r = arr.length - 1;
-        while (l < r) {
-            int mid = (r + l) >> 1;
-            if (arr[mid] >= val) {
-                r = mid;
-            } else
-                l = mid + 1;
-        }
-        return l;
-    }
-
-    int upperBoundSeg(int[] arr, int val) {
-        int l = 0, r = arr.length - 1;
-        while (l < r) {
-            int mid = (r + l + 1) >> 1;
-            if (arr[mid] <= val) {
-                l = mid;
-            } else
-                r = mid - 1;
-        }
-        return l;
-    }
 
     /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {

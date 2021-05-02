@@ -22,7 +22,7 @@ public class IOFastest implements Runnable {
     static long lmax = Long.MAX_VALUE;
     static int dmin = Integer.MIN_VALUE;
     static long lmin = Long.MIN_VALUE;
-    static int[] gcds = new int[] { 1, 11, 101, 1087, 99991, 100001, 1000003, 15485863, 999999937 };
+    static int[] dprimes = new int[]{1, 11, 101, 1087, 99991, 100001, 1000003, 15485863, 999999937};
 
     @Override
     public void run() {
@@ -150,6 +150,32 @@ public class IOFastest implements Runnable {
             aa[j][0] = first;
             aa[j][1] = second;
         }
+    }
+
+    //Gives strict lowerBound that previous number would be smaller than the target
+    int lowerBound(int[] arr, int val) {
+        int l = 0, r = arr.length - 1;
+        while (l < r) {
+            int mid = (r + l) >> 1;
+            if (arr[mid] >= val) {
+                r = mid;
+            } else
+                l = mid + 1;
+        }
+        return l;
+    }
+
+    //Gives strict upperBound that next number would be greater than the target
+    int upperBound(int[] arr, int val) {
+        int l = 0, r = arr.length - 1;
+        while (l < r) {
+            int mid = (r + l + 1) >> 1;
+            if (arr[mid] <= val) {
+                l = mid;
+            } else
+                r = mid - 1;
+        }
+        return l;
     }
 
     static void print(Object object) {

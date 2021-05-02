@@ -1,82 +1,70 @@
-package CodeForces;
+package GoogleKickStart;
 
 import java.io.*;
 import java.util.*;
 
-@SuppressWarnings("unchecked")
-public class AdvertisingAgency implements Runnable {
+public class Candies implements Runnable {
 
    void solve() throws IOException {
-      int t = read.intNext();
-      while (t-- > 0) {
-         int n = read.intNext(), k = read.intNext();
-         int[] arr = iArr(n);
-         Map<Integer, Integer> map = new HashMap<>();
-
-         for (int i = 0; i < n; i++) {
-            arr[i] = read.intNext();
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+      int t = ri();
+      for (int tt = 1; tt <= t; tt++) {
+         int len = ri(), q = ri();
+         int[] arr = iArr(len);
+         long[] ms = lArr(len), prefix = lArr(len);
+         for (int i = 0; i < len; i++) {
+            arr[i] = ri();
          }
 
-         shuffle(arr);
-         Arrays.sort(arr);
-
-         int count = 0, last = -1, i = n - 1;
-
-         for (; i >= 0; i--) {
-            if (last != arr[i]) {
-               last = arr[i];
-               count = 1;
+         preCalculate(arr, prefix, ms);
+         long ans = 0;
+         while (q-- > 0) {
+            char c = rc();
+            int l = ri() - 1, r = ri() - 1;
+            if (c == 'Q') {
+               boolean isOdd = (l & 1) == 1;
+               long curr = ms[r];
+               if (l - 1 >= 0)
+                  curr -= ms[l - 1];
+               // Minus the prefix sum * count
+               curr -= (l) * (prefix[r] - ((l - 1 >= 0) ? prefix[l - 1] : 0));
+               if (isOdd)
+                  ans -= curr;
+               else
+                  ans += curr;
             } else {
-               count++;
+               arr[l] = r + 1;
+               preCalculate(arr, prefix, ms);
             }
-            k--;
-            if (k == 0)
-               break;
          }
-
-         // find the combinations
-         println(findFactorial(map.get(last), count));
+         println(String.format("Case #%s: %s", tt, ans));
       }
    }
 
-   long findFactorial(int num, int count) {
-      return findFact(num) * multiplicativeInverse(findFact(count)) % mod * multiplicativeInverse(findFact(num - count))
-            % mod;
-   }
-
-   long multiplicativeInverse(long num) {
-      return expo(num, mod - 2);
-   }
-
-   long expo(long num, long p) {
-      long res = 1;
-
-      while (p >= 1) {
-         if ((p & 1) == 0) {
-            num = num * num % mod;
-            p /= 2;
+   void preCalculate(int[] arr, long[] prefix, long[] ms) {
+      int len = arr.length;
+      for (int i = 0; i < len; i++) {
+         if (i == 0) {
+            ms[i] = prefix[i] = arr[i];
          } else {
-            res = res * num % mod;
-            p--;
+            ms[i] = 1;
+            prefix[i] = arr[i];
+            if ((i & 1) == 1) {
+               ms[i] = -1;
+               prefix[i] *= -1;
+            }
+            ms[i] *= (long) (i + 1) * arr[i];
+            ms[i] += ms[i - 1];
+
+            // For prefix sum
+            prefix[i] += prefix[i - 1];
          }
-
       }
-      return res;
-   }
 
-   long findFact(int num) {
-      long res = 1;
-
-      for (int i = num; i > 1; i--) {
-         res = (res * i) % mod;
-      }
-      return res;
    }
 
    /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
-      new Thread(null, new AdvertisingAgency(), "1").start();
+      new Thread(null, new Candies(), "1").start();
    }
 
    static PrintWriter out = new PrintWriter(System.out);
@@ -219,13 +207,30 @@ public class AdvertisingAgency implements Runnable {
       }
    }
 
-   static final class Comparators {
-      public static final Comparator<int[]> pairIntArr = (x, y) -> x[0] == y[0] ? compare(x[1], y[1])
-            : compare(x[0], y[0]);
-
-      private static final int compare(final int x, final int y) {
-         return Integer.compare(x, y);
+   // Gives strict lowerBound that previous number would be smaller than the target
+   int lowerBound(int[] arr, int val) {
+      int l = 0, r = arr.length - 1;
+      while (l < r) {
+         int mid = (r + l) >> 1;
+         if (arr[mid] >= val) {
+            r = mid;
+         } else
+            l = mid + 1;
       }
+      return l;
+   }
+
+   // Gives strict upperBound that next number would be greater than the target
+   int upperBound(int[] arr, int val) {
+      int l = 0, r = arr.length - 1;
+      while (l < r) {
+         int mid = (r + l + 1) >> 1;
+         if (arr[mid] <= val) {
+            l = mid;
+         } else
+            r = mid - 1;
+      }
+      return l;
    }
 
    static void print(Object object) {
@@ -258,5 +263,25 @@ public class AdvertisingAgency implements Runnable {
 
    static int max(int a, int b) {
       return Math.max(a, b);
+   }
+
+   static int ri() throws IOException {
+      return read.intNext();
+   }
+
+   static long rl() throws IOException {
+      return Long.parseLong(read.read());
+   }
+
+   static String rs() throws IOException {
+      return read.read();
+   }
+
+   static char rc() throws IOException {
+      return rs().charAt(0);
+   }
+
+   static double rd() throws IOException {
+      return read.doubleNext();
    }
 }
