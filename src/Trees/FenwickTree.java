@@ -13,7 +13,6 @@ package Trees;
  */
 public class FenwickTree {
 
-
     public int[] createTree(int[] input) {
         int[] balancedTree = new int[input.length + 1];
 
@@ -25,7 +24,6 @@ public class FenwickTree {
     }
 
     public void updateAndAddValue(int[] arr, int value, int index) {
-
         while (index < arr.length) {
             arr[index] += value;
             index = getNextIndex(index);

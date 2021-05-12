@@ -2,7 +2,7 @@ package Algorithms.LeetCode;
 
 import java.util.*;
 
-public class A {
+public class Boxes {
     // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
     static List<String> orderedJunctionBoxes(int numberOfBoxes, List<String> boxList)
     {
