@@ -1,3 +1,5 @@
 /bin/
 *.iml
+*.xml
 *.class
+/out/

@@ -1,69 +1,42 @@
-
 import java.io.*;
 import java.util.*;
 
 public class Test implements Runnable {
 
     void solve() throws IOException {
-        int n = ri(), m = ri(), x = ri();
-        long[] asphalt = lArr(n);
-        long sum = 0;
+        TreeSet<Pair> set = new TreeSet<>();
+        set.add(new Pair(1, 1));
+        set.add(new Pair(2, 2));
+        set.add(new Pair(3, 3));
+        set.add(new Pair(4, 4));
+        set.add(new Pair(5, 5));
+        set.add(new Pair(2, 6));
 
-//        TreeSet<long[]> pq = new TreeSet<>((o1, o2) -> {
-//            if (o1[0] == o2[0])
-//                return Long.compare(o1[1], o2[1]);
-//            return Long.compare(o1[0], o2[0]);
-//        });
+//        System.out.println(Math.ceil((double)-3/2));
+//        System.out.println(Math.ceil((double) 3/2));
+//        set.forEach(o -> System.out.println(o.x + " " + o.y));
+//               System.out.println("**********************************");
+//        set.remove(new Pair(2, 2));
+//        set.forEach(o -> System.out.println(o.x + " " + o.y));
+//        System.out.println("**********************************");
+        set.tailSet(new Pair(2, 0)).forEach(o -> System.out.println(o.x + " " + o.y));
+//        System.out.println(set.tailSet(new Pair(2, 3)).size());
+//        System.out.println(set.ceiling(new Pair(2, 0)).y);
+    }
 
-        TreeSet<long[]> pq = new TreeSet<>((o1, o2) -> {
-            if (o1[0] == o2[0])
-                return Long.compare(o1[1], o2[1]);
-            return Long.compare(o1[0], o2[0]);
-        });
+    static class Pair implements Comparable<Pair> {
+        int x, y;
 
-        for (int i = 0; i < n; i++) {
-            asphalt[i] = ri();
-            sum += asphalt[i];
-            pq.add(new long[] { asphalt[i], i });
+        public Pair(int xx, int yy) {
+            x = xx;
+            y = yy;
         }
 
-        if (sum < ((long) (n - 1) * x)) {
-            println("NO");
-        } else {
-            ArrayDeque<int[]>[] edges = new ArrayDeque[n];
-            Arrays.setAll(edges, o -> new ArrayDeque<>());
-
-            for (int i = 0; i < m; i++) {
-                int a = ri() - 1, b = ri() - 1;
-                edges[a].add(new int[] { b, i });
-                edges[b].add(new int[] { a, i });
-            }
-
-            Dsu dsu = new Dsu(n, asphalt, edges);
-            sbr.append("YES").append("\n");
-            while (!pq.isEmpty()) {
-                long[] curr = pq.pollLast();
-                int node = (int) curr[1];
-                while (!edges[node].isEmpty()) {
-                    int[] adj = edges[node].poll();
-                    int adjNode = adj[0];
-                    node = dsu.find(node);
-                    adjNode = dsu.find(adjNode);
-                    if (asphalt[node] + asphalt[adjNode] < x || node == adjNode)
-                        continue;
-                    pq.remove(new long[] { asphalt[node], node });
-                    pq.remove(new long[] { asphalt[adjNode], adjNode });
-                    dsu.join(node, adjNode);
-                    asphalt[dsu.find(node)] -= x;
-                    pq.add(new long[] { asphalt[dsu.find(node)], dsu.find(node) });
-                    sbr.append(adj[1] + 1).append("\n");
-                    break;
-                }
-
-            }
-
-
-            print(sbr.toString());
+        @Override
+        public int compareTo(Pair p) {
+            if (p.x == x) return Integer.compare(y, p.y);
+            return Integer
+                    .compare(x, p.x);
         }
     }
 
