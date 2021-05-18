@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-@SuppressWarnings("unchecked")
 public class IOFastest implements Runnable {
 
     void solve() throws IOException {
-
+        char k = rc();
+        System.out.println(k);
     }
 
 
@@ -210,20 +210,48 @@ public class IOFastest implements Runnable {
         return Math.max(a, b);
     }
 
-    static int ri() throws IOException {
-        return read.intNext();
+    static int ri() {
+        try {
+            return read.intNext();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.exit(2);
+        return -1;
     }
 
-    static long rl() throws IOException {
-        return Long.parseLong(read.read());
+    static long rl() {
+        try {
+            return Long.parseLong(read.read());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.exit(2);
+        return -1;
     }
 
-    static String rs() throws IOException {
-        return read.read();
+    static String rs() {
+        try {
+            return read.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.exit(2);
+        return "";
     }
 
-    static double rd() throws IOException {
-        return read.doubleNext();
+    static char rc() {
+        return rs().charAt(0);
+    }
+
+    static double rd() {
+        try {
+            return read.doubleNext();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.exit(2);
+        return -1;
     }
 
 }
