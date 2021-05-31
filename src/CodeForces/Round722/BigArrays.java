@@ -1,122 +1,32 @@
-package GoogleKickStart.RoundC2021;
+package CodeForces.Round722;
 
 import java.io.*;
 import java.util.*;
 
-public class BinaryOperator implements Runnable {
+public class BigArrays implements Runnable {
 
-   Map<Pair, Integer> hashes = new HashMap<>();
-
-   void solve() {
+   void solve() throws IOException {
       int t = ri();
-      mod = dprimes[dprimes.length - 1];
-      for (int tt = 1; tt <= t; tt++) {
-         print("Case #" + tt + ": ");
+      while (t-- > 0) {
          int n = ri();
-         Map<Integer, Integer> map = new HashMap<>();
-         int id = 1;
-         int ans[] = iArr(n);
-         hashes.clear();
+         int[] arr = iArr(n);
          for (int i = 0; i < n; i++) {
-            String s = rs();
-            int val = getVal(s, 0)[0];
-            if (!map.containsKey(val))
-               map.put(val, id++);
-            ans[i] = map.get(val);
-
+            arr[i] = ri();
          }
-         for (int i = 0; i < n; i++) {
-            print(ans[i] + " ");
+         Arrays.sort(arr);
+         int res = 0;
+         for (int i = 1; i < n; i++) {
+            if (arr[i] > (arr[0] + arr[i]) / 2) {
+               res++;
+            }
          }
-         println("");
-      }
-   }
-
-   int[] getVal(String s, int index) {
-      if (s.charAt(index) == '(') {
-         int[] left = getVal(s, index + 1);
-         char ope = s.charAt(left[1]);
-         int[] right = getVal(s, left[1] + 1);
-         int nextIndex = right[1] + 1;
-         int ans = -1;
-         if (ope == '+') {
-            ans = add(left[0], right[0]);
-         } else if (ope == '-') {
-            ans = sub(left[0], right[0]);
-         } else if (ope == '*') {
-            ans = mul(left[0], right[0]);
-         } else {
-            ans = hash(left[0], right[0]);
-         }
-
-         return new int[] { ans, nextIndex };
-      } else {
-         // If it is a number
-         long num = 0;
-         while (index < s.length() && Character.isDigit(s.charAt(index))) {
-            num = ((num * 10) + (s.charAt(index++)) - '0') % mod;
-         }
-         return new int[] { (int) num, index };
-      }
-   }
-
-   Random random = new Random();
-
-   int hash(int a, int b) {
-      Pair curr = new Pair(a, b);
-      if (!hashes.containsKey(curr)) {
-         hashes.put(curr, getRandom());
-      }
-      return hashes.get(curr);
-   }
-
-   int getRandom() {
-      int ans = random.nextInt(dmax);
-      for (int i = 0; i < 5; i++) {
-         ans = mul(ans, random.nextInt(dmax));
-      }
-      return ans;
-   }
-
-   int mul(long a, long b) {
-      return (int) ((a * b) % mod);
-   }
-
-   int add(long a, long b) {
-      return (int) ((a + b) % mod);
-   }
-
-   int sub(long a, long b) {
-      return (int) ((a - b) % mod);
-   }
-
-   class Pair {
-      int a, b;
-
-      public Pair(int a, int b) {
-         this.a = a;
-         this.b = b;
-      }
-
-      @Override
-      public boolean equals(Object o) {
-         if (this == o)
-            return true;
-         if (o == null || getClass() != o.getClass())
-            return false;
-         Pair pair = (Pair) o;
-         return a == pair.a && b == pair.b;
-      }
-
-      @Override
-      public int hashCode() {
-         return Objects.hash(a, b);
+         println(res);
       }
    }
 
    /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
-      new Thread(null, new BinaryOperator(), "1").start();
+      new Thread(null, new BigArrays(), "1").start();
    }
 
    static PrintWriter out = new PrintWriter(System.out);
@@ -127,12 +37,16 @@ public class BinaryOperator implements Runnable {
    static long lmax = Long.MAX_VALUE;
    static int dmin = Integer.MIN_VALUE;
    static long lmin = Long.MIN_VALUE;
-   static int[] dprimes = new int[] { 1, 11, 101, 1087, 99991, 100001, 1000003, 15485863, 999999937 };
 
    @Override
    public void run() {
-      solve();
-      out.close();
+      try {
+         solve();
+         out.close();
+      } catch (IOException e) {
+         e.printStackTrace();
+         System.exit(1);
+      }
    }
 
    static class Reader {
@@ -230,6 +144,31 @@ public class BinaryOperator implements Runnable {
       }
    }
 
+   static void shuffle(int[] aa) {
+      int n = aa.length;
+      Random rand = new Random();
+      for (int i = 1; i < n; i++) {
+         int j = rand.nextInt(i + 1);
+         int tmp = aa[i];
+         aa[i] = aa[j];
+         aa[j] = tmp;
+      }
+   }
+
+   static void shuffle(int[][] aa) {
+      int n = aa.length;
+      Random rand = new Random();
+      for (int i = 1; i < n; i++) {
+         int j = rand.nextInt(i + 1);
+         int first = aa[i][0];
+         int second = aa[i][1];
+         aa[i][0] = aa[j][0];
+         aa[i][1] = aa[j][1];
+         aa[j][0] = first;
+         aa[j][1] = second;
+      }
+   }
+
    // Gives strict lowerBound that previous number would be smaller than the target
    int lowerBound(int[] arr, int val) {
       int l = 0, r = arr.length - 1;
@@ -288,47 +227,23 @@ public class BinaryOperator implements Runnable {
       return Math.max(a, b);
    }
 
-   static int ri() {
-      try {
-         return read.intNext();
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-      System.exit(2);
-      return -1;
+   static int ri() throws IOException {
+      return read.intNext();
    }
 
-   static long rl() {
-      try {
-         return Long.parseLong(read.read());
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-      System.exit(2);
-      return -1;
+   static long rl() throws IOException {
+      return Long.parseLong(read.read());
    }
 
-   static String rs() {
-      try {
-         return read.read();
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-      System.exit(2);
-      return "";
+   static String rs() throws IOException {
+      return read.read();
    }
 
-   static char rc() {
+   static char rc() throws IOException {
       return rs().charAt(0);
    }
 
-   static double rd() {
-      try {
-         return read.doubleNext();
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-      System.exit(2);
-      return -1;
+   static double rd() throws IOException {
+      return read.doubleNext();
    }
 }
