@@ -1,5 +1,7 @@
 package Algorithms.LeetCode.Biweekly53;
 
+import Templates.MinimumCostFlow.MinimumCostFlow;
+
 import java.util.*;
 
 /*
@@ -31,8 +33,11 @@ public class MinimumXORSums {
     public static void main(String[] args) {
         MinimumXORSums o = new MinimumXORSums();
         // System.out.println(o.minimumXORSum2(new int[] { 1, 2 }, new int[] { 2, 3 }));
-        System.out.println(o.minimumXORSum2(new int[]{100, 26, 12, 62, 3, 49, 55, 77, 97}, new int[]{98, 0, 89, 57, 34, 92, 29, 75, 13}));
+        System.out.println(o.minimumXORSum3(new int[]{1,0,3},
+                new int[]{5,3,4}));
     }
+
+    /***********************************************************************************************************/
 
     int[][] dp;
 
@@ -61,6 +66,139 @@ public class MinimumXORSums {
         return dp[index][mask];
     }
 
+    /***********************************************************************************************************/
+    public int minimumXORSum3(int[] nums1, int[] nums2) {
+        int len = nums1.length;
+        int source = 2 * len, sink = source + 1;
+        MinimumCostFlow minCostFlow = new MinimumCostFlow(2 * len + 2);
+
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                minCostFlow.addEdge(i, j + len, 1, nums1[i] ^ nums2[j]);
+            }
+        }
+
+        for (int i = 0; i < len; i++) {
+            minCostFlow.addEdge(source, i, 1, 0);
+        }
+        for (int i = 0; i < len; i++) {
+            minCostFlow.addEdge(i + len, sink, 1, 0);
+        }
+
+        return minCostFlow.minCostFlow(Integer.MAX_VALUE, source, sink);
+    }
+
+    public class MinimumCostFlow {
+
+        int n;
+        ArrayDeque<Integer>[] adj;
+        int[][] cost, capacity;
+        int[] dis, parent;
+
+        public MinimumCostFlow(int n) {
+            this.n = n;
+            adj = new ArrayDeque[n];
+            Arrays.setAll(adj, o -> new ArrayDeque<>());
+            cost = new int[n][n];
+            capacity = new int[n][n];
+            dis = new int[n];
+            parent = new int[n];
+        }
+
+        int minCostFlow(int k, int source, int target) {
+
+            int flow = 0, cost = 0;
+            while (flow < k) {
+                // Reset the distance and parent array
+                Arrays.fill(dis, Integer.MAX_VALUE);
+                Arrays.fill(parent, -1);
+
+                // Find the shortest path
+                shortestPath(n, source);
+
+                // If we cannot find any more path to target node
+                if (dis[target] == Integer.MAX_VALUE) {
+                    break;
+                }
+
+                // Find the max flow on that path
+                int f = k - flow;
+                int curr = target;
+                while (curr != source) {
+                    // Find the min capacity
+                    f = Math.min(f, capacity[parent[curr]][curr]);
+                    curr = parent[curr];
+                }
+
+                // Apply flow
+                flow += f;
+                cost += f * dis[target];
+                curr = target;
+
+                while (curr != source) {
+                    capacity[parent[curr]][curr] -= f;
+                    capacity[curr][parent[curr]] += f;
+                    curr = parent[curr];
+                }
+            }
+
+            if (k == Integer.MAX_VALUE || flow < k) {
+                return cost;
+            }
+            return -1;
+        }
+
+        void shortestPath(int n, int source) {
+            dis[source] = 0;
+            ArrayDeque<Integer> queue = new ArrayDeque<>();
+            queue.add(source);
+            boolean[] inQueue = new boolean[n];
+            inQueue[source] = true;
+
+            while (!queue.isEmpty()) {
+                int u = queue.poll();
+                inQueue[u] = false;
+                for (int v : adj[u]) {
+                    if (capacity[u][v] > 0 && dis[v] > dis[u] + cost[u][v]) {
+                        dis[v] = dis[u] + cost[u][v];
+                        parent[v] = u;
+                        if (!inQueue[v]) {
+                            inQueue[v] = true;
+                            queue.add(v);
+                        }
+                    }
+                }
+            }
+        }
+
+        void addEdge(int from, int to, int capacity, int cost) {
+            adj[from].add(to);
+            adj[to].add(from);
+            this.cost[from][to] = cost;
+            this.cost[to][from] = -cost;
+            this.capacity[from][to] = capacity;
+        }
+
+        void reset() {
+            adj = new ArrayDeque[n];
+            Arrays.setAll(adj, o -> new ArrayDeque<>());
+            cost = new int[n][n];
+            capacity = new int[n][n];
+        }
+
+        class Edge {
+            int from, to, capacity, cost;
+
+            public Edge(int f, int t, int capacity, int cost) {
+                from = f;
+                to = t;
+                this.capacity = capacity;
+                this.cost = cost;
+            }
+        }
+    }
+
+    /***********************************************************************************************************/
     public int minimumXORSum2(int[] nums1, int[] nums2) {
         int[][] arr = new int[nums1.length][nums2.length];
         int len = nums1.length;

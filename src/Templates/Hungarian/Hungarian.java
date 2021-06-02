@@ -8,6 +8,8 @@ import java.util.Set;
  *
  * @author https://github.com/aalmi | march 2014
  * @version 1.0
+ *
+ * Time Complexity O(n ^ 3)
  */
 public class Hungarian {
 
