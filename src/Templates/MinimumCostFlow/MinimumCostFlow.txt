@@ -101,14 +101,4 @@ public class MinimumCostFlow {
         capacity = new int[n][n];
     }
 
-    class Edge {
-        int from, to, capacity, cost;
-
-        public Edge(int f, int t, int capacity, int cost) {
-            from = f;
-            to = t;
-            this.capacity = capacity;
-            this.cost = cost;
-        }
-    }
 }

@@ -1,7 +1,4 @@
 package Algorithms.LeetCode.Biweekly53;
-
-import Templates.MinimumCostFlow.MinimumCostFlow;
-
 import java.util.*;
 
 /*
@@ -33,8 +30,8 @@ public class MinimumXORSums {
     public static void main(String[] args) {
         MinimumXORSums o = new MinimumXORSums();
         // System.out.println(o.minimumXORSum2(new int[] { 1, 2 }, new int[] { 2, 3 }));
-        System.out.println(o.minimumXORSum3(new int[]{1,0,3},
-                new int[]{5,3,4}));
+        System.out.println(o.minimumXORSum3(new int[]{1, 0, 3},
+                new int[]{5, 3, 4}));
     }
 
     /***********************************************************************************************************/
@@ -184,17 +181,6 @@ public class MinimumXORSums {
             Arrays.setAll(adj, o -> new ArrayDeque<>());
             cost = new int[n][n];
             capacity = new int[n][n];
-        }
-
-        class Edge {
-            int from, to, capacity, cost;
-
-            public Edge(int f, int t, int capacity, int cost) {
-                from = f;
-                to = t;
-                this.capacity = capacity;
-                this.cost = cost;
-            }
         }
     }
 
