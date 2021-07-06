@@ -1,10 +1,59 @@
+import java.util.*;
 public class Test {
 
     public static void main(String[] args) {
-        for(int i = 11 ;i < (int)1e9; i += 11){
-            System.out.print("");
+       Test o = new Test();
+        System.out.println(o.longestDupSubstring("okmzpmxzwjbfssktjtebhhxfphcxefhonkncnrumgduoaeltjvwqwydpdsrbxsgmcdxrthilniqxkqzuuqzqhlccmqcmccfqddncchadnthtxjruvwsmazlzhijygmtabbzelslebyrfpyyvcwnaiqkkzlyillxmkfggyfwgzhhvyzfvnltjfxskdarvugagmnrzomkhldgqtqnghsddgrjmuhpgkfcjkkkaywkzsikptkrvbnvuyamegwempuwfpaypmuhhpuqrufsgpiojhblbihbrpwxdxzolgqmzoyeblpvvrnbnsdnonhpmbrqissifpdavvscezqzclvukfgmrmbmmwvzfpxcgecyxneipexrzqgfwzdqeeqrugeiupukpveufmnceetilfsqjprcygitjefwgcvqlsxrasvxkifeasofcdvhvrpmxvjevupqtgqfgkqjmhtkyfsjkrdczmnettzdxcqexenpxbsharuapjmdvmfygeytyqfcqigrovhzbxqxidjzxfbrlpjxibtbndgubwgihdzwoywqxegvxvdgaoarlauurxpwmxqjkidwmfuuhcqtljsvruinflvkyiiuwiiveplnxlviszwkjrvyxijqrulchzkerbdyrdhecyhscuojbecgokythwwdulgnfwvdptzdvgamoublzxdxsogqpunbtoixfnkgbdrgknvcydmphuaxqpsofmylyijpzhbqsxryqusjnqfikvoikwthrmdwrwqzrdmlugfglmlngjhpspvnfddqsvrajvielokmzpmxzwjbfssktjtebhhxfphcxefhonkncnrumgduoaeltjvwqwydpdsrbxsgmcdxrthilniqxkqzuuqzqhlccmqcmccfqddncchadnthtxjruvwsmazlzhijygmtabbzelslebyrfpyyvcwnaiqkkzlyillxmkfggyfwgzhhvyzfvnltjfxskdarvugagmnrzomkhldgqtqnghsddgrjmuhpgkfcjkkkaywkzsikptkrvbnvuyamegwempuwfpaypmuhhpuqrufsgpiojhblbihbrpwxdxzolgqmzoyeblpvvrnbnsdnonhpmbrqissifpdavvscezqzclvukfgmrmbmmwvzfpxcgecyxneipexrzqgfwzdqeeqrugeiupukpveufmnceetilfsqjprcygitjefwgcvqlsxrasvxkifeasofcdvhvrpmxvjevupqtgqfgkqjmhtkyfsjkrdczmnettzdxcqexenpxbsharuapjmdvmfygeytyqfcqigrovhzbxqxidjzxfbrlpjxibtbndgubwgihdzwoywqxegvxvdgaoarlauurxpwmxqjkidwmfuuhcqtljsvruinflvkyiiuwiiveplnxlviszwkjrvyxijqrulchzkerbdyrdhecyhscuojbecgokythwwdulgnfwvdptzdvgamoublzxdxsogqpunbtoixfnkgbdrgknvcydmphuaxqpsofmylyijpzhbqsxryqusjnqfikvoikwthrmdwrwqzrdmlugfglmlngjhpspvnfddqsvrajviel"));
+    }
+    public String longestDupSubstring(String s) {
+        int left=1;
+        int right=s.length()-1;
+
+        String result="";
+        while(left<=right){
+            int mid=left + (right-left)/2;
+
+            String str=rabinKarp(s,mid);
+            if(str.length()!=0){
+                result=str;
+                left=mid+1;
+            }else{
+                right=mid-1;
+            }
         }
-        System.out.println("Finished");
+        return result;
+    }
+
+    private String rabinKarp(String s,int len){
+        Set<Long> set=new HashSet<>();
+        long h=hash(s.substring(0,len));
+        set.add(h);
+        long pow=1;
+        for(int l=1;l<len;l++) pow*=31;
+
+        for(int i=1;i<=s.length()-len;i++){
+            h=nextHash(pow,h,s.charAt(i-1),s.charAt(i+len-1));
+            if(set.contains(h)){
+                return s.substring(i,i+len);
+            }
+            set.add(h);
+        }
+        return "";
+    }
+
+    private long nextHash(long pow,long hash,char left,char right){
+        return (hash - left*pow)*31 + right;
+        // abcd   bcdf
+    }
+
+    private long hash(String s) {
+        long hash = 0;
+        long mul=1;
+        for (int i = s.length()-1; i >=0; i--) {
+            hash += s.charAt(i)*mul;
+            mul*=31;
+        }
+        return hash;
     }
 
 }
