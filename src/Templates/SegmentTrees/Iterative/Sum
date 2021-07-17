@@ -1,5 +1,5 @@
 
-public class SegmentTree {
+static class SegmentTree {
 
     long[] seg;
     int[] arr;
