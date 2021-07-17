@@ -1,0 +1,117 @@
+
+    static GCDS eucleGcds(long a, long b) {
+        if (b == 0) {
+            return new GCDS(1, 0, a);
+        }
+        GCDS curr = eucleGcds(b, a % b);
+        long x = curr.y;
+        long y = curr.x - curr.y * (a / b);
+        curr.x = x;
+        curr.y = y;
+        return curr;
+    }
+
+    /*******************************************/
+    static GCDS findAnySolution(long a, long b, long c) {
+        GCDS curr = eucleGcds(Math.abs(a), Math.abs(b));
+        if (c % curr.gcd != 0)
+            return null;
+        curr.x *= (c / curr.gcd);
+        curr.y *= (c / curr.gcd);
+        if (a < 0)
+            curr.x = -curr.x;
+        if (b < 0)
+            curr.y = -curr.y;
+        return curr;
+    }
+
+    /**************************************************/
+    static void shiftSol(GCDS obj, long a, long b, long count) {
+        obj.x += count * b;
+        obj.y -= count * a;
+    }
+
+    static GCDS findSolMin(int a, int b, int c, int min_x, int min_y) {
+        GCDS curr = findAnySolution(a, b, c);
+        if (curr == null)
+            return null;
+        a /= curr.gcd;
+        b /= curr.gcd;
+
+        int sign_a = (a > 0) ? 1 : -1;
+        int sign_b = (b > 0) ? 1 : -1;
+
+        shiftSol(curr, a, b, (min_x - curr.x) / b);
+        if (curr.x < min_x) {
+            shiftSol(curr, a, b, sign_b);
+        }
+
+        shiftSol(curr, a, b, -(min_y - curr.y) / a);
+        if (curr.y < min_y) {
+            shiftSol(curr, a, b, -sign_a);
+        }
+        if (curr.x < min_x || curr.y < min_y)
+            return null;
+        return curr;
+    }
+
+    static long findAllSol(long a, long b, long c, long minx, long maxx, long miny, long maxy) {
+        if (a == 0 && b == 0) {
+            if (c == 0) return (maxx - minx + 1) * (maxy - miny + 1);
+            else return 0;
+        }
+        GCDS curr = findAnySolution(a, b, c);
+        if (curr == null)
+            return 0;
+        a /= curr.gcd;
+        b /= curr.gcd;
+
+        int sign_a = (a > 0) ? 1 : -1;
+        int sign_b = (b > 0) ? 1 : -1;
+
+        shiftSol(curr, a, b, (minx - curr.x) / b);
+        if (curr.x < minx) {
+            shiftSol(curr, a, b, sign_b);
+        }
+        if (curr.x > maxx)
+            return 0;
+        long lxl = curr.x;
+
+        shiftSol(curr, a, b, (maxx - curr.x) / b);
+        if (curr.x > maxx) {
+            shiftSol(curr, a, b, -sign_b);
+        }
+        long rxl = curr.x;
+
+        shiftSol(curr, a, b, -(miny - curr.y) / a);
+        if (curr.y < miny) {
+            shiftSol(curr, a, b, -sign_a);
+        }
+        if (curr.y > maxy)
+            return 0;
+        long lx2 = curr.x;
+
+        shiftSol(curr, a, b, -(maxy - curr.y) / a);
+        if (curr.y > maxy)
+            shiftSol(curr, a, b, sign_a);
+        long rx2 = curr.x;
+
+        if (lx2 > rx2)
+            lx2 = lx2 ^ rx2 ^ (rx2 = lx2);
+        long lx = Math.max(lxl, lx2);
+        long rx = Math.min(rxl, rx2);
+        if (lx > rx)
+            return 0;
+
+        return (rx - lx) / Math.abs(b) + 1;
+    }
+
+    static class GCDS {
+        long x, y, gcd;
+
+        public GCDS(long x, long y, long gcd) {
+            this.y = y;
+            this.x = x;
+            this.gcd = gcd;
+        }
+    }
