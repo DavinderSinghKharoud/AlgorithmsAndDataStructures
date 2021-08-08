@@ -3,6 +3,7 @@ package Templates.Palindrome;
 import java.util.Arrays;
 
 public class ManacherAlgo {
+
     //abbabb -->[1, 1, 1, 3, 1, 1]
     int[] manacherOdd(String s) {
         int[] res = new int[s.length()];
