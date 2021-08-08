@@ -1,14 +1,9 @@
-import java.io.*;
-import java.util.*;
-import java.util.function.IntUnaryOperator;
+package Templates.Palindrome;
 
-public class Test2 {
-    public static void main(String[] args) {
+import java.util.Arrays;
 
-        System.out.println(Arrays.toString(new Test2().manacherEven("abbabba")));
-        System.out.println(Arrays.toString(new Test2().manacherOdd("abbabb")));
-    }
-
+public class ManacherAlgo {
+    //abbabb -->[1, 1, 1, 3, 1, 1]
     int[] manacherOdd(String s) {
         int[] res = new int[s.length()];
         for (int i = 0, l = 0, r = -1; i < s.length(); i++) {
@@ -26,6 +21,7 @@ public class Test2 {
         return res;
     }
 
+    //"abbabba" --> [1, 1, 2, 1, 1, 2, 1]
     int[] manacherEven(String s) {
         int[] res = new int[s.length()];
         for (int i = 0, l = 0, r = -1; i < s.length(); i++) {
@@ -40,12 +36,9 @@ public class Test2 {
                 r = i + k;
             }
         }
-        res = Arrays.stream(res).map(num -> {
+        return Arrays.stream(res).map(num -> {
             if (num == 0) return 1;
             return num;
         }).toArray();
-        return res;
     }
 }
-
-
