@@ -13,7 +13,36 @@ public class LongestObstacle {
    public int[] longestObstacleCourseAtEachPosition2(int[] obstacles) {
       int len = obstacles.length;
       int[] res = new int[len];
+
+      int[] arr = new int[len + 1];
+      Arrays.fill(arr, Integer.MAX_VALUE);
+
+      for (int i = 0; i < len; i++) {
+         int curr = obstacles[i];
+         int upper = upperBound(arr, curr);
+         if (upper == len) {
+            // Last position
+            res[i] = upper;
+            arr[upper] = curr;
+         } else {
+            res[i] = upper + 1;
+            arr[upper + 1] = curr;
+         }
+      }
       return res;
+   }
+
+   // Gives strict upperBound that next number would be greater than the target
+   int upperBound(int[] arr, int val) {
+      int l = 0, r = arr.length - 1;
+      while (l < r) {
+         int mid = (r + l + 1) >> 1;
+         if (arr[mid] <= val) {
+            l = mid;
+         } else
+            r = mid - 1;
+      }
+      return l;
    }
 
    // ** *****************************************************/
