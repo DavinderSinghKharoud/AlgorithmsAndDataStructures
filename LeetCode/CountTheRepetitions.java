@@ -1,11 +1,9 @@
 package LeetCode;
 
-import java.util.*;
-
-public class CountTheRepetations {
+public class CountTheRepetitions {
 
     public static void main(String[] args) {
-        CountTheRepetations o = new CountTheRepetations();
+        CountTheRepetitions o = new CountTheRepetitions();
         System.out.println(o.getMaxRepetitions("aaaaaaa", 5, "aaaaaaaa", 3));
     }
 
