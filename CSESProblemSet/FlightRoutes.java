@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Your task is to find the k
  * k
- *  shortest flight routes from Syrjälä to Metsälä. A route can visit the same city several times.
+ *  shortest flight routes from Syrjälä to Metsälä. FindGreatestCommonDivisor route can visit the same city several times.
  *
  * Note that there can be several routes with the same price and each of them should be considered (see the example).
  *

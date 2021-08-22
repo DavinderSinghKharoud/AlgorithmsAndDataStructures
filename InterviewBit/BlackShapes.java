@@ -3,9 +3,9 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given N x M character matrix A of O's and X's, where O = white, X = black.
+ * Given N x M character matrix FindGreatestCommonDivisor of O's and X's, where O = white, X = black.
  *
- * Return the number of black shapes. A black shape consists of one or more adjacent X's (diagonals not included)
+ * Return the number of black shapes. FindGreatestCommonDivisor black shape consists of one or more adjacent X's (diagonals not included)
  *
  *
  *
@@ -18,11 +18,11 @@ import java.util.*;
  * Constraints:
  *
  *     1 <= N,M <= 1000
- *     A[i][j] = 'X' or 'O'
+ *     FindGreatestCommonDivisor[i][j] = 'X' or 'O'
  * Example:
  *
  * Input 1:
- *     A = [ OOOXOOO
+ *     FindGreatestCommonDivisor = [ OOOXOOO
  *           OOXXOXO
  *           OXOOOXO  ]
  * Output 1:

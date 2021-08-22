@@ -3,33 +3,33 @@ package InterviewBit;
 import java.util.Stack;
 
 /**
- * Given a string A denoting an expression. It contains the following operators ’+’, ‘-‘, ‘*’, ‘/’.
+ * Given a string FindGreatestCommonDivisor denoting an expression. It contains the following operators ’+’, ‘-‘, ‘*’, ‘/’.
  *
- * Chech whether A has redundant braces or not.
+ * Chech whether FindGreatestCommonDivisor has redundant braces or not.
  *
- * Return 1 if A has redundant braces, else return 0.
+ * Return 1 if FindGreatestCommonDivisor has redundant braces, else return 0.
  *
- * Note: A will be always a valid expression.
+ * Note: FindGreatestCommonDivisor will be always a valid expression.
  *
  *
  *
  * Input Format
  *
- * The only argument given is string A.
+ * The only argument given is string FindGreatestCommonDivisor.
  * Output Format
  *
  * Return 1 if string has redundant braces, else return 0.
  * For Example
  *
  * Input 1:
- *     A = "((a + b))"
+ *     FindGreatestCommonDivisor = "((a + b))"
  * Output 1:
  *     1
  *     Explanation 1:
  *         ((a + b)) has redundant braces so answer will be 1.
  *
  * Input 2:
- *     A = "(a + (a + b))"
+ *     FindGreatestCommonDivisor = "(a + (a + b))"
  * Output 2:
  *     0
  *     Explanation 2:

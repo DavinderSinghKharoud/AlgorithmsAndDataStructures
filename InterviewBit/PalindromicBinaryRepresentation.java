@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * Given an integer A find the Ath number whose binary representation is a palindrome.
+ * Given an integer FindGreatestCommonDivisor find the Ath number whose binary representation is a palindrome.
  *
  * NOTE:
  *
@@ -10,12 +10,12 @@ package InterviewBit;
  *
  *
  * Problem Constraints
- * 1 <= A <= 2104
+ * 1 <= FindGreatestCommonDivisor <= 2104
  *
  *
  *
  * Input Format
- * First and only argument is an integer A.
+ * First and only argument is an integer FindGreatestCommonDivisor.
  *
  *
  *
@@ -27,10 +27,10 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A = 1
+ *  FindGreatestCommonDivisor = 1
  * Input 1:
  *
- *  A = 9
+ *  FindGreatestCommonDivisor = 9
  *
  *
  * Example Output

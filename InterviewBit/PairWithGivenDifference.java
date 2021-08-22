@@ -3,9 +3,9 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given an one-dimensional unsorted array A containing N integers.
+ * Given an one-dimensional unsorted array FindGreatestCommonDivisor containing N integers.
  *
- * You are also given an integer B, find if there exists a pair of elements in the array whose difference is B.
+ * You are also given an integer FindUniqueBinaryString, find if there exists a pair of elements in the array whose difference is FindUniqueBinaryString.
  *
  * Return 1 if any such pair exists else return 0.
  *
@@ -13,14 +13,14 @@ import java.util.*;
  *
  * Problem Constraints
  * 1 <= N <= 105
- * -103 <= A[i] <= 103
- * -105 <= B <= 105
+ * -103 <= FindGreatestCommonDivisor[i] <= 103
+ * -105 <= FindUniqueBinaryString <= 105
  *
  *
  * Input Format
- * First argument is an integer array A of size N.
+ * First argument is an integer array FindGreatestCommonDivisor of size N.
  *
- * Second argument is an integer B.
+ * Second argument is an integer FindUniqueBinaryString.
  *
  *
  *
@@ -32,12 +32,12 @@ import java.util.*;
  * Example Input
  * Input 1:
  *
- *  A = [5, 10, 3, 2, 50, 80]
- *  B = 78
+ *  FindGreatestCommonDivisor = [5, 10, 3, 2, 50, 80]
+ *  FindUniqueBinaryString = 78
  * Input 2:
  *
- *  A = [-10, 20]
- *  B = 30
+ *  FindGreatestCommonDivisor = [-10, 20]
+ *  FindUniqueBinaryString = 30
  *
  *
  * Example Output

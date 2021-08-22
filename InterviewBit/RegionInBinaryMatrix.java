@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * Given a binary matrix A of size N x M.
+ * Given a binary matrix FindGreatestCommonDivisor of size N x M.
  *
  * Cells which contain 1 are called filled cell and cell that contain 0 are called empty cell.
  *
@@ -16,7 +16,7 @@ package InterviewBit;
  * Problem Constraints
  * 1 <= N, M <= 102
  *
- * A[i][j]=0 or A[i][j]=1
+ * FindGreatestCommonDivisor[i][j]=0 or FindGreatestCommonDivisor[i][j]=1
  *
  *
  *
@@ -33,14 +33,14 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A = [  [0, 0, 1, 1, 0]
+ *  FindGreatestCommonDivisor = [  [0, 0, 1, 1, 0]
  *         [1, 0, 1, 1, 0]
  *         [0, 1, 0, 0, 0]
  *         [0, 0, 0, 0, 1]
  *     ]
  * Input 2:
  *
- *  A = [  [1, 1, 1]
+ *  FindGreatestCommonDivisor = [  [1, 1, 1]
  *         [0, 0, 1]
  *     ]
  *

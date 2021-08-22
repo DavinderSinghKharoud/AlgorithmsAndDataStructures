@@ -4,11 +4,11 @@ import java.util.*;
 public class QueenAttack {
 
 	/**
-	 * On a N * M chessboard, where rows are numbered from 1 to N and columns from 1 to M, there are queens at some cells. Return a N * M array A, where A[i][j] is number of queens that can attack cell (i, j). While calculating answer for cell (i, j), assume there is no queen at that cell.
+	 * On a N * M chessboard, where rows are numbered from 1 to N and columns from 1 to M, there are queens at some cells. Return a N * M array FindGreatestCommonDivisor, where FindGreatestCommonDivisor[i][j] is number of queens that can attack cell (i, j). While calculating answer for cell (i, j), assume there is no queen at that cell.
 	 *
 	 * Notes:
 	 *
-	 * Queen is able to move any number of squares vertically, horizontally or diagonally on a chessboard. A queen cannot jump over another queen to attack a position.
+	 * Queen is able to move any number of squares vertically, horizontally or diagonally on a chessboard. FindGreatestCommonDivisor queen cannot jump over another queen to attack a position.
 	 * You are given an array of N strings, each of size M. Each character is either a 1 or 0 denoting if there is a queen at that position or not, respectively.
 	 * Expected time complexity is worst case O(N*M).
 	 * For example,

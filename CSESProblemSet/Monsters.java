@@ -18,13 +18,13 @@ import java.util.*;
  * n
  *  lines of m
  * m
- *  characters describing the map. Each character is . (floor), # (wall), A (start), or M (monster). There is exactly one A in the input.
+ *  characters describing the map. Each character is . (floor), # (wall), FindGreatestCommonDivisor (start), or M (monster). There is exactly one FindGreatestCommonDivisor in the input.
  *
  * Output
  *
  * First print "YES" if your goal is possible, and "NO" otherwise.
  *
- * If your goal is possible, also print an example of a valid path (the length of the path and its description using characters D, U, L, and R). You can print any path, as long as its length is at most n⋅m
+ * If your goal is possible, also print an example of a valid path (the length of the path and its description using characters ArraySubsetSums, U, L, and R). You can print any path, as long as its length is at most n⋅m
  * n
  * ⋅
  * m
@@ -45,7 +45,7 @@ import java.util.*;
  * Input:
  * 5 8
  * ########
- * #M..A..#
+ * #M..FindGreatestCommonDivisor..#
  * #.#.M#.#
  * #M#..#..
  * #.######

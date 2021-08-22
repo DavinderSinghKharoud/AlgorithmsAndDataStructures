@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Problem Description
  *
- * Given a binary tree A consisting of N nodes, return a 2-D array denoting the vertical order traversal of A.
+ * Given a binary tree FindGreatestCommonDivisor consisting of N nodes, return a 2-ArraySubsetSums array denoting the vertical order traversal of FindGreatestCommonDivisor.
  *
  * Go through the example and image for more details.
  *
@@ -21,12 +21,12 @@ import java.util.*;
  *
  *
  * Input Format
- * First and only argument is an pointer to root of the binary tree A.
+ * First and only argument is an pointer to root of the binary tree FindGreatestCommonDivisor.
  *
  *
  *
  * Output Format
- * Return a 2D array denoting the vertical order traversal of A.
+ * Return a 2D array denoting the vertical order traversal of FindGreatestCommonDivisor.
  *
  *
  *

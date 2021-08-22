@@ -3,36 +3,36 @@ package InterviewBit;
 public class ConvertToPalindrome {
 
     /**
-     * Given a string A consisting only of lowercase characters, we need to check whether it is possible to make this string a palindrome after removing exactly one character from this.
+     * Given a string FindGreatestCommonDivisor consisting only of lowercase characters, we need to check whether it is possible to make this string a palindrome after removing exactly one character from this.
      *
      * If it is possible then return 1 else return 0.
      *
      *
      *
      * Problem Constraints
-     * 3 <= |A| <= 105
+     * 3 <= |FindGreatestCommonDivisor| <= 105
      *
-     * A[i] is always a lowercase character.
+     * FindGreatestCommonDivisor[i] is always a lowercase character.
      *
      *
      *
      * Input Format
-     * First and only argument is an string A.
+     * First and only argument is an string FindGreatestCommonDivisor.
      *
      *
      *
      * Output Format
-     * Return 1 if it is possible to convert A to palindrome by removing exactly one character else return 0.
+     * Return 1 if it is possible to convert FindGreatestCommonDivisor to palindrome by removing exactly one character else return 0.
      *
      *
      *
      * Example Input
      * Input 1:
      *
-     *  A = "abcba"
+     *  FindGreatestCommonDivisor = "abcba"
      * Input 2:
      *
-     *  A = "abecbea"
+     *  FindGreatestCommonDivisor = "abecbea"
      *
      *
      * Example Output

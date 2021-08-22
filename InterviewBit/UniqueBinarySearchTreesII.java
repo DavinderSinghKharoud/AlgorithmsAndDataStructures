@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Given an integer A, how many structurally unique BST’s (binary search trees) exist that can store values 1…A?
+ * Given an integer FindGreatestCommonDivisor, how many structurally unique BST’s (binary search trees) exist that can store values 1…FindGreatestCommonDivisor?
  *
  * Input Format:
  *
- * The first and the only argument of input contains the integer, A.
+ * The first and the only argument of input contains the integer, FindGreatestCommonDivisor.
  * Output Format:
  *
  * Return an integer, representing the answer asked in problem statement.
  * Constraints:
  *
- * 1 <= A <= 18
+ * 1 <= FindGreatestCommonDivisor <= 18
  * Example:
  *
  * Input 1:
- *     A = 3
+ *     FindGreatestCommonDivisor = 3
  *
  * Output 1:
  *     5

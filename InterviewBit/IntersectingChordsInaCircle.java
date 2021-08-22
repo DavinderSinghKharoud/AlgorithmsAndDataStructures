@@ -1,5 +1,5 @@
 /*
-Given a number A, return number of ways you can draw A chords in a circle with 2 x A points such that no 2 chords intersect.
+Given a number FindGreatestCommonDivisor, return number of ways you can draw FindGreatestCommonDivisor chords in a circle with 2 x FindGreatestCommonDivisor points such that no 2 chords intersect.
 
 Two ways are different if there exists a chord which is present in one way and not in other.
 
@@ -9,17 +9,17 @@ Return the answer modulo 109 + 7.
 
 Input Format:
 
-The first and the only argument contains the integer A.
+The first and the only argument contains the integer FindGreatestCommonDivisor.
 Output Format:
 
 Return an integer answering the query as described in the problem statement.
 Constraints:
 
-1 <= A <= 1000
+1 <= FindGreatestCommonDivisor <= 1000
 Examples:
 
 Input 1:
-    A = 1
+    FindGreatestCommonDivisor = 1
 
 Output 1:
     1
@@ -30,7 +30,7 @@ Explanation 1:
     So, we return 1.
 
 Input 2:
-    A = 2
+    FindGreatestCommonDivisor = 2
 
 Output 2:
     2

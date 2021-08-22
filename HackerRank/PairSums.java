@@ -11,7 +11,7 @@ package HackerRank;
  * Sum of the products	14 + (-7) + 14 + (-2) + 4 + (-2) =
  * Note that  is listed twice, one for each occurrence of .
  * Given an array of integers, find the largest value of any of its nonempty subarrays.
- * Note: A subarray is a contiguous subsequence of the array.
+ * Note: FindGreatestCommonDivisor subarray is a contiguous subsequence of the array.
  * Complete the function largestValue which takes an array and returns an integer denoting the largest value of any of the array's nonempty subarrays.
  * Input Format
  * The first line contains a single integer , denoting the number of integers in array .

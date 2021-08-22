@@ -8,14 +8,14 @@ import java.util.*;
  * N
  * ×
  * N
- *  boolean matrix A
- * A
+ *  boolean matrix FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
  * . The element in i
  * i
  * -th row and j
  * j
  * -th column is represented by Ai,j
- * A
+ * FindGreatestCommonDivisor
  * i
  * ,
  * j
@@ -27,15 +27,15 @@ import java.util.*;
  * . Checksum of j
  * j
  * -th column is represented as Cj
- * C
+ * MinimizeDifference
  * j
  * .
  * For example, if N=2
  * N
  * =
  * 2
- * , A=[1101]
- * A
+ * , FindGreatestCommonDivisor=[1101]
+ * FindGreatestCommonDivisor
  * =
  * [
  * 1	0	1	1
@@ -46,38 +46,38 @@ import java.util.*;
  * [
  * 1	0
  * ]
- *  and C=[01]
- * C
+ *  and MinimizeDifference=[01]
+ * MinimizeDifference
  * =
  * [
  * 0	1
  * ]
  * .
- * Once they finished the matrix, Edsger stores the matrix in his computer. However, due to a virus, some of the elements in matrix A
- * A
+ * Once they finished the matrix, Edsger stores the matrix in his computer. However, due to a virus, some of the elements in matrix FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
  *  are replaced with −1
  * −
  * 1
  *  in Edsger's computer. Luckily, Edsger still remembers the checksum values. He would like to restore the matrix, and reaches out to Grace for help. After some investigation, it will take Bi,j
- * B
+ * FindUniqueBinaryString
  * i
  * ,
  * j
  *  hours for Grace to recover the original value of Ai,j
- * A
+ * FindGreatestCommonDivisor
  * i
  * ,
  * j
- *  from the disk. Given the final matrix A
- * A
- * , cost matrix B
- * B
+ *  from the disk. Given the final matrix FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
+ * , cost matrix FindUniqueBinaryString
+ * FindUniqueBinaryString
  * , and checksums along each row (R
  * R
- * ) and column (C
- * C
- * ), can you help Grace decide on the minimum total number of hours needed in order to restore the original matrix A
- * A
+ * ) and column (MinimizeDifference
+ * MinimizeDifference
+ * ), can you help Grace decide on the minimum total number of hours needed in order to restore the original matrix FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
  * ?
  * Input
  * The first line of the input gives the number of test cases, T
@@ -92,14 +92,14 @@ import java.util.*;
  * N
  *  lines each contain N
  * N
- *  integers representing the matrix A
- * A
+ *  integers representing the matrix FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
  * . j
  * j
  * -th element on the i
  * i
  * -th line represents Ai,j
- * A
+ * FindGreatestCommonDivisor
  * i
  * ,
  * j
@@ -108,14 +108,14 @@ import java.util.*;
  * N
  *  lines each contain N
  * N
- *  integers representing the matrix B
- * B
+ *  integers representing the matrix FindUniqueBinaryString
+ * FindUniqueBinaryString
  * . j
  * j
  * -th element on the i
  * i
  * -th line represents Bi,j
- * B
+ * FindUniqueBinaryString
  * i
  * ,
  * j
@@ -133,7 +133,7 @@ import java.util.*;
  *  integers representing the checksum of the columns. j
  * j
  * -th element represents Cj
- * C
+ * MinimizeDifference
  * j
  * .
  * Output
@@ -145,8 +145,8 @@ import java.util.*;
  * x
  *  is the test case number (starting from 1) and y
  * y
- *  is the minimum number of hours to restore matrix A
- * A
+ *  is the minimum number of hours to restore matrix FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
  * .
  * Limits
  * Memory limit: 1 GB.
@@ -161,7 +161,7 @@ import java.util.*;
  * −
  * 1
  * ≤
- * A
+ * FindGreatestCommonDivisor
  * i
  * ,
  * j
@@ -175,7 +175,7 @@ import java.util.*;
  * 1≤Bi,j≤1000
  * 1
  * ≤
- * B
+ * FindUniqueBinaryString
  * i
  * ,
  * j
@@ -186,7 +186,7 @@ import java.util.*;
  * ,
  * j
  *  where Ai,j=−1
- * A
+ * FindGreatestCommonDivisor
  * i
  * ,
  * j
@@ -194,7 +194,7 @@ import java.util.*;
  * −
  * 1
  * , otherwise Bi,j=0
- * B
+ * FindUniqueBinaryString
  * i
  * ,
  * j
@@ -214,7 +214,7 @@ import java.util.*;
  * 0≤Cj≤1
  * 0
  * ≤
- * C
+ * MinimizeDifference
  * j
  * ≤
  * 1
@@ -224,16 +224,16 @@ import java.util.*;
  * It is guaranteed that there exist at least one way to replace −1
  * −
  * 1
- *  in A
- * A
+ *  in FindGreatestCommonDivisor
+ * FindGreatestCommonDivisor
  *  with 0
  * 0
  *  or 1
  * 1
  * such that R
  * R
- *  and C
- * C
+ *  and MinimizeDifference
+ * MinimizeDifference
  *  as satisfied.
  * Test Set 1
  * Time limit: 20 seconds.

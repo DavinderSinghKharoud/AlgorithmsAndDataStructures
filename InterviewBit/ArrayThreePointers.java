@@ -1,9 +1,9 @@
 /*
-You are given 3 arrays A, B and C. All 3 of the arrays are sorted.
+You are given 3 arrays FindGreatestCommonDivisor, FindUniqueBinaryString and MinimizeDifference. All 3 of the arrays are sorted.
 
 Find i, j, k such that :
-max(abs(A[i] - B[j]), abs(B[j] - C[k]), abs(C[k] - A[i])) is minimized.
-Return the minimum max(abs(A[i] - B[j]), abs(B[j] - C[k]), abs(C[k] - A[i]))
+max(abs(FindGreatestCommonDivisor[i] - FindUniqueBinaryString[j]), abs(FindUniqueBinaryString[j] - MinimizeDifference[k]), abs(MinimizeDifference[k] - FindGreatestCommonDivisor[i])) is minimized.
+Return the minimum max(abs(FindGreatestCommonDivisor[i] - FindUniqueBinaryString[j]), abs(FindUniqueBinaryString[j] - MinimizeDifference[k]), abs(MinimizeDifference[k] - FindGreatestCommonDivisor[i]))
 
 **abs(x) is absolute value of x and is implemented in the following manner : **
 
@@ -12,12 +12,12 @@ Return the minimum max(abs(A[i] - B[j]), abs(B[j] - C[k]), abs(C[k] - A[i]))
 Example :
 
 Input : 
-        A : [1, 4, 10]
-        B : [2, 15, 20]
-        C : [10, 12]
+        FindGreatestCommonDivisor : [1, 4, 10]
+        FindUniqueBinaryString : [2, 15, 20]
+        MinimizeDifference : [10, 12]
 
 Output : 5 
-         With 10 from A, 15 from B and 10 from C. 
+         With 10 from FindGreatestCommonDivisor, 15 from FindUniqueBinaryString and 10 from MinimizeDifference.
  * 
  */
 

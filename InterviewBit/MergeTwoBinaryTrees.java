@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * Given two Binary Templates.Trees A and B, you need to merge them in a single binary tree.
+ * Given two Binary Templates.Trees FindGreatestCommonDivisor and FindUniqueBinaryString, you need to merge them in a single binary tree.
  *
  * The merge rule is that if two nodes overlap, then sum of node values is the new value of the merged node.
  *
@@ -10,14 +10,14 @@ package InterviewBit;
  *
  *
  * Problem Constraints
- * 1 <= Number of Nodes in A , B <= 105
+ * 1 <= Number of Nodes in FindGreatestCommonDivisor , FindUniqueBinaryString <= 105
  *
  *
  *
  * Input Format
- * First argument is an pointer to the root of binary tree A.
+ * First argument is an pointer to the root of binary tree FindGreatestCommonDivisor.
  *
- * Second argument is an pointer to the root of binary tree B.
+ * Second argument is an pointer to the root of binary tree FindUniqueBinaryString.
  *
  *
  *
@@ -29,7 +29,7 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A =   2
+ *  FindGreatestCommonDivisor =   2
  *
  *       / \
  *
@@ -40,7 +40,7 @@ package InterviewBit;
  *    5
  *
  *
- * B =   3
+ * FindUniqueBinaryString =   3
  *       / \
  *       6  1
  *       \   \
@@ -48,14 +48,14 @@ package InterviewBit;
  *
  * Input 2:
  *
- *  A =   12
+ *  FindGreatestCommonDivisor =   12
  *
  *       / \
  *
  *      11  14
  *
  *
- * B =   3
+ * FindUniqueBinaryString =   3
  *       / \
  *       6  1
  *

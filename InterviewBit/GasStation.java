@@ -2,7 +2,7 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Theorem 1: A road trip is only possible if the total gas available is greater or equal to the total cost for the entire roadtrip. If not we can immediatley return -1, since we cannot complete the road trip.
+ * Theorem 1: FindGreatestCommonDivisor road trip is only possible if the total gas available is greater or equal to the total cost for the entire roadtrip. If not we can immediatley return -1, since we cannot complete the road trip.
  * Theorem 2: We cannot start at a station if what we have in our tank is less than the cost to get to the next station, we must start at another station if a solution exists.
  */
 public class GasStation {

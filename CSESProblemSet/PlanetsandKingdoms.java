@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A game has n
+ * FindGreatestCommonDivisor game has n
  * n
  *  planets, connected by m
  * m

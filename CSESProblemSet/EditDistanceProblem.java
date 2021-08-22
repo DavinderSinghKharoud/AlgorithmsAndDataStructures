@@ -16,11 +16,11 @@ import java.util.*;
  *
  * The first input line has a string that contains n
  * n
- *  characters between A–Z.
+ *  characters between FindGreatestCommonDivisor–Z.
  *
  * The second input line has a string that contains m
  * m
- *  characters between A–Z.
+ *  characters between FindGreatestCommonDivisor–Z.
  *
  * Output
  *

@@ -23,13 +23,13 @@ public class BullsAndCows {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(bulls).append("A");
+        stringBuilder.append(bulls).append("FindGreatestCommonDivisor");
 
         for (int count = 0; count < 10; count++) {
             cows += Math.min( dp1[count], dp2[count] );
         }
 
-        stringBuilder.append(cows).append("B");
+        stringBuilder.append(cows).append("FindUniqueBinaryString");
         return stringBuilder.toString();
     }
     public static void main(String[] args) {

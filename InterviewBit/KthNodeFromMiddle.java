@@ -1,9 +1,9 @@
 package InterviewBit;
 
 /**
- * Given a linked list A of length N and an integer B.
+ * Given a linked list FindGreatestCommonDivisor of length N and an integer FindUniqueBinaryString.
  *
- * You need to find the value of the Bth node from the middle towards the beginning of the Linked List A.
+ * You need to find the value of the Bth node from the middle towards the beginning of the Linked List FindGreatestCommonDivisor.
  *
  * If no such element exists, then return -1.
  *
@@ -15,34 +15,34 @@ package InterviewBit;
  * Problem Constraints
  * 1 <= N <= 105
  * 1<= Value in Each Link List Node <= 103
- * 1 <= B <= 105
+ * 1 <= FindUniqueBinaryString <= 105
  *
  *
  * Input Format
- * First argument is the head pointer of the linkedlist A.
+ * First argument is the head pointer of the linkedlist FindGreatestCommonDivisor.
  *
- * Second argument is an integer B.
+ * Second argument is an integer FindUniqueBinaryString.
  *
  *
  *
  * Output Format
- * Return an integer denoting the value of the Bth from the middle towards the head of the linked list A. If no such element exists, then return -1.
+ * Return an integer denoting the value of the Bth from the middle towards the head of the linked list FindGreatestCommonDivisor. If no such element exists, then return -1.
  *
  *
  *
  * Example Input
  * Input 1:
  *
- *  A = 3 -> 4 -> 7 -> 5 -> 6 -> 1 6 -> 15 -> 61 -> 16
- *  B = 3
+ *  FindGreatestCommonDivisor = 3 -> 4 -> 7 -> 5 -> 6 -> 1 6 -> 15 -> 61 -> 16
+ *  FindUniqueBinaryString = 3
  * Input 2:
  *
- *  A = 1 -> 14 -> 6 -> 16 -> 4 -> 10
- *  B = 2
+ *  FindGreatestCommonDivisor = 1 -> 14 -> 6 -> 16 -> 4 -> 10
+ *  FindUniqueBinaryString = 2
  * Input 3:
  *
- *  A = 1 -> 14 -> 6 -> 16 -> 4 -> 10
- *  B = 10
+ *  FindGreatestCommonDivisor = 1 -> 14 -> 6 -> 16 -> 4 -> 10
+ *  FindUniqueBinaryString = 10
  *
  *
  * Example Output

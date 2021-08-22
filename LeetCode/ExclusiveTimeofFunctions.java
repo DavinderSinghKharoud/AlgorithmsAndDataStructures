@@ -9,7 +9,7 @@ import java.util.*;
  *
  * Each log is a string with this format: "{function_id}:{"start" | "end"}:{timestamp}".  For example, "0:start:3" means the function with id 0 started at the beginning of timestamp 3.  "1:end:2" means the function with id 1 ended at the end of timestamp 2.
  *
- * A function's exclusive time is the number of units of time spent in this function.  Note that this does not include any recursive calls to child functions.
+ * FindGreatestCommonDivisor function's exclusive time is the number of units of time spent in this function.  Note that this does not include any recursive calls to child functions.
  *
  * The CPU is single threaded which means that only one function is being executed at a given time unit.
  *

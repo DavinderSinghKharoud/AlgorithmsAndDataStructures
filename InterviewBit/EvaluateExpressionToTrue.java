@@ -1,5 +1,5 @@
 /*
-Given an expression, A, with operands and operators (OR , AND , XOR), in how many ways can you evaluate the expression to true, by grouping in different ways?
+Given an expression, FindGreatestCommonDivisor, with operands and operators (OR , AND , XOR), in how many ways can you evaluate the expression to true, by grouping in different ways?
 
 Operands are only true and false.
 
@@ -9,9 +9,9 @@ Return the number of ways to evaluate the expression modulo 103 + 3.
 
 Input Format:
 
-The first and the only argument of input will contain a string, A.
+The first and the only argument of input will contain a string, FindGreatestCommonDivisor.
 
-The string A, may contain these characters:
+The string FindGreatestCommonDivisor, may contain these characters:
     '|' will represent or operator 
     '&' will represent and operator
     '^' will represent xor operator
@@ -22,11 +22,11 @@ Output:
 Return an integer, representing the number of ways to evaluate the string.
 Constraints:
 
-1 <= length(A) <= 150
+1 <= length(FindGreatestCommonDivisor) <= 150
 Example:
 
 Input 1:
-    A = "T|F"
+    FindGreatestCommonDivisor = "T|F"
 
 Output 1:
     1
@@ -36,13 +36,13 @@ Explanation 1:
         => (T|F) = T 
 
 Input 2:
-    A = "T^T^F"
+    FindGreatestCommonDivisor = "T^T^F"
     
 Output 2:
     0
     
 Explanation 2:
-    There is no way to evaluate A to a true statement.
+    There is no way to evaluate FindGreatestCommonDivisor to a true statement.
  */
 
 //https://www.youtube.com/watch?v=oyj9tRZhmis

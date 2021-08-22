@@ -3,7 +3,7 @@ package InterviewBit;
 public class BestTimeToBuyStocks {
 
     /**
-     * ay you have an array, A, for which the ith element is the price of a given stock on day i.
+     * ay you have an array, FindGreatestCommonDivisor, for which the ith element is the price of a given stock on day i.
      * <p>
      * Design an algorithm to find the maximum profit.
      * <p>
@@ -28,7 +28,7 @@ public class BestTimeToBuyStocks {
     }
 
     /**
-     * Say you have an array, A, for which the ith element is the price of a given stock on day i.
+     * Say you have an array, FindGreatestCommonDivisor, for which the ith element is the price of a given stock on day i.
      * <p>
      * Design an algorithm to find the maximum profit. You may complete at most 2 transactions.
      * <p>
@@ -39,18 +39,18 @@ public class BestTimeToBuyStocks {
      * <p>
      * Input Format:
      * <p>
-     * The first and the only argument is an integer array, A.
+     * The first and the only argument is an integer array, FindGreatestCommonDivisor.
      * Output Format:
      * <p>
      * Return an integer, representing the maximum possible profit.
      * Constraints:
      * <p>
-     * 1 <= length(A) <= 7e5
-     * 1 <= A[i] <= 1e7
+     * 1 <= length(FindGreatestCommonDivisor) <= 7e5
+     * 1 <= FindGreatestCommonDivisor[i] <= 1e7
      * Examples:
      * <p>
      * Input 1:
-     * A = [1, 2, 1, 2]
+     * FindGreatestCommonDivisor = [1, 2, 1, 2]
      * <p>
      * Output 1:
      * 2
@@ -62,7 +62,7 @@ public class BestTimeToBuyStocks {
      * Day 3 : Sell
      * <p>
      * Input 2:
-     * A = [7, 2, 4, 8, 7]
+     * FindGreatestCommonDivisor = [7, 2, 4, 8, 7]
      * <p>
      * Output 2:
      * 6
@@ -103,7 +103,7 @@ public class BestTimeToBuyStocks {
     }
 
     /**
-     * Say you have an array, A, for which the ith element is the price of a given stock on day i.
+     * Say you have an array, FindGreatestCommonDivisor, for which the ith element is the price of a given stock on day i.
      * If you were only permitted to complete at most one transaction (i.e, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
      *
      * Return the maximum possible profit.
@@ -111,14 +111,14 @@ public class BestTimeToBuyStocks {
      *
      *
      * Problem Constraints
-     * 0 <= len(A) <= 7e5
+     * 0 <= len(FindGreatestCommonDivisor) <= 7e5
      *
-     * 1 <= A[i] <= 1e7
+     * 1 <= FindGreatestCommonDivisor[i] <= 1e7
      *
      *
      *
      * Input Format
-     * The first and the only argument is an array of integers, A.
+     * The first and the only argument is an array of integers, FindGreatestCommonDivisor.
      *
      *
      *
@@ -130,10 +130,10 @@ public class BestTimeToBuyStocks {
      * Example Input
      * Input 1:
      *
-     *  A = [1, 2]
+     *  FindGreatestCommonDivisor = [1, 2]
      * Input 2:
      *
-     *  A = [1, 4, 5, 2, 4]
+     *  FindGreatestCommonDivisor = [1, 4, 5, 2, 4]
      *
      *
      * Example Output

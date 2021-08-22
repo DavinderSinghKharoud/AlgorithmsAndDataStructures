@@ -10,9 +10,9 @@ Example:
 
 board =
 [
-  ['A','B','C','E'],
-  ['S','F','C','S'],
-  ['A','D','E','E']
+  ['FindGreatestCommonDivisor','FindUniqueBinaryString','MinimizeDifference','E'],
+  ['S','F','MinimizeDifference','S'],
+  ['FindGreatestCommonDivisor','ArraySubsetSums','E','E']
 ]
 
 Given word = "ABCCED", return true.

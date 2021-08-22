@@ -3,23 +3,23 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given an integer A, generate a square matrix filled with elements from 1 to A2 in spiral order.
+ * Given an integer FindGreatestCommonDivisor, generate a square matrix filled with elements from 1 to A2 in spiral order.
  *
  *
  *
  * Input Format:
  *
- * The first and the only argument contains an integer, A.
+ * The first and the only argument contains an integer, FindGreatestCommonDivisor.
  * Output Format:
  *
- * Return a 2-d matrix of size A x A satisfying the spiral order.
+ * Return a 2-d matrix of size FindGreatestCommonDivisor x FindGreatestCommonDivisor satisfying the spiral order.
  * Constraints:
  *
- * 1 <= A <= 1000
+ * 1 <= FindGreatestCommonDivisor <= 1000
  * Examples:
  *
  * Input 1:
- *     A = 3
+ *     FindGreatestCommonDivisor = 3
  *
  * Output 1:
  *     [   [ 1, 2, 3 ],

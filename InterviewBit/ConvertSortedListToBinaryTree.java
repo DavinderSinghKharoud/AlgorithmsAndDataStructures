@@ -3,12 +3,12 @@ package InterviewBit;
 /**
  * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
  *
- *  A height balanced BST : a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+ *  FindGreatestCommonDivisor height balanced BST : a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
  * Example :
  *
  *
- * Given A : 1 -> 2 -> 3
- * A height balanced BST  :
+ * Given FindGreatestCommonDivisor : 1 -> 2 -> 3
+ * FindGreatestCommonDivisor height balanced BST  :
  *
  *       2
  *     /   \

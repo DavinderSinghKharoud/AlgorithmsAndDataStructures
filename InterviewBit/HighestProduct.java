@@ -4,7 +4,7 @@ package InterviewBit;
 import java.util.Arrays;
 
 /**
- * Given an array A, of N integers A.
+ * Given an array FindGreatestCommonDivisor, of N integers FindGreatestCommonDivisor.
  *
  * Return the highest product possible by multiplying 3 numbers from the array.
  *
@@ -14,7 +14,7 @@ import java.util.Arrays;
  *
  * Input Format:
  *
- * The first and the only argument is an integer array A.
+ * The first and the only argument is an integer array FindGreatestCommonDivisor.
  *
  * Output Format:
  *
@@ -27,7 +27,7 @@ import java.util.Arrays;
  * Example:
  *
  * Input 1:
- * A = [1, 2, 3, 4]
+ * FindGreatestCommonDivisor = [1, 2, 3, 4]
  *
  * Output 1:
  * 24
@@ -36,7 +36,7 @@ import java.util.Arrays;
  * 2 * 3 * 4 = 24
  *
  * Input 2:
- * A = [0, -1, 3, 100, 70, 50]
+ * FindGreatestCommonDivisor = [0, -1, 3, 100, 70, 50]
  *
  * Output 2:
  * 350000

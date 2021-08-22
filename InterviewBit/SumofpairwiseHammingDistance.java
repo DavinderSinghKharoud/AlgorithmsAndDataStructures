@@ -1,19 +1,19 @@
 /*
 Hamming distance between two non-negative integers is defined as the number of positions at which the corresponding bits are different.
 
-Given an array A of N non-negative integers, find the sum of hamming distances of all pairs of integers in the array. Return the answer modulo 1000000007.
+Given an array FindGreatestCommonDivisor of N non-negative integers, find the sum of hamming distances of all pairs of integers in the array. Return the answer modulo 1000000007.
 
 
 
 Problem Constraints
-1 <= |A| <= 200000
+1 <= |FindGreatestCommonDivisor| <= 200000
 
-1 <= A[i] <= 109
+1 <= FindGreatestCommonDivisor[i] <= 109
 
 
 
 Input Format
-First and only argument is array A.
+First and only argument is array FindGreatestCommonDivisor.
 
 
 
@@ -25,10 +25,10 @@ Return one integer, the answer to the problem.
 Example Input
 Input 1:
 
- A = [1]
+ FindGreatestCommonDivisor = [1]
 Input 2:
 
- A = [2, 4, 6]
+ FindGreatestCommonDivisor = [2, 4, 6]
  */
 
 import java.util.*;

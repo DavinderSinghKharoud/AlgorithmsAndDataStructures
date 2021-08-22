@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * There are A islands and there are M bridges connecting them. Each bridge has some cost attached to it.
+ * There are FindGreatestCommonDivisor islands and there are M bridges connecting them. Each bridge has some cost attached to it.
  * <p>
  * We need to find bridges with minimal cost such that all islands are connected.
  * <p>
@@ -9,22 +9,22 @@ package InterviewBit;
  * <p>
  * Input Format:
  * <p>
- * The first argument contains an integer, A, representing the number of islands.
- * The second argument contains an 2-d integer matrix, B, of size M x 3:
- * => Island B[i][0] and B[i][1] are connected using a bridge of cost B[i][2].
+ * The first argument contains an integer, FindGreatestCommonDivisor, representing the number of islands.
+ * The second argument contains an 2-d integer matrix, FindUniqueBinaryString, of size M x 3:
+ * => Island FindUniqueBinaryString[i][0] and FindUniqueBinaryString[i][1] are connected using a bridge of cost FindUniqueBinaryString[i][2].
  * Output Format:
  * <p>
  * Return an integer representing the minimal cost required.
  * Constraints:
  * <p>
- * 1 <= A, M <= 6e4
- * 1 <= B[i][0], B[i][1] <= A
- * 1 <= B[i][2] <= 1e3
+ * 1 <= FindGreatestCommonDivisor, M <= 6e4
+ * 1 <= FindUniqueBinaryString[i][0], FindUniqueBinaryString[i][1] <= FindGreatestCommonDivisor
+ * 1 <= FindUniqueBinaryString[i][2] <= 1e3
  * Examples:
  * <p>
  * Input 1:
- * A = 4
- * B = [   [1, 2, 1]
+ * FindGreatestCommonDivisor = 4
+ * FindUniqueBinaryString = [   [1, 2, 1]
  * [2, 3, 4]
  * [1, 4, 3]
  * [4, 3, 2]
@@ -37,8 +37,8 @@ package InterviewBit;
  * We can choose bridges (1, 2, 1), (1, 4, 3) and (4, 3, 2), where the total cost incurred will be (1 + 3 + 2) = 6.
  * <p>
  * Input 2:
- * A = 4
- * B = [   [1, 2, 1]
+ * FindGreatestCommonDivisor = 4
+ * FindUniqueBinaryString = [   [1, 2, 1]
  * [2, 3, 2]
  * [3, 4, 4]
  * [1, 4, 3]   ]

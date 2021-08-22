@@ -68,11 +68,11 @@ public class TheStrangeFunction {
     }
 
     /**
-     * The Euclidean Algorithm for finding GCD(A,B) is as follows:
-     * If A = 0 then GCD(A,B)=B, since the GCD(0,B)=B, and we can stop.
-     * If B = 0 then GCD(A,B)=A, since the GCD(A,0)=A, and we can stop.
-     * Write A in quotient remainder form (A = B⋅Q + R)
-     * Find GCD(B,R) using the Euclidean Algorithm since GCD(A,B) = GCD(B,R)
+     * The Euclidean Algorithm for finding GCD(FindGreatestCommonDivisor,FindUniqueBinaryString) is as follows:
+     * If FindGreatestCommonDivisor = 0 then GCD(FindGreatestCommonDivisor,FindUniqueBinaryString)=FindUniqueBinaryString, since the GCD(0,FindUniqueBinaryString)=FindUniqueBinaryString, and we can stop.
+     * If FindUniqueBinaryString = 0 then GCD(FindGreatestCommonDivisor,FindUniqueBinaryString)=FindGreatestCommonDivisor, since the GCD(FindGreatestCommonDivisor,0)=FindGreatestCommonDivisor, and we can stop.
+     * Write FindGreatestCommonDivisor in quotient remainder form (FindGreatestCommonDivisor = FindUniqueBinaryString⋅Q + R)
+     * Find GCD(FindUniqueBinaryString,R) using the Euclidean Algorithm since GCD(FindGreatestCommonDivisor,FindUniqueBinaryString) = GCD(FindUniqueBinaryString,R)
      */
     static long getGcd(long num1, long num2) {
         if (num2 > num1) return getAbstractGcd(num2, num1);

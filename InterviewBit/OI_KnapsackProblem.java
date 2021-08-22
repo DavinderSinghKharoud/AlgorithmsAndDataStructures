@@ -3,11 +3,11 @@ package InterviewBit;
 public class OI_KnapsackProblem {
 
 	/**
-	 * Given two integer arrays A and B of size N each which represent values and weights associated with N items respectively.
+	 * Given two integer arrays FindGreatestCommonDivisor and FindUniqueBinaryString of size N each which represent values and weights associated with N items respectively.
 	 *
-	 * Also given an integer C which represents knapsack capacity.
+	 * Also given an integer MinimizeDifference which represents knapsack capacity.
 	 *
-	 * Find out the maximum value subset of A such that sum of the weights of this subset is smaller than or equal to C.
+	 * Find out the maximum value subset of FindGreatestCommonDivisor such that sum of the weights of this subset is smaller than or equal to MinimizeDifference.
 	 *
 	 * NOTE:
 	 *
@@ -17,37 +17,37 @@ public class OI_KnapsackProblem {
 	 * Problem Constraints
 	 * 1 <= N <= 103
 	 *
-	 * 1 <= C <= 103
+	 * 1 <= MinimizeDifference <= 103
 	 *
-	 * 1 <= A[i], B[i] <= 103
+	 * 1 <= FindGreatestCommonDivisor[i], FindUniqueBinaryString[i] <= 103
 	 *
 	 *
 	 *
 	 * Input Format
-	 * First argument is an integer array A of size N denoting the values on N items.
+	 * First argument is an integer array FindGreatestCommonDivisor of size N denoting the values on N items.
 	 *
-	 * Second argument is an integer array B of size N denoting the weights on N items.
+	 * Second argument is an integer array FindUniqueBinaryString of size N denoting the weights on N items.
 	 *
-	 * Third argument is an integer C denoting the knapsack capacity.
+	 * Third argument is an integer MinimizeDifference denoting the knapsack capacity.
 	 *
 	 *
 	 *
 	 * Output Format
-	 * Return a single integer denoting the maximum value subset of A such that sum of the weights of this subset is smaller than or equal to C.
+	 * Return a single integer denoting the maximum value subset of FindGreatestCommonDivisor such that sum of the weights of this subset is smaller than or equal to MinimizeDifference.
 	 *
 	 *
 	 *
 	 * Example Input
 	 * Input 1:
 	 *
-	 *  A = [60, 100, 120]
-	 *  B = [10, 20, 30]
-	 *  C = 50
+	 *  FindGreatestCommonDivisor = [60, 100, 120]
+	 *  FindUniqueBinaryString = [10, 20, 30]
+	 *  MinimizeDifference = 50
 	 * Input 2:
 	 *
-	 *  A = [10, 20, 30, 40]
-	 *  B = [12, 13, 15, 19]
-	 *  C = 10
+	 *  FindGreatestCommonDivisor = [10, 20, 30, 40]
+	 *  FindUniqueBinaryString = [12, 13, 15, 19]
+	 *  MinimizeDifference = 10
 	 *
 	 *
 	 * Example Output

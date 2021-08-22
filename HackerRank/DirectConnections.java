@@ -9,7 +9,7 @@ import java.util.*;
  * Mr. Treat hires you to find out how much cable they need to implement this telecommunication system, given the coordination of the cities and their respective population.
  * Note that The connections between the cities can be shared. Look at the example for the detailed explanation.
  * Input Format
- * A number  is given in the first line and then comes  blocks, each representing a scenario.
+ * FindGreatestCommonDivisor number  is given in the first line and then comes  blocks, each representing a scenario.
  * Each scenario consists of three lines. The first line indicates the number of cities (N). The second line indicates the coordinates of the N cities. The third line contains the population of each of the cities. The cities needn't be in increasing order in the input.
  * Output Format
  * For each scenario of the input, write the length of cable needed in a single line modulo .

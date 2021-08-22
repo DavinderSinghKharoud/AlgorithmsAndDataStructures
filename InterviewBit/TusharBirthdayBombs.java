@@ -1,13 +1,13 @@
 /*
  It’s Tushar’s birthday today and he has N friends.
 
-Friends are numbered [0, 1, 2, …., N-1] and i-th friend have a positive strength B[i].
+Friends are numbered [0, 1, 2, …., N-1] and i-th friend have a positive strength FindUniqueBinaryString[i].
 
 Today being his birthday, his friends have planned to give him birthday bombs (kicks :P).
 
 Tushar’s friends know Tushar’s pain bearing limit and would hit accordingly.
 
-If Tushar’s resistance is denoted by A (>=0) then find the lexicographically smallest order of friends to kick Tushar so that the cumulative kick strength (sum of the strengths of friends who kicks) doesn’t exceed his resistance capacity and total no. of kicks hit are maximum.
+If Tushar’s resistance is denoted by FindGreatestCommonDivisor (>=0) then find the lexicographically smallest order of friends to kick Tushar so that the cumulative kick strength (sum of the strengths of friends who kicks) doesn’t exceed his resistance capacity and total no. of kicks hit are maximum.
 
 Also note that each friend can kick unlimited number of times (If a friend hits x times, his strength will be counted x times)
 
@@ -19,21 +19,21 @@ Note:
 2. Input cases are such that the length of the answer does not exceed 100000.
 Input Format:
 
-The first argument contains an integer, A of length N.
-The second argument contains an array of integers, B.
+The first argument contains an integer, FindGreatestCommonDivisor of length N.
+The second argument contains an array of integers, FindUniqueBinaryString.
 Output Format:
 
 Return an array of integer, as described in the problem statement.
 Constraints:
 
 1 <= N <= 100
-1 <= A <= 15000000
-1 <= B[i] <= 3000
+1 <= FindGreatestCommonDivisor <= 15000000
+1 <= FindUniqueBinaryString[i] <= 3000
 Examples:
 
 Input 1:
-    A = 12
-    B = [3, 4]
+    FindGreatestCommonDivisor = 12
+    FindUniqueBinaryString = [3, 4]
 
 Output 1:
     [0, 0, 0, 0]
@@ -42,8 +42,8 @@ Explanation 1:
     [1, 1, 1] is also a possible answer.
 
 Input 2:
-    A = 11
-    B = [6, 8, 5, 4, 7]
+    FindGreatestCommonDivisor = 11
+    FindUniqueBinaryString = [6, 8, 5, 4, 7]
 
 Output 2:
     [0, 2]

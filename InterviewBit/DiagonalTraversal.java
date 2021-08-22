@@ -5,7 +5,7 @@ package InterviewBit;
  * <p>
  * Consider lines of slope -1 passing between nodes.
  * <p>
- * Given a Binary Tree A containing N nodes, return all diagonal elements in a binary tree belonging to same line.
+ * Given a Binary Tree FindGreatestCommonDivisor containing N nodes, return all diagonal elements in a binary tree belonging to same line.
  * <p>
  * NOTE:
  * <p>
@@ -20,7 +20,7 @@ package InterviewBit;
  * <p>
  * <p>
  * Input Format
- * First and only Argument represents the root of binary tree A.
+ * First and only Argument represents the root of binary tree FindGreatestCommonDivisor.
  * <p>
  * <p>
  * <p>

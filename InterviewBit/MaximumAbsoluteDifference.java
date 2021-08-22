@@ -2,11 +2,11 @@ package InterviewBit;
 
 /**
  * You are given an array of N integers, A1, A2 ,…, AN. Return maximum value of f(i, j) for all 1 ≤ i, j ≤ N.
- * f(i, j) is defined as |A[i] - A[j]| + |i - j|, where |x| denotes absolute value of x.
+ * f(i, j) is defined as |FindGreatestCommonDivisor[i] - FindGreatestCommonDivisor[j]| + |i - j|, where |x| denotes absolute value of x.
  *
  * For example,
  *
- * A=[1, 3, -1]
+ * FindGreatestCommonDivisor=[1, 3, -1]
  *
  * f(1, 1) = f(2, 2) = f(3, 3) = 0
  * f(1, 2) = f(2, 1) = |1 - 3| + |1 - 2| = 3
@@ -21,11 +21,11 @@ public class MaximumAbsoluteDifference {
 
     public static int maxArr(List<Integer> lst) {
 		
-		int max1 = Integer.MIN_VALUE; //A(x) - x
-		int min1 = Integer.MAX_VALUE; //A(y) + y
+		int max1 = Integer.MIN_VALUE; //FindGreatestCommonDivisor(x) - x
+		int min1 = Integer.MAX_VALUE; //FindGreatestCommonDivisor(y) + y
 		
-		int max2 = Integer.MIN_VALUE; // A(x) - x
-		int min2 = Integer.MAX_VALUE; // A(y) - y
+		int max2 = Integer.MIN_VALUE; // FindGreatestCommonDivisor(x) - x
+		int min2 = Integer.MAX_VALUE; // FindGreatestCommonDivisor(y) - y
 		
 		
 		for( int index = 0; index < lst.size(); index++ ){

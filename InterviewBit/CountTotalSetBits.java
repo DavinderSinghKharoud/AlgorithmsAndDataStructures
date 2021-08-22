@@ -2,34 +2,34 @@ package InterviewBit;
 
 /**
  *
- Given a positive integer A, the task is to count the total number of set bits in the binary representation of all the numbers from 1 to A.
+ Given a positive integer FindGreatestCommonDivisor, the task is to count the total number of set bits in the binary representation of all the numbers from 1 to FindGreatestCommonDivisor.
 
  Return the count modulo 109 + 7.
 
 
 
  Problem Constraints
- 1 <= A <= 109
+ 1 <= FindGreatestCommonDivisor <= 109
 
 
 
  Input Format
- First and only argument is an integer A.
+ First and only argument is an integer FindGreatestCommonDivisor.
 
 
 
  Output Format
- Return an integer denoting the ( Total number of set bits in the binary representation of all the numbers from 1 to A )modulo 109 + 7.
+ Return an integer denoting the ( Total number of set bits in the binary representation of all the numbers from 1 to FindGreatestCommonDivisor )modulo 109 + 7.
 
 
 
  Example Input
  Input 1:
 
- A = 3
+ FindGreatestCommonDivisor = 3
  Input 2:
 
- A = 1
+ FindGreatestCommonDivisor = 1
 
 
  Example Output
@@ -52,7 +52,7 @@ package InterviewBit;
  Answer = 4 % 1000000007 = 4
  Explanation 2:
 
- A = 1
+ FindGreatestCommonDivisor = 1
  DECIMAL    BINARY  SET BIT COUNT
  1          01        1
  Answer = 1 % 1000000007 = 1
@@ -121,14 +121,14 @@ public class CountTotalSetBits {
 	 *
 	 * Example: Consider N = 14
 	 * From the table above, there will be 28 set bits in total from 1 to 14.
-	 * We will be considering 20 as A, 21 as B, 22 as C and 23 as D
+	 * We will be considering 20 as FindGreatestCommonDivisor, 21 as FindUniqueBinaryString, 22 as MinimizeDifference and 23 as ArraySubsetSums
 	 *
 	 * First of all we will add 1 to number N, So now our N = 14 + 1 = 15.
 	 *
-	 * Calculation for A (20 = 1)
+	 * Calculation for FindGreatestCommonDivisor (20 = 1)
 	 * 15/2 = 7
-	 * Number of set bits in A = 7 ————> (i)
-	 * Calculation for B (2^1 = 2)
+	 * Number of set bits in FindGreatestCommonDivisor = 7 ————> (i)
+	 * Calculation for FindUniqueBinaryString (2^1 = 2)
 	 * 15/2 = 7 => there are 7 groups of 0s and 1s
 	 * Now, to compute number of groups of set bits only, we have to divide that by 2.
 	 * So, 7/2 = 3. There are 3 set bit groups.
@@ -138,14 +138,14 @@ public class CountTotalSetBits {
 	 * There may be some extra 1s in this because 4th group is not considered, as this division will give us only integer value. So we have to add that as well. Note: – This will happen only when number of groups of 0s and 1s is odd.
 	 * 15%2 = 1 —>(2ii)
 	 * 2i + 2ii => 6 + 1 = 7 ————>(ii)
-	 * Calculation for C (2^2 = 4)
+	 * Calculation for MinimizeDifference (2^2 = 4)
 	 * 15/4 = 3 => there are 3 groups of 0s and 1s
 	 * Number of set bit groups = 3/2 = 1
 	 * Number of set bits in those groups = 1*4 = 4 —> (3i)
 	 * As 3 is odd, we have to add bits in the group which is not considered
 	 * So, 15%4 = 3 —> (3ii)
 	 * 3i + 3ii = 4 + 3 = 7 ————>(iii)
-	 * Calculation for D (2^3 = 8)
+	 * Calculation for ArraySubsetSums (2^3 = 8)
 	 * 15/8 = 1 => there is 1 group of 0s and 1s. Now in this case there is only one group and that too of only 0.
 	 * Number of set bit groups = 1/2 = 0
 	 * Number of set bits in those groups = 0 * 8 = 0 —> (4i)
@@ -166,9 +166,9 @@ public class CountTotalSetBits {
 
 		int powerOfTwo = 2;
 
-		//EX: Calculation for A (20 = 1)
+		//EX: Calculation for FindGreatestCommonDivisor (20 = 1)
 		//15/2 = 7
-		//Number of set bits in A = 7
+		//Number of set bits in FindGreatestCommonDivisor = 7
 		int res = num/2; //Minimum half
 		int mod = 1000000007;
 		while ( powerOfTwo <= num ){

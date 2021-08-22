@@ -223,7 +223,7 @@ import java.util.*;
 
  After printing a query or printing the answer, do not forget to output end of line and flush the output. Otherwise, you will get Idleness limit exceeded. To do this, use:
 
- fflush(stdout) or cout.flush() in C++;
+ fflush(stdout) or cout.flush() in MinimizeDifference++;
  System.out.flush() in Java;
  flush(output) in Pascal;
  stdout.flush() in Python;

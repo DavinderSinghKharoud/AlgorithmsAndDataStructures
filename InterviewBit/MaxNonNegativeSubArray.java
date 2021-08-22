@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * Given an array of integers, A of length N, find out the maximum sum sub-array of non negative numbers from A.
+ * Given an array of integers, FindGreatestCommonDivisor of length N, find out the maximum sum sub-array of non negative numbers from FindGreatestCommonDivisor.
  *
  * The sub-array should be contiguous i.e., a sub-array created by choosing the second and fourth element and skipping the third element is invalid.
  *
@@ -17,27 +17,27 @@ package InterviewBit;
  *
  * Problem Constraints
  * 1 <= N <= 105
- * -109 <= A[i] <= 109
+ * -109 <= FindGreatestCommonDivisor[i] <= 109
  *
  *
  *
  * Input Format
- * The first and the only argument of input contains an integer array A, of length N.
+ * The first and the only argument of input contains an integer array FindGreatestCommonDivisor, of length N.
  *
  *
  *
  * Output Format
- * Return an array of integers, that is a subarray of A that satisfies the given conditions.
+ * Return an array of integers, that is a subarray of FindGreatestCommonDivisor that satisfies the given conditions.
  *
  *
  *
  * Example Input
  * Input 1:
  *
- *  A = [1, 2, 5, -7, 2, 3]
+ *  FindGreatestCommonDivisor = [1, 2, 5, -7, 2, 3]
  * Input 2:
  *
- *  A = [10, -1, 2, 3, -4, 100]
+ *  FindGreatestCommonDivisor = [10, -1, 2, 3, -4, 100]
  *
  *
  * Example Output

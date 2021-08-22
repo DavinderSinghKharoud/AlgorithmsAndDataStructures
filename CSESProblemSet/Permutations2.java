@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 import java.util.*;
 
 /**
- * A permutation of integers 1,2,…,n
+ * FindGreatestCommonDivisor permutation of integers 1,2,…,n
  * 1
  * ,
  * 2

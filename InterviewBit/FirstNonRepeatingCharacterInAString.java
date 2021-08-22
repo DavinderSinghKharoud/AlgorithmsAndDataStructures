@@ -3,9 +3,9 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given a string A denoting a stream of lowercase alphabets. You have to make new string B.
+ * Given a string FindGreatestCommonDivisor denoting a stream of lowercase alphabets. You have to make new string FindUniqueBinaryString.
  *
- * B is formed such that we have to find first non-repeating character each time a character is inserted to the stream and append it at the end to B. If no non-repeating character is found then append '#' at the end of B.
+ * FindUniqueBinaryString is formed such that we have to find first non-repeating character each time a character is inserted to the stream and append it at the end to FindUniqueBinaryString. If no non-repeating character is found then append '#' at the end of FindUniqueBinaryString.
  *
  *
  *
@@ -15,22 +15,22 @@ import java.util.*;
  *
  *
  * Input Format
- * The only argument given is string A.
+ * The only argument given is string FindGreatestCommonDivisor.
  *
  *
  *
  * Output Format
- * Return a string B after processing the stream of lowercase alphabets A.
+ * Return a string FindUniqueBinaryString after processing the stream of lowercase alphabets FindGreatestCommonDivisor.
  *
  *
  *
  * Example Input
  * Input 1:
  *
- *  A = "abadbc"
+ *  FindGreatestCommonDivisor = "abadbc"
  * Input 2:
  *
- *  A = "abcabc"
+ *  FindGreatestCommonDivisor = "abcabc"
  *
  *
  * Example Output

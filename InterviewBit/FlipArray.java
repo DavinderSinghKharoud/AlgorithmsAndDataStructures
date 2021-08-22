@@ -8,10 +8,10 @@ Sum of all the elements will not exceed 10,000.
 
 Example:
 
-A = [15, 10, 6]
+FindGreatestCommonDivisor = [15, 10, 6]
 ans = 1 (Here, we will flip the sign of 15 and the resultant sum will be 1 )
 
-A = [14, 10, 4]
+FindGreatestCommonDivisor = [14, 10, 4]
 ans = 1 (Here, we will flip the sign of 14 and the resultant sum will be 0)
  */
 

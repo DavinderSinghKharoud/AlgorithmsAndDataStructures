@@ -4,9 +4,9 @@ import java.util.*;
 public class MatrixMedian {
 
 	/**
-	 * Given a matrix of integers A of size N x M in which each row is sorted.
+	 * Given a matrix of integers FindGreatestCommonDivisor of size N x M in which each row is sorted.
 	 *
-	 * Find an return the overall median of the matrix A.
+	 * Find an return the overall median of the matrix FindGreatestCommonDivisor.
 	 *
 	 * Note: No extra memory is allowed.
 	 *
@@ -16,30 +16,30 @@ public class MatrixMedian {
 	 *
 	 * Input Format
 	 *
-	 * The first and only argument given is the integer matrix A.
+	 * The first and only argument given is the integer matrix FindGreatestCommonDivisor.
 	 * Output Format
 	 *
-	 * Return the overall median of the matrix A.
+	 * Return the overall median of the matrix FindGreatestCommonDivisor.
 	 * Constraints
 	 *
 	 * 1 <= N, M <= 10^5
 	 * 1 <= N*M  <= 10^6
-	 * 1 <= A[i] <= 10^9
+	 * 1 <= FindGreatestCommonDivisor[i] <= 10^9
 	 * N*M is odd
 	 * For Example
 	 *
 	 * Input 1:
-	 *     A = [   [1, 3, 5],
+	 *     FindGreatestCommonDivisor = [   [1, 3, 5],
 	 *             [2, 6, 9],
 	 *             [3, 6, 9]   ]
 	 * Output 1:
 	 *     5
 	 * Explanation 1:
-	 *     A = [1, 2, 3, 3, 5, 6, 6, 9, 9]
+	 *     FindGreatestCommonDivisor = [1, 2, 3, 3, 5, 6, 6, 9, 9]
 	 *     Median is 5. So, we return 5.
 	 *
 	 * Input 2:
-	 *     A = [   [5, 17, 100]    ]
+	 *     FindGreatestCommonDivisor = [   [5, 17, 100]    ]
 	 * Output 2:
 	 *     17 ``` Matrix=
 	 * @param lst

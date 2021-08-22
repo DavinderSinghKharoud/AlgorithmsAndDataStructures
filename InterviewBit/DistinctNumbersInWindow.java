@@ -3,17 +3,17 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * You are given an array of N integers, A1, A2 ,..., AN and an integer B. Return the of count of distinct numbers in all windows of size B.
+ * You are given an array of N integers, A1, A2 ,..., AN and an integer FindUniqueBinaryString. Return the of count of distinct numbers in all windows of size FindUniqueBinaryString.
  *
- * Formally, return an array of size N-B+1 where i'th element in this array contains number of distinct elements in sequence Ai, Ai+1 ,..., Ai+B-1.
+ * Formally, return an array of size N-FindUniqueBinaryString+1 where i'th element in this array contains number of distinct elements in sequence Ai, Ai+1 ,..., Ai+FindUniqueBinaryString-1.
  *
- * NOTE: if B > N, return an empty array.
+ * NOTE: if FindUniqueBinaryString > N, return an empty array.
  *
  *
  *
  * Input Format
- * First argument is an integer array A
- * Second argument is an integer B.
+ * First argument is an integer array FindGreatestCommonDivisor
+ * Second argument is an integer FindUniqueBinaryString.
  *
  *
  *
@@ -25,12 +25,12 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A = [1, 2, 1, 3, 4, 3]
- *  B = 3
+ *  FindGreatestCommonDivisor = [1, 2, 1, 3, 4, 3]
+ *  FindUniqueBinaryString = 3
  * Input 2:
  *
- *  A = [1, 1, 2, 2]
- *  B = 1
+ *  FindGreatestCommonDivisor = [1, 1, 2, 2]
+ *  FindUniqueBinaryString = 1
  *
  *
  * Example Output
@@ -45,8 +45,8 @@ package InterviewBit;
  * Example Explanation
  * Explanation 1:
  *
- *  A=[1, 2, 1, 3, 4, 3] and B = 3
- *  All windows of size B are
+ *  FindGreatestCommonDivisor=[1, 2, 1, 3, 4, 3] and FindUniqueBinaryString = 3
+ *  All windows of size FindUniqueBinaryString are
  *  [1, 2, 1]
  *  [2, 1, 3]
  *  [1, 3, 4]

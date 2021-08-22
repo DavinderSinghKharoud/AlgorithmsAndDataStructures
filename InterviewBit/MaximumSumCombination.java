@@ -3,34 +3,34 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given two equally sized 1-D arrays A, B containing N integers each.
+ * Given two equally sized 1-ArraySubsetSums arrays FindGreatestCommonDivisor, FindUniqueBinaryString containing N integers each.
  *
- * A sum combination is made by adding one element from array A and another element of array B.
+ * FindGreatestCommonDivisor sum combination is made by adding one element from array FindGreatestCommonDivisor and another element of array FindUniqueBinaryString.
  *
- * Return the maximum C valid sum combinations from all the possible sum combinations.
+ * Return the maximum MinimizeDifference valid sum combinations from all the possible sum combinations.
  *
  *
  *
  * Problem Constraints
  * 1 <= N <= 105
  *
- * 1 <= A[i] <= 103
+ * 1 <= FindGreatestCommonDivisor[i] <= 103
  *
- * 1 <= C <= N
+ * 1 <= MinimizeDifference <= N
  *
  *
  *
  * Input Format
- * First argument is an one-dimensional integer array A of size N.
+ * First argument is an one-dimensional integer array FindGreatestCommonDivisor of size N.
  *
- * Second argument is an one-dimensional integer array B of size N.
+ * Second argument is an one-dimensional integer array FindUniqueBinaryString of size N.
  *
- * Third argument is an integer C.
+ * Third argument is an integer MinimizeDifference.
  *
  *
  *
  * Output Format
- * Return a one-dimensional integer array of size C denoting the top C maximum sum combinations.
+ * Return a one-dimensional integer array of size MinimizeDifference denoting the top MinimizeDifference maximum sum combinations.
  *
  * NOTE:
  *
@@ -41,14 +41,14 @@ import java.util.*;
  * Example Input
  * Input 1:
  *
- *  A = [3, 2]
- *  B = [1, 4]
- *  C = 2
+ *  FindGreatestCommonDivisor = [3, 2]
+ *  FindUniqueBinaryString = [1, 4]
+ *  MinimizeDifference = 2
  * Input 2:
  *
- *  A = [1, 4, 2, 3]
- *  B = [2, 5, 1, 6]
- *  C = 4
+ *  FindGreatestCommonDivisor = [1, 4, 2, 3]
+ *  FindUniqueBinaryString = [2, 5, 1, 6]
+ *  MinimizeDifference = 4
  *
  *
  * Example Output
@@ -63,14 +63,14 @@ import java.util.*;
  * Example Explanation
  * Explanation 1:
  *
- *  7     (A : 3) + (B : 4)
- *  6     (A : 2) + (B : 4)
+ *  7     (FindGreatestCommonDivisor : 3) + (FindUniqueBinaryString : 4)
+ *  6     (FindGreatestCommonDivisor : 2) + (FindUniqueBinaryString : 4)
  * Explanation 2:
  *
- *  10   (A : 4) + (B : 6)
- *  9   (A : 4) + (B : 5)
- *  9   (A : 3) + (B : 6)
- *  8   (A : 3) + (B : 5)
+ *  10   (FindGreatestCommonDivisor : 4) + (FindUniqueBinaryString : 6)
+ *  9   (FindGreatestCommonDivisor : 4) + (FindUniqueBinaryString : 5)
+ *  9   (FindGreatestCommonDivisor : 3) + (FindUniqueBinaryString : 6)
+ *  8   (FindGreatestCommonDivisor : 3) + (FindUniqueBinaryString : 5)
  */
 
 public class MaximumSumCombination {

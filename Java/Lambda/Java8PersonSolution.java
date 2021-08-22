@@ -22,22 +22,22 @@ public class Java8PersonSolution {
         Collections.sort( people, ( p1, p2 ) -> p1.getLastName().compareTo(p2.getLastName()));
 
 
-        //Create a method that prints all people that have last name beginning with C
+        //Create a method that prints all people that have last name beginning with MinimizeDifference
 //        printConditionally( people, new Condition() {
 //            @Override
 //            public boolean test(Person p) {
-//                return p.getLastName().startsWith("C");
+//                return p.getLastName().startsWith("MinimizeDifference");
 //            }
 //        });
 
         System.out.println("Printing all the persons with last beginning");
-        printConditionally( people, (p) -> p.getLastName().startsWith("C"));
+        printConditionally( people, (p) -> p.getLastName().startsWith("MinimizeDifference"));
 
         System.out.println("Print all persons");
         printConditionally( people, p -> true);
 
         System.out.println("Perform conditionally");
-        performConditionally( people, p -> p.getLastName().startsWith("C"), p -> System.out.println(p));
+        performConditionally( people, p -> p.getLastName().startsWith("MinimizeDifference"), p -> System.out.println(p));
 
     }
 

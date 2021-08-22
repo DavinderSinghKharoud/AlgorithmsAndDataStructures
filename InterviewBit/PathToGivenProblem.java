@@ -3,14 +3,14 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given a Binary Tree A containing N nodes.
+ * Given a Binary Tree FindGreatestCommonDivisor containing N nodes.
  *
- * You need to find the path from Root to a given node B.
+ * You need to find the path from Root to a given node FindUniqueBinaryString.
  *
  * NOTE:
  *
  * No two nodes in the tree have same data values.
- * You can assume that B is present in the tree A and a path always exists.
+ * You can assume that FindUniqueBinaryString is present in the tree FindGreatestCommonDivisor and a path always exists.
  *
  *
  * Problem Constraints
@@ -18,26 +18,26 @@ import java.util.*;
  *
  * 1 <= Data Values of Each Node <= N
  *
- * 1 <= B <= N
+ * 1 <= FindUniqueBinaryString <= N
  *
  *
  *
  * Input Format
- * First Argument represents pointer to the root of binary tree A.
+ * First Argument represents pointer to the root of binary tree FindGreatestCommonDivisor.
  *
- * Second Argument is an integer B denoting the node number.
+ * Second Argument is an integer FindUniqueBinaryString denoting the node number.
  *
  *
  *
  * Output Format
- * Return an one-dimensional array denoting the path from Root to the node B in order.
+ * Return an one-dimensional array denoting the path from Root to the node FindUniqueBinaryString in order.
  *
  *
  *
  * Example Input
  * Input 1:
  *
- *  A =
+ *  FindGreatestCommonDivisor =
  *
  *            1
  *          /   \
@@ -46,11 +46,11 @@ import java.util.*;
  *       4   5 6   7
  *
  *
- * B = 5
+ * FindUniqueBinaryString = 5
  *
  * Input 2:
  *
- *  A =
+ *  FindGreatestCommonDivisor =
  *             1
  *           /   \
  *          2     3
@@ -58,7 +58,7 @@ import java.util.*;
  *        4   5 .   6
  *
  *
- * B = 1
+ * FindUniqueBinaryString = 1
  *
  *
  *

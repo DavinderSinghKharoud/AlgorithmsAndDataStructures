@@ -3,7 +3,7 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a Linked List A consisting of N nodes.
+ * Given a Linked List FindGreatestCommonDivisor consisting of N nodes.
  *
  * The Linked List is binary i.e data values in the linked list nodes consist of only 0's and 1's.
  *
@@ -17,12 +17,12 @@ package InterviewBit;
  * Problem Constraints
  * 1 <= N <= 105
  *
- * A.val = 0 or A.val = 1
+ * FindGreatestCommonDivisor.val = 0 or FindGreatestCommonDivisor.val = 1
  *
  *
  *
  * Input Format
- * First and only argument is the head pointer of the linkedlist A.
+ * First and only argument is the head pointer of the linkedlist FindGreatestCommonDivisor.
  *
  *
  *

@@ -5,12 +5,12 @@ import java.util.*;
 /**
  * Problem Description
  * <p>
- * Given an array A of integers, find the maximum of j - i subjected to the constraint of A[i] <= A[j].
+ * Given an array FindGreatestCommonDivisor of integers, find the maximum of j - i subjected to the constraint of FindGreatestCommonDivisor[i] <= FindGreatestCommonDivisor[j].
  * <p>
  * <p>
  * <p>
  * Input Format
- * First and only argument is an integer array A.
+ * First and only argument is an integer array FindGreatestCommonDivisor.
  * <p>
  * <p>
  * <p>
@@ -22,7 +22,7 @@ import java.util.*;
  * Example Input
  * Input 1:
  * <p>
- * A = [3, 5, 4, 2]
+ * FindGreatestCommonDivisor = [3, 5, 4, 2]
  * <p>
  * <p>
  * Example Output

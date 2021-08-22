@@ -3,7 +3,7 @@ package Templates.Trees;
 /**
  * * Write a program to implement fenwick or binary indexed tree
  * *
- * * A Fenwick tree or binary indexed tree is a data structure providing efficient methods
+ * * FindGreatestCommonDivisor Fenwick tree or binary indexed tree is a data structure providing efficient methods
  * * for calculation and manipulation of the prefix sums of a table of values.
  * *
  * * Space complexity for fenwick tree is O(n)

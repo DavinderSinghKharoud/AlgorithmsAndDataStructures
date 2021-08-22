@@ -3,7 +3,7 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a binary tree A with N nodes.
+ * Given a binary tree FindGreatestCommonDivisor with N nodes.
  *
  * You have to remove all the half nodes and return the final binary tree.
  *
@@ -19,7 +19,7 @@ package InterviewBit;
  *
  *
  * Input Format
- * First and only argument is an pointer to the root of binary tree A.
+ * First and only argument is an pointer to the root of binary tree FindGreatestCommonDivisor.
  *
  *
  *

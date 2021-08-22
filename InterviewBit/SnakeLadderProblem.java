@@ -7,34 +7,34 @@ import java.util.*;
  * <p>
  * RULES:
  * <p>
- * The game is played with cubic dice of 6 faces numbered from 1 to A.
+ * The game is played with cubic dice of 6 faces numbered from 1 to FindGreatestCommonDivisor.
  * Starting from 1 , land on square 100 with the exact roll of the die. If moving the number rolled would place the player beyond square 100, no move is made.
  * If a player lands at the base of a ladder, the player must climb the ladder. Ladders go up only.
  * If a player lands at the mouth of a snake, the player must go down the snake and come out through the tail. Snakes go down only.
  * BOARD DESCRIPTION:
  * <p>
  * The board is always 10 x 10 with squares numbered from 1 to 100.
- * The board contains N ladders given in a form of 2D matrix A of size N * 2 where (A[i][0], A[i][1]) denotes a ladder that has its base on square A[i][0] and end at square A[i][1].
- * The board contains M snakes given in a form of 2D matrix B of size M * 2 where (B[i][0], B[i][1]) denotes a snake that has its mouth on square B[i][0] and tail at square B[i][1].
+ * The board contains N ladders given in a form of 2D matrix FindGreatestCommonDivisor of size N * 2 where (FindGreatestCommonDivisor[i][0], FindGreatestCommonDivisor[i][1]) denotes a ladder that has its base on square FindGreatestCommonDivisor[i][0] and end at square FindGreatestCommonDivisor[i][1].
+ * The board contains M snakes given in a form of 2D matrix FindUniqueBinaryString of size M * 2 where (FindUniqueBinaryString[i][0], FindUniqueBinaryString[i][1]) denotes a snake that has its mouth on square FindUniqueBinaryString[i][0] and tail at square FindUniqueBinaryString[i][1].
  * <p>
  * <p>
  * Problem Constraints
  * 1 <= N, M <= 15
  * <p>
- * 1 <= A[i][0], A[i][1], B[i][0], B[i][1] <= 100
+ * 1 <= FindGreatestCommonDivisor[i][0], FindGreatestCommonDivisor[i][1], FindUniqueBinaryString[i][0], FindUniqueBinaryString[i][1] <= 100
  * <p>
- * A[i][0] < A[i][1] and B[i][0] > B[i][1]
+ * FindGreatestCommonDivisor[i][0] < FindGreatestCommonDivisor[i][1] and FindUniqueBinaryString[i][0] > FindUniqueBinaryString[i][1]
  * <p>
  * Neither square 1 nor square 100 will be the starting point of a ladder or snake.
  * <p>
- * A square will have at most one endpoint from either a snake or a ladder.
+ * FindGreatestCommonDivisor square will have at most one endpoint from either a snake or a ladder.
  * <p>
  * <p>
  * <p>
  * Input Format
- * First argument is a 2D matrix A of size N * 2 where (A[i][0], A[i][1]) denotes a ladder that has its base on square A[i][0] and end at square A[i][1].
+ * First argument is a 2D matrix FindGreatestCommonDivisor of size N * 2 where (FindGreatestCommonDivisor[i][0], FindGreatestCommonDivisor[i][1]) denotes a ladder that has its base on square FindGreatestCommonDivisor[i][0] and end at square FindGreatestCommonDivisor[i][1].
  * <p>
- * Second argument is a 2D matrix B of size M * 2 where (B[i][0], B[i][1]) denotes a snake that has its mouth on square B[i][0] and tail at square B[i][1].
+ * Second argument is a 2D matrix FindUniqueBinaryString of size M * 2 where (FindUniqueBinaryString[i][0], FindUniqueBinaryString[i][1]) denotes a snake that has its mouth on square FindUniqueBinaryString[i][0] and tail at square FindUniqueBinaryString[i][1].
  * <p>
  * <p>
  * <p>
@@ -46,11 +46,11 @@ import java.util.*;
  * Example Input
  * Input 1:
  * <p>
- * A = [  [32, 62]
+ * FindGreatestCommonDivisor = [  [32, 62]
  * [42, 68]
  * [12, 98]
  * ]
- * B = [  [95, 13]
+ * FindUniqueBinaryString = [  [95, 13]
  * [97, 25]
  * [93, 37]
  * [79, 27]
@@ -59,12 +59,12 @@ import java.util.*;
  * [67, 17]
  * Input 2:
  * <p>
- * A = [  [8, 52]
+ * FindGreatestCommonDivisor = [  [8, 52]
  * [6, 80]
  * [26, 42]
  * [2, 72]
  * ]
- * B = [  [51, 19]
+ * FindUniqueBinaryString = [  [51, 19]
  * [39, 11]
  * [37, 29]
  * [81, 3]
@@ -87,13 +87,13 @@ import java.util.*;
  * Example Explanation
  * Explanation 1:
  * <p>
- * The player can roll a 5 and a 6 to land at square 12. There is a ladder to square 98. A roll of 2 ends the traverse in 3 rolls.
+ * The player can roll a 5 and a 6 to land at square 12. There is a ladder to square 98. FindGreatestCommonDivisor roll of 2 ends the traverse in 3 rolls.
  * <p>
  * <p>
  * Explanation 2:
  * <p>
  * The player first rolls 5 and climbs the ladder to square 80. Three rolls of 6 get to square 98.
- * A final roll of 2 lands on the target square in 5 total rolls.
+ * FindGreatestCommonDivisor final roll of 2 lands on the target square in 5 total rolls.
  */
 public class SnakeLadderProblem {
 

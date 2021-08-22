@@ -1,5 +1,5 @@
 /*
-There are two sorted arrays A and B of size m and n respectively.
+There are two sorted arrays FindGreatestCommonDivisor and FindUniqueBinaryString of size m and n respectively.
 
 Find the median of the two sorted arrays ( The median of the array formed by merging both the arrays ).
 
@@ -7,8 +7,8 @@ The overall run time complexity should be O(log (m+n)).
 
 Sample Input
 
-A : [1 4 5]
-B : [2 3]
+FindGreatestCommonDivisor : [1 4 5]
+FindUniqueBinaryString : [2 3]
 
 Sample Output
 
@@ -39,7 +39,7 @@ public class MedianOfArray {
 		while( start <= end ){
 			//Partition for X
 			int mid = (end - start)/2 + start;
-			//To make two halves, make the partition such that the index that partitioning array A[] + the index that partitioning array B[] are equal to the total number of elements plus one divided by 2, i.e. (n + m + 1) / 2 (+1 is, if the total number of elements is odd).
+			//To make two halves, make the partition such that the index that partitioning array FindGreatestCommonDivisor[] + the index that partitioning array FindUniqueBinaryString[] are equal to the total number of elements plus one divided by 2, i.e. (n + m + 1) / 2 (+1 is, if the total number of elements is odd).
 			int partitionY = ( len1 + len2 + 1 )/2 - mid;
 			
 			int maxLeftX = ( mid == 0 ) ? Integer.MIN_VALUE: X.get(mid - 1);

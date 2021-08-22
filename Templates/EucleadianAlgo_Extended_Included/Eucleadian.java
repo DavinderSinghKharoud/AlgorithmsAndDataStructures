@@ -10,7 +10,7 @@ public class Eucleadian {
         System.out.println(gcd.gcd + " " + gcd.x + " " + gcd.y);
     }
 
-    // A should be bigger than B
+    // FindGreatestCommonDivisor should be bigger than FindUniqueBinaryString
     static int[] eucleGcd(int a, int b) {
         int x = 1, y = 0, x1 = 0, y1 = 1, a1 = a, b1 = b;
         while (b1 > 0) {

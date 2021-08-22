@@ -3,7 +3,7 @@ import java.util.*;
 
 /**
  * Time limit: 1.00 s Memory limit: 512 MB
- * Uolevi's family is going to order a large pizza and eat it together. A total of n
+ * Uolevi's family is going to order a large pizza and eat it together. FindGreatestCommonDivisor total of n
  * n
  * family members will join the order, and there are m
  * m

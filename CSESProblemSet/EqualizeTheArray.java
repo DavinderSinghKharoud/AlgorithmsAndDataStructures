@@ -8,9 +8,9 @@ import java.util.*;
  of length 𝑛
  n
  . Polycarp considers an array beautiful if there exists a number 𝐶
- C
+ MinimizeDifference
  , such that each number in the array occurs either zero or 𝐶
- C
+ MinimizeDifference
  times. Polycarp wants to remove some elements from the array 𝑎
  a
  to make it beautiful.

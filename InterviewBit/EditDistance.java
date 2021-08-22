@@ -1,5 +1,5 @@
 package InterviewBit;/*
- Given two strings A and B, find the minimum number of steps required to convert A to B. (each operation is counted as 1 step.)
+ Given two strings FindGreatestCommonDivisor and FindUniqueBinaryString, find the minimum number of steps required to convert FindGreatestCommonDivisor to FindUniqueBinaryString. (each operation is counted as 1 step.)
 
 You have the following 3 operations permitted on a word:
 
@@ -10,8 +10,8 @@ Replace a character
 
 Input Format:
 
-The first argument of input contains a string, A.
-The second argument of input contains a string, B.
+The first argument of input contains a string, FindGreatestCommonDivisor.
+The second argument of input contains a string, FindUniqueBinaryString.
 Output Format:
 
 Return an integer, representing the minimum number of steps required.

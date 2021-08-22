@@ -1,5 +1,5 @@
 /*
-Given a string A, find length of the longest repeating sub-sequence such that the two subsequence don’t have same string character at same position,
+Given a string FindGreatestCommonDivisor, find length of the longest repeating sub-sequence such that the two subsequence don’t have same string character at same position,
 
 i.e., any i’th character in the two subsequences shouldn’t have the same index in the original string.
 
@@ -8,12 +8,12 @@ NOTE: Sub-sequence length should be greater than or equal to 2.
 
 
 Problem Constraints
-1 <= |A| <= 100
+1 <= |FindGreatestCommonDivisor| <= 100
 
 
 
 Input Format
-The first and the only argument of input contains a string A.
+The first and the only argument of input contains a string FindGreatestCommonDivisor.
 
 
 
@@ -27,10 +27,10 @@ Return an integer, 0 or 1:
 Example Input
 Input 1:
 
- A = "abab"
+ FindGreatestCommonDivisor = "abab"
 Input 2:
 
- A = "abba"
+ FindGreatestCommonDivisor = "abba"
 
  */
 

@@ -3,9 +3,9 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+ * Given a collection of candidate numbers (MinimizeDifference) and a target number (T), find all unique combinations in MinimizeDifference where the candidate numbers sums to T.
  *
- * Each number in C may only be used once in the combination.
+ * Each number in MinimizeDifference may only be used once in the combination.
  *
  *  Note:
  * All numbers (including target) will be positive integers.
@@ -15,7 +15,7 @@ import java.util.*;
  *
  * Given candidate set 10,1,2,7,6,1,5 and target 8,
  *
- * A solution set is:
+ * FindGreatestCommonDivisor solution set is:
  *
  * [1, 7]
  * [1, 2, 5]

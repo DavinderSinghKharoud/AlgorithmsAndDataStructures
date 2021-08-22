@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * A palindrome is a word, phrase, number, or other sequence of characters which reads the same
+ * FindGreatestCommonDivisor palindrome is a word, phrase, number, or other sequence of characters which reads the same
  * backwards and forwards. Can you determine if a given string, s, is a palindrome?
  *
  * To solve this challenge, we must first take each character in s, enqueue it in a queue,

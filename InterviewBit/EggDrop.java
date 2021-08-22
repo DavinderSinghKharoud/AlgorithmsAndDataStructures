@@ -3,17 +3,17 @@ package InterviewBit;
 import java.util.Arrays;
 
 /**
- * You are given A eggs, and you have access to a building with B floors from 1 to B.
+ * You are given FindGreatestCommonDivisor eggs, and you have access to a building with FindUniqueBinaryString floors from 1 to FindUniqueBinaryString.
  * <p>
  * Each egg is identical in function, and if an egg breaks, you cannot drop it again.
  * <p>
- * You know that there exists a floor C with 0 <= C <= B such that any egg dropped at a floor higher than C will break, and any egg dropped at or below floor C will not break.
+ * You know that there exists a floor MinimizeDifference with 0 <= MinimizeDifference <= FindUniqueBinaryString such that any egg dropped at a floor higher than MinimizeDifference will break, and any egg dropped at or below floor MinimizeDifference will not break.
  * <p>
- * Each move, you may take an egg (if you have an unbroken one) and drop it from any floor X (with 1 <= X <= B).
+ * Each move, you may take an egg (if you have an unbroken one) and drop it from any floor X (with 1 <= X <= FindUniqueBinaryString).
  * <p>
- * Your goal is to know with certainty what the value of C is.
+ * Your goal is to know with certainty what the value of MinimizeDifference is.
  * <p>
- * What is the minimum number of moves that you need to know with certainty what C is, regardless of the initial value of C
+ * What is the minimum number of moves that you need to know with certainty what MinimizeDifference is, regardless of the initial value of MinimizeDifference
  */
 public class EggDrop {
 

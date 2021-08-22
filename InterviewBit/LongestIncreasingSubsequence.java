@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * Find the longest increasing subsequence of a given array of integers, A.
+ * Find the longest increasing subsequence of a given array of integers, FindGreatestCommonDivisor.
  *
  * In other words, find a subsequence of array in which the subsequence’s elements are in strictly increasing order, and in which the subsequence is as long as possible.
  * This subsequence is not necessarily contiguous, or unique.
@@ -10,18 +10,18 @@ package InterviewBit;
  *
  * Input Format:
  *
- * The first and the only argument is an integer array A.
+ * The first and the only argument is an integer array FindGreatestCommonDivisor.
  * Output Format:
  *
  * Return an integer representing the length of the longest increasing subsequence.
  * Constraints:
  *
- * 1 <= length(A) <= 2500
- * 1 <= A[i] <= 2000
+ * 1 <= length(FindGreatestCommonDivisor) <= 2500
+ * 1 <= FindGreatestCommonDivisor[i] <= 2000
  * Example :
  *
  * Input 1:
- *     A = [1, 2, 1, 5]
+ *     FindGreatestCommonDivisor = [1, 2, 1, 5]
  *
  * Output 1:
  *     3
@@ -30,7 +30,7 @@ package InterviewBit;
  *     The sequence : [1, 2, 5]
  *
  * Input 2:
- *     A = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+ *     FindGreatestCommonDivisor = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
  *
  * Output 2:
  *     6

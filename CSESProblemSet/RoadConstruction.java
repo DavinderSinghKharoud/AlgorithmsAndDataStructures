@@ -8,7 +8,7 @@ import java.util.*;
  * m
  *  roads.
  *
- * A component is a group of cities where there is a route between any two cities using the roads. After each day, your task is to find the number of components and the size of the largest component.
+ * FindGreatestCommonDivisor component is a group of cities where there is a route between any two cities using the roads. After each day, your task is to find the number of components and the size of the largest component.
  *
  * Input
  *

@@ -1,23 +1,23 @@
 /*
-Given a 2 x N grid of integer, A, choose numbers such that the sum of the numbers
+Given a 2 x N grid of integer, FindGreatestCommonDivisor, choose numbers such that the sum of the numbers
 is maximum and no two chosen numbers are adjacent horizontally, vertically or diagonally, and return it.
 
 Note: You can choose more than 2 numbers.
 
 Input Format:
 
-The first and the only argument of input contains a 2d matrix, A.
+The first and the only argument of input contains a 2d matrix, FindGreatestCommonDivisor.
 Output Format:
 
 Return an integer, representing the maximum possible sum.
 Constraints:
 
 1 <= N <= 20000
-1 <= A[i] <= 2000
+1 <= FindGreatestCommonDivisor[i] <= 2000
 Example:
 
 Input 1:
-    A = [   [1]
+    FindGreatestCommonDivisor = [   [1]
             [2]    ]
 
 Output 1:
@@ -27,7 +27,7 @@ Explanation 1:
     We will choose 2.
 
 Input 2:
-    A = [   [1, 2, 3, 4]
+    FindGreatestCommonDivisor = [   [1, 2, 3, 4]
             [2, 3, 4, 5]    ]
     
 Output 2:

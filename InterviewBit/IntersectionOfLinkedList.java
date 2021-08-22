@@ -10,11 +10,11 @@ import java.util.Set;
  * For example, the following two linked lists:
  *
  *
- * A:          a1 → a2
+ * FindGreatestCommonDivisor:          a1 → a2
  *                    ↘
  *                      c1 → c2 → c3
  *                    ↗
- * B:     b1 → b2 → b3
+ * FindUniqueBinaryString:     b1 → b2 → b3
  *
  * begin to intersect at node c1.
  *

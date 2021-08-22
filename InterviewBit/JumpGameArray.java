@@ -1,7 +1,7 @@
 package InterviewBit;
 
 /**
- * Given an array of non-negative integers, A, you are initially positioned at the first index of the array.
+ * Given an array of non-negative integers, FindGreatestCommonDivisor, you are initially positioned at the first index of the array.
  * <p>
  * Each element in the array represents your maximum jump length at that position.
  * <p>
@@ -10,20 +10,20 @@ package InterviewBit;
  * <p>
  * Input Format:
  * <p>
- * The first and the only argument of input will be an integer array A.
+ * The first and the only argument of input will be an integer array FindGreatestCommonDivisor.
  * Output Format:
  * <p>
  * Return an integer, representing the answer as described in the problem statement.
  * => 0 : If you cannot reach the last index.
  * => 1 : If you can reach the last index.
  * Constraints:
- * 1 <= len(A) <= 1e6
- * 0 <= A[i] <= 30
+ * 1 <= len(FindGreatestCommonDivisor) <= 1e6
+ * 0 <= FindGreatestCommonDivisor[i] <= 30
  * <p>
  * Examples:
  * <p>
  * Input 1:
- * A = [2,3,1,1,4]
+ * FindGreatestCommonDivisor = [2,3,1,1,4]
  * <p>
  * Output 1:
  * 1
@@ -32,7 +32,7 @@ package InterviewBit;
  * Index 0 -> Index 2 -> Index 3 -> Index 4 -> Index 5
  * <p>
  * Input 2:
- * A = [3,2,1,0,4]
+ * FindGreatestCommonDivisor = [3,2,1,0,4]
  * <p>
  * Output 2:
  * 0

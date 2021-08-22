@@ -3,17 +3,17 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a positive integer A, return its corresponding column title as appear in an Excel sheet.
+ * Given a positive integer FindGreatestCommonDivisor, return its corresponding column title as appear in an Excel sheet.
  *
  *
  *
  * Problem Constraints
- * 1 <= A <= 1000000000
+ * 1 <= FindGreatestCommonDivisor <= 1000000000
  *
  *
  *
  * Input Format
- * First and only argument is integer A.
+ * First and only argument is integer FindGreatestCommonDivisor.
  *
  *
  *
@@ -25,16 +25,16 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A = 1
+ *  FindGreatestCommonDivisor = 1
  * Input 2:
  *
- *  A = 28
+ *  FindGreatestCommonDivisor = 28
  *
  *
  * Example Output
  * Output 1:
  *
- *  "A"
+ *  "FindGreatestCommonDivisor"
  * Output 2:
  *
  *  "AB"
@@ -43,12 +43,12 @@ package InterviewBit;
  * Example Explanation
  * Explanation 1:
  *
- *  1 -> A
+ *  1 -> FindGreatestCommonDivisor
  * Explanation 2:
  *
- * 1 -> A
- * 2 -> B
- * 3 -> C
+ * 1 -> FindGreatestCommonDivisor
+ * 2 -> FindUniqueBinaryString
+ * 3 -> MinimizeDifference
  * ...
  * 26 -> Z
  * 27 -> AA

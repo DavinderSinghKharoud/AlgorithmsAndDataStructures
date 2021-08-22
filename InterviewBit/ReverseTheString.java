@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Given a string A.
+ * Given a string FindGreatestCommonDivisor.
  *
- * Return the string A after reversing the string word by word.
+ * Return the string FindGreatestCommonDivisor after reversing the string word by word.
  *
  * NOTE:
  *
- * A sequence of non-space characters constitutes a word.
+ * FindGreatestCommonDivisor sequence of non-space characters constitutes a word.
  *
  * Your reversed string should not contain leading or trailing spaces, even if it is present in the input string.
  *
@@ -20,32 +20,32 @@ import java.util.List;
  *
  * Input Format
  *
- * The only argument given is string A.
+ * The only argument given is string FindGreatestCommonDivisor.
  * Output Format
  *
- * Return the string A after reversing the string word by word.
+ * Return the string FindGreatestCommonDivisor after reversing the string word by word.
  * For Example
  *
  * Input 1:
- *     A = "the sky is blue"
+ *     FindGreatestCommonDivisor = "the sky is blue"
  * Output 1:
  *     "blue is sky the"
  *
  * Input 2:
- *     A = "this is ib"
+ *     FindGreatestCommonDivisor = "this is ib"
  * Output 2:
  *     "ib is this"
  */
 public class ReverseTheString {
 
 	/**
-	 * Given a string A.
+	 * Given a string FindGreatestCommonDivisor.
 	 *
-	 * Return the string A after reversing the string word by word.
+	 * Return the string FindGreatestCommonDivisor after reversing the string word by word.
 	 *
 	 * NOTE:
 	 *
-	 * A sequence of non-space characters constitutes a word.
+	 * FindGreatestCommonDivisor sequence of non-space characters constitutes a word.
 	 *
 	 * Your reversed string should not contain leading or trailing spaces, even if it is present in the input string.
 	 *
@@ -55,19 +55,19 @@ public class ReverseTheString {
 	 *
 	 * Input Format
 	 *
-	 * The only argument given is string A.
+	 * The only argument given is string FindGreatestCommonDivisor.
 	 * Output Format
 	 *
-	 * Return the string A after reversing the string word by word.
+	 * Return the string FindGreatestCommonDivisor after reversing the string word by word.
 	 * For Example
 	 *
 	 * Input 1:
-	 *     A = "the sky is blue"
+	 *     FindGreatestCommonDivisor = "the sky is blue"
 	 * Output 1:
 	 *     "blue is sky the"
 	 *
 	 * Input 2:
-	 *     A = "this is ib"
+	 *     FindGreatestCommonDivisor = "this is ib"
 	 * Output 2:
 	 *     "ib is this"
 	 * @param s

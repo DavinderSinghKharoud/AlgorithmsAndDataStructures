@@ -3,7 +3,7 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a linked list A , reverse the order of all nodes at even positions.
+ * Given a linked list FindGreatestCommonDivisor , reverse the order of all nodes at even positions.
  *
  *
  *
@@ -13,7 +13,7 @@ package InterviewBit;
  *
  *
  * Input Format
- * First and only argument is the head of the Linked-List A.
+ * First and only argument is the head of the Linked-List FindGreatestCommonDivisor.
  *
  *
  *
@@ -25,10 +25,10 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- * A = 1 -> 2 -> 3 -> 4
+ * FindGreatestCommonDivisor = 1 -> 2 -> 3 -> 4
  * Input 2:
  *
- * A = 1 -> 2 -> 3
+ * FindGreatestCommonDivisor = 1 -> 2 -> 3
  *
  *
  * Example Output

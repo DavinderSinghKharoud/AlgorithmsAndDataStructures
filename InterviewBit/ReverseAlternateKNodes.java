@@ -3,23 +3,23 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a linked list A of length N and an integer B.
+ * Given a linked list FindGreatestCommonDivisor of length N and an integer FindUniqueBinaryString.
  *
- * You need to reverse every alternate B nodes in the linked list A.
+ * You need to reverse every alternate FindUniqueBinaryString nodes in the linked list FindGreatestCommonDivisor.
  *
  *
  *
  * Problem Constraints
  * 1 <= N <= 105
  * 1<= Value in Each Link List Node <= 103
- * 1 <= B <= N
- * N is divisible by B
+ * 1 <= FindUniqueBinaryString <= N
+ * N is divisible by FindUniqueBinaryString
  *
  *
  * Input Format
- * First argument is the head pointer of the linkedlist A.
+ * First argument is the head pointer of the linkedlist FindGreatestCommonDivisor.
  *
- * Second argument is an integer B.
+ * Second argument is an integer FindUniqueBinaryString.
  *
  *
  *
@@ -31,12 +31,12 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A = 3 -> 4 -> 7 -> 5 -> 6 -> 6 -> 15 -> 61 -> 16
- *  B = 3
+ *  FindGreatestCommonDivisor = 3 -> 4 -> 7 -> 5 -> 6 -> 6 -> 15 -> 61 -> 16
+ *  FindUniqueBinaryString = 3
  * Input 2:
  *
- *  A = 1 -> 4 -> 6 -> 6 -> 4 -> 10
- *  B = 2
+ *  FindGreatestCommonDivisor = 1 -> 4 -> 6 -> 6 -> 4 -> 10
+ *  FindUniqueBinaryString = 2
  *
  *
  * Example Output

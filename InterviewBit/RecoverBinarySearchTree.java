@@ -8,7 +8,7 @@ import java.util.*;
  * Tell us the 2 values swapping which the tree will be restored.
  *
  *  Note:
- * A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
+ * FindGreatestCommonDivisor solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
  * Example :
  *
  *

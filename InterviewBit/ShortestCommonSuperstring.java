@@ -91,7 +91,7 @@ public class ShortestCommonSuperstring {
 
 	/**
 	 * use isEmbedded for interviewBit like
-	 *     A = ["abcd", "cdef", "fgh", "de"]
+	 *     FindGreatestCommonDivisor = ["abcd", "cdef", "fgh", "de"]
 	 *     answer should be "abcdefgh" but for leetcode accepts deabcdefgh or abcdefghde
 	 * @param s1
 	 * @param s2

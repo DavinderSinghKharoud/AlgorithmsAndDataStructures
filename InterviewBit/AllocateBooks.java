@@ -1,13 +1,13 @@
 /*
-Given an array of integers A of size N and an integer B.
+Given an array of integers FindGreatestCommonDivisor of size N and an integer FindUniqueBinaryString.
 
-College library has N bags,the ith book has A[i] number of pages.
+College library has N bags,the ith book has FindGreatestCommonDivisor[i] number of pages.
 
-You have to allocate books to B number of students so that maximum number of pages alloted to a student is minimum.
+You have to allocate books to FindUniqueBinaryString number of students so that maximum number of pages alloted to a student is minimum.
 
-A book will be allocated to exactly one student.
+FindGreatestCommonDivisor book will be allocated to exactly one student.
 Each student has to be allocated at least one book.
-Allotment should be in contiguous order, for example: A student cannot be allocated book 1 and book 3, skipping book 2.
+Allotment should be in contiguous order, for example: FindGreatestCommonDivisor student cannot be allocated book 1 and book 3, skipping book 2.
 Calculate and return that minimum possible number.
 
 NOTE: Return -1 if a valid assignment is not possible.
@@ -16,20 +16,20 @@ NOTE: Return -1 if a valid assignment is not possible.
 
 Input Format
 
-The first argument given is the integer array A.
-The second argument given is the integer B.
+The first argument given is the integer array FindGreatestCommonDivisor.
+The second argument given is the integer FindUniqueBinaryString.
 Output Format
 
 Return that minimum possible number
 Constraints
 
 1 <= N <= 10^5
-1 <= A[i] <= 10^5
+1 <= FindGreatestCommonDivisor[i] <= 10^5
 For Example
 
 Input 1:
-    A = [12, 34, 67, 90]
-    B = 2
+    FindGreatestCommonDivisor = [12, 34, 67, 90]
+    FindUniqueBinaryString = 2
 Output 1:
     113
 Explanation 1:
@@ -44,8 +44,8 @@ Explanation 1:
         Of the 3 cases, Option 3 has the minimum pages = 113.
 
 Input 2:
-    A = [5, 17, 100, 11]
-    B = 4
+    FindGreatestCommonDivisor = [5, 17, 100, 11]
+    FindUniqueBinaryString = 4
 Output 2:
     100
  */

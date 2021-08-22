@@ -5,21 +5,21 @@ import java.util.*;
 public class UniqueBinarySearchTree {
 
     /**
-     Given A, generate all structurally unique BST’s (binary search trees) that store values 1…A.
+     Given FindGreatestCommonDivisor, generate all structurally unique BST’s (binary search trees) that store values 1…FindGreatestCommonDivisor.
 
      Input Format:
 
-     The first and the only argument of input contains the integer, A.
+     The first and the only argument of input contains the integer, FindGreatestCommonDivisor.
      Output Format:
 
      Return a list of tree nodes representing the generated BST's.
      Constraints:
 
-     1 <= A <= 15
+     1 <= FindGreatestCommonDivisor <= 15
      Example:
 
      Input 1:
-     A = 3
+     FindGreatestCommonDivisor = 3
 
      Output 1:
 

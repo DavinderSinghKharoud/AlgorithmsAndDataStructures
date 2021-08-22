@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A company has n
+ * FindGreatestCommonDivisor company has n
  * n
  *  employees, who form a tree hierarchy where each employee has a boss, except for the general director.
  *

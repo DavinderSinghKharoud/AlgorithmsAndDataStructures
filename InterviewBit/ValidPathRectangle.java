@@ -15,8 +15,8 @@ import java.util.*;
  * 2nd argument given is an Integer y.
  * 3rd argument given is an Integer N, number of circles.
  * 4th argument given is an Integer R, radius of each circle.
- * 5th argument given is an Array A of size N, where A[i] = x cordinate of ith circle
- * 6th argument given is an Array B of size N, where B[i] = y cordinate of ith circle
+ * 5th argument given is an Array FindGreatestCommonDivisor of size N, where FindGreatestCommonDivisor[i] = x cordinate of ith circle
+ * 6th argument given is an Array FindUniqueBinaryString of size N, where FindUniqueBinaryString[i] = y cordinate of ith circle
  * Output Format
  *
  * Return YES or NO depending on weather it is possible to reach cell (x,y) or not starting from (0,0).
@@ -32,8 +32,8 @@ import java.util.*;
  *     y = 3
  *     N = 1
  *     R = 1
- *     A = [2]
- *     B = [3]
+ *     FindGreatestCommonDivisor = [2]
+ *     FindUniqueBinaryString = [3]
  * Output:
  *     NO
  *

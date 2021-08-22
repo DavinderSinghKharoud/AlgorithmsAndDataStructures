@@ -34,7 +34,7 @@ import java.util.*;
  * b
  * : there is a road between those cities.
  * <p>
- * A road always connects two different cities, and there is at most one road between any two cities.
+ * FindGreatestCommonDivisor road always connects two different cities, and there is at most one road between any two cities.
  * <p>
  * Output
  * <p>

@@ -3,12 +3,12 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given an 2D integer array A of size N x 2 denoting time intervals of different meetings.
+ * Given an 2D integer array FindGreatestCommonDivisor of size N x 2 denoting time intervals of different meetings.
  *
  * Where:
  *
- * A[i][0] = start time of the ith meeting.
- * A[i][1] = end time of the ith meeting.
+ * FindGreatestCommonDivisor[i][0] = start time of the ith meeting.
+ * FindGreatestCommonDivisor[i][1] = end time of the ith meeting.
  * Find the minimum number of conference rooms required so that all meetings can be done.
  *
  *
@@ -16,12 +16,12 @@ import java.util.*;
  * Problem Constraints
  * 1 <= N <= 10
  *
- * 0 <= A[i][0] < A[i][1] <= 2 * 109
+ * 0 <= FindGreatestCommonDivisor[i][0] < FindGreatestCommonDivisor[i][1] <= 2 * 109
  *
  *
  *
  * Input Format
- * The only argument given is the matrix A.
+ * The only argument given is the matrix FindGreatestCommonDivisor.
  *
  *
  *
@@ -33,14 +33,14 @@ import java.util.*;
  * Example Input
  * Input 1:
  *
- *  A = [      [0, 30]
+ *  FindGreatestCommonDivisor = [      [0, 30]
  *             [5, 10]
  *             [15, 20]
  *      ]
  *
  * Input 2:
  *
- *  A =  [     [1, 18]
+ *  FindGreatestCommonDivisor =  [     [1, 18]
  *             [18, 23]
  *             [15, 29]
  *             [4, 15]

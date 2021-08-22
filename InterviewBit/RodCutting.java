@@ -12,7 +12,7 @@ package InterviewBit;
  * For example,
  *
  * N = 6
- * A = [1, 2, 5]
+ * FindGreatestCommonDivisor = [1, 2, 5]
  *
  * If we make cuts in order [1, 2, 5], let us see what total cost would be.
  * For first cut, the length of rod is 6.

@@ -10,7 +10,7 @@ import java.util.*;
  *
  * The only input line has a string of length n
  * n
- *  consisting of characters A–Z.
+ *  consisting of characters FindGreatestCommonDivisor–Z.
  *
  * Output
  *

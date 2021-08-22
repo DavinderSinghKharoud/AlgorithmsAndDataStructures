@@ -3,7 +3,7 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given an directed graph having A nodes. A matrix B of size M x 2 is given which represents the M edges such that there is a edge directed from node B[i][0] to node B[i][1].
+ * Given an directed graph having FindGreatestCommonDivisor nodes. FindGreatestCommonDivisor matrix FindUniqueBinaryString of size M x 2 is given which represents the M edges such that there is a edge directed from node FindUniqueBinaryString[i][0] to node FindUniqueBinaryString[i][1].
  * <p>
  * Find whether the graph contains a cycle or not, return 1 if cycle is present else return 0.
  * <p>
@@ -13,23 +13,23 @@ import java.util.*;
  * There are no self-loops in the graph.
  * There are no multiple edges between two nodes.
  * The graph may or may not be connected.
- * Nodes are numbered from 1 to A.
+ * Nodes are numbered from 1 to FindGreatestCommonDivisor.
  * Your solution will run on multiple test cases. If you are using global variables make sure to clear them.
  * <p>
  * <p>
  * Problem Constraints
- * 2 <= A <= 105
+ * 2 <= FindGreatestCommonDivisor <= 105
  * <p>
- * 1 <= M <= min(200000,A(A-1))
+ * 1 <= M <= min(200000,FindGreatestCommonDivisor(FindGreatestCommonDivisor-1))
  * <p>
- * 1 <= B[i][0], B[i][1] <= A
+ * 1 <= FindUniqueBinaryString[i][0], FindUniqueBinaryString[i][1] <= FindGreatestCommonDivisor
  * <p>
  * <p>
  * <p>
  * Input Format
- * The first argument given is an integer A representing the number of nodes in the graph.
+ * The first argument given is an integer FindGreatestCommonDivisor representing the number of nodes in the graph.
  * <p>
- * The second argument given a matrix B of size M x 2 which represents the M edges such that there is a edge directed from node B[i][0] to node B[i][1].
+ * The second argument given a matrix FindUniqueBinaryString of size M x 2 which represents the M edges such that there is a edge directed from node FindUniqueBinaryString[i][0] to node FindUniqueBinaryString[i][1].
  * <p>
  * <p>
  * <p>
@@ -41,8 +41,8 @@ import java.util.*;
  * Example Input
  * Input 1:
  * <p>
- * A = 5
- * B = [  [1, 2]
+ * FindGreatestCommonDivisor = 5
+ * FindUniqueBinaryString = [  [1, 2]
  * [4, 1]
  * [2, 4]
  * [3, 4]
@@ -50,8 +50,8 @@ import java.util.*;
  * [1, 3] ]
  * Input 2:
  * <p>
- * A = 5
- * B = [  [1, 2]
+ * FindGreatestCommonDivisor = 5
+ * FindUniqueBinaryString = [  [1, 2]
  * [2, 3]
  * [3, 4]
  * [4, 5] ]

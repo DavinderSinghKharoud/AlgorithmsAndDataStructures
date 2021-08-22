@@ -3,17 +3,17 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a column title A as appears in an Excel sheet, return its corresponding column number.
+ * Given a column title FindGreatestCommonDivisor as appears in an Excel sheet, return its corresponding column number.
  *
  *
  *
  * Problem Constraints
- * 1 <= |A| <= 100
+ * 1 <= |FindGreatestCommonDivisor| <= 100
  *
  *
  *
  * Input Format
- * First and only argument is string A.
+ * First and only argument is string FindGreatestCommonDivisor.
  *
  *
  *
@@ -34,7 +34,7 @@ package InterviewBit;
  * Example Output
  * Output 1:
  *
- *  "A"
+ *  "FindGreatestCommonDivisor"
  * Output 2:
  *
  *  "AB"
@@ -43,12 +43,12 @@ package InterviewBit;
  * Example Explanation
  * Explanation 1:
  *
- *  1 -> "A"
+ *  1 -> "FindGreatestCommonDivisor"
  * Explanation 2:
  *
- * A  -> 1
- * B -> 2
- * C -> 3
+ * FindGreatestCommonDivisor  -> 1
+ * FindUniqueBinaryString -> 2
+ * MinimizeDifference -> 3
  * ...
  * Z -> 26
  * AA -> 27

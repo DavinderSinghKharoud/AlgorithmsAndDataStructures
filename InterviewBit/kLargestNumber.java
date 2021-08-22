@@ -3,43 +3,43 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given an 1D integer array A of size N you have to find and return the B largest elements of the array A.
+ * Given an 1D integer array FindGreatestCommonDivisor of size N you have to find and return the FindUniqueBinaryString largest elements of the array FindGreatestCommonDivisor.
  *
  * NOTE:
  *
- * Return the largest B elements in any order you like.
+ * Return the largest FindUniqueBinaryString elements in any order you like.
  *
  *
  * Problem Constraints
  * 1 <= N <= 105
  *
- * 1 <= B <= N
+ * 1 <= FindUniqueBinaryString <= N
  *
- * 1 <= A[i] <= 103
+ * 1 <= FindGreatestCommonDivisor[i] <= 103
  *
  *
  *
  * Input Format
- * First argument is an 1D integer array A
+ * First argument is an 1D integer array FindGreatestCommonDivisor
  *
- * Second argument is an integer B.
+ * Second argument is an integer FindUniqueBinaryString.
  *
  *
  *
  * Output Format
- * Return a 1D array of size B denoting the B largest elements.
+ * Return a 1D array of size FindUniqueBinaryString denoting the FindUniqueBinaryString largest elements.
  *
  *
  *
  * Example Input
  * Input 1:
  *
- *  A = [11, 3, 4]
- *  B = 2
+ *  FindGreatestCommonDivisor = [11, 3, 4]
+ *  FindUniqueBinaryString = 2
  * Input 2:
  *
- *  A = [11, 3, 4, 6]
- *  B = 3
+ *  FindGreatestCommonDivisor = [11, 3, 4, 6]
+ *  FindUniqueBinaryString = 3
  *
  *
  * Example Output
@@ -54,10 +54,10 @@ import java.util.*;
  * Example Explanation
  * Explanation 1:
  *
- *  The two largest elements of A are 11 and 4
+ *  The two largest elements of FindGreatestCommonDivisor are 11 and 4
  * Explanation 2:
  *
- *  The three largest elements of A are 11, 4 and 6
+ *  The three largest elements of FindGreatestCommonDivisor are 11, 4 and 6
  */
 public class kLargestNumber {
 

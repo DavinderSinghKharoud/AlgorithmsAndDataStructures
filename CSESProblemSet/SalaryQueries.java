@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A company has n
+ * FindGreatestCommonDivisor company has n
  * n
  *  employees with certain salaries. Your task is to keep track of the salaries and process queries.
  *

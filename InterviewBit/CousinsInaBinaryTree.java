@@ -3,34 +3,34 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given a Binary Tree A consisting of N nodes.
+ * Given a Binary Tree FindGreatestCommonDivisor consisting of N nodes.
  *
- * You need to find all the cousins of node B.
+ * You need to find all the cousins of node FindUniqueBinaryString.
  *
  * NOTE:
  *
  * Siblings should not be considered as cousins.
  * Try to do it in single traversal.
- * You can assume that Node B is there in the tree A.
+ * You can assume that Node FindUniqueBinaryString is there in the tree FindGreatestCommonDivisor.
  * Order doesn't matter in the output.
  *
  *
  * Problem Constraints
  * 1 <= N <= 105
  *
- * 1 <= B <= N
+ * 1 <= FindUniqueBinaryString <= N
  *
  *
  *
  * Input Format
- * First Argument represents the root of binary tree A.
+ * First Argument represents the root of binary tree FindGreatestCommonDivisor.
  *
- * Second Argument is an integer B denoting the node number.
+ * Second Argument is an integer FindUniqueBinaryString denoting the node number.
  *
  *
  *
  * Output Format
- * Return an integer array denoting the cousins of node B.
+ * Return an integer array denoting the cousins of node FindUniqueBinaryString.
  *
  * NOTE: Order doesn't matter.
  *
@@ -39,7 +39,7 @@ import java.util.*;
  * Example Input
  * Input 1:
  *
- *  A =
+ *  FindGreatestCommonDivisor =
  *
  *            1
  *          /   \
@@ -48,11 +48,11 @@ import java.util.*;
  *       4   5 6   7
  *
  *
- * B = 5
+ * FindUniqueBinaryString = 5
  *
  * Input 2:
  *
- *  A =
+ *  FindGreatestCommonDivisor =
  *             1
  *           /   \
  *          2     3
@@ -60,7 +60,7 @@ import java.util.*;
  *        4   5 .   6
  *
  *
- * B = 1
+ * FindUniqueBinaryString = 1
  *
  *
  *

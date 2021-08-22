@@ -10,12 +10,12 @@ import java.util.Scanner;
  *
  * Complete the Student class by writing the following:
  *
- * A Student class constructor, which has  parameters:
- * A string, .
- * A string, .
+ * FindGreatestCommonDivisor Student class constructor, which has  parameters:
+ * FindGreatestCommonDivisor string, .
+ * FindGreatestCommonDivisor string, .
  * An integer, .
  * An integer array (or vector) of test scores, .
- * A char calculate() method that calculates a Student object's average and returns the grade
+ * FindGreatestCommonDivisor char calculate() method that calculates a Student object's average and returns the grade
  * character representative of their calculated average:
  */
 public class Solution {

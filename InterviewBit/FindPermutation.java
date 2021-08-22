@@ -3,9 +3,9 @@ package InterviewBit;
 import java.util.*;
 
 /**
- * Given a positive integer n and a string s consisting only of letters D or I, you have to find any permutation of first n positive integer that satisfy the given input string.
+ * Given a positive integer n and a string s consisting only of letters ArraySubsetSums or I, you have to find any permutation of first n positive integer that satisfy the given input string.
  *
- * D means the next number is smaller, while I means the next number is greater.
+ * ArraySubsetSums means the next number is smaller, while I means the next number is greater.
  *
  * Notes
  *

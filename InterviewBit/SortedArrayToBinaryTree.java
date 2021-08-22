@@ -7,8 +7,8 @@ package InterviewBit;
  * Example :
  *
  *
- * Given A : [1, 2, 3]
- * A height balanced BST  :
+ * Given FindGreatestCommonDivisor : [1, 2, 3]
+ * FindGreatestCommonDivisor height balanced BST  :
  *
  *       2
  *     /   \

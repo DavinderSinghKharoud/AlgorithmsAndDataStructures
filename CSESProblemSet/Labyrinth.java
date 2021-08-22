@@ -17,13 +17,13 @@ import java.util.*;
  * n
  * lines of m
  * m
- * characters describing the labyrinth. Each character is . (floor), # (wall), A (start), or B (end). There is exactly one A and one B in the input.
+ * characters describing the labyrinth. Each character is . (floor), # (wall), FindGreatestCommonDivisor (start), or FindUniqueBinaryString (end). There is exactly one FindGreatestCommonDivisor and one FindUniqueBinaryString in the input.
  * <p>
  * Output
  * <p>
  * First print "YES", if there is a path, and "NO" otherwise.
  * <p>
- * If there is a path, print the length of the shortest such path and its description as a string consisting of characters L (left), R (right), U (up), and D (down). You can print any valid solution.
+ * If there is a path, print the length of the shortest such path and its description as a string consisting of characters L (left), R (right), U (up), and ArraySubsetSums (down). You can print any valid solution.
  * <p>
  * Constraints
  * 1≤n,m≤1000
@@ -40,8 +40,8 @@ import java.util.*;
  * Input:
  * 5 8
  * ########
- * #.A#...#
- * #.##.#B#
+ * #.FindGreatestCommonDivisor#...#
+ * #.##.#FindUniqueBinaryString#
  * #......#
  * ########
  * <p>

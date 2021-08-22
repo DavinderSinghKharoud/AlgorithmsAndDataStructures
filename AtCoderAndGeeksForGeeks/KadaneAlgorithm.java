@@ -14,7 +14,7 @@ import java.util.Scanner;
  * Constraints:
  * 1 ≤ T ≤ 110
  * 1 ≤ N ≤ 106
- * -107 ≤ A[i] <= 107
+ * -107 ≤ FindGreatestCommonDivisor[i] <= 107
  *
  * Example:
  * Input

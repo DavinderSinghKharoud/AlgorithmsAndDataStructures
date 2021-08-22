@@ -2,7 +2,7 @@ package LeetCode.Mock;
 
 
 //  1. To get max(|f(i)-f(j)|), find the smallest and biggest of f(i)
-//  2. abs(A) + abs(B) = max(A+B, A-B, -A+B, -A-B)
+//  2. abs(FindGreatestCommonDivisor) + abs(FindUniqueBinaryString) = max(FindGreatestCommonDivisor+FindUniqueBinaryString, FindGreatestCommonDivisor-FindUniqueBinaryString, -FindGreatestCommonDivisor+FindUniqueBinaryString, -FindGreatestCommonDivisor-FindUniqueBinaryString)
 //
 //  max(|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|)
 //      max(|(arr1[i]+arr2[i]+i)-(arr1[j]+arr2[j]+j|),

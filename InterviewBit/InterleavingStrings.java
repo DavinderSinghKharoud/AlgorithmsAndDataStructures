@@ -1,11 +1,11 @@
 /*
-Given A, B, C, find whether C is formed by the interleaving of A and B.
+Given FindGreatestCommonDivisor, FindUniqueBinaryString, MinimizeDifference, find whether MinimizeDifference is formed by the interleaving of FindGreatestCommonDivisor and FindUniqueBinaryString.
 
 Input Format:*
 
-The first argument of input contains a string, A.
-The second argument of input contains a string, B.
-The third argument of input contains a string, C.
+The first argument of input contains a string, FindGreatestCommonDivisor.
+The second argument of input contains a string, FindUniqueBinaryString.
+The third argument of input contains a string, MinimizeDifference.
 Output Format:
 
 Return an integer, 0 or 1:
@@ -13,30 +13,30 @@ Return an integer, 0 or 1:
     => 1 : True
 Constraints:
 
-1 <= length(A), length(B), length(C) <= 150
+1 <= length(FindGreatestCommonDivisor), length(FindUniqueBinaryString), length(MinimizeDifference) <= 150
 Examples:
 
 Input 1:
-    A = "aabcc"
-    B = "dbbca"
-    C = "aadbbcbcac"
+    FindGreatestCommonDivisor = "aabcc"
+    FindUniqueBinaryString = "dbbca"
+    MinimizeDifference = "aadbbcbcac"
 
 Output 1:
     1
     
 Explanation 1:
-    "aa" (from A) + "dbbc" (from B) + "bc" (from A) + "a" (from B) + "c" (from A)
+    "aa" (from FindGreatestCommonDivisor) + "dbbc" (from FindUniqueBinaryString) + "bc" (from FindGreatestCommonDivisor) + "a" (from FindUniqueBinaryString) + "c" (from FindGreatestCommonDivisor)
 
 Input 2:
-    A = "aabcc"
-    B = "dbbca"
-    C = "aadbbbaccc"
+    FindGreatestCommonDivisor = "aabcc"
+    FindUniqueBinaryString = "dbbca"
+    MinimizeDifference = "aadbbbaccc"
 
 Output 2:
     0
 
 Explanation 2:
-    It is not possible to get C by interleaving A and B.
+    It is not possible to get MinimizeDifference by interleaving FindGreatestCommonDivisor and FindUniqueBinaryString.
  */
 
 

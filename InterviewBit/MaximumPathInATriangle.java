@@ -3,7 +3,7 @@ package InterviewBit;
 /**
  * Problem Description
  *
- * Given a 2D integer array A of size  N * N  representing a triangle of numbers.
+ * Given a 2D integer array FindGreatestCommonDivisor of size  N * N  representing a triangle of numbers.
  *
  * Find the maximum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
  *
@@ -16,12 +16,12 @@ package InterviewBit;
  * Problem Constraints
  * 0 <= N <= 1000
  *
- * 0 <= A[i][j] <= 1000
+ * 0 <= FindGreatestCommonDivisor[i][j] <= 1000
  *
  *
  *
  * Input Format
- * First and only argument is an 2D integer array A of size N * N.
+ * First and only argument is an 2D integer array FindGreatestCommonDivisor of size N * N.
  *
  *
  *
@@ -33,7 +33,7 @@ package InterviewBit;
  * Example Input
  * Input 1:
  *
- *  A = [
+ *  FindGreatestCommonDivisor = [
  *         [3, 0, 0, 0]
  *         [7, 4, 0, 0]
  *         [2, 4, 6, 0]
@@ -41,7 +41,7 @@ package InterviewBit;
  *      ]
  * Input 2:
  *
- *  A = [
+ *  FindGreatestCommonDivisor = [
  *         [8, 0, 0, 0]
  *         [4, 4, 0, 0]
  *         [2, 2, 6, 0]

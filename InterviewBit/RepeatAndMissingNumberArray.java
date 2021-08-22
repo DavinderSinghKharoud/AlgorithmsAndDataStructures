@@ -7,23 +7,23 @@ public class RepeatAndMissingNumberArray {
     /**
      * SumN = 1 + 2 + 3 + … + N = (N * (N + 1)) / 2
      * And, let the sum of all the array elements be Sum. Now,
-     * SumN = Sum – A + B
-     * A – B = Sum – SumN …(equation 1)
+     * SumN = Sum – FindGreatestCommonDivisor + FindUniqueBinaryString
+     * FindGreatestCommonDivisor – FindUniqueBinaryString = Sum – SumN …(equation 1)
      * And from the sum of the squares of first N natural numbers,
      * <p>
      * SumSqN = 12 + 22 + 32 + … + N2 = (N * (N + 1) * (2 * n + 1)) / 6
      * And, let the sum of the squares of all the array elements be SumSq. Now,
      * SumSq = SumSqN + A2 – B2
-     * SumSq – SumSqN = (A + B) * (A – B) …(equation 2)
-     * Put value of (A – B) from equation 1 in equation 2,
+     * SumSq – SumSqN = (FindGreatestCommonDivisor + FindUniqueBinaryString) * (FindGreatestCommonDivisor – FindUniqueBinaryString) …(equation 2)
+     * Put value of (FindGreatestCommonDivisor – FindUniqueBinaryString) from equation 1 in equation 2,
      * <p>
-     * SumSq – SumSqN = (A + B) * (Sum – SumN)
-     * A + B = (SumSq – SumSqN) / (Sum – SumN) …(equation 3)
+     * SumSq – SumSqN = (FindGreatestCommonDivisor + FindUniqueBinaryString) * (Sum – SumN)
+     * FindGreatestCommonDivisor + FindUniqueBinaryString = (SumSq – SumSqN) / (Sum – SumN) …(equation 3)
      * <p>
      * Solving equation 1 and equation 3 will give,
      * <p>
-     * B = (((SumSq – SumSqN) / (Sum – SumN)) + SumN – Sum) / 2
-     * And, A = Sum – SumN + B
+     * FindUniqueBinaryString = (((SumSq – SumSqN) / (Sum – SumN)) + SumN – Sum) / 2
+     * And, FindGreatestCommonDivisor = Sum – SumN + FindUniqueBinaryString
      *
      * @param lst
      * @return

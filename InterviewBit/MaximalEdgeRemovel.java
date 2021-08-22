@@ -10,18 +10,18 @@ package InterviewBit;
  * <p>
  * <p>
  * Problem Constraints
- * 2 <= A <= 105
+ * 2 <= FindGreatestCommonDivisor <= 105
  * <p>
- * 1 <= B[i][0], B[i][1] <= A
+ * 1 <= FindUniqueBinaryString[i][0], FindUniqueBinaryString[i][1] <= FindGreatestCommonDivisor
  * <p>
- * Integer A will be even.
+ * Integer FindGreatestCommonDivisor will be even.
  * <p>
  * <p>
  * <p>
  * Input Format
- * First argument is an integer A denoting the number of nodes in the tree.
+ * First argument is an integer FindGreatestCommonDivisor denoting the number of nodes in the tree.
  * <p>
- * Second argument is a 2D array B of size (A-1) * 2, denoting the edge between nodes B[i][0] and B[i][1].
+ * Second argument is a 2D array FindUniqueBinaryString of size (FindGreatestCommonDivisor-1) * 2, denoting the edge between nodes FindUniqueBinaryString[i][0] and FindUniqueBinaryString[i][1].
  * <p>
  * <p>
  * <p>
@@ -33,8 +33,8 @@ package InterviewBit;
  * Example Input
  * Input 1:
  * <p>
- * A = 6
- * B = [
+ * FindGreatestCommonDivisor = 6
+ * FindUniqueBinaryString = [
  * [1, 2]
  * [1, 3]
  * [1, 4]
@@ -43,8 +43,8 @@ package InterviewBit;
  * ]
  * Input 2:
  * <p>
- * A = 2
- * B = [
+ * FindGreatestCommonDivisor = 2
+ * FindUniqueBinaryString = [
  * [1, 2]
  * ]
  * <p>

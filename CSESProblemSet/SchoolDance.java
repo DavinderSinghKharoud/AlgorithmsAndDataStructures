@@ -6,7 +6,7 @@ import java.util.*;
  * n
  *  boys and m
  * m
- *  girls in a school. Next week a school dance will be organized. A dance pair consists of a boy and a girl, and there are k
+ *  girls in a school. Next week a school dance will be organized. FindGreatestCommonDivisor dance pair consists of a boy and a girl, and there are k
  * k
  *  potential pairs.
  *

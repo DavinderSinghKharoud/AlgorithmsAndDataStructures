@@ -1,20 +1,20 @@
 /*
-Given an array of integers, A of length N, find the length of longest subsequence which is first increasing then decreasing.
+Given an array of integers, FindGreatestCommonDivisor of length N, find the length of longest subsequence which is first increasing then decreasing.
 
 Input Format:
 
-The first and the only argument contains an integer array, A.
+The first and the only argument contains an integer array, FindGreatestCommonDivisor.
 Output Format:
 
 Return an integer representing the answer as described in the problem statement.
 Constraints:
 
 1 <= N <= 3000
-1 <= A[i] <= 1e7
+1 <= FindGreatestCommonDivisor[i] <= 1e7
 Example:
 
 Input 1:
-    A = [1, 2, 1]
+    FindGreatestCommonDivisor = [1, 2, 1]
 
 Output 1:
     3

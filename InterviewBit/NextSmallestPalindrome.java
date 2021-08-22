@@ -1,32 +1,32 @@
 /*
- Given a numeric string A representing a large number you need to find the next smallest palindrome greater than this number.
+ Given a numeric string FindGreatestCommonDivisor representing a large number you need to find the next smallest palindrome greater than this number.
 
 
 
 Problem Constraints
-1 <= |A| <= 100
+1 <= |FindGreatestCommonDivisor| <= 100
 
-A doesn't start with zeroes and always contain digits from 0-9.
+FindGreatestCommonDivisor doesn't start with zeroes and always contain digits from 0-9.
 
 
 
 Input Format
-First and only argument is an string A.
+First and only argument is an string FindGreatestCommonDivisor.
 
 
 
 Output Format
-Return a numeric string denoting the next smallest palindrome greater than A.
+Return a numeric string denoting the next smallest palindrome greater than FindGreatestCommonDivisor.
 
 
 
 Example Input
 Input 1:
 
- A = "23545"
+ FindGreatestCommonDivisor = "23545"
 Input 2:
 
- A = "999"
+ FindGreatestCommonDivisor = "999"
 
 
 Example Output

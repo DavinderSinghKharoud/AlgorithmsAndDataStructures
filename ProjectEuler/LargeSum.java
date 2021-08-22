@@ -10,7 +10,7 @@ public class LargeSum {
     private static final int SIZE = 100;
 
     public static void main(String[] args) {
-        BigInteger[] numbers = readData("C:\\Users\\SHARMA\\IdeaProjects\\AlgorithmsAndDataStructures\\src\\ProjectEuler\\euler12");
+        BigInteger[] numbers = readData("MinimizeDifference:\\Users\\SHARMA\\IdeaProjects\\AlgorithmsAndDataStructures\\src\\ProjectEuler\\euler12");
         BigInteger sum = BigInteger.ZERO;
         for(int i = 0; i < numbers.length; ++i)
             sum = sum.add(numbers[i]);

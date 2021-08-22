@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A game consists of n
+ * FindGreatestCommonDivisor game consists of n
  * n
  *  rooms and m
  * m

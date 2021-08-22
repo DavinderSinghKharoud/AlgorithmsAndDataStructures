@@ -18,11 +18,11 @@ public class Streams {
         );
 
         people.stream()
-                .filter( person -> person.getLastName().startsWith("C"))
+                .filter( person -> person.getLastName().startsWith("MinimizeDifference"))
                 .forEach(System.out::println);
 
         long count = people.parallelStream()
-                .filter( person -> person.getLastName().startsWith("C"))
+                .filter( person -> person.getLastName().startsWith("MinimizeDifference"))
                 .count();
 
         System.out.println(count);

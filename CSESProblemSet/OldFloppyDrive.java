@@ -3,7 +3,7 @@ import java.util.*;
 
 /**
  *
- Polycarp was dismantling his attic and found an old floppy drive on it. A round disc was inserted into the drive with 𝑛
+ Polycarp was dismantling his attic and found an old floppy drive on it. FindGreatestCommonDivisor round disc was inserted into the drive with 𝑛
  n
  integers written on it.
 

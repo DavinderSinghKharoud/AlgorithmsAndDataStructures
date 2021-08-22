@@ -6,8 +6,8 @@ import java.util.*;
 /**
  * Barbara got really good grades in school last year, so her parents decided to gift her with a pet rabbit. She was so excited that she built a house for the rabbit, which can be seen as a 2D grid with R
  * R
- *  rows and C
- * C
+ *  rows and MinimizeDifference
+ * MinimizeDifference
  *  columns.
  * Rabbits love to jump, so Barbara stacked several boxes on several cells of the grid. Each box is a cube with equal dimensions, which match exactly the dimensions of a cell of the grid.
  * However, Barbara soon realizes that it may be dangerous for the rabbit to make jumps of height greater than 1
@@ -24,13 +24,13 @@ import java.util.*;
  *  test cases follow.
  * Each test case begins with a line containing two integers R
  * R
- *  and C
- * C
+ *  and MinimizeDifference
+ * MinimizeDifference
  * .
  * Then, R
  * R
- *  lines follow, each with C
- * C
+ *  lines follow, each with MinimizeDifference
+ * MinimizeDifference
  *  integers. The j
  * j
  * -th integer on i

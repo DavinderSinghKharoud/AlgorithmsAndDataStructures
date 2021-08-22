@@ -3,7 +3,7 @@ import java.util.*;
 
 /**
  *
- A championship is held in Berland, in which 𝑛
+ FindGreatestCommonDivisor championship is held in Berland, in which 𝑛
  n
  players participate. The player with the number 𝑖
  i

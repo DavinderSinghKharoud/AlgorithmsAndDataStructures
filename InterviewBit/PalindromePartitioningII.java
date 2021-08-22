@@ -1,23 +1,23 @@
 /*
-Given a string A, partition A such that every substring of the partition is a palindrome.
+Given a string FindGreatestCommonDivisor, partition FindGreatestCommonDivisor such that every substring of the partition is a palindrome.
 
-Return the minimum cuts needed for a palindrome partitioning of A.
+Return the minimum cuts needed for a palindrome partitioning of FindGreatestCommonDivisor.
 
 
 
 Input Format:
 
-The first and the only argument contains the string A.
+The first and the only argument contains the string FindGreatestCommonDivisor.
 Output Format:
 
 Return an integer, representing the answer as described in the problem statement.
 Constraints:
 
-1 <= length(A) <= 501
+1 <= length(FindGreatestCommonDivisor) <= 501
 Examples:
 
 Input 1:
-    A = "aba"
+    FindGreatestCommonDivisor = "aba"
 
 Output 1:
     0
@@ -26,7 +26,7 @@ Explanation 1:
     "aba" is already a palindrome, so no cuts are needed.
 
 Input 2:
-    A = "aab"
+    FindGreatestCommonDivisor = "aab"
     
 Output 2:
     1
