@@ -18,7 +18,7 @@ public class ParentingPartneringReturns {
         int[][] activities = new int[partition.length][3];
         for (int i = 0; i < partition.length ; i++) {
             int[] activity = new int[]{
-                   partition[i][0], partition[i][1], i
+                    partition[i][0], partition[i][1], i
             };
             activities[i] = activity;
         }
@@ -28,7 +28,7 @@ public class ParentingPartneringReturns {
         Map[] dp = new Map[activities.length];
         map.put("J", activities[0][1]);
         temp[activities[0][2]] = 'J' ;
-        map.put("MinimizeDifference", 0);
+        map.put("C", 0);
         dp[0] = map;
 
 
@@ -38,7 +38,7 @@ public class ParentingPartneringReturns {
             int end = activities[i][1];
 
             int jim = (int) dp[i - 1].get("J");
-            int cam = (int) dp[i - 1].get("MinimizeDifference");
+            int cam = (int) dp[i - 1].get("C");
 
             if (start < jim && start < cam) {
                 return "IMPOSSIBLE";
@@ -46,8 +46,8 @@ public class ParentingPartneringReturns {
 
             //cam is free
             if( start < jim ){
-                temp[activities[i][2]] = 'MinimizeDifference' ;
-                map.put("MinimizeDifference", end );
+                temp[activities[i][2]] = 'C' ;
+                map.put("C", end );
                 dp[i] = map;
             }else{
                 //jam is free
