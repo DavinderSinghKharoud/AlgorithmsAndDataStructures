@@ -4,7 +4,6 @@ import Java.Lambda.Person;
 
 import java.util.Arrays;
 import java.util.List;
-
 public class Streams {
 
     public static void main(String[] args) {
