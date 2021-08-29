@@ -6,7 +6,7 @@ public class ZigZagConversion {
 
     public static void main(String[] args) {
         ZigZagConversion o = new ZigZagConversion();
-        System.out.println(o.convert("A", 1));
+        System.out.println(o.convert("Pairing", 1));
     }
 
     public String convert(String s, int numRows) {

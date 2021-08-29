@@ -1,4 +1,4 @@
-package LeetCode.weeklyContest252;
+package LeetCode.WeeklyContest252;
 
 public class CountSpecialSubsequences {
    public static void main(String[] args) {
