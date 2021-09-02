@@ -2,19 +2,19 @@ package LeetCode;
 
 /**
  * Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
- *
+ * <p>
  * Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
- *
+ * <p>
  * The order of output does not matter.
- *
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input:
  * s: "cbaebabacd" p: "abc"
- *
+ * <p>
  * Output:
  * [0, 6]
- *
+ * <p>
  * Explanation:
  * The substring with start index = 0 is "cba", which is an anagram of "abc".
  * The substring with start index = 6 is "bac", which is an anagram of "abc".
@@ -24,124 +24,157 @@ import java.util.*;
 
 public class AllAnagramsinaString {
 
-	//Time limit exceeded
-	public static List<Integer> findAnagrams(String s, String p) {
-		
-		List<Integer> res = new ArrayList<>();
-		int len = p.length();
-		
-		for( int i = 0; i<s.length(); i++ ){
-		
-			if( i + len - 1 < s.length() && check3( s, p, i, i + len - 1 ) ){
-				res.add( i );
-			}
-		}
+   // Time limit exceeded
+   public static List<Integer> findAnagrams(String s, String p) {
 
-		return res;
-    }
-    //Time Limit Exceeded
-    public static boolean check( String s, String p, int start, int end ){
-		char []temp_s = s.substring( start, end + 1).toCharArray();
-		char []temp_p = p.toCharArray();
+      List<Integer> res = new ArrayList<>();
+      int len = p.length();
 
-		Arrays.sort( temp_s );
-		Arrays.sort( temp_p );
+      for (int i = 0; i < s.length(); i++) {
 
-		return new String( temp_s ).equals( new String( temp_p ) );
-		
-		
-	}
-    //Time Limit Exceeded
-	public static boolean check2( String s, String p, int start, int end ){
-		char []temp_s = s.substring( start, end + 1).toCharArray();
-		char []temp_p = p.toCharArray();
+         if (i + len - 1 < s.length() && check3(s, p, i, i + len - 1)) {
+            res.add(i);
+         }
+      }
 
-		int[] count = new int[26];
+      return res;
+   }
 
-		for( char c: temp_s ){
-			count[ c - 'a' ]++;
-		}
+   // Time Limit Exceeded
+   public static boolean check(String s, String p, int start, int end) {
+      char[] temp_s = s.substring(start, end + 1).toCharArray();
+      char[] temp_p = p.toCharArray();
 
-		StringBuilder sbr_s = new StringBuilder();
+      Arrays.sort(temp_s);
+      Arrays.sort(temp_p);
 
-		for( int value: count ){
-			sbr_s.append("#").append(value);
-		}
+      return new String(temp_s).equals(new String(temp_p));
 
-		Arrays.fill( count, 0 );
-		StringBuilder sbr_p = new StringBuilder();
+   }
 
-		for (char c : temp_p) {
-			count[ c - 'a' ]++;
-		}
+   // Time Limit Exceeded
+   public static boolean check2(String s, String p, int start, int end) {
+      char[] temp_s = s.substring(start, end + 1).toCharArray();
+      char[] temp_p = p.toCharArray();
 
-		for (int value : count) {
-			sbr_p.append("#").append( value );
-		}
+      int[] count = new int[26];
 
-		return sbr_s.toString().equals( sbr_p.toString() );
+      for (char c : temp_s) {
+         count[c - 'a']++;
+      }
 
-	}
+      StringBuilder sbr_s = new StringBuilder();
 
-	//accepted
-	public static boolean check3( String s, String p, int start, int end ){
+      for (int value : count) {
+         sbr_s.append("#").append(value);
+      }
 
-		int[] count = new int[26];
+      Arrays.fill(count, 0);
+      StringBuilder sbr_p = new StringBuilder();
 
-		for( int i = start; i<= end; i++ ){
-			count[ s.charAt(i) - 'a' ]++;
-		}
+      for (char c : temp_p) {
+         count[c - 'a']++;
+      }
 
-		for (int i = 0; i < p.length(); i++) {
-			if( count[ p.charAt(i) - 'a' ] >= 1 ){
-				count[ p.charAt(i) - 'a']--;
-			}
-		}
+      for (int value : count) {
+         sbr_p.append("#").append(value);
+      }
 
-		for (int num: count ) {
-			if( num != 0 ){
-				return false;
-			}
-		}
+      return sbr_s.toString().equals(sbr_p.toString());
 
-		return true;
+   }
 
-	}
-	public static void main (String[] args) {
+   // accepted
+   public static boolean check3(String s, String p, int start, int end) {
 
-		System.out.print( findAnagrams2(  "cbaebabacd" , "abc"));
+      int[] count = new int[26];
 
-	}
+      for (int i = start; i <= end; i++) {
+         count[s.charAt(i) - 'a']++;
+      }
 
-	public static List<Integer> findAnagrams2(String s, String p) {
+      for (int i = 0; i < p.length(); i++) {
+         if (count[p.charAt(i) - 'a'] >= 1) {
+            count[p.charAt(i) - 'a']--;
+         }
+      }
 
-		List<Integer> res = new ArrayList<>();
+      for (int num : count) {
+         if (num != 0) {
+            return false;
+         }
+      }
 
-		int[] char_count = new int[26];
+      return true;
 
-		for( char c: p.toCharArray() ){
-			char_count[ c - 'a' ] ++;
-		}
+   }
 
-		int left = 0;
-		int right = 0;
-		int count = p.length();
+   public static void main(String[] args) {
 
-		while ( right < s.length() ){
+      System.out.print(findAnagrams2("cbaebabacd", "abc"));
 
-			if( char_count[ s.charAt( right++)  - 'a']-- >= 1 ){
-				count--;
-			}
+   }
 
-			if( count == 0 ) res.add( left );
+   public static List<Integer> findAnagrams2(String s, String p) {
 
-			if( right - left == p.length() && char_count[ s.charAt(left ++ ) - 'a' ]++ >= 0 ){
-				count++;
-			}
-		}
+      List<Integer> res = new ArrayList<>();
 
-		return res;
-	}
+      int[] char_count = new int[26];
 
-	}
+      for (char c : p.toCharArray()) {
+         char_count[c - 'a']++;
+      }
 
+      int left = 0;
+      int right = 0;
+      int count = p.length();
+
+      while (right < s.length()) {
+
+         if (char_count[s.charAt(right++) - 'a']-- >= 1) {
+            count--;
+         }
+
+         if (count == 0)
+            res.add(left);
+
+         if (right - left == p.length() && char_count[s.charAt(left++) - 'a']++ >= 0) {
+            count++;
+         }
+      }
+
+      return res;
+   }
+
+   int a = 'a';
+
+   // Time complexity O(s.length())
+   public List<Integer> findAnagrams4(String s, String p) {
+      int[] counts = new int[26];
+      List<Integer> res = new ArrayList<>();
+      if (s.length() < p.length())
+         return res;
+      int[] target = new int[26];
+      for (int i = 0; i < p.length(); i++) {
+         counts[s.charAt(i) - a]++;
+         target[p.charAt(i) - a]++;
+      }
+      if (areEqual(counts, target))
+         res.add(0);
+      for (int end = p.length(); end < s.length(); end++) {
+         counts[s.charAt(end) - a]++;
+         counts[s.charAt(end - p.length()) - a]--;
+         if (areEqual(counts, target))
+            res.add(end);
+      }
+      return res;
+   }
+
+   boolean areEqual(int[] first, int[] second) {
+      for (int i = 0; i < first.length; i++) {
+         if (first[i] != second[i])
+            return false;
+      }
+      return true;
+   }
+}
