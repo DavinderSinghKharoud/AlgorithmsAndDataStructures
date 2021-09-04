@@ -28,7 +28,7 @@ public class ParentingPartneringReturns {
         Map[] dp = new Map[activities.length];
         map.put("J", activities[0][1]);
         temp[activities[0][2]] = 'J' ;
-        map.put("C", 0);
+        map.put("MinimumNumberOfWorkSessions", 0);
         dp[0] = map;
 
 
@@ -38,7 +38,7 @@ public class ParentingPartneringReturns {
             int end = activities[i][1];
 
             int jim = (int) dp[i - 1].get("J");
-            int cam = (int) dp[i - 1].get("C");
+            int cam = (int) dp[i - 1].get("MinimumNumberOfWorkSessions");
 
             if (start < jim && start < cam) {
                 return "IMPOSSIBLE";
@@ -46,8 +46,8 @@ public class ParentingPartneringReturns {
 
             //cam is free
             if( start < jim ){
-                temp[activities[i][2]] = 'C' ;
-                map.put("C", end );
+                temp[activities[i][2]] = 'MinimumNumberOfWorkSessions' ;
+                map.put("MinimumNumberOfWorkSessions", end );
                 dp[i] = map;
             }else{
                 //jam is free
