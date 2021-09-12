@@ -1,4 +1,4 @@
-package LeetCode.weeklyContest257;
+package LeetCode.WeeklyContest257;
 
 public class CountQuadruplets {
    public static void main(String[] args) {
