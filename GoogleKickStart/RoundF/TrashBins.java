@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class A implements Runnable {
+public class TrashBins implements Runnable {
 
    void solve() {
       int t = ri();
@@ -49,7 +49,7 @@ public class A implements Runnable {
 
    /************************************************************************************************************************************************/
    public static void main(String[] args) throws IOException {
-      new Thread(null, new A(), "1").start();
+      new Thread(null, new TrashBins(), "1").start();
    }
 
    static PrintWriter out = new PrintWriter(System.out);
