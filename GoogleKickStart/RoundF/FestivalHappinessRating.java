@@ -56,7 +56,6 @@ public class FestivalHappinessRating implements Runnable {
                             sum += poll.happy;
                         }
                     }
-
                 }
             }
             ans = max(ans, sum);
@@ -75,7 +74,8 @@ public class FestivalHappinessRating implements Runnable {
 
         @Override
         public int compareTo(Festival o) {
-            if(this.happy != o.happy) return Integer.compare(this.happy, o.happy);
+            if (this.happy != o.happy)
+                return Integer.compare(this.happy, o.happy);
             return Integer.compare(this.id, o.id);
         }
 
@@ -116,6 +116,203 @@ public class FestivalHappinessRating implements Runnable {
     }
 
     /************************************************************************************************************************************************/
+    void solve2() {
+        int t = ri();
+        for (int tt = 1; tt <= t; tt++) {
+            print("Case #" + tt + ": ");
+            int d = ri(), n = ri(), k = ri();
+            Festival2[] arr = new Festival2[n];
+            for (int i = 0; i < n; i++) {
+                int happy = ri(), start = ri(), end = ri();
+                arr[i] = new Festival2(happy, start, end);
+            }
+
+            Arrays.sort(arr, (o1, o2) -> {
+                return Integer.compare(o2.happiness, o1.happiness);
+            });
+            for (int i = 0; i < n; i++) {
+                arr[i].id = i;
+            }
+
+            List<Festival2> lst = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                Festival2 start = new Festival2(arr[i].happiness, arr[i].id);
+                start.day = arr[i].start;
+                Festival2 end = new Festival2(-arr[i].happiness, arr[i].id);
+                end.day = arr[i].end + 1;
+
+                lst.add(start);
+                lst.add(end);
+            }
+
+            lst.sort(Comparator.comparingInt(o -> o.day));
+
+            SegSum segSum = new SegSum(n);
+            SegK segK = new SegK(n);
+            long ans = -1;
+            for (int i = 0; i < lst.size(); i++) {
+                if (i - 1 >= 0 && lst.get(i - 1).day != lst.get(i).day) {
+                    int index = segK.findKth(k);
+                    ans = max(ans, segSum.query(0, ((index == -1) ? n - 1 : index)));
+                }
+                Festival2 festival = lst.get(i);
+                if (festival.happiness > 0) {
+                    segSum.update(festival.id, festival.happiness);
+                    segK.update(festival.id, 1);
+                } else {
+                    segSum.update(festival.id, 0);
+                    segK.update(festival.id, 0);
+                }
+            }
+            int index = segK.findKth(k);
+            ans = max(ans, segSum.query(0, ((index == -1) ? n - 1 : index)));
+            println(ans);
+        }
+    }
+
+    static class Festival2 {
+        int happiness, start, end, id;
+        int day = -1;
+
+        public Festival2(int h, int s, int e) {
+            happiness = h;
+            start = s;
+            end = e;
+        }
+
+        public Festival2(int h, int id) {
+            happiness = h;
+            this.id = id;
+        }
+    }
+
+
+    static class SegSum {
+        long[] seg;
+        int len;
+
+        // Left -> 2 * p + 1
+        // Right = 2 * p + 2
+        public SegSum(int len) {
+            this.len = len;
+            seg = new long[getSize(len) * 2 + 1];
+        }
+
+        public void update(int index, long value) {
+            update(0, len - 1, 0, index, value);
+        }
+
+        public long query(int start, int end) {
+            return query(0, len - 1, 0, start, end);
+        }
+
+        private long query(int l, int h, int pos, int start, int end) {
+            if (l > end || h < start)
+                return 0;
+
+            if (start <= l && h <= end)
+                return seg[pos];
+            else {
+                int mid = l + (h - l) / 2;
+                int p = pos << 1;
+                return query(l, mid, p + 1, start, end) + query(mid + 1, h, p + 2, start, end);
+            }
+        }
+
+        private void update(int l, int h, int pos, int index, long value) {
+            if (l == h) {
+                try {
+                    seg[pos] = value;
+                } catch (Exception e) {
+                    System.out.println();
+                }
+            } else {
+                int mid = l + (h - l) / 2;
+                int p = pos << 1;
+                if (index <= mid) {
+                    update(l, mid, p + 1, index, value);
+                } else
+                    update(mid + 1, h, p + 2, index, value);
+                seg[pos] = seg[p + 1] + seg[p + 2];
+            }
+        }
+
+        int getSize(int len) {
+            if (len < 2) return 1;
+
+            if ((len & (len - 1)) == 0) return len;
+
+            while ((len & (len - 1)) != 0) {
+                len = len & (len - 1);
+            }
+
+            return len << 1;
+        }
+    }
+
+    static class SegK {
+        int[] seg;
+        int len;
+
+        // Left -> 2 * p + 1
+        // Right = 2 * p + 2
+        public SegK(int len) {
+            this.len = len;
+            seg = new int[getSize(len) * 2 + 1];
+        }
+
+        public void update(int index, int value) {
+            update(0, len - 1, 0, index, value);
+        }
+
+        public int findKth(int k) {
+            return query(0, len - 1, 0, k);
+        }
+
+        private int query(int l, int h, int pos, int k) {
+            if (l > h)
+                return -1;
+            if (l == h) {
+                return ((seg[pos] == k) ? l : -1);
+            }
+            int mid = l + (h - l) / 2;
+            int p = pos << 1;
+            int left = seg[p + 1];
+            if (left >= k) {
+                return query(l, mid, p + 1, k);
+            } else {
+                return query(mid + 1, h, p + 2, k - left);
+            }
+        }
+
+        private void update(int l, int h, int pos, int index, int value) {
+            if (l == h) {
+                seg[pos] = value;
+            } else {
+                int mid = l + (h - l) / 2;
+                int p = pos << 1;
+                if (index <= mid) {
+                    update(l, mid, p + 1, index, value);
+                } else
+                    update(mid + 1, h, p + 2, index, value);
+                seg[pos] = seg[p + 1] + seg[p + 2];
+            }
+        }
+
+        int getSize(int len) {
+            if (len < 2) return 1;
+
+            if ((len & (len - 1)) == 0) return len;
+
+            while ((len & (len - 1)) != 0) {
+                len = len & (len - 1);
+            }
+
+            return len << 1;
+        }
+    }
+
+    /************************************************************************************************************************************************/
     public static void main(String[] args) throws IOException {
         new Thread(null, new FestivalHappinessRating(), "1").start();
     }
@@ -130,9 +327,11 @@ public class FestivalHappinessRating implements Runnable {
     static long lmin = Long.MIN_VALUE;
     static int[] dprimes = new int[]{1, 11, 101, 1087, 99991, 100001, 1000003, 15485863, 999999937};
 
+    /************************************************************************************************************************************************/
+    // Another solution using segment tree
     @Override
     public void run() {
-        solve();
+        solve2();
         out.close();
     }
 
