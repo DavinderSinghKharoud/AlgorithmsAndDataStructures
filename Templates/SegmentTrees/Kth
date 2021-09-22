@@ -1,0 +1,62 @@
+
+static class SegK {
+        int[] seg;
+        int len;
+
+        // Left -> 2 * p + 1
+        // Right = 2 * p + 2
+        public SegK(int len) {
+            this.len = len;
+            seg = new int[getSize(len) * 2 + 1];
+        }
+
+        public void update(int index, int value) {
+            update(0, len - 1, 0, index, value);
+        }
+
+        public int findKth(int k) {
+            return query(0, len - 1, 0, k);
+        }
+
+        private int query(int l, int h, int pos, int k) {
+            if (l > h)
+                return -1;
+            if (l == h) {
+                return ((seg[pos] == k) ? l : -1);
+            }
+            int mid = l + (h - l) / 2;
+            int p = pos << 1;
+            int left = seg[p + 1];
+            if (left >= k) {
+                return query(l, mid, p + 1, k);
+            } else {
+                return query(mid + 1, h, p + 2, k - left);
+            }
+        }
+
+        private void update(int l, int h, int pos, int index, int value) {
+            if (l == h) {
+                seg[pos] = value;
+            } else {
+                int mid = l + (h - l) / 2;
+                int p = pos << 1;
+                if (index <= mid) {
+                    update(l, mid, p + 1, index, value);
+                } else
+                    update(mid + 1, h, p + 2, index, value);
+                seg[pos] = seg[p + 1] + seg[p + 2];
+            }
+        }
+
+        int getSize(int len) {
+            if (len < 2) return 1;
+
+            if ((len & (len - 1)) == 0) return len;
+
+            while ((len & (len - 1)) != 0) {
+                len = len & (len - 1);
+            }
+
+            return len << 1;
+        }
+    }
