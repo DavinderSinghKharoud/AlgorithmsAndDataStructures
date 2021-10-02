@@ -97,4 +97,36 @@ public class ShortQuestions {
         return ans;
     }
 
+    int[] findMedianPQ(int[] arr) {
+        //Max pq would be always equal or greater than min
+        PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> min = new PriorityQueue<>();
+        int len = arr.length;
+        int[] ans = new int[len];
+        for(int i = 0; i < len; i++){
+            int num = arr[i];
+            append(num, max, min);
+            ans[i] = getMedian(max, min);
+        }
+        return ans;
+    }
+
+    int getMedian(PriorityQueue<Integer> max, PriorityQueue<Integer> min){
+        int total = max.size() + min.size();
+        if(total % 2 == 1){
+            //If it is odd
+            return max.peek();
+        }else{
+            //If it is even
+            return (max.peek() + min.peek())/2;
+        }
+    }
+
+    void append(int num, PriorityQueue<Integer> max, PriorityQueue<Integer> min){
+        max.add(num);
+        min.add(max.remove());
+        if(min.size() > max.size()) max.add(min.remove());
+    }
+
+
 }
