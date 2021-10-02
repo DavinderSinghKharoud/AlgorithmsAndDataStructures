@@ -129,4 +129,31 @@ public class ShortQuestions {
     }
 
 
+    String rotationalCipherString(String input, int rotationFactor) {
+        StringBuilder sbr = new StringBuilder();
+        int azlen = 26, intlen = 10;
+        int a = 'a', A = 'A', zero = '0';
+
+        for(int i = 0; i < input.length(); i++){
+            char c = input.charAt(i);
+            if(c >= a && c <= 'z'){
+                int index = c - a;
+                index = (index + rotationFactor) % azlen;
+                c = (char)(index + a);
+            }else if( Character.isDigit(c)){
+                int index = c - zero;
+                index = (index + rotationFactor) % intlen;
+                c = (char)(index + zero);
+            }else if( c >= A && c <= 'Z'){
+                int index = c - A;
+                index = (index + rotationFactor) % azlen;
+                c = (char)(index + A);
+            }
+            sbr.append(c);
+        }
+        return sbr.toString();
+    }
+
+
+
 }
