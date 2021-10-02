@@ -57,4 +57,30 @@ public class ShortQuestions {
         }
         return ans;
     }
+
+    int[] maxProduct(int[] arr) {
+        // Write your code here
+        int len = arr.length;
+        int[] ans = new int[len];
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        int product = 1;
+        for(int i = 0; i < Math.min(2, len); i++){
+            ans[i] = -1;
+            product *= arr[i];
+            pq.add(arr[i]);
+        }
+
+
+        for(int i = 2; i < len; i++){
+            pq.add(arr[i]);
+            product  *= arr[i];
+            if(pq.size() > 3) {
+                product = (product)/pq.remove();
+            }
+            ans[i] = product;
+        }
+        return ans;
+    }
+
+
 }
