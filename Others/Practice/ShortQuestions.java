@@ -1,6 +1,6 @@
 package Others.Practice;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class ShortQuestions {
    public static void main(String[] args) {
@@ -20,4 +20,41 @@ public class ShortQuestions {
       }
       return true;
    }
+
+    int[] countSubarraysMaxPoss(int[] arr) {
+        // Write your code here
+
+        //First step is to find the max on both sides
+        Stack<Integer> stack = new Stack<>();
+        int len = arr.length;
+        int[] left = new int[len], right = new int[len];
+
+        for(int i = len - 1; i >= 0; i--){
+            int curr = arr[i];
+            while(!stack.isEmpty() && arr[stack.peek()] < curr) stack.pop();
+            right[i] = (stack.isEmpty())? len: stack.peek();
+            stack.push(i);
+        }
+
+        //We do similar thing for left
+        stack.clear();
+        for(int i = 0; i < len; i++){
+            int curr = arr[i];
+            while(!stack.isEmpty() && arr[stack.peek()] < curr) stack.pop();
+            left[i] = (stack.isEmpty())? -1: stack.peek();
+            stack.push(i);
+        }
+
+        //Compute the answer for every index
+        int[] ans = new int[len];
+
+        for(int i = 0; i < len; i++){
+            int leftMax = left[i], rightMax = right[i];
+            leftMax = i - leftMax;
+            rightMax = rightMax - i;
+            //Current number will be included twice
+            ans[i] = leftMax + rightMax - 1;
+        }
+        return ans;
+    }
 }
