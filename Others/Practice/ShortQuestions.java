@@ -1,11 +1,13 @@
 package Others.Practice;
 
+import LeetCode.Template.A;
+
 import java.util.*;
 
 public class ShortQuestions {
     public static void main(String[] args) {
         ShortQuestions o = new ShortQuestions();
-        System.out.println(o.encrypt("abc"));
+        System.out.println(o.minOperations(new int[]{1, 2, 5, 4, 3}));
     }
 
     boolean areTheyEqual(int[] array_a, int[] array_b) {
@@ -477,5 +479,118 @@ public class ShortQuestions {
             }
         }
         return false;
+    }
+
+
+    //O(nLogn)
+    //Can be done in O(n) using set and (equals, hash)
+    //Now we will proceed with O(nLogn) solution
+
+    int countDistinctTriangles(ArrayList<Sides> arr) {
+
+        arr.sort((o1, o2) -> {
+            if( areEqual(o1, o2)) return 0;
+            int first, second;
+            if( o1.a != o2.a){
+                first = o1.a;
+                second = o2.a;
+            }else if( o1.b != o2.b){
+                first = o1.b;
+                second = o2.b;
+            }else{
+                first = o1.c;
+                second = o2.c;
+            }
+            return Integer.compare(first, second);
+        });
+
+        int ans = 1;
+        for(int i = 1; i < arr.size(); i++){
+            Sides curr = arr.get(i);
+            if( !areEqual(arr.get(i - 1), curr)){
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    //O(1), because len will be always 3
+    boolean areEqual(Sides side1, Sides side2){
+        List<Integer> lst1 = new ArrayList<>();
+        lst1.add(side1.a);lst1.add(side1.b);lst1.add(side1.c);
+        List<Integer> lst2 = new ArrayList<>();
+        lst2.add(side2.a);lst2.add(side2.b);lst2.add(side2.c);
+        lst1.sort(Comparator.comparingInt(o -> o));
+        lst2.sort(Comparator.comparingInt(o -> o));
+        for(int i = 0; i < 3; i++) {
+            if( lst1.get(i) != lst2.get(i)) return false;
+        }
+        return true;
+    }
+
+
+
+
+    static class Sides{
+        int a;
+        int b;
+        int c;
+        Sides(int a,int b,int c){
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+    }
+
+
+    int minOperations(int[] arr) {
+
+        //BFS
+        int steps = 0;
+        Queue<int[]> queue = new ArrayDeque<>();
+        queue.add(arr);
+        Set<String> vis = new HashSet<>();
+
+        while(!queue.isEmpty()){
+            int len = queue.size();
+            for(int i = 0; i < len; i++){
+                int[] curr = queue.poll();
+
+                //Try all possibilities
+                for(int j = 0; j < arr.length; j++){
+                    for(int k = j + 1; k < arr.length; k++){
+                        int[] copy = curr.clone();
+                        reverse(copy,j, k);
+                        if( isSol(copy) ) {
+                            return steps + 1;
+                        }
+                        String s = Arrays.toString(copy);
+
+                        if(!vis.contains(s)){
+                            queue.add(copy);
+                            vis.add(s);
+                        }
+                    }
+                }
+            }
+            steps++;
+        }
+
+        return steps;
+    }
+
+    boolean isSol(int[] arr){
+        for(int i = 1; i < arr.length; i++){
+            if( arr[i] < arr[i - 1]) return false;
+        }
+        return true;
+    }
+    void reverse(int[] arr, int start, int end){
+        while(start <= end){
+            arr[start] = arr[start] ^ arr[end] ^ (arr[end] = arr[start]);
+            start++;
+            end--;
+        }
     }
 }
