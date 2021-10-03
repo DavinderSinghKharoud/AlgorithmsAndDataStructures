@@ -461,4 +461,21 @@ public class ShortQuestions {
         visited[target] = true;
         return false;
     }
+
+    boolean balancedSplit(int[] arr) {
+        // Write your code here
+        Arrays.sort(arr);
+        long total = 0, sum = 0;
+        for(int num: arr) total += num;
+        for(int i = 0; i < arr.length; i++){
+            sum += arr[i];
+            if( sum == (total - sum)){
+                //Next number if exist should not be same
+                if( i + 1 < arr.length && arr[i + 1] != arr[i]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
