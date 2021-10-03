@@ -259,4 +259,30 @@ public class ShortQuestions {
         }
         return true;
     }
+
+    int[] findSwapping(int[] arr, int k) {
+        int len = arr.length;
+        for(int i = 0; i < len && k > 0; i++){
+            //For each index, check which smallest number we can replace
+            int replace = i;
+            for(int j = i + 1; j < len; j++){
+                if( arr[j] < arr[replace] && j - i <= k){
+                    replace = j;
+                }
+            }
+            k -= (replace - i);
+            swap(arr, i, replace);
+        }
+        return arr;
+    }
+
+    void swap(int[] arr, int start, int end){
+        int num = arr[end];
+        for(int i = end; i > start; i--){
+            arr[i] = arr[i - 1];
+        }
+        arr[start] = num;
+    }
+
+
 }
