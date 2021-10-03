@@ -441,4 +441,24 @@ public class ShortQuestions {
     }
 
 
+
+    boolean canGetExactChange(int targetMoney, int[] denominations) {
+        boolean[] visited = new boolean[targetMoney + 1];
+        return isPossible(targetMoney, denominations, visited);
+    }
+
+    boolean isPossible(int target, int[] coins, boolean[] visited){
+        if( target < 0 || visited[target]) return false;
+        if( target == 0) return true;
+        for(int coin: coins){
+            if( target % coin == 0){
+                return true;
+            }
+            if(isPossible(target - coin, coins, visited)){
+                return true;
+            }
+        }
+        visited[target] = true;
+        return false;
+    }
 }
