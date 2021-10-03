@@ -7,7 +7,7 @@ import java.util.*;
 public class ShortQuestions {
     public static void main(String[] args) {
         ShortQuestions o = new ShortQuestions();
-        System.out.println(o.minOperations(new int[]{1, 2, 5, 4, 3}));
+        System.out.println();
     }
 
     boolean areTheyEqual(int[] array_a, int[] array_b) {
@@ -561,9 +561,9 @@ public class ShortQuestions {
                 for(int j = 0; j < arr.length; j++){
                     for(int k = j + 1; k < arr.length; k++){
                         int[] copy = curr.clone();
-                        reverse(copy,j, k);
+                        reverse(copy, i, j);
                         if( isSol(copy) ) {
-                            return steps + 1;
+                            return steps;
                         }
                         String s = Arrays.toString(copy);
 
