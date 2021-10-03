@@ -103,7 +103,7 @@ public class ShortQuestions {
         PriorityQueue<Integer> min = new PriorityQueue<>();
         int len = arr.length;
         int[] ans = new int[len];
-        for(int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             int num = arr[i];
             append(num, max, min);
             ans[i] = getMedian(max, min);
@@ -111,21 +111,21 @@ public class ShortQuestions {
         return ans;
     }
 
-    int getMedian(PriorityQueue<Integer> max, PriorityQueue<Integer> min){
+    int getMedian(PriorityQueue<Integer> max, PriorityQueue<Integer> min) {
         int total = max.size() + min.size();
-        if(total % 2 == 1){
+        if (total % 2 == 1) {
             //If it is odd
             return max.peek();
-        }else{
+        } else {
             //If it is even
-            return (max.peek() + min.peek())/2;
+            return (max.peek() + min.peek()) / 2;
         }
     }
 
-    void append(int num, PriorityQueue<Integer> max, PriorityQueue<Integer> min){
+    void append(int num, PriorityQueue<Integer> max, PriorityQueue<Integer> min) {
         max.add(num);
         min.add(max.remove());
-        if(min.size() > max.size()) max.add(min.remove());
+        if (min.size() > max.size()) max.add(min.remove());
     }
 
 
@@ -134,20 +134,20 @@ public class ShortQuestions {
         int azlen = 26, intlen = 10;
         int a = 'a', A = 'A', zero = '0';
 
-        for(int i = 0; i < input.length(); i++){
+        for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
-            if(c >= a && c <= 'z'){
+            if (c >= a && c <= 'z') {
                 int index = c - a;
                 index = (index + rotationFactor) % azlen;
-                c = (char)(index + a);
-            }else if( Character.isDigit(c)){
+                c = (char) (index + a);
+            } else if (Character.isDigit(c)) {
                 int index = c - zero;
                 index = (index + rotationFactor) % intlen;
-                c = (char)(index + zero);
-            }else if( c >= A && c <= 'Z'){
+                c = (char) (index + zero);
+            } else if (c >= A && c <= 'Z') {
                 int index = c - A;
                 index = (index + rotationFactor) % azlen;
-                c = (char)(index + A);
+                c = (char) (index + A);
             }
             sbr.append(c);
         }
@@ -156,4 +156,75 @@ public class ShortQuestions {
 
 
 
+    int matchingPairsString(String s, String t) {
+        int len = s.length();
+
+        Set<Pair> unmatched = new HashSet<>();
+        int[] count = new int[26];
+        int ans = 0;
+
+        for(int i = 0; i < len; i++){
+            char ss = s.charAt(i), tt = t.charAt(i);
+            if( ss == tt) {
+                ans++;
+                count[ss - 'a']++;
+            }
+            else {
+                unmatched.add(new Pair(ss, tt));
+            }
+        }
+
+
+        //If all are equal
+        if(unmatched.size() == 0){
+            for(int val: count){
+                if(val > 1) return ans;
+            }
+            return ans - 2;
+        }
+        else if ( unmatched.size() == 1){
+            for(Pair unmatch: unmatched){
+                if(count[unmatch.a] > 0 || count[unmatch.b] > 0) return ans;
+            }
+            return ans - 2;
+        }else{
+            // >= 2
+
+            for(Pair unmatch: unmatched){
+                Pair opposite = new Pair(unmatch.b, unmatch.a);
+                if(unmatched.contains(opposite)){
+                    //swap those
+                    return ans + 2;
+                }
+            }
+
+            for(Pair unmatch: unmatched){
+                if(count[unmatch.a] > 0 || count[unmatch.b]  > 0) return ans + 1;
+            }
+
+            return ans;
+        }
+
+    }
+
+    static class Pair{
+        int a, b;
+        public Pair( int a,int b){
+            this.a = a;
+            this.b = b;
+        }
+
+        @Override
+        public boolean equals(Object o){
+            if( this == o) return true;
+            if(o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair)o;
+            return a == pair.a && b == pair.b;
+        }
+
+        @Override
+        public int hashCode(){
+            return Objects.hash(a, b);
+        }
+    }
 }
