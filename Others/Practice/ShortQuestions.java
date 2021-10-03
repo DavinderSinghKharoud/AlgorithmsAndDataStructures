@@ -5,7 +5,7 @@ import java.util.*;
 public class ShortQuestions {
     public static void main(String[] args) {
         ShortQuestions o = new ShortQuestions();
-        System.out.println(o.getBillionUsersDaySearch(new float[]{1.01f}));
+        System.out.println(o.encrypt("abc"));
     }
 
     boolean areTheyEqual(int[] array_a, int[] array_b) {
@@ -428,5 +428,17 @@ public class ShortQuestions {
 
         return end;
     }
+
+    String encrypt(String s) {
+        if(s.isEmpty()) return s;
+        int middle = s.length() / 2;
+        if (s.length() % 2 == 0) middle--;
+        StringBuilder curr = new StringBuilder();
+        curr.append(s.charAt(middle));
+        curr.append(encrypt(s.substring(0, middle)));
+        if (middle + 1 <= s.length()) curr.append(encrypt(s.substring(middle + 1)));
+        return curr.toString();
+    }
+
 
 }
