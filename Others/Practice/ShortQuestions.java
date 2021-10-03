@@ -227,4 +227,36 @@ public class ShortQuestions {
             return Objects.hash(a, b);
         }
     }
+
+
+    int minLengthSub(String s, String t) {
+        if(t.length() > s.length()) return -1;
+        int ans = Integer.MIN_VALUE;
+
+        int[] target = new int[26];
+        for(int i = 0; i < t.length(); i++) target[t.charAt(i) - 'a']++;
+
+        int len = s.length();
+        int[] curr = new int[26];
+        int start = 0;
+        for(int end = 0; end < len; end++){
+            curr[s.charAt(end) - 'a']++;
+            while( start < end && isContain(curr, target)){
+                if(end - start + 1 >= ans){
+                    ans = end - start + 1;
+                }
+                curr[s.charAt(start--) - 'a']--;
+            }
+        }
+        return (ans == Integer.MIN_VALUE)? -1: ans;
+
+    }
+
+    boolean isContain(int[] a, int[] b){
+        if( a.length != b.length) return false;
+        for(int i = 0; i < a.length; i++){
+            if( b[i] > 0 && a[i] < b[i]) return false;
+        }
+        return true;
+    }
 }
