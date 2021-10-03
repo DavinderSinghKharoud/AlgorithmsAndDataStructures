@@ -304,4 +304,77 @@ public class ShortQuestions {
         ans = Math.max(ans, arr[len - 1] - arr[len - 2]);
         return ans;
     }
+
+
+    int len;
+    String s;
+    int[] countOfNodes(Node root, ArrayList<Query> queries, String s) {
+        // Write your code here
+        this.len = s.length();
+        this.s = s;
+        int[][] dp = new int[len + 1][26];
+
+        traverse(root, dp);
+
+        int[] ans = new int[queries.size()];
+
+        for(int i = 0; i < queries.size(); i++){
+            Query curr = queries.get(i);
+            int result = 0;
+            if(dp[curr.u] != null){
+                int[] counts = dp[curr.u];
+                result = counts[curr.c - 'a'];
+            }
+            ans[i] = result;
+        }
+
+        return ans;
+    }
+
+    int[] traverse(Node root, int[][] dp){
+        int[] curr = new int[26];
+        curr[s.charAt(root.val - 1) - 'a']++;
+
+        for(Node child: root.children){
+            int[] childCount = traverse(child, dp);
+            merge(curr, childCount);
+        }
+        return dp[root.val] = curr;
+    }
+
+    void merge(int[] parent, int[] b){
+        for(int i = 0; i < b.length; i++){
+            parent[i] += b[i];
+        }
+    }
+    // Tree Node
+    class Node {
+        public int val;
+        public List<Node> children;
+
+        public Node() {
+            val = 0;
+            children = new ArrayList<Node>();
+        }
+
+        public Node(int _val) {
+            val = _val;
+            children = new ArrayList<Node>();
+        }
+
+        public Node(int _val, ArrayList<Node> _children) {
+            val = _val;
+            children = _children;
+        }
+    }
+
+    class Query {
+        int u;
+        char c;
+        Query(int u, char c) {
+            this.u = u;
+            this.c = c;
+        }
+    }
+
 }
