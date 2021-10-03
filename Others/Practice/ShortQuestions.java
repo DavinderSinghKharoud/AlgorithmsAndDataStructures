@@ -285,4 +285,23 @@ public class ShortQuestions {
     }
 
 
+    int awkwardness(int[] arr) {
+        int len = arr.length;
+        Arrays.sort(arr);
+
+        //Arrange number like
+        //[1, 2, 3, 4, 5, 6, 7] --> [6, 4, 2, 1, 3, 5, 7]
+        int ans = Math.abs(arr[1] - arr[0]);
+        for(int i = 2; i < len; i += 2){
+            //All the odd indices(i + 1)
+            ans = Math.max(ans, Math.abs(arr[i] - arr[i - 2]));
+        }
+        for(int i = 3; i < len; i += 2){
+            //All the even indices(i + 1)
+            ans = Math.max(ans, Math.abs(arr[i] - arr[i - 2]));
+        }
+
+        ans = Math.max(ans, arr[len - 1] - arr[len - 2]);
+        return ans;
+    }
 }
