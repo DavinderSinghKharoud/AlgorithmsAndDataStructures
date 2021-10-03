@@ -4,7 +4,8 @@ import java.util.*;
 
 public class ShortQuestions {
     public static void main(String[] args) {
-
+        ShortQuestions o = new ShortQuestions();
+        System.out.println(o.getBillionUsersDaySearch(new float[]{1.01f}));
     }
 
     boolean areTheyEqual(int[] array_a, int[] array_b) {
@@ -155,7 +156,6 @@ public class ShortQuestions {
     }
 
 
-
     int matchingPairsString(String s, String t) {
         int len = s.length();
 
@@ -163,43 +163,41 @@ public class ShortQuestions {
         int[] count = new int[26];
         int ans = 0;
 
-        for(int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             char ss = s.charAt(i), tt = t.charAt(i);
-            if( ss == tt) {
+            if (ss == tt) {
                 ans++;
                 count[ss - 'a']++;
-            }
-            else {
+            } else {
                 unmatched.add(new Pair(ss, tt));
             }
         }
 
 
         //If all are equal
-        if(unmatched.size() == 0){
-            for(int val: count){
-                if(val > 1) return ans;
+        if (unmatched.size() == 0) {
+            for (int val : count) {
+                if (val > 1) return ans;
             }
             return ans - 2;
-        }
-        else if ( unmatched.size() == 1){
-            for(Pair unmatch: unmatched){
-                if(count[unmatch.a] > 0 || count[unmatch.b] > 0) return ans;
+        } else if (unmatched.size() == 1) {
+            for (Pair unmatch : unmatched) {
+                if (count[unmatch.a] > 0 || count[unmatch.b] > 0) return ans;
             }
             return ans - 2;
-        }else{
+        } else {
             // >= 2
 
-            for(Pair unmatch: unmatched){
+            for (Pair unmatch : unmatched) {
                 Pair opposite = new Pair(unmatch.b, unmatch.a);
-                if(unmatched.contains(opposite)){
+                if (unmatched.contains(opposite)) {
                     //swap those
                     return ans + 2;
                 }
             }
 
-            for(Pair unmatch: unmatched){
-                if(count[unmatch.a] > 0 || count[unmatch.b]  > 0) return ans + 1;
+            for (Pair unmatch : unmatched) {
+                if (count[unmatch.a] > 0 || count[unmatch.b] > 0) return ans + 1;
             }
 
             return ans;
@@ -207,66 +205,67 @@ public class ShortQuestions {
 
     }
 
-    static class Pair{
+    static class Pair {
         int a, b;
-        public Pair( int a,int b){
+
+        public Pair(int a, int b) {
             this.a = a;
             this.b = b;
         }
 
         @Override
-        public boolean equals(Object o){
-            if( this == o) return true;
-            if(o == null || getClass() != o.getClass()) return false;
-            Pair pair = (Pair)o;
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
             return a == pair.a && b == pair.b;
         }
 
         @Override
-        public int hashCode(){
+        public int hashCode() {
             return Objects.hash(a, b);
         }
     }
 
 
     int minLengthSub(String s, String t) {
-        if(t.length() > s.length()) return -1;
+        if (t.length() > s.length()) return -1;
         int ans = Integer.MIN_VALUE;
 
         int[] target = new int[26];
-        for(int i = 0; i < t.length(); i++) target[t.charAt(i) - 'a']++;
+        for (int i = 0; i < t.length(); i++) target[t.charAt(i) - 'a']++;
 
         int len = s.length();
         int[] curr = new int[26];
         int start = 0;
-        for(int end = 0; end < len; end++){
+        for (int end = 0; end < len; end++) {
             curr[s.charAt(end) - 'a']++;
-            while( start < end && isContain(curr, target)){
-                if(end - start + 1 >= ans){
+            while (start < end && isContain(curr, target)) {
+                if (end - start + 1 >= ans) {
                     ans = end - start + 1;
                 }
                 curr[s.charAt(start--) - 'a']--;
             }
         }
-        return (ans == Integer.MIN_VALUE)? -1: ans;
+        return (ans == Integer.MIN_VALUE) ? -1 : ans;
 
     }
 
-    boolean isContain(int[] a, int[] b){
-        if( a.length != b.length) return false;
-        for(int i = 0; i < a.length; i++){
-            if( b[i] > 0 && a[i] < b[i]) return false;
+    boolean isContain(int[] a, int[] b) {
+        if (a.length != b.length) return false;
+        for (int i = 0; i < a.length; i++) {
+            if (b[i] > 0 && a[i] < b[i]) return false;
         }
         return true;
     }
 
     int[] findSwapping(int[] arr, int k) {
         int len = arr.length;
-        for(int i = 0; i < len && k > 0; i++){
+        for (int i = 0; i < len && k > 0; i++) {
             //For each index, check which smallest number we can replace
             int replace = i;
-            for(int j = i + 1; j < len; j++){
-                if( arr[j] < arr[replace] && j - i <= k){
+            for (int j = i + 1; j < len; j++) {
+                if (arr[j] < arr[replace] && j - i <= k) {
                     replace = j;
                 }
             }
@@ -276,9 +275,9 @@ public class ShortQuestions {
         return arr;
     }
 
-    void swap(int[] arr, int start, int end){
+    void swap(int[] arr, int start, int end) {
         int num = arr[end];
-        for(int i = end; i > start; i--){
+        for (int i = end; i > start; i--) {
             arr[i] = arr[i - 1];
         }
         arr[start] = num;
@@ -292,11 +291,11 @@ public class ShortQuestions {
         //Arrange number like
         //[1, 2, 3, 4, 5, 6, 7] --> [6, 4, 2, 1, 3, 5, 7]
         int ans = Math.abs(arr[1] - arr[0]);
-        for(int i = 2; i < len; i += 2){
+        for (int i = 2; i < len; i += 2) {
             //All the odd indices(i + 1)
             ans = Math.max(ans, Math.abs(arr[i] - arr[i - 2]));
         }
-        for(int i = 3; i < len; i += 2){
+        for (int i = 3; i < len; i += 2) {
             //All the even indices(i + 1)
             ans = Math.max(ans, Math.abs(arr[i] - arr[i - 2]));
         }
@@ -308,6 +307,7 @@ public class ShortQuestions {
 
     int len;
     String s;
+
     int[] countOfNodes(Node root, ArrayList<Query> queries, String s) {
         // Write your code here
         this.len = s.length();
@@ -318,10 +318,10 @@ public class ShortQuestions {
 
         int[] ans = new int[queries.size()];
 
-        for(int i = 0; i < queries.size(); i++){
+        for (int i = 0; i < queries.size(); i++) {
             Query curr = queries.get(i);
             int result = 0;
-            if(dp[curr.u] != null){
+            if (dp[curr.u] != null) {
                 int[] counts = dp[curr.u];
                 result = counts[curr.c - 'a'];
             }
@@ -331,22 +331,23 @@ public class ShortQuestions {
         return ans;
     }
 
-    int[] traverse(Node root, int[][] dp){
+    int[] traverse(Node root, int[][] dp) {
         int[] curr = new int[26];
         curr[s.charAt(root.val - 1) - 'a']++;
 
-        for(Node child: root.children){
+        for (Node child : root.children) {
             int[] childCount = traverse(child, dp);
             merge(curr, childCount);
         }
         return dp[root.val] = curr;
     }
 
-    void merge(int[] parent, int[] b){
-        for(int i = 0; i < b.length; i++){
+    void merge(int[] parent, int[] b) {
+        for (int i = 0; i < b.length; i++) {
             parent[i] += b[i];
         }
     }
+
     // Tree Node
     class Node {
         public int val;
@@ -371,10 +372,61 @@ public class ShortQuestions {
     class Query {
         int u;
         char c;
+
         Query(int u, char c) {
             this.u = u;
             this.c = c;
         }
+    }
+
+    int[] getMilestone(int[] revenues, int[] milestones) {
+        // Write your code here
+        int mlen = milestones.length;
+        int[] ans = new int[mlen];
+        int[] sum = new int[revenues.length];
+        for (int i = 0; i < revenues.length; i++) {
+            if (i == 0) sum[i] = revenues[i];
+            else {
+                sum[i] += sum[i - 1] + revenues[i];
+            }
+        }
+
+        for (int i = 0; i < mlen; i++) {
+            int mile = milestones[i];
+            int index = search(mile, sum);
+            ans[i] = ((index != -1) ? index + 1 : index);
+        }
+        return ans;
+    }
+
+    int search(int mile, int[] sum) {
+        int start = 0, end = sum.length - 1;
+        while (start < end) {
+            int mid = (end + start) / 2;
+            if (sum[mid] >= mile) {
+                end = mid;
+            } else start = mid + 1;
+        }
+        return (sum[end] < mile) ? -1 : end;
+    }
+
+    int getBillionUsersDaySearch(float[] growthRates) {
+        float max = -1;
+        for (float num : growthRates) {
+            max = Math.max(max, num);
+        }
+
+        int start = 0, end = (int) (1e9);
+        double target = (double) (1e9);
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            double pow = Math.pow(max, mid);
+            if (Math.pow(max, mid) >= target) {
+                end = mid;
+            } else start = mid + 1;
+        }
+
+        return end;
     }
 
 }
