@@ -40,7 +40,7 @@ LargestRectangleinHistogram {
 	public static void main (String[] args) {
 		
 		System.out.println( largestRectangleArea2( new int[]{
-				90, 58, 69, 70, 82, 100, 13, 57, 47, 18
+				2, 1, 2
 		}));
 	}
 
@@ -52,7 +52,6 @@ LargestRectangleinHistogram {
 			
 			
 			for( int index = 0; index<=heights.length; index++ ){
-
 				while ( !stack.isEmpty() && heights[ stack.peek() ] > ((index == heights.length) ? -1: heights[index]) ){
 					int val = stack.pop();
 					int range = (stack.isEmpty()) ? index: index - 1 - stack.peek();
@@ -65,6 +64,33 @@ LargestRectangleinHistogram {
 
 			return max;
 		
+	}
+
+	public static int largestRectangleArea4(int[] heights) {
+		int len = heights.length;
+		Stack<Integer> stack = new Stack<>();
+		int ans = -1;
+		for(int i = 0;i < len; i++){
+			int curr = heights[i];
+			while(!stack.isEmpty() && heights[stack.peek()] > curr){
+				int pop = stack.pop();
+				ans = Math.max(ans, findArea(pop, i, heights[pop]));
+			}
+			stack.add(i);
+		}
+
+		if(!stack.isEmpty()){
+			int last = stack.peek() + 1;
+			while(!stack.isEmpty()){
+				int pop = stack.pop();
+				ans = Math.max(ans, findArea(pop, last, heights[pop]));
+			}
+		}
+		return ans;
+	}
+
+	static int findArea(int a, int b, int height){
+		return ( height * (b - a));
 	}
 
 	public static int largestRectangleArea3(int[] a) {
