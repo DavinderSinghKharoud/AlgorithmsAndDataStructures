@@ -1,5 +1,5 @@
 package LeetCode;
-
+import java.util.*;
 public class InsertIntervals {
     int n, m;
     public int[][] insert(int[][] intervals, int[] newI) {
