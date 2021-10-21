@@ -30,7 +30,8 @@ public class BananaBunches implements Runnable {
                sum += arr[j];
                if (sum <= k) {
                   ans = min(ans, index - j + 1 + best[k - sum]);
-               }else break;
+               } else
+                  break;
             }
 
             // Save all the possible sums for the right
@@ -39,7 +40,8 @@ public class BananaBunches implements Runnable {
                sum += arr[j];
                if (sum <= k) {
                   best[sum] = min(best[sum], j - index + 1);
-               }else break;
+               } else
+                  break;
             }
          }
 
