@@ -1,7 +1,7 @@
 package Preparation;
 
 /**
- * Given an integer A you need to find the Ath fibonacci number modulo 109 + 7.
+ * Given an integer NumberOfValidWords you need to find the Ath fibonacci number modulo 109 + 7.
  *
  * The first fibonacci number F1 = 1
  *
@@ -12,7 +12,7 @@ package Preparation;
  *
  *
  * Problem Constraints
- * 1 <= A <= 109.
+ * 1 <= NumberOfValidWords <= 109.
  */
 public class NthFibonacci {
     int mod = (int) (1e9 + 7);

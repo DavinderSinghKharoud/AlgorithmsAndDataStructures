@@ -17,9 +17,9 @@ import java.util.ArrayList;
 public class RearrangeArray {
     public void arrange(ArrayList<Integer> lst) {
         int size = lst.size();
-        // A = B + C* n
-        // A % N = B
-        // (A - B)/ N = C
+        // NumberOfValidWords = NextSmallerBalancedNumber + NumberOfNodesWithHighestScore* n
+        // NumberOfValidWords % N = NextSmallerBalancedNumber
+        // (NumberOfValidWords - NextSmallerBalancedNumber)/ N = NumberOfNodesWithHighestScore
 
         for(int i = 0; i < size; i++){
             int curr = lst.get(i);
