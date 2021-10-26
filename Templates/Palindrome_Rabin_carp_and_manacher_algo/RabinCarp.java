@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RabinCarp {
+
     private String rabinKarp(String s, int len) {
         Set<Long> set = new HashSet<>();
         long h = hash(s.substring(0, len));
