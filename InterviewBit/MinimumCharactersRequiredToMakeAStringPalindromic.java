@@ -53,7 +53,7 @@ public class MinimumCharactersRequiredToMakeAStringPalindromic{
 	}
 	public static void main (String[] args) {
 
-		System.out.println(solve2("mbadm"));
+		System.out.println(solve2("abede"));
 	}
 
 	// KMP String pattern matching ( Time and space complexity O(n) )
