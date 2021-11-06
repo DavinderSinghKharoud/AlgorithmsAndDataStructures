@@ -3,13 +3,13 @@ package Preparation;
 import java.util.*;
 
 /**
- * Given an array A of integers and another non negative integer k, find if there exists 2 indices i and j such that A[i] - A[j] = k, i != j.
+ * Given an array ScoreSmallestIndexWithEqualValue of integers and another non negative integer k, find if there exists 2 indices i and j such that ScoreSmallestIndexWithEqualValue[i] - ScoreSmallestIndexWithEqualValue[j] = k, i != j.
  * <p>
  * Example :
  * <p>
  * Input :
  * <p>
- * A : [1 5 3]
+ * ScoreSmallestIndexWithEqualValue : [1 5 3]
  * k : 2
  * Output :
  * <p>

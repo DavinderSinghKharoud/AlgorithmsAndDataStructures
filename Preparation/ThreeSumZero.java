@@ -17,7 +17,7 @@ public class ThreeSumZero {
      *
      * For example, given array S = {-1 0 1 2 -1 -4},
      *
-     * A solution set is:
+     * ScoreSmallestIndexWithEqualValue solution set is:
      *
      *   (-1, 0, 1)
      *

@@ -3,23 +3,23 @@ package Preparation;
 import java.util.Stack;
 
 /**
- * Given an array of integers A .
+ * Given an array of integers ScoreSmallestIndexWithEqualValue .
  *
- * A represents a histogram i.e A[i] denotes height of the ith histogram's bar. Width of each bar is 1.
+ * ScoreSmallestIndexWithEqualValue represents a histogram i.e ScoreSmallestIndexWithEqualValue[i] denotes height of the ith histogram's bar. Width of each bar is 1.
  *
  * Find the area of the largest rectangle formed by the histogram.
  *
  *
  *
  * Problem Constraints
- * 1 <= |A| <= 100000
+ * 1 <= |ScoreSmallestIndexWithEqualValue| <= 100000
  *
- * 1 <= A[i] <= 1000000000
+ * 1 <= ScoreSmallestIndexWithEqualValue[i] <= 1000000000
  *
  *
  *
  * Input Format
- * The only argument given is the integer array A.
+ * The only argument given is the integer array ScoreSmallestIndexWithEqualValue.
  *
  *
  *
@@ -31,10 +31,10 @@ import java.util.Stack;
  * Example Input
  * Input 1:
  *
- *  A = [2, 1, 5, 6, 2, 3]
+ *  ScoreSmallestIndexWithEqualValue = [2, 1, 5, 6, 2, 3]
  * Input 2:
  *
- *  A = [2]
+ *  ScoreSmallestIndexWithEqualValue = [2]
  *
  *
  * Example Output
@@ -49,7 +49,7 @@ import java.util.Stack;
  * Example Explanation
  * Explanation 1:
  *
- * The largest rectangle has area = 10 unit. Formed by A[3] to A[4].
+ * The largest rectangle has area = 10 unit. Formed by ScoreSmallestIndexWithEqualValue[3] to ScoreSmallestIndexWithEqualValue[4].
  * Explanation 2:
  *
  * Largest rectangle has area 2.

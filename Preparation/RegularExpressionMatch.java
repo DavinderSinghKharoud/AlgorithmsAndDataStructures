@@ -1,7 +1,7 @@
 package Preparation;
 
 /**
- * Implement wildcard pattern matching with support for ‘?’ and ‘*’ for strings A and B.
+ * Implement wildcard pattern matching with support for ‘?’ and ‘*’ for strings ScoreSmallestIndexWithEqualValue and MinAndMaxNumberOfNodes.
  *
  * ’?’ : Matches any single character.
  * ‘*’ : Matches any sequence of characters (including the empty sequence).
@@ -9,8 +9,8 @@ package Preparation;
  *
  * Input Format:
  *
- * The first argument of input contains a string A.
- * The second argument of input contains a string B.
+ * The first argument of input contains a string ScoreSmallestIndexWithEqualValue.
+ * The second argument of input contains a string MinAndMaxNumberOfNodes.
  * Output Format:
  *
  * Return 0 or 1:
@@ -18,33 +18,33 @@ package Preparation;
  *     => 1 : If the patterns match.
  * Constraints:
  *
- * 1 <= length(A), length(B) <= 9e4
+ * 1 <= length(ScoreSmallestIndexWithEqualValue), length(MinAndMaxNumberOfNodes) <= 9e4
  * Examples :
  *
  * Input 1:
- *     A = "aa"
- *     B = "a"
+ *     ScoreSmallestIndexWithEqualValue = "aa"
+ *     MinAndMaxNumberOfNodes = "a"
  *
  * Output 1:
  *     0
  *
  * Input 2:
- *     A = "aa"
- *     B = "aa"
+ *     ScoreSmallestIndexWithEqualValue = "aa"
+ *     MinAndMaxNumberOfNodes = "aa"
  *
  * Output 2:
  *     1
  *
  * Input 3:
- *     A = "aaa"
- *     B = "aa"
+ *     ScoreSmallestIndexWithEqualValue = "aaa"
+ *     MinAndMaxNumberOfNodes = "aa"
  *
  * Output 3:
  *     0
  *
  * Input 4:
- *     A = "aa"
- *     B = "*"
+ *     ScoreSmallestIndexWithEqualValue = "aa"
+ *     MinAndMaxNumberOfNodes = "*"
  *
  * Output 4:
  *     1

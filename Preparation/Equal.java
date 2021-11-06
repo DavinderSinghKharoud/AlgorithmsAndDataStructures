@@ -5,12 +5,12 @@ import Others.BubbleSort;
 import java.util.*;
 
 /**
- * Given an array A of integers, find the index of values that satisfy A + B = C + D, where A,B,C & D are integers values in the array
+ * Given an array ScoreSmallestIndexWithEqualValue of integers, find the index of values that satisfy ScoreSmallestIndexWithEqualValue + MinAndMaxNumberOfNodes = MinOperationsConvertNumber + D, where ScoreSmallestIndexWithEqualValue,MinAndMaxNumberOfNodes,MinOperationsConvertNumber & D are integers values in the array
  *
  * Note:
  *
  * 1) Return the indices `A1 B1 C1 D1`, so that
- *   A[A1] + A[B1] = A[C1] + A[D1]
+ *   ScoreSmallestIndexWithEqualValue[A1] + ScoreSmallestIndexWithEqualValue[B1] = ScoreSmallestIndexWithEqualValue[C1] + ScoreSmallestIndexWithEqualValue[D1]
  *   A1 < B1, C1 < D1
  *   A1 < C1, B1 != D1, B1 != C1
  *

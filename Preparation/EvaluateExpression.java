@@ -12,14 +12,14 @@ import java.util.Stack;
  *
  * Input Format
  *
- * The only argument given is character array A.
+ * The only argument given is character array ScoreSmallestIndexWithEqualValue.
  * Output Format
  *
  * Return the value of arithmetic expression formed using reverse Polish Notation.
  * For Example
  *
  * Input 1:
- *     A =   ["2", "1", "+", "3", "*"]
+ *     ScoreSmallestIndexWithEqualValue =   ["2", "1", "+", "3", "*"]
  * Output 1:
  *     9
  * Explaination 1:
@@ -32,7 +32,7 @@ import java.util.Stack;
  *     ((2)+(1))*(3) = 9
  *
  * Input 2:
- *     A = ["4", "13", "5", "/", "+"]
+ *     ScoreSmallestIndexWithEqualValue = ["4", "13", "5", "/", "+"]
  * Output 2:
  *     6
  * Explaination 2:
