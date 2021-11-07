@@ -5,7 +5,7 @@ import Others.BubbleSort;
 import java.util.*;
 
 /**
- * Given an array ScoreSmallestIndexWithEqualValue of integers, find the index of values that satisfy ScoreSmallestIndexWithEqualValue + MinAndMaxNumberOfNodes = MinOperationsConvertNumber + D, where ScoreSmallestIndexWithEqualValue,MinAndMaxNumberOfNodes,MinOperationsConvertNumber & D are integers values in the array
+ * Given an array ScoreSmallestIndexWithEqualValue of integers, find the index of values that satisfy ScoreSmallestIndexWithEqualValue + MinAndMaxNumberOfNodes = MinOperationsConvertNumber + MaximumPathQuality, where ScoreSmallestIndexWithEqualValue,MinAndMaxNumberOfNodes,MinOperationsConvertNumber & MaximumPathQuality are integers values in the array
  *
  * Note:
  *
