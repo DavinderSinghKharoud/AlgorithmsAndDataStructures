@@ -60,10 +60,10 @@ public class AllUniquePermutations {
 
         ArrayList<Integer> lst = new ArrayList<>();
         //lst.add(1);lst.add(1);lst.add(2);
+        lst.add(1);
+        lst.add(2);
         lst.add(3);
-        lst.add(3);
-        lst.add(0);
-        lst.add(3);
+//        lst.add(3);
         ArrayList<ArrayList<Integer>> res = permute2(lst);
 
         for (ArrayList<Integer> curr : res) {
