@@ -1,0 +1,8 @@
+
+1] Binary Search ( try like 1 ..... 1000000)
+   see if solution works for n.
+
+2]  /**
+        * Find the arithmetic sum between a -- b --> { a + b) * (a - b + 1)/ 2;}
+        */
+3]Binary search vertical (SellDiminishingBalls)
