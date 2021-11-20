@@ -34,7 +34,7 @@ public class MaximumGap {
         int digitsCount = (int) (Math.log10(Arrays.stream(nums).max().getAsInt()) + 1);
         int index = 0; //From right side
         while (index < digitsCount) {
-            nums = countingSort(nums, index, len);
+            nums = countingSort(nums, index);
             index++;
         }
         int max = 0;
@@ -45,7 +45,7 @@ public class MaximumGap {
         return max;
     }
 
-    int[] countingSort(int[] nums, int index, int len) {
+    int[] countingSort(int[] nums, int index) {
         int[] count = new int[10];
         for (int num : nums) {
             int digit = getDigit(num, index);
@@ -66,7 +66,6 @@ public class MaximumGap {
             int fitIndex = start;
             res[fitIndex] = num;
             prefix[digit]++;
-
         }
 
         return res;
