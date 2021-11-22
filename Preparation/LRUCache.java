@@ -49,7 +49,44 @@ public class LRUCache {
         System.out.println(lRUCache.get(1));    // return -1 (not found)
         System.out.println(lRUCache.get(3));    // return 3
         System.out.println(lRUCache.get(4));     // return 4
+
+        LinkedHashMap<Integer, Integer> linkedHashMap = new LinkedHashMap<>(10, 0.75f, true);
+        linkedHashMap.put(1, 1);
+        linkedHashMap.put(2, 2);
+        linkedHashMap.put(3, 3);
+        linkedHashMap.put(4, 4);
+
+        linkedHashMap.get(2);
+        for (Map.Entry<Integer, Integer> l : linkedHashMap.entrySet()) {
+            System.out.println(l.getKey());
+        }
     }
+
+//    LruMap map;
+//    public LRUCache(int capacity) {
+//        map = new LruMap(capacity);
+//    }
+//
+//    public int get(int key) {
+//        return map.getOrDefault(key, -1);
+//    }
+//
+//    public void put(int key, int value) {
+//        map.put(key, value);
+//    }
+//
+//    static class LruMap extends LinkedHashMap<Integer, Integer>{
+//        static final float loadFactor = 0.75f;
+//        int capacity;
+//        public LruMap(int capacity){
+//            super(capacity, loadFactor, true);
+//            this.capacity = capacity;
+//        }
+//
+//        protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest){
+//            return size() > capacity;
+//        }
+//    }
 
     int rank;
     Map<Integer, Node> map;
@@ -182,7 +219,6 @@ public class LRUCache {
 //        tail = node;
 //        return node;
 //    }
-
 
 
 }
