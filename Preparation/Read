@@ -6,3 +6,9 @@
         * Find the arithmetic sum between a -- b --> { a + b) * (a - b + 1)/ 2;}
         */
 3]Binary search vertical (SellDiminishingBalls)
+
+4] Very important look for binary search solution
+
+5] Most of k smallest or largest can also be solved with priority queue and binary search
+
+6] See the questions with monostack
