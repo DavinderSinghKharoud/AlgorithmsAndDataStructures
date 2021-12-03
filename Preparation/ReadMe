@@ -1,0 +1,15 @@
+The biggest thing in this post is to try with examples.
+ Whenever you get stuck, you should consider trying few examples to understand how you can solve the problem as a human.
+ In fact, you might be able to copy the same strategy in a program.
+ Also, some examples can simplify the problem and make it easier to get the essence.
+
+Another thing is that sorting and iterating over the sorted intervals are very common techniques in similar problems
+ For instance, another popular question is to merge a list of intervals that might have overlaps.
+ After reading this post, you should be able to solve this question with no problem at all.
+
+
+Returns:
+the value 0 if the argument string is equal to this string;
+a value less than 0 if this string is lexicographically less than the string argument;
+
+ and a value greater than 0 if this string is lexicographically greater than the string argument.
