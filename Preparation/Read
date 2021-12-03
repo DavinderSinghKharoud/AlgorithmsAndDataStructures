@@ -1,4 +1,11 @@
 
+
+
+Stack, two pointers,
+Binary search, --- priority queue
+
+
+
 1] Binary Search ( try like 1 ..... 1000000)
    see if solution works for n.
 
@@ -32,3 +39,17 @@ So we start another pointer at the beginning and let slow move with it. Remember
 a = 2a
 a - x steps taken by tortoise
 adding x --> a (cycle)(multiple lengths of a circle)
+
+
+
+
+
+SellDiminishingBalls //binary search on order
+SplitArrayLargestSum //binary search (look for continuation
+iven an integer array nums and an integer k, return the number of good subarrays of nums.     return getArraysWith(nums, k) - getArraysWith(nums, k - 1);
+//Three sum zero using two pointers or binary search
+// NumberOfValidWords = NextSmallerBalancedNumber + NumberOfNodesWithHighestScore* n
+        // NumberOfValidWords % N = NextSmallerBalancedNumber
+        // (NumberOfValidWords - NextSmallerBalancedNumber)/ N = NumberOfNodesWithHighestScore
+
+        RangeFrequency

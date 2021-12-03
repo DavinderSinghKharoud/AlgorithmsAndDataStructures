@@ -30,6 +30,23 @@ import java.util.*;
  */
 public class FindKClosest {
 
+    public List<Integer> findClosestElements5(int[] arr, int k, int x) {
+        int lo = 0;
+        int hi = arr.length - 1;
+        while (hi - lo >= k) {
+            if (Math.abs(arr[lo] - x) > Math.abs(arr[hi] - x)) {
+                lo++;
+            } else {
+                hi--;
+            }
+        }
+        List<Integer> result = new ArrayList<>(k);
+        for (int i = lo; i <= hi; i++) {
+            result.add(arr[i]);
+        }
+        return result;
+    }
+
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> ans = new ArrayList<>();
         PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> {
@@ -126,6 +143,7 @@ public class FindKClosest {
     public static void main(String[] args) {
         System.out.println(new FindKClosest().findClosestElements4(new int[]{2, 5, 7, 9}, 3, 5));
     }
+
     public List<Integer> findClosestElements4(int[] arr, int k, int x) {
         List<Integer> ans = new ArrayList<>();
         int start = 0, end = arr.length - k - 1;

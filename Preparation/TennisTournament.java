@@ -29,7 +29,7 @@ public class TennisTournament {
     }
 
 
-    int findWinnder(boolean[][] tournament) {
+    int findWinner(boolean[][] tournament) {
         int winner = 0;
         for (int player = 1; player < tournament.length; player++) {
             if (tournament[player][winner]) winner = player;

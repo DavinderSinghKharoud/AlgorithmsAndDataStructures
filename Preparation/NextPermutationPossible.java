@@ -27,6 +27,17 @@ import java.util.Arrays;
  *
  * Input: nums = [1]
  * Output: [1]
+ *
+ *  us start from example and see how our algorithm should work.
+ * Imaigne n = 234157641. Our goal is to find next number with the same digits, which is greater than given one and which is the smallest one. It makes sense to try to take our number as close to original one as possible. Let us try to do it: can it start from 2......, yes, for example 24.... Can it start with 2341...? Yes, it can be 23417.... Can it start with 23415...? No, it can not, and the reason, that the rest what we have 7641 already biggest number given digits 7, 6, 4, 1.
+ * So, we can see now, how our algorithm should work:
+ *
+ * Start from the end and look for increasing pattern, it our case 7641.
+ * If it happen, that all number has increasing pattern, there is no bigger number with the same digits, so we can return -1.
+ * Now, we need to find the first digit in our ending, which is less or equal to digits[i-1]: we have ending 5 7641 and we are looking for the next number with the same digits. What can go instead of 5: it is 6! Let us change these two digits, so we have 6 7541 now. Finally, we need to reverse last ditits to get 6 1457 as our ending.
+ * Complexity: time complexity is O(m), where m is number of digits in our number, space complexity O(m) as well.
+ *
+ * PS see also problem 31. Next Permutation, which uses exactly the same idea.
  */
 public class NextPermutationPossible {
     public void nextPermutation(int[] nums) {

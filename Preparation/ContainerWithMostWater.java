@@ -23,7 +23,7 @@ import java.util.*;
  * Explanation : 5 and 3 are distance 2 apart. So size of the base = 2. Height of container = min(5, 3) = 3.
  * So total area = 3 * 2 = 6
  */
-public class ContainerWithMostWater {
+    public class ContainerWithMostWater {
 
     public static void main(String[] args) {
         System.out.println(new ContainerWithMostWater().maxArea(Arrays.asList(1, 4, 12, 3, 3, 2, 1)));
