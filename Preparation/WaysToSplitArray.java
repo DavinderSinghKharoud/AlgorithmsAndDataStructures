@@ -69,7 +69,7 @@ public class WaysToSplitArray {
 
             if (midSum >= leftSum && midSum <= rightSum) {
                 res = mid;
-                if (fin dLeft) end = mid - 1;
+                if (findLeft) end = mid - 1;
                 else start = mid + 1;
             } else if (leftSum > midSum) {
                 start = mid + 1;
