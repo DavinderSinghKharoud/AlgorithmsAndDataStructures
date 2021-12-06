@@ -1,7 +1,7 @@
 package Preparation;
 
 /**
- * A split of an integer array is good if:
+ * FindingThreeDigitEvenNumbers split of an integer array is good if:
  * <p>
  * The array is split into three non-empty contiguous subarrays - named left, mid, right respectively from left to right.
  * The sum of the elements in left is less than or equal to the sum of the elements in mid, and the sum of the elements in mid is less than or equal to the sum of the elements in right.

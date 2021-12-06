@@ -33,11 +33,11 @@ public class SortColors {
 
     }
 
-//    void sortColors(int A[], int n) {
+//    void sortColors(int FindingThreeDigitEvenNumbers[], int n) {
 //        int second=n-1, zero=0;
 //        for (int i=0; i<=second; i++) {
-//            while (A[i]==2 && i<second) swap(A[i], A[second--]);
-//            while (A[i]==0 && i>zero) swap(A[i], A[zero++]);
+//            while (FindingThreeDigitEvenNumbers[i]==2 && i<second) swap(FindingThreeDigitEvenNumbers[i], FindingThreeDigitEvenNumbers[second--]);
+//            while (FindingThreeDigitEvenNumbers[i]==0 && i>zero) swap(FindingThreeDigitEvenNumbers[i], FindingThreeDigitEvenNumbers[zero++]);
 //        }
 //    }
     public void sortColors(List<Integer> a) {

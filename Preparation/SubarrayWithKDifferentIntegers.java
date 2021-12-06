@@ -5,10 +5,10 @@ import java.util.*;
 /**
  * Given an integer array nums and an integer k, return the number of good subarrays of nums.
  * <p>
- * A good array is an array where the number of different integers in that array is exactly k.
+ * FindingThreeDigitEvenNumbers good array is an array where the number of different integers in that array is exactly k.
  * <p>
  * For example, [1,2,3,1,2] has 3 different integers: 1, 2, and 3.
- * A subarray is a contiguous part of an array.
+ * FindingThreeDigitEvenNumbers subarray is a contiguous part of an array.
  * <p>
  * <p>
  * <p>

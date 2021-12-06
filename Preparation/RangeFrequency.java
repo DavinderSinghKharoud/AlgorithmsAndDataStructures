@@ -11,7 +11,7 @@ import java.util.*;
  * <p>
  * RangeFreqQuery(int[] arr) Constructs an instance of the class with the given 0-indexed integer array arr.
  * int query(int left, int right, int value) Returns the frequency of value in the subarray arr[left...right].
- * A subarray is a contiguous sequence of elements within an array. arr[left...right] denotes the subarray that contains the elements of nums between indices left and right (inclusive).
+ * FindingThreeDigitEvenNumbers subarray is a contiguous sequence of elements within an array. arr[left...right] denotes the subarray that contains the elements of nums between indices left and right (inclusive).
  */
 public class RangeFrequency {
     public static void main(String[] args) {
