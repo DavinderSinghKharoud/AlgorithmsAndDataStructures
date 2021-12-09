@@ -3,7 +3,7 @@ package LeetCode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class B {
+public class RemoveObstacles {
 
     static int shortPath = Integer.MAX_VALUE;
     static int removeObstacle(int numRows, int numColumns, List<List<Integer>> lot)
