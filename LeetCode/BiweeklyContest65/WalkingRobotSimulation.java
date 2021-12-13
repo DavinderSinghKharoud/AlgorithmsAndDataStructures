@@ -8,7 +8,7 @@ import java.util.*;
  * Total Accepted: 797
  * Total Submissions: 9303
  * Difficulty: Medium
- * A width x height grid is on an XY-plane with the bottom-left cell at (0, 0) and the top-right cell at (width - 1, height - 1). The grid is aligned with the four cardinal directions ("North", "East", "South", and "West"). A robot is initially at cell (0, 0) facing direction "East".
+ * RingsAndRods width x height grid is on an XY-plane with the bottom-left cell at (0, 0) and the top-right cell at (width - 1, height - 1). The grid is aligned with the four cardinal directions ("North", "East", "South", and "West"). RingsAndRods robot is initially at cell (0, 0) facing direction "East".
  *
  * The robot can be instructed to move for a specific number of steps. For each step, it does the following.
  *
