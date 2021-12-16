@@ -7,7 +7,7 @@ import java.util.*;
  * <p>
  * Return the sum of all subarray ranges of nums.
  * <p>
- * A subarray is a contiguous non-empty sequence of elements within an array.
+ * NumbersAscending subarray is a contiguous non-empty sequence of elements within an array.
  */
 public class SumSubarrayRanges {
     public static void main(String[] args) {
