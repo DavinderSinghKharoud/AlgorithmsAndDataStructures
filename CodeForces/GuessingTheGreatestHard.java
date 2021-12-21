@@ -1,139 +1,139 @@
 package CodeForces;
+
 import java.io.*;
 import java.util.*;
 
 /**
- *
- The only difference between the easy and the hard version is the limit to the number of queries.
-
- This is an interactive problem.
-
- There is an array 𝑎
- a
- of 𝑛
- n
- different numbers. In one query you can ask the position of the second maximum element in a subsegment 𝑎[𝑙..𝑟]
- a
- [
- l
- .
- .
- r
- ]
- . Find the position of the maximum element in the array in no more than 20 queries.
-
- FindGreatestCommonDivisor subsegment 𝑎[𝑙..𝑟]
- a
- [
- l
- .
- .
- r
- ]
- is all the elements 𝑎𝑙,𝑎𝑙+1,...,𝑎𝑟
- a
- l
- ,
- a
- l
- +
- 1
- ,
- .
- .
- .
- ,
- a
- r
- . After asking this subsegment you will be given the position of the second maximum from this subsegment in the whole array.
-
- Input
- The first line contains a single integer 𝑛
- n
- (2≤𝑛≤105)
- (
- 2
- ≤
- n
- ≤
- 10
- 5
- )
- — the number of elements in the array.
-
- Interaction
- You can ask queries by printing "? 𝑙
- l
- 𝑟
- r
- " (1≤𝑙<𝑟≤𝑛)
- (
- 1
- ≤
- l
- <
- r
- ≤
- n
- )
- . The answer is the index of the second maximum of all elements 𝑎𝑙,𝑎𝑙+1,...,𝑎𝑟
- a
- l
- ,
- a
- l
- +
- 1
- ,
- .
- .
- .
- ,
- a
- r
- . Array 𝑎
- a
- is fixed beforehand and can't be changed in time of interaction.
-
- You can output the answer by printing "! 𝑝
- p
- ", where 𝑝
- p
- is the index of the maximum element in the array.
-
- You can ask no more than 20 queries. Printing the answer doesn't count as a query.
-
- After printing a query do not forget to output end of line and flush the output. Otherwise, you will get Idleness limit exceeded. To do this, use:
-
- fflush(stdout) or cout.flush() in MinimizeDifference++;
- System.out.flush() in Java;
- flush(output) in Pascal;
- stdout.flush() in Python;
- see documentation for other languages
- Hacks
-
- To make a hack, use the following test format.
-
- In the first line output a single integer 𝑛
- n
- (2≤𝑛≤105)
- (
- 2
- ≤
- n
- ≤
- 10
- 5
- )
- . In the second line output a permutation of 𝑛
- n
- integers 1
- 1
- to 𝑛
- n
- . The position of 𝑛
- n
- in the permutation is the position of the maximum
+ * The only difference between the easy and the hard version is the limit to the number of queries.
+ * <p>
+ * This is an interactive problem.
+ * <p>
+ * There is an array 𝑎
+ * a
+ * of 𝑛
+ * n
+ * different numbers. In one query you can ask the position of the second maximum element in a subsegment 𝑎[𝑙..𝑟]
+ * a
+ * [
+ * l
+ * .
+ * .
+ * r
+ * ]
+ * . Find the position of the maximum element in the array in no more than 20 queries.
+ * <p>
+ * FindGreatestCommonDivisor subsegment 𝑎[𝑙..𝑟]
+ * a
+ * [
+ * l
+ * .
+ * .
+ * r
+ * ]
+ * is all the elements 𝑎𝑙,𝑎𝑙+1,...,𝑎𝑟
+ * a
+ * l
+ * ,
+ * a
+ * l
+ * +
+ * 1
+ * ,
+ * .
+ * .
+ * .
+ * ,
+ * a
+ * r
+ * . After asking this subsegment you will be given the position of the second maximum from this subsegment in the whole array.
+ * <p>
+ * Input
+ * The first line contains a single integer 𝑛
+ * n
+ * (2≤𝑛≤105)
+ * (
+ * 2
+ * ≤
+ * n
+ * ≤
+ * 10
+ * 5
+ * )
+ * — the number of elements in the array.
+ * <p>
+ * Interaction
+ * You can ask queries by printing "? 𝑙
+ * l
+ * 𝑟
+ * r
+ * " (1≤𝑙<𝑟≤𝑛)
+ * (
+ * 1
+ * ≤
+ * l
+ * <
+ * r
+ * ≤
+ * n
+ * )
+ * . The answer is the index of the second maximum of all elements 𝑎𝑙,𝑎𝑙+1,...,𝑎𝑟
+ * a
+ * l
+ * ,
+ * a
+ * l
+ * +
+ * 1
+ * ,
+ * .
+ * .
+ * .
+ * ,
+ * a
+ * r
+ * . Array 𝑎
+ * a
+ * is fixed beforehand and can't be changed in time of interaction.
+ * <p>
+ * You can output the answer by printing "! 𝑝
+ * p
+ * ", where 𝑝
+ * p
+ * is the index of the maximum element in the array.
+ * <p>
+ * You can ask no more than 20 queries. Printing the answer doesn't count as a query.
+ * <p>
+ * After printing a query do not forget to output end of line and flush the output. Otherwise, you will get Idleness limit exceeded. To do this, use:
+ * <p>
+ * fflush(stdout) or cout.flush() in MinimizeDifference++;
+ * System.out.flush() in Java;
+ * flush(output) in Pascal;
+ * stdout.flush() in Python;
+ * see documentation for other languages
+ * Hacks
+ * <p>
+ * To make a hack, use the following test format.
+ * <p>
+ * In the first line output a single integer 𝑛
+ * n
+ * (2≤𝑛≤105)
+ * (
+ * 2
+ * ≤
+ * n
+ * ≤
+ * 10
+ * 5
+ * )
+ * . In the second line output a permutation of 𝑛
+ * n
+ * integers 1
+ * 1
+ * to 𝑛
+ * n
+ * . The position of 𝑛
+ * n
+ * in the permutation is the position of the maximum
  */
 @SuppressWarnings("unchecked")
 public class GuessingTheGreatestHard implements Runnable {
