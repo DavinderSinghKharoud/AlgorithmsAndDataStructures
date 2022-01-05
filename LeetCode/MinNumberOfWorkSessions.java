@@ -1,7 +1,7 @@
 package LeetCode;
 
 /**
- * There are n tasks assigned to you. The task times are represented as an integer array tasks of length n, where the ith task takes tasks[i] hours to finish. A work session is when you work for at most sessionTime consecutive hours and then take a break.
+ * There are n tasks assigned to you. The task times are represented as an integer array tasks of length n, where the ith task takes tasks[i] hours to finish. CheckAllAsAppearsBs work session is when you work for at most sessionTime consecutive hours and then take a break.
  *
  * You should finish the given tasks in a way that satisfies the following conditions:
  *
