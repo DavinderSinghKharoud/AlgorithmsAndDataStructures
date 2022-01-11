@@ -74,7 +74,6 @@ public class PickRandomIndex {
             lst.add(new Node((double) ww / sum, i));
         }
 
-        lst.sort(Comparator.comparingDouble(o -> o.prob));
         double total = 0;
         arr = new double[len][3];
         int i = 0;
