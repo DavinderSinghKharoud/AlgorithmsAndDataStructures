@@ -1,25 +1,36 @@
 package LeetCode.BiweeklyContest69;
 
-
 public class StampingTheGrid {
    public static void main(String[] args) {
       StampingTheGrid o = new StampingTheGrid();
+      System.out.println(o.possibleToStamp(
+            new int[][] { { 1, 0, 0, 0 }, { 1, 0, 0, 0 }, { 1, 0, 0, 0 }, { 1, 0, 0, 0 }, { 1, 0, 0, 0 } }, 4, 3));
    }
 
    int n, m, stampHeight, stampWidth;
 
    public boolean possibleToStamp(int[][] grid, int stampHeight, int stampWidth) {
+      int n = 0;
+
       n = grid.length;
       m = grid[0].length;
+      this.stampHeight = stampHeight;
+      this.stampWidth = stampWidth;
 
       int[][] validStampMarkedGrid = markValidStampsBottomRightCorner(grid);
       int[][] gridPrefixSum = get2DPrefixSum(validStampMarkedGrid);
 
-      return isEveryEmptyCellCovered(gridPrefixSum);
+      return isEveryEmptyCellCovered(gridPrefixSum, grid);
    }
 
-   boolean isEveryEmptyCellCovered(int[][] gridPrefixSum) {
-
+   boolean isEveryEmptyCellCovered(int[][] gridPrefixSum, int[][] grid) {
+      for (int row = 0; row < n; row++) {
+         for (int col = 0; col < m; col++) {
+            if (gridPrefixSum[row][col] == 0 && grid[row][col] == 0)
+               return false;
+         }
+      }
+      return true;
    }
 
    int[][] markValidStampsBottomRightCorner(int[][] grid) {
@@ -35,9 +46,14 @@ public class StampingTheGrid {
             }
          }
       }
+      return markedGrid;
    }
 
-   private void markPoint(int[][] markedGrid, Point bottomRightCorner) {
+   private void markPoint(int[][] markedGrid, Point point) {
+      markedGrid[point.x][point.y]++;
+      markedGrid[point.x + stampHeight - 1][point.y + stampWidth - 1]++;
+      markedGrid[point.x + stampHeight - 1][point.y]--;
+      markedGrid[point.x][point.y + stampWidth - 1]--;
    }
 
    private int[][] get2DPrefixSum(int[][] grid) {
@@ -53,8 +69,7 @@ public class StampingTheGrid {
    }
 
    private boolean isGridEmpty(int[][] gridPrefixSum, Point upperLeftCorner, Point bottomRightCorner) {
-      int sum = get2DSum(gridPrefixSum, upperLeftCorner, bottomRightCorner);
-      return sum == 0;
+      return get2DSum(gridPrefixSum, upperLeftCorner, bottomRightCorner) == 0;
    }
 
    int get2DSum(int[][] gridPrefixSum, Point upperLeftCorner, Point bottomRightCorner) {
